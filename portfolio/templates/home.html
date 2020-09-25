@@ -1,0 +1,577 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+    <title>Niloy's Portfolio</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Responsive Resume/CV／Portfolio">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://use.typekit.net/hxz5ulk.css">
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap/css/bootstrap.min.css' %}">
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="{% static 'plugins/font-awesome/css/font-awesome.css' %}">
+
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link id="theme-style" rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <link id="theme-style" rel="stylesheet" href="{% static 'css/about.css' %}">
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="top-bar container-fluid">
+            <!--<div class="actions">
+                <a class="btn hidden-xs" href="mailto:someone@example.com"><i class="fa fa-paper-plane" aria-hidden="true"></i> Hire Me</a>
+                <a class="btn" href="#"><i class="fa fa-download" aria-hidden="true"></i> Download My Resume</a>
+            </div>--><!--//actions-->
+
+            <ul class="social list-inline">
+                <li><a href="https://www.linkedin.com/in/niloy--biswas/" target='_blank'><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.facebook.com/Niloy.swe/" target='_blank'><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                <li><a href="https://twitter.com/niloy__biswas" target='_blank'><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                <li><a href="https://github.com/niloy-biswas" target='_blank'><i class="fa fa-github-alt" aria-hidden="true"></i></a></li>
+            </ul><!--//social-->
+        </div><!--//top-bar-->
+
+        <div class="intro">
+            <div class="container text-center">
+                <img class="profile-image" src="{% static 'images/niloy.jpg' %}" alt="Niloy's profile image">
+
+                <h1 class="name">Hi, I am Niloy</h1>
+                <!-- <div class="title">Software Engineer</div> -->
+
+                <p>
+                  <span
+                  class="txt-rotate"
+                  data-period="2000"
+                  data-rotate='[ "I am a Software Engineer.", "I work with Python.", "Currently working with Machine Learning & Cyber-Security."]'></span>
+              </p> <br><br>
+
+
+                <!-- 
+                <div class="profile">
+                    <p>Lover of innovation and everything related to generate new knowledge, and not only that, but share it with the community. Face problems with a smile and solve them as soon as possible. Excellent interpersonal relationships. Believer that when problems arise the team should focus on finding a solution, instead of blame someone.</p>
+                </div>
+                -->
+            </div><!--//container-->
+        </div><!--//intro-->
+
+        <div class="page-nav-space-holder hidden-xs">
+            <div id="page-nav-wrapper" class="page-nav-wrapper text-center">
+                <div class="container">
+                    <ul id="page-nav" class="nav page-nav list-inline">
+                        <li><a class="scrollto" href="#about-section">About</a></li>
+                        <li><a class="scrollto" href="#experiences-section">Experiences</a></li>
+                        <li><a class="scrollto" href="#education-section">Education</a></li>
+                        <li><a class="scrollto" href="#skills-section">Skills</a></li>
+                        <!--<li><a class="scrollto" href="#testimonials-section">Testimonials</a></li> -->
+                        <li><a class="scrollto" href="#portfolio-section">Projects</a></li>
+                        <li><a class="scrollto" href="#contact-section">Contact</a></li>
+                    </ul><!--//page-nav-->
+                </div>
+            </div><!--//page-nav-wrapper-->
+        </div>
+
+    </header><!--//header-->
+
+
+
+    <div class="wrapper container">
+
+        <section id="about-section" class="about-section section">  <!--//About-->
+            <h2 class="section-title">About Me</h2>
+            <div class="row">
+                <div class="item col-xs-12 col-sm-5">
+                 <h3 class="p-1">Niloy Biswas</h3> 
+                 <h5 class="p-1">Software Engineer</h5><br> 
+                 <p class="p-1 text-justify">I am a passionate Software Engineering student at Daffodil International University.I'm a self-Motivated person, I like to learn about latest technology & I am very passionate about computer and programming. Also an Enthusiastic learner in Machine Learning and Data Science field. And looking forward to work in ML and Cyber Security area.</p> <br>
+
+                 <a href="https://bdsongonline.academia.edu/NiloyBiswas/CurriculumVitae" target=target='_blank'><button class="btn btn-dark">My Resume</button></a>
+             </div>
+
+             <div class="item col-xs-12 col-sm-6">
+                <div class="row">
+                    <div class="item col-xs-12 col-sm-4">
+                        <div class="circular-progress blue">
+                            <span class="circular-progress-left">
+                                <span class="circular-progress-bar circular-progress-percentage-75"></span>
+                            </span>
+                            <span class="circular-progress-right">
+                                <span class="circular-progress-bar"></span>
+                            </span>
+                            <div class="circular-progress-value">Leadership</div>
+                        </div>
+                    </div>
+                    <div class="item col-xs-12 col-sm-4">
+                        <div class="circular-progress yellow">
+                            <span class="circular-progress-left">
+                                <span class="circular-progress-bar circular-progress-percentage-90"></span>
+                            </span>
+                            <span class="circular-progress-right">
+                                <span class="circular-progress-bar"></span>
+                            </span>
+                            <div class="circular-progress-value">Team Work</div>
+                        </div>
+                    </div>
+                    <div class="item col-xs-12 col-sm-4">
+                        <div class="circular-progress pink">
+                            <span class="circular-progress-left">
+                                <span class="circular-progress-bar circular-progress-percentage-80"></span>
+                            </span>
+                            <span class="circular-progress-right">
+                                <span class="circular-progress-bar"></span>
+                            </span>
+                            <div class="circular-progress-value">Communication</div>
+                        </div>
+                    </div>
+                    <div class="item col-xs-12 col-sm-4">
+                        <div class="circular-progress green">
+                            <span class="circular-progress-left">
+                                <span class="circular-progress-bar circular-progress-percentage-85"></span>
+                            </span>
+                            <span class="circular-progress-right">
+                                <span class="circular-progress-bar"></span>
+                            </span>
+                            <div class="circular-progress-value">Hard Working</div>
+                        </div>
+                    </div>
+                    <div class="item col-xs-12 col-sm-4">
+                        <div class="circular-progress sky">
+                            <span class="circular-progress-left">
+                                <span class="circular-progress-bar circular-progress-percentage-95"></span>
+                            </span>
+                            <span class="circular-progress-right">
+                                <span class="circular-progress-bar"></span>
+                            </span>
+                            <div class="circular-progress-value">Fast Learner</div>
+                        </div>
+                    </div>
+                    <div class="item col-xs-12 col-sm-4">
+                        <div class="circular-progress orange">
+                            <span class="circular-progress-left">
+                                <span class="circular-progress-bar circular-progress-percentage-85"></span>
+                            </span>
+                            <span class="circular-progress-right">
+                                <span class="circular-progress-bar"></span>
+                            </span>
+                            <div class="circular-progress-value">Problem Solving</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section><!--//section-->
+        
+
+
+        <section id="experiences-section" class="experiences-section section">
+            <h2 class="section-title">Work Experiences</h2>
+            <div class="timeline">
+                <div class="item">
+                    <div class="work-place">
+                        <h3 class="place"><b>National High School Programmimg Contest (NHSPC)</b></h3>
+                        <div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i>Sylhet, Bangladesh</div>
+                    </div>
+                    <div class="job-meta">
+                        <div class="title">Academics at </div>
+                        <div class="title">NHSPC</div>
+                        <div class="time">April, 2017- Present</div>
+                    </div><!--//job-meta-->
+                    <div class="job-desc">
+                        <p>I have volunteered here for 3 days in Sylhet, Bangladesh. </p>
+                        <ul>
+                          <li>The venue was Shahjalal University of Science and Technology.</li>
+                          <li>It was a programming contest for school and college-level students from Bangladesh. </li>
+                        </ul>
+                    </div><!--//job-desc-->
+                </div><!--//item-->
+
+                <div class="item">
+                    <div class="work-place">
+                        <p>
+                            <h3 class="place"><b>DIU Take Off Programming Contest</b></h3>
+                        </p>
+                        <div class="location">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>Dhaka, Bangladesh</div>
+                    </div>
+                    <div class="job-meta">
+                        <div class="title">Programming Contest</div>
+                        <div class="time">May, 2018 - August,2018</div>
+                    </div>
+                    <!--//job-meta-->
+                    <div class="job-desc">
+                        <p>I attend this programming contest held in Daffodil International University and there my ranking was 8. </p
+                        <p>Language used:</p>
+                        <ul>
+                            <li>C Programming</li>
+                            
+                            
+                        </ul>
+                    </div>
+                    <!--//job-desc-->
+                </div><!--//item-->
+            </div><!--//timeline-->
+
+        </section><!--//section-->
+
+        <section id="education-section" class="education-section section">
+            <h2 class="section-title">Education</h2>
+            <div class="row">
+                <div class="item col-xs-12 col-sm-4">
+                    <div class="item-inner">
+                        <h3 class="degree">B.Sc in Software Engineering</h3>
+                        <div class="education-body"><br>
+                           Daffodil International University
+                        </div><!--//education-body-->
+                        <div class="time">2017 - Present</div>
+                        <div class="desc">
+                            Now I'm styding in Daffodil International University. Here my main focus is Machine Learning, Data science and Cyber-Security. Here also a good base at algorithm, Data Structure and Networking.  
+                        </div>
+                    </div><!--//item-inner-->
+                </div><!--//item-->
+               
+                <div class="item col-xs-12 col-sm-4">
+                    <div class="item-inner">
+                        <h3 class="degree">College Degree</h3>
+                        <div class="education-body"><br>
+                           Shishukunja school and college
+                        </div><!--//education-body-->
+                        <div class="time">2014 - 2016</div>
+                        <div class="desc">
+                          The College was mainly focus on the bases of science, mathematics, and Chemistry.There was also a good base on physics, mathematics and chemistry.
+                        </div>
+                    </div><!--//item-inner-->
+                </div><!--//item-->
+
+                <div class="item col-xs-12 col-sm-4">
+                        <div class="item-inner">
+                            <h3 class="degree">High School Degree</h3>
+                            <div class="education-body"><br>
+                                    Jalalpur High School
+                            </div><!--//education-body-->
+                            <div class="time">2009 - 2014</div>
+                            <div class="desc">
+                              The Secondary  aims at Maths , English , Science, Physics, Social Science etc. 
+                            </div>
+                        </div><!--//item-inner-->
+                    </div><!--//item-->
+
+            </div><!--//row-->
+        </section><!--//section-->
+
+
+        <section id="skills-section" class="skills-section section text-center">
+            <h2 class="section-title">Professional Skills</h2>
+            <div class="top-skills">
+                <h3 class="subtitle">Top Skills</h3>
+                <div class="row">
+                    <div class="item col-xs-12 col-sm-4">
+                        <div class="item-inner">
+                            <h4 class="skill-name">Machine Learning</h4>
+                            <div class="level">Medium, 1 years</div>
+                            <div class="desc">
+                                I've been working with Machine Learning using python from 1 year, developing Machine learning model using different algorithm. Also completed some real life project on it.
+                            </div>
+                        </div><!--//item-inner-->
+                    </div><!--//item-->
+                    <div class="item col-xs-12 col-sm-4">
+                        <div class="item-inner">
+                            <h4 class="skill-name">Python &amp; Django</h4>
+                            <div class="level">Medium, 2 years</div>
+                            <div class="desc">
+                                I've been working with python from 2 year, developing technologies from standalone application. Also completed university project using Django.
+                            </div>
+                        </div><!--//item-inner-->
+                    </div><!--//item-->
+                    <div class="item col-xs-12 col-sm-4">
+                        <div class="item-inner">
+                            <h4 class="skill-name">Cyber Security</h4>
+                            <div class="level">Medium, 3 years</div>
+                            <div class="desc">
+                                I've been working with Cyber Security since 3 years, I'm working with penetration Testing and other vulnarebility testing method.
+                            </div>
+                        </div><!--//item-inner-->
+                    </div><!--//item-->
+                </div><!--//row-->
+            </div><!--//top-skills-->
+
+            <div class="other-skills">
+                <h3 class="subtitle">Other Skills</h3>
+                <div class="misc-skills">
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                    <span class="skill-tag">C#</span>
+                    <span class="skill-tag">PHP</span>
+                    <span class="skill-tag">C</span>
+                  
+                    <br>
+                    
+                    <span class="skill-tag">Sql injection</span>
+                    <span class="skill-tag">MYSQL</span>
+                    <span class="skill-tag">Linux</span>
+                    <span class="skill-tag">Git</span>
+                   
+                    
+                    <span class="skill-tag">Open CV</span>
+                    <span class="skill-tag">Weka</span>
+                </div>
+            </div><!--//other-skills-->
+
+        </section><!--//skills-section-->
+
+<!-- Recomendation
+
+        <section id="testimonials-section" class="testimonials-section section">
+            <h2 class="section-title">Recommendations</h2>
+
+            <div id="testimonials-carousel" class="testimonials-carousel carousel slide" data-interval="8000">
+
+                
+                <ol class="carousel-indicators">
+                    <li data-target="#testimonials-carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#testimonials-carousel" data-slide-to="1"></li>
+                </ol>
+
+               
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <blockquote class="quote">
+                            <i class="fa fa-quote-left"></i>
+                            <p>An excellent partner, developer and friend. We've worked together for live project matrimonial website 2018, participating in several positions in the Software Development field and side projects.</p>
+                            <p>He is creative, innovative, responsible and quite a rational thinker. Coding as a way of life, his work presents products with great quality, following standards and good practices.</p>
+                            <p>Also passionate, confident, cheerful and respectful, his animosity moves people forward toward achieving the team's goals.</p>
+                        </blockquote>
+                        <div class="source">
+                            <div class="name">Chacha Suhani</div>
+                            <div class="position">Computer Engineer , Aditya Silver Oak Institute Of Technology</div>
+                        </div>
+
+                    </div
+                    <div class="item">
+                        <blockquote class="quote">
+                            <p><i class="fa fa-quote-left"></i>
+                              Mehul is a really good working partner with high knowledge on backend development, he is always concerned with going forward never afraid of improving or making use of new technologies, helping his peers whenever he is able to and solving problems in a quick and efficient manner with his typical optimism</p>.<p>Saying from personal Experience when we worked on project togather for 2 years.</p>
+                        </blockquote>
+                        <div class="source">
+                            <div class="name">Hetal Nathvani</div>
+                            <div class="position">position , Company</div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+ -->
+
+        <section id="portfolio-section" class="portfolio-section section">
+            <h2 class="section-title">Projects</h2>
+            <ul id="filters" class="filters clearfix">
+                <li class="type active" data-filter="*">All</li>
+                <li class="type" data-filter=".backend">Back-end</li>
+                <li class="type" data-filter=".frontend">Front-end</li>
+            </ul><!--//filters-->
+            <div class="items-wrapper isotope row">
+                    <div class="item backend frontend col-md-4 col-xs-8 ">
+                    <div class="item-inner">
+                        <figure class="figure">
+                            <img class="img-responsive" src="{% static 'images/portfolio/project-1.png' %}" alt="" />
+                        </figure>
+                        <div class="content text-left">
+                            <h3 class="sub-title">Safe Saying</a></h3>
+                            <div class="meta"> Technology Used: Python, Machine Learning, Django Framework.<br><br>
+                                Safe Saying is a Blog where you can post and read other bloger post. Here we use Machine Learning algorithm which will identify spam comment on our site and delete those.This project purpose is keep our social media spam free.
+                             </div>
+                         
+                           
+                            <div class="action"><a href="https://github.com/niloy-biswas/Safe-Saying" target='_blank'>Source:Github</a>
+                        </div>
+                    </div><!--//content-->
+                        
+                    </div><!--//item-inner-->
+                </div><!--//item-->
+                <div class="item backend frontend col-md-4 col-xs-8 ">
+                    <div class="item-inner">
+                        <figure class="figure">
+                            <img class="img-responsive" src="{% static 'images/portfolio/project2.PNG' %}" alt="" />
+                        </figure>
+                        <div class="content text-left">
+                            <h3 class="sub-title">Sneaky Dope</a></h3>
+                            <div class="meta">Technology used :PHP, HTML, CSS, MySql<br><br>
+                                Sneaky Dope is a secret messaging application using face recognition technology
+                                which is created in the focus of security purpose in the field of message transformation. Here I use PHP for build the Messaging platform And MySql Database for store data. 
+                            </div><br><br>
+                            
+                            
+                            <div class="action"><a href="https://github.com/niloy-biswas/Sneaky-Dope" target='_blank'>Source:Github</a></div>
+                        </div><!--//content-->
+                    </div><!--//item-inner-->
+                </div><!--//item-->
+                <div class="item backend frontend col-md-4 col-xs-8 ">
+                    <div class="item-inner">
+                        <figure class="figure">
+                            <img class="img-responsive" src="{% static 'images/portfolio/project3.png' %}" alt="" />
+                        </figure>
+                        <div class="content text-left">
+                            <h3 class="sub-title">Face Recognition</a></h3>
+                            <div class="meta">Technology used : Python, Open CV<br><br>
+                                This is a Face Recognition project where the program is able to detect and recognize any person's face using the webcam. For this project I use Open CV library and Python. 
+                            </div>
+                                <br><br><br>
+                            
+                            <div class="action"><a href="https://github.com/niloy-biswas/Face-Recognition" target='_blank'> Source:Github</a></div>
+                        </div><!--//content-->
+                    </div><!--//item-inner-->
+                </div><!--//item-->
+               
+               <!--//item-->
+                <div class="item backend col-md-4 col-xs-8 ">
+                    <div class="item-inner">
+                        <figure class="figure">
+                            <img class="img-responsive" src="{% static 'images/portfolio/project-4.png' %}" alt="" />
+                        </figure>
+                        <div class="content text-left">
+                            <h3 class="sub-title">Personal portfolio</a></h3>
+                            <div class="meta">Technology used : Python,Django, HTML,CSS,Javascript<br><br>
+                                This is a project for my personal portfolio using Django.
+                                
+                                <br>Also I have taken reference for this project from various online platform.</div>
+                            <br><br><br><br>
+                            <div class="meta"></div>
+                            <div class="action"><a href="https://niloy.me" target='_blank'>Source:Github</a></div>
+                        </div><!--//content-->
+                        
+                    </div><!--//item-inner-->
+                </div><!--//item-->
+
+                <div class="item frontend col-md-4 col-xs-8 ">
+                    <div class="item-inner">
+                        <figure class="figure">
+                            <img class="img-responsive" src="{% static 'images/portfolio/project5.png' %}" alt="" />
+                        </figure>
+                        <div class="content text-left">
+                            <h3 class="sub-title">Digit classification & Visualization</a></h3>
+                            <div class="meta">Technology used : Python, Jupyter Notebook, Streamlit<br><br>
+                                Here I try to Classify (0-9) Digits using mnist Dataset and visualize this in a web application using flask and streamlit<br>
+                                Also I have taken reference for this project from Coursera.
+                                </div>
+                           
+                            <div class="action"><a href="https://github.com/niloy-biswas/Digit-classification-and-Visualization" target='_blank'>Source:Github</a></div>
+                        </div><!--//content-->
+                    </div><!--//item-inner-->
+                </div><!--//item-->
+
+                <div class="item frontend backend col-md-4 col-xs-8 ">
+                    <div class="item-inner">
+                        <figure class="figure">
+                            <img class="img-responsive" src="{% static 'images/portfolio/project6.png' %}" alt="" />
+                        </figure>
+                        <div class="content text-left">
+                            <h3 class="sub-title">Covid-19 Data Analysis</a></h3>
+                            <div class="meta">Technology used: Python , Jupyter Notebook
+                                <br><br>
+                                    This is a very basic Data analysis of COVID-19.
+                                    I use The global COVID dataset and analysis some country infected, recovered and death ratio. and also compare eith world happiness dataset and visualize some some information.
+                            </div>
+                            
+                            <div class="action"><a href="https://github.com/niloy-biswas/Covid-19-Data-Analysis" target='_blank'>Source : Github</a></div>
+                      
+                    </div><!--//item-inner-->
+                </div><!--//item-->
+
+            </div><!--//item-wrapper-->
+
+        </section><!--//section-->
+{% if message_name %}
+    <center>
+        <h2>Thanks {{message_name}}!</h2>
+        <p>I received your email and I will respond shortly...</p>
+    </center>
+    <br/><br/><br/>
+{% else %}
+
+        <section id="contact-section" class="contact-section section">
+            <h2 class="section-title">Get in Touch  {{ message_name }}</h2>
+            <div class="intro">
+                <img class="profile-image" src="{% static 'images/niloy21.jpeg' %}" alt="Niloy's profile image">
+                <div class="row">
+                    <div class="col-12 col-md-4">
+                        <div class="contact-information">
+                            <h5>Address</h5>
+                            <p>Ashulia Model Town, Dhaka, Bangladesh</p>
+                            <h5>Phone</h5>
+                            <p>+8801756-770501</p>
+                            <h5>Email</h5>
+                            <p class="mb-0">niloy.swe@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-8">
+                        <div class="contact-form">
+                            <form > <!--action="{% url 'home'}" method="post"--> 
+                                {%csrf_token%}
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <input type="text" name="message-name" class="form-control mb-30" placeholder="Your Name">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <input type="email" name="message-email" class="form-control mb-30" placeholder="Your Email">
+                                    </div>
+                                    <div class="col-12">
+                                        <textarea name="message" class="form-control mb-30" placeholder="Your Message"></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn dento-btn">Send Message</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div><!--//intro-->
+
+        </section><!--//section-->
+{% endif %}
+    </div><!--//wrapper-->
+
+    <footer class="footer text-center">
+        <div class="container">
+            <small class="copyright">Copyright @ <a href="#">Niloy Biswas </a></small>
+        </div><!--//container-->
+    </footer>
+
+    <!-- Javascript -->
+    <script type="text/javascript" src="{% static 'plugins/jquery-1.12.4.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plugins/back-to-top.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plugins/jquery-scrollTo/jquery.scrollTo.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plugins/easy-pie-chart/src/easypiechart.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plugins/easy-pie-chart/src/jquery.plugin.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plugins/easy-pie-chart/src/renderer/canvas.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plugins/imagesloaded.pkgd.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plugins/isotope.pkgd.min.js' %}"></script>
+
+    <!-- custom js -->
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/typing-carousel.js' %}"></script>
+
+</body>
+</html>
