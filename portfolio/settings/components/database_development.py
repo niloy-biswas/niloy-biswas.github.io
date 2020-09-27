@@ -3,7 +3,7 @@ import os
 
 print ("On development database")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['niloyportfolio.herokuapp.com', '127.0.0.1']
 
 
 # Database
