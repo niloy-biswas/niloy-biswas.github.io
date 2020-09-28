@@ -509,7 +509,7 @@
 {% else %}
 
         <section id="contact-section" class="contact-section section">
-            <h2 class="section-title">Get in Touch  {{ message_name }}</h2>
+            <h2 class="section-title">Get in Touch</h2>
             <div class="intro">
                 <img class="profile-image" src="{% static 'images/niloy21.jpeg' %}" alt="Niloy's profile image">
                 <div class="row">
@@ -525,7 +525,7 @@
                     </div>
                     <div class="col-12 col-md-8">
                         <div class="contact-form">
-                            <form > <!--action="{% url 'home'}" method="post"--> 
+                            <form > <!-- action="{% url 'mail'}" method="post" --> 
                                 {%csrf_token%}
                                 <div class="row">
                                     <div class="col-lg-6">

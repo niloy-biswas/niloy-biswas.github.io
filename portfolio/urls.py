@@ -19,11 +19,12 @@ from django.conf.urls.static import static
 from django.contrib import admin
 
 from .views import HomeView
-
+from . import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', HomeView.as_view(), name='home'),
+    url(r'admin/', HomeView.as_view(), name='mail'),
 ]
 
 if settings.DEBUG:
