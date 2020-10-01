@@ -24,8 +24,8 @@ from django.urls import path
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', HomeView.as_view(), name='home'),
-    path('contact/', views.contact, name='contact'),
+    url(r'^$', HomeView.as_view()),
+    path('',views.index,name="index"),
 ]
 
 if settings.DEBUG:
