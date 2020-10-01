@@ -108,7 +108,7 @@
 
              <div class="item col-xs-12 col-sm-6">
                 <div class="row">
-                    <div class="item col-xs-12 col-sm-4">
+                    <div class="item col-xs-6 col-sm-4 ">
                         <div class="circular-progress blue">
                             <span class="circular-progress-left">
                                 <span class="circular-progress-bar circular-progress-percentage-75"></span>
@@ -119,7 +119,7 @@
                             <div class="circular-progress-value">Leadership</div>
                         </div>
                     </div>
-                    <div class="item col-xs-12 col-sm-4">
+                    <div class="item col-xs-6 col-sm-4">
                         <div class="circular-progress yellow">
                             <span class="circular-progress-left">
                                 <span class="circular-progress-bar circular-progress-percentage-90"></span>
@@ -130,7 +130,7 @@
                             <div class="circular-progress-value">Team Work</div>
                         </div>
                     </div>
-                    <div class="item col-xs-12 col-sm-4">
+                    <div class="item col-xs-6 col-sm-4">
                         <div class="circular-progress pink">
                             <span class="circular-progress-left">
                                 <span class="circular-progress-bar circular-progress-percentage-80"></span>
@@ -141,7 +141,7 @@
                             <div class="circular-progress-value">Communication</div>
                         </div>
                     </div>
-                    <div class="item col-xs-12 col-sm-4">
+                    <div class="item col-xs-6 col-sm-4">
                         <div class="circular-progress green">
                             <span class="circular-progress-left">
                                 <span class="circular-progress-bar circular-progress-percentage-85"></span>
@@ -152,7 +152,7 @@
                             <div class="circular-progress-value">Hard Working</div>
                         </div>
                     </div>
-                    <div class="item col-xs-12 col-sm-4">
+                    <div class="item col-xs-6 col-sm-4">
                         <div class="circular-progress sky">
                             <span class="circular-progress-left">
                                 <span class="circular-progress-bar circular-progress-percentage-95"></span>
@@ -163,7 +163,7 @@
                             <div class="circular-progress-value">Fast Learner</div>
                         </div>
                     </div>
-                    <div class="item col-xs-12 col-sm-4">
+                    <div class="item col-xs-6 col-sm-4">
                         <div class="circular-progress orange">
                             <span class="circular-progress-left">
                                 <span class="circular-progress-bar circular-progress-percentage-85"></span>
@@ -390,7 +390,7 @@
                 <li class="type" data-filter=".frontend">Front-end</li>
             </ul><!--//filters-->
             <div class="items-wrapper isotope row">
-                    <div class="item backend frontend col-md-4 col-xs-8 ">
+                    <div class="item backend frontend col-md-4 col-xs-12 col-sm-6">
                     <div class="item-inner">
                         <figure class="figure">
                             <img class="img-responsive" src="{% static 'images/portfolio/project-1.png' %}" alt="" />
@@ -408,7 +408,7 @@
                         
                     </div><!--//item-inner-->
                 </div><!--//item-->
-                <div class="item backend frontend col-md-4 col-xs-8 ">
+                <div class="item backend frontend col-md-4 col-xs-12 col-sm-6">
                     <div class="item-inner">
                         <figure class="figure">
                             <img class="img-responsive" src="{% static 'images/portfolio/project2.PNG' %}" alt="" />
@@ -425,7 +425,7 @@
                         </div><!--//content-->
                     </div><!--//item-inner-->
                 </div><!--//item-->
-                <div class="item backend frontend col-md-4 col-xs-8 ">
+                <div class="item backend frontend col-md-4 col-xs-12 col-sm-6">
                     <div class="item-inner">
                         <figure class="figure">
                             <img class="img-responsive" src="{% static 'images/portfolio/project3.png' %}" alt="" />
@@ -443,7 +443,7 @@
                 </div><!--//item-->
                
                <!--//item-->
-                <div class="item backend col-md-4 col-xs-8 ">
+                <div class="item backend col-md-4 col-xs-12 col-sm-6">
                     <div class="item-inner">
                         <figure class="figure">
                             <img class="img-responsive" src="{% static 'images/portfolio/project4.png' %}" alt="" />
@@ -462,7 +462,7 @@
                     </div><!--//item-inner-->
                 </div><!--//item-->
 
-                <div class="item frontend col-md-4 col-xs-8 ">
+                <div class="item frontend col-md-4 col-xs-12 col-sm-6">
                     <div class="item-inner">
                         <figure class="figure">
                             <img class="img-responsive" src="{% static 'images/portfolio/project5.png' %}" alt="" />
@@ -479,7 +479,7 @@
                     </div><!--//item-inner-->
                 </div><!--//item-->
 
-                <div class="item frontend backend col-md-4 col-xs-8 ">
+                <div class="item frontend backend col-md-4 col-xs-12 col-sm-6">
                     <div class="item-inner">
                         <figure class="figure">
                             <img class="img-responsive" src="{% static 'images/portfolio/project6.png' %}" alt="" />
@@ -515,7 +515,7 @@
                 <div class="row">
                     <div class="col-12 col-md-4">
                         <div class="contact-information">
-                            <h5>Address</h5>
+                            <h4>Contact Address</h4><br>
                             <p>Ashulia Model Town, Dhaka, Bangladesh</p>
                             <h5>Phone</h5>
                             <p>+8801756-770501</p>
@@ -523,18 +523,19 @@
                             <p class="mb-0">niloy.swe@gmail.com</p>
                         </div>
                     </div>
-                    <div class="col-12 col-md-8">
+                    <div class="col-12 col-md-8 ">
                         <div class="contact-form">
                             <form > <!-- action="{% url 'mail'}" method="post" --> 
                                 {%csrf_token%}
                                 <div class="row">
-                                    <div class="col-lg-6">
+                                    <center><h4>Leave a message...</h4></center>
+                                    <div class="col-lg-6 col-12">
                                         <input type="text" name="message-name" class="form-control mb-30" placeholder="Your Name">
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-6 col-12">
                                         <input type="email" name="message-email" class="form-control mb-30" placeholder="Your Email">
                                     </div>
-                                    <div class="col-12">
+                                    <div class="col-lg-12">
                                         <textarea name="message" class="form-control mb-30" placeholder="Your Message"></textarea>
                                     </div>
                                     <div class="col-12">
