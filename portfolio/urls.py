@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', HomeView.as_view(), name='home'),
     url(r'admin/', HomeView.as_view(), name='mail'),
+    
 ]
 
 if settings.DEBUG:

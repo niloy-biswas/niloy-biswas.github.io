@@ -144,7 +144,7 @@ MESSAGE_TAGS = {
 
 # Django Dummy STMP
 # https://docs.djangoproject.com/en/dev/topics/email/#file-backend
-EMAIL_BACKEND = 'jango.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 
 # Django - Logging
