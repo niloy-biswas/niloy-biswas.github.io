@@ -14,7 +14,7 @@ class HomeView(TemplateView):
         context = super(HomeView, self).get_context_data(**kwargs)
         return context
 
-def mail(request):
+def contact(request):
     if request.method == "POST":
         message_name = request.POST['message-name']
         message_email = request.POST['message-email']

@@ -20,12 +20,12 @@ from django.contrib import admin
 
 from .views import HomeView
 from . import views
+from django.urls import path
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', HomeView.as_view(), name='home'),
-    url(r'admin/', HomeView.as_view(), name='mail'),
-    
+    path('contact/', views.contact, name='contact'),
 ]
 
 if settings.DEBUG:
