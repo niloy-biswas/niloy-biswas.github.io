@@ -16,18 +16,25 @@ class HomeView(TemplateView):
 
 def index(request):
     if request.method == "POST":
-        message_name = request.POST['message-name']
-        message_email = request.POST['message-email']
+        message_name = request.POST['messagename']
+        message_email = request.POST['messageemail']
         message = request.POST['message']
-
+        print(message_name)
         #send email
         send_mail(
             message_name, #subject
-            message , #message
+            'Message from \n' + message_email + '\n Body \n' + message , #message
             message_email , #form email
             ['niloy35-225@diu.edu.bd'], # to email
             )
-
         return render(request, 'home.html', {'message_name': message_name})
     else:
         return render(request, 'home.html', {})
+
+
+
+def home (request):
+    if request.method == "POST":
+        pass
+    else:
+        return redirect("index")
