@@ -23,7 +23,7 @@ def index(request):
         #send email
         send_mail(
             message_name, #subject
-            'Message from \n' + message_email + '\n Body \n' + message , #message
+            'Message from \n' + message_email + '\nBody: \n' + message , #message
             message_email , #form email
             ['niloy35-225@diu.edu.bd'], # to email
             )
