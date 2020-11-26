@@ -24,3 +24,5 @@ six==1.10.0
 whitenoise==5.2.0
 decorator==4.4.2
 fcntl==0.0.4
+importlib-metadata @ file:///tmp/build/80754af9/importlib-metadata_1602276842396/work
+iniconfig @ file:///tmp/build/80754af9/iniconfig_1602780191262/work
