@@ -25,13 +25,6 @@ cachetools==4.1.1
 certifi==2020.11.8
 coloredlogs==14.0
 comtypes==1.1.7
-conda==4.9.2
-conda-build==3.18.9
-conda-verify==3.4.2
-confuse==1.3.0
-contextlib2==0.6.0.post1
-cycler==0.10.0
-cytoolz==0.11.0
 decorator==4.4.2
 defusedxml==0.6.0
 distlib==0.3.1
