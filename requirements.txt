@@ -23,8 +23,6 @@ brewer2mpl==1.4.1
 brotlipy==0.7.0
 cachetools==4.1.1
 certifi==2020.11.8
-client==0.0.1
-clyent==1.2.2
 coloredlogs==14.0
 comtypes==1.1.7
 conda==4.9.2
