@@ -20,8 +20,6 @@ pytz==2017.2
 six==1.10.0
 whitenoise==5.2.0
 decorator==4.4.2
-Python==3.7.4
-pip==20.2.4
 idna @ file:///tmp/build/80754af9/idna_1593446292537/work
 ImageHash==4.1.0
 imageio @ file:///tmp/build/80754af9/imageio_1594161405741/work
