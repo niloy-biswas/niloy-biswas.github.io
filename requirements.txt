@@ -20,7 +20,7 @@ pytz==2017.2
 six==1.10.0
 whitenoise==5.2.0
 decorator==4.4.2
-fcntl==0.0.4
+fcntl
 Python==3.7.4
 pip==20.2.4
 idna @ file:///tmp/build/80754af9/idna_1593446292537/work
