@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import os
 from pathlib import Path
 
-from django.contrib import messages
-from django.utils.translation import ugettext_lazy as _
 import django_heroku
 
 from decouple import config
@@ -29,9 +27,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'y76)@22bardobqlx_cs#5ca1vz)n24_ns=66@c0y-gz24l-pzo'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['niloyportfolio.herokuapp.com']
+ALLOWED_HOSTS = ['niloyportfolio.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
