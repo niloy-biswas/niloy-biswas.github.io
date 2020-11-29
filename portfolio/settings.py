@@ -29,7 +29,7 @@ SECRET_KEY = 'y76)@22bardobqlx_cs#5ca1vz)n24_ns=66@c0y-gz24l-pzo'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['niloysportfolio.herokuapp.com/', '127.0.0.1']
+ALLOWED_HOSTS = ['niloysportfolio.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
