@@ -1721,6 +1721,8 @@ h6 {
 */
 .mh-about .mh-about-inner {
   padding-left: 50px;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .mh-about .mh-about-inner h2 {
