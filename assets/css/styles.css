@@ -3523,6 +3523,7 @@ h6 {
   padding: 20px;
   border-radius: 4px;
   text-align: justify;
+  margin: 15px 0;
   /* text-justify: inter-word; */
 }
 
@@ -3530,6 +3531,7 @@ h6 {
   font-size: 30px;
   margin-bottom: 20px;
   margin-top: 16px;
+  
   
 }
 
