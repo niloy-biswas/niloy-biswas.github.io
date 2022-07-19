@@ -3522,12 +3522,15 @@ h6 {
 .mh-service .mh-service-item {
   padding: 20px;
   border-radius: 4px;
+  text-align: justify;
+  /* text-justify: inter-word; */
 }
 
 .mh-service .mh-service-item .fa {
   font-size: 30px;
   margin-bottom: 20px;
   margin-top: 16px;
+  
 }
 
 .mh-service .mh-service-item .fa.purple-color {
@@ -3556,6 +3559,7 @@ h6 {
   font-size: 16px;
   line-height: 27px;
   margin-left: 6px;
+  
 }
 
 /*
