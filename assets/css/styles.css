@@ -1992,6 +1992,10 @@ h6 {
   padding-right: 30px;
   margin: 20px;
 }
+.mh-education h3 {
+  margin: 20px;
+  margin-bottom: 50px;
+}
 
 .mh-work {
   padding-left: 30px;
