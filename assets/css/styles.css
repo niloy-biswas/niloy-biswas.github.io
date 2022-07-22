@@ -1776,24 +1776,25 @@ h6 {
   padding-right: 60px;
 }
 
-.mh-skills .mh-professional-skill h3 {
-  font-size: 30px;
-  line-height: 40px;
+.mh-skills .mh-professional-skill h4 {
+  font-size: 25px;
+  line-height: 30px;
   text-align: center;
   font-weight: bold;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .mh-professional-skills {
   padding-left: 20%;
 }
 
-.mh-professional-skills h3 {
-  font-size: 30px;
-  line-height: 40px;
+.mh-professional-skills h4 {
+  font-size: 25px;
+  line-height: 30px;
   text-align: center;
   font-weight: bold;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
 }
 
 .mh-professional-progress li {
