@@ -9,7 +9,7 @@
       $(window).on("load", function() { 
           $(".section-loader").fadeOut("slow");
           
-          var $container = $('.mh-about');
+          var $container = $('.portfolioContainer');
           $container.isotope({
               filter: '*',
               animationOptions: {
@@ -17,11 +17,11 @@
               }
           });
        
-          $('.mh-about li').click(function(){
-              $('.mh-about .mh-about-tag').removeClass('mh-about-tag');
-              $(this).addClass('mh-about-tag');
+          $('.portfolio-nav li').click(function(){
+              $('.portfolio-nav .current').removeClass('current');
+              $(this).addClass('current');
        
-              var selector = $(this).attr('mh-about-tag');
+              var selector = $(this).attr('data-filter');
               $container.isotope({
                   filter: selector,
                   animationOptions: {
