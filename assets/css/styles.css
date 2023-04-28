@@ -1580,7 +1580,8 @@ h6 {
   margin-right: 10px;
 }
 
-.mh-home-2 .mh-header-info ul.mh-home-contact li:hover .fa {
+
+.mh-home-2 .mh-header-info ul.mh-home-contact li:hover .fa-brands {
   color: #0bceaf;
 }
 
@@ -1642,6 +1643,11 @@ h6 {
 }
 
 .mh-home .mh-header-info ul li .fa {
+  margin-right: 15px;
+  display: inline-block;
+}
+
+.mh-home .mh-header-info ul li .fa-brands {
   margin-right: 15px;
   display: inline-block;
 }
@@ -3282,6 +3288,29 @@ h6 {
   letter-spacing: 0px;
 }
 
+.mh-project-gallery .grid-item figure figcaption .fa-solid {
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 35px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  left: 0;
+  top: 45%;
+  margin-top: -22px;
+  transform: translateX(0px) translateY(0) translateZ(0) rotate(0deg) scale(1);
+  -o-transform: translateX(0px) translateY(0) translateZ(0) rotate(0deg) scale(1);
+  -ms-transform: translateX(0px) translateY(0) translateZ(0) rotate(0deg) scale(1);
+  -moz-transform: translateX(0px) translateY(0) translateZ(0) rotate(0deg) scale(1);
+  -webkit-transform: translateX(0px) translateY(0) translateZ(0) rotate(0deg) scale(1);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  opacity: 0;
+  letter-spacing: 0px;
+}
+
 .mh-project-gallery .grid-item figure figcaption .title {
   margin: 0;
   padding: 0;
@@ -4037,5 +4066,40 @@ BLOG Pagination
   margin-bottom: 30px;
   margin-top: 20px;
 }
+
+.promotion-separator {
+  position: relative;
+  padding-top: 20px;
+  margin-left: 20px;
+}
+.promotion-separator::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -10px;
+  bottom: 0;
+  width: 2px;
+  background-color: #ccc;
+}
+
+.promotion-separator {
+  position: absolute;
+  top: 40px;
+  left: -15px;
+  border-left: 2px solid black;
+  height: calc(100% - 40px);
+}
+
+
+/* .mh-experince .mh-education-deatils .mh-education-item h5::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -10px;
+  bottom: 0;
+  width: 2px;
+  background-color: #ccc;
+} */
+
 
 /*# sourceMappingURL=styles.css.map */
