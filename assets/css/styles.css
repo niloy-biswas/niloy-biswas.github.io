@@ -4101,5 +4101,29 @@ BLOG Pagination
   background-color: #ccc;
 } */
 
+/* Add image expander */
+
+  .expand-button {
+      cursor: pointer;
+      margin-bottom: 10px;
+  }
+
+  .expanded-images {
+      display: none;
+  }
+
+  .expanded-images .image-column {
+      width: 50%;
+      float: left;
+      padding: 5px;
+  }
+
+  .expanded-images img {
+      max-width: 100%;
+      max-height: 100%;
+      margin-bottom: 10px;
+  }
+
+
 
 /*# sourceMappingURL=styles.css.map */
