@@ -897,12 +897,14 @@
                         <ul>
                             <li data-filter="*" class="current wow fadeInUp" data-wow-duration="0.8s"
                                 data-wow-delay="0.1s"> <span>All Categories</span></li>
-                            <li data-filter=".Development" class="wow fadeInUp" data-wow-duration="0.8s"
-                                data-wow-delay="0.2s"><span>Development</span></li> <!-- Web Design -->
-                            <li data-filter=".ml" class="wow fadeInUp" data-wow-duration="0.8s"
-                                data-wow-delay="0.3s"><span>Machine Learning</span></li> <!-- Branding -->
                             <li data-filter=".DViz" class="wow fadeInUp" data-wow-duration="0.8s"
                                 data-wow-delay="0.3s"><span>Data Visualization</span></li> 
+                            <li data-filter=".ml" class="wow fadeInUp" data-wow-duration="0.8s"
+                                data-wow-delay="0.3s"><span>Machine Learning</span></li> 
+                            <li data-filter=".Development" class="wow fadeInUp" data-wow-duration="0.8s"
+                                data-wow-delay="0.2s"><span>Development</span></li>
+                            
+                            
                         </ul>
                     </div>
                     <div class="mh-project-gallery col-sm-12 wow fadeInUp" id="project-gallery" data-wow-duration="0.8s"
@@ -974,6 +976,30 @@
                                         <h5 class="title">Heart Disease Prediction</h5>
                                         <span class="sub-title">ML</span>
                                         <a href="https://github.com/niloy-biswas/Heart-Disease-Analysis" target="_blank" data-fancybox data-src="#HeartDisease"></a>
+                                    </figcaption>
+                                </figure>
+                            </div>
+
+                            <div class="grid-item col-md-4 col-sm-6 col-xs-12 DViz">
+                                <figure>
+                                    <img src="assets/images/portfolio/likedinDash.png" alt="LinkedIn Connections">
+                                    <figcaption class="fig-caption">
+                                        <i class="fa fa-q"></i>
+                                        <h5 class="title">LinkedIn Network Visualization</h5>
+                                        <span class="sub-title">Looker Studio</span>
+                                        <a href="https://lookerstudio.google.com/u/1/reporting/276b3f57-2545-4161-85da-7ddbd9849f72/page/Hct0C" target="_blank" data-fancybox data-src="#LinkedinDashboard"></a>
+                                    </figcaption>
+                                </figure>
+                            </div>
+
+                            <div class="grid-item col-md-4 col-sm-6 col-xs-12 DViz">
+                                <figure>
+                                    <img src="assets/images/portfolio/BigQuery_CostingHalf.png" alt="Cost Monitoring">
+                                    <figcaption class="fig-caption">
+                                        <i class="fa fa-q"></i>
+                                        <h5 class="title">BigQuery Cost Monitoring</h5>
+                                        <span class="sub-title">Looker Studio</span>
+                                        <a href="" data-fancybox data-src="#BQCostMonitoring"></a>
                                     </figcaption>
                                 </figure>
                             </div>
@@ -1157,6 +1183,68 @@
                         <div class="mh-portfolio-modal-img">
                             <img src="assets/images/portfolio/Chicago_Taxi_Trips-1.png" alt="" class="img-fluid">
                             <img src="assets/images/portfolio/Chicago_Taxi_Trips-2.png" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mh-portfolio-modal" id="LinkedinDashboard">
+            <div class="container">
+                <div class="row mh-portfolio-modal-inner">
+                    <div class="col-sm-5">
+                        <h2>Linkedin Connection Visualization</h2>
+                        <p>In our day-to-day corporate life, Linkedin became an essential part of communication. We connect with various professionals throughout our career progression. 
+                            Hence, Linkedin does not give any built-in visualization for understanding our network.<br><br>
+
+                            You can easily Downlaod your Linkedin connection information as CSV and make beautiful visualization from it. Which will help you to find many potential insights.
+                            
+                        </p>
+                        <div class="mh-about-tag">
+                            <ul>
+                                <li><span>Data Visualization</span></li>
+                                <li><span>Google Sheet</span></li>
+                                <li><span>Looker Studio</span></li>
+                                <li><span>Kumu</span></li>
+                                
+                            </ul>
+                        </div>
+                        <a href="https://lookerstudio.google.com/u/1/reporting/276b3f57-2545-4161-85da-7ddbd9849f72/page/Hct0C" target="_blank" class="btn btn-fill">Source: Looker Studio</a> <br><br>
+                        <a href="https://medium.com/@niloy.swe/linkedin-personal-data-visualization-b139f8829c43" target="_blank" class="btn btn-fill">Source: Medium - Step by step procedure</a>
+                    </div>
+                    <div class="col-sm-7">
+                        <div class="mh-portfolio-modal-img">
+                            <img src="assets/images/portfolio/Linkedin_Connection_Visualization.png" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mh-portfolio-modal" id="BQCostMonitoring">
+            <div class="container">
+                <div class="row mh-portfolio-modal-inner">
+                    <div class="col-sm-5">
+                        <h2>Monitor BigQuery Usage and Costs on GCP with Interactive Visualizations in Looker Studio</h2>
+                        <p>Monitoring BigQuery usage and costs is an essential aspect of managing data on Google Cloud Platform (GCP). BigQuery is a fully-managed, serverless data warehouse that can scale to 
+                            petabyte-levels, making it easy to incur significant costs if you’re not careful. Fortunately, GCP provides several tools and services to help you monitor and optimize your BigQuery 
+                            usage and costs. In this post, we’ll explore how to monitor BigQuery usage and costs using the Information Schema JOBS table and Visualize the information in Looker Studio for further Monitoring. <br><br>
+                            
+                        </p>
+                        <div class="mh-about-tag">
+                            <ul>
+                                <li><span>Data Visualization</span></li>
+                                <li><span>Google BigQuery</span></li>
+                                <li><span>Looker Studio</span></li>
+                                <li><span>SQL</span></li>
+                                <li><span>GCP</span></li>
+                            </ul>
+                        </div>
+                        <a href="https://medium.com/@niloy.swe/linkedin-personal-data-visualization-b139f8829c43" target="_blank" class="btn btn-fill">Source: Medium - Step by step procedure</a>
+                    </div>
+                    <div class="col-sm-7">
+                        <div class="mh-portfolio-modal-img">
+                            <img src="assets/images/portfolio/BigQuery_Costing.png" alt="" class="img-fluid">
                         </div>
                     </div>
                 </div>
