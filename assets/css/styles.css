@@ -1941,7 +1941,7 @@ h6 {
       EXPERIENCES
     ==============
 */
-.mh-experince h3 {
+.mh-experince h2 {
   font-size: 30px;
   line-height: 40px;
   font-weight: bold;
@@ -2116,9 +2116,13 @@ h6 {
   box-shadow: inset 0 0 10px #000;
 }
 
-.mh-portfolio-modal-inner h1 {
+.mh-portfolio-modal-inner h2 {
   margin-top: 10px;
   margin-bottom: 20px;
+}
+.mh-portfolio h2 {
+  margin: 20px;
+  margin-bottom: 50px;
 }
 
 .mh-portfolio-modal-img img {
@@ -2221,7 +2225,7 @@ h6 {
   padding-bottom: 30px;
 }
 
-.mh-blog .mh-blog-item .blog-inner h1 a {
+.mh-blog .mh-blog-item .blog-inner h2 a {
   color: #fff;
 }
 
@@ -2233,7 +2237,7 @@ h6 {
   margin-bottom: 30px;
 }
 
-.mh-blog .mh-blog-item h1 {
+.mh-blog .mh-blog-item h2 {
   font-size: 24px;
   line-height: 32px;
   font-weight: 600;
@@ -2241,11 +2245,11 @@ h6 {
   color: #fff;
 }
 
-.mh-blog .mh-blog-item h1 a {
+.mh-blog .mh-blog-item h2 a {
   color: #0bceaf;
 }
 
-.mh-blog .mh-blog-item h1 a:hover {
+.mh-blog .mh-blog-item h2 a:hover {
   color: #0ac4a7;
 }
 
