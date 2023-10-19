@@ -5,7 +5,8 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
    <url>
       <loc>https://niloy.tech/</loc>
-      <lastmod>2023-10-09</lastmod>
+      <loc>https://niloy.tech/blog/medium.html</loc>
+      <lastmod>2023-10-20</lastmod>
       <changefreq>weekly</changefreq>
       <priority>1.0</priority>
    </url>
