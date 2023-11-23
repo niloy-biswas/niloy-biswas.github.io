@@ -3230,6 +3230,7 @@ h6 {
 .mh-project-gallery .grid-item figure img {
   position: relative;
   width: 100%;
+  /* height: 220px; */
   display: block;
 }
 
@@ -3555,6 +3556,9 @@ h6 {
 
 .section-title h3 {
   margin-bottom: 60px;
+}
+.section-title h4 {
+  margin-bottom: 20px;
 }
 
 .section-title h1 {
