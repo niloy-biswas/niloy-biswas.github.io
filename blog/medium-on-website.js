@@ -1,5 +1,6 @@
 const API_URL = "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2F%40niloy.swe";
 
+
 const getClassicPost = (postData) => {
   let template = 
   `
@@ -109,15 +110,26 @@ const displayPosts = (data) => {
     // this way, if the rss data changes,
     // I just need to change this object values
     // instead of changing the post templates.
+
+      // Parse the HTML content of the post description
+    let parser = new DOMParser();
+    let doc = parser.parseFromString(post.description, 'text/html');
+    let firstImage = doc.querySelector('img'); // Selects the first <img> element
+    let firstImageUrl = firstImage ? firstImage.src : ''; // Gets the 'src' of the image, or an empty string if not found
+  
+
     let postData = {
       authorImage : data.feed.image,
       authorName : post.author,
       postDate : post.pubDate,
-      postImage : post.thumbnail,
+      postImage : firstImageUrl, // Use the first image URL from the description because thumbnail is not returning any image
+      // postImage : post.thumbnail,
       postTitle : post.title,
       postDescription : post.description,
       postLink : post.link,
     }
+    console.log(postData);
+    
     // rendering different templates for each
     // "data-template" chosen.
     let HTMLPost = '';
