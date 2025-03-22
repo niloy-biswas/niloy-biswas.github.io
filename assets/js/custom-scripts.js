@@ -386,53 +386,91 @@
     |=================
     */
         
-      $("#contactForm").validator().on("submit", function (event) {
-          if (event.isDefaultPrevented()) {
-            // handle the invalid form...
-            formError();
-            submitMSG(false, "Did you fill in the form properly?");
-          } else {
-            // everything looks good!
-            event.preventDefault();
-            submitForm();
-          }
-       });
+      // $("#contactForm").validator().on("submit", function (event) {
+      //     if (event.isDefaultPrevented()) {
+      //       // handle the invalid form...
+      //       formError();
+      //       submitMSG(false, "Did you fill in the form properly?");
+      //     } else {
+      //       // everything looks good!
+      //       event.preventDefault();
+      //       submitForm();
+      //     }
+      //  });
     
-        function submitForm(){
-          var name = $("#name").val();
-          var email = $("#email").val();
-          var message = $("#message").val();
-          $.ajax({
-              type: "POST",
-              url: "process.php",
-              data: "name=" + name + "&email=" + email + "&message=" + message,
-              success : function(text){
-                  if (text == "success"){
-                      formSuccess();
-                    } else {
-                      formError();
-                      submitMSG(false,text);
-                    }
-                }
-            });
+      //   function submitForm(){
+      //     var name = $("#name").val();
+      //     var email = $("#email").val();
+      //     var message = $("#message").val();
+      //     $.ajax({
+      //         type: "POST",
+      //         url: "process.php",
+      //         data: "name=" + name + "&email=" + email + "&message=" + message,
+      //         success : function(text){
+      //             if (text == "success"){
+      //                 formSuccess();
+      //               } else {
+      //                 formError();
+      //                 submitMSG(false,text);
+      //               }
+      //           }
+      //       });
+      //   }
+      //   function formSuccess(){
+      //       $("#contactForm")[0].reset();
+      //       submitMSG(true, "Message Sent!")
+      //   }
+    	//   function formError(){   
+    	//     $("#contactForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+    	//         $(this).removeClass();
+    	//     });
+    	//   }
+      //   function submitMSG(valid, msg){
+      //     if(valid){
+      //       var msgClasses = "h3 text-center fadeInUp animated text-success";
+      //     } else {
+      //       var msgClasses = "h3 text-center shake animated text-danger";
+      //     }
+      //     $("#msgSubmit").removeClass().addClass(msgClasses).text(msg);
+      //   }
+      document.addEventListener("DOMContentLoaded", function() {
+        const form = document.getElementById("contactForm");
+        const msgSubmit = document.getElementById("msgSubmit");
+      
+        function showSuccess() {
+          form.reset();
+          msgSubmit.textContent = "Your message has been sent successfully!";
+          msgSubmit.classList.remove("hidden", "text-danger", "shake");
+          msgSubmit.classList.add("text-success", "fadeInUp");
         }
-        function formSuccess(){
-            $("#contactForm")[0].reset();
-            submitMSG(true, "Message Sent!")
+      
+        function showError() {
+          msgSubmit.textContent = "Oops! There was a problem sending your message.";
+          msgSubmit.classList.remove("hidden", "text-success", "fadeInUp");
+          msgSubmit.classList.add("text-danger", "shake");
         }
-    	  function formError(){   
-    	    $("#contactForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-    	        $(this).removeClass();
-    	    });
-    	  }
-        function submitMSG(valid, msg){
-          if(valid){
-            var msgClasses = "h3 text-center fadeInUp animated text-success";
-          } else {
-            var msgClasses = "h3 text-center shake animated text-danger";
-          }
-          $("#msgSubmit").removeClass().addClass(msgClasses).text(msg);
+      
+        form.addEventListener("submit", function(ev) {
+          ev.preventDefault();
+          const data = new FormData(form);
+          ajax(form.method, form.action, data, showSuccess, showError);
+        });
+      
+        function ajax(method, url, data, successCallback, errorCallback) {
+          const xhr = new XMLHttpRequest();
+          xhr.open(method, url);
+          xhr.setRequestHeader("Accept", "application/json");
+          xhr.onreadystatechange = function() {
+            if (xhr.readyState !== XMLHttpRequest.DONE) return;
+            if (xhr.status === 200) {
+              successCallback();
+            } else {
+              errorCallback();
+            }
+          };
+          xhr.send(data);
         }
+      });
     
 
       /*
