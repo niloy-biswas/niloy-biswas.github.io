@@ -4335,13 +4335,37 @@ BLOG Pagination
 /* ============================================
    HERO SECTION ENHANCEMENTS
    ============================================ */
-/* Profile image with subtle glow */
+/* Bottom-align row so image bottom lines up with social icons */
+.dark-vertion .mh-home .row.vertical-middle-content {
+  align-items: flex-end;
+}
+
+/* Profile image: smaller size, aligned with left section */
 .dark-vertion .mh-home .img-border {
+  width: 320px;
+  height: 320px;
   border: 3px solid rgba(255, 255, 255, 0.08);
   box-shadow:
     0 0 60px var(--glow-primary),
     0 0 100px rgba(11, 206, 175, 0.08),
     inset 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.dark-vertion .mh-home .hero-img {
+  margin-top: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+@media (max-width: 767px) {
+  .dark-vertion .mh-home .row.vertical-middle-content {
+    align-items: center;
+  }
+  .dark-vertion .mh-home .hero-img {
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .dark-vertion .mh-home .hero-img img {
