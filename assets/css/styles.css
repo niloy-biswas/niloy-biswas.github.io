@@ -2215,6 +2215,15 @@ html:has(body.dark-vertion.black-bg) {
   display: block;
 }
 
+/* Fancybox overlay: match site background instead of black (dark theme) */
+body.dark-vertion .fancybox-bg {
+  background: rgba(10, 14, 28, 0.92) !important;
+}
+
+body.dark-vertion.fancybox-active .fancybox-bg {
+  background: rgba(10, 14, 28, 0.92) !important;
+}
+
 .mix {
   display: none;
 }
@@ -4210,13 +4219,42 @@ BLOG Pagination
   padding: 5px;
 }
 
+.expanded-images .image-column-full {
+  width: 100%;
+  clear: both;
+}
+
 .expanded-images img {
   max-width: 100%;
   max-height: 100%;
   margin-bottom: 10px;
 }
 
+/* Citation box: match glass card design inside education/experience */
+.citation-box {
+  background: var(--glass-fill);
+  backdrop-filter: blur(var(--glass-blur-light));
+  -webkit-backdrop-filter: blur(var(--glass-blur-light));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-glass);
+  padding: 1rem 1.25rem;
+  margin: 0.5rem 0 1rem;
+}
 
+.citation-box pre {
+  margin: 0;
+  background: none;
+  border: none;
+}
+
+.citation-box code,
+.citation-box code *,
+.citation-box .token {
+  color: #fff !important;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
 
 /*
 ================================================================================
