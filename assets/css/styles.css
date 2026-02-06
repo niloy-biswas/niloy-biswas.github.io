@@ -3222,10 +3222,6 @@ h6 {
   border-bottom: 2px solid transparent;
 }
 
-.portfolio-nav ul li.current span {
-  border-bottom: 2px solid #0bceaf;
-}
-
 .mh-project-gallery .grid-item figure {
   position: relative;
   overflow: hidden;
@@ -4140,5 +4136,333 @@ BLOG Pagination
 }
 
 
+
+/*
+================================================================================
+  GLASS UI ENHANCEMENTS
+  Selective glassmorphism for premium, professional appearance
+  Uses design tokens from glass-theme.css
+================================================================================
+*/
+
+/* ============================================
+   FLOATING GLASS NAVIGATION
+   Fixed: Removed transform jump, uses margin auto instead
+   ============================================ */
+.dark-vertion .mh-header {
+  position: fixed;
+  top: 20px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  max-width: 900px;
+  padding: 12px 32px;
+  background: var(--glass-fill);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-glass);
+  z-index: 1000;
+}
+
+.dark-vertion .mh-header.nav-strict {
+  padding: 10px 28px;
+  background: var(--glass-fill-hover);
+  top: 10px;
+}
+
+.dark-vertion .mh-header .navbar-nav li {
+  margin: 0 16px;
+}
+
+/* Fixed: Remove original border-bottom underline to prevent double underline */
+.dark-vertion .mh-header .navbar-nav li a {
+  color: var(--text-secondary);
+  font-size: 15px;
+  font-weight: 500;
+  border-bottom: none !important;
+  position: relative;
+}
+
+/* Override the white border on active state */
+.dark-vertion .mh-header .navbar-nav li.active a {
+  border-color: transparent !important;
+  border-bottom: none !important;
+}
+
+/* Single underline using ::after pseudo-element */
+.dark-vertion .mh-header .navbar-nav li a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width var(--transition-base);
+}
+
+.dark-vertion .mh-header .navbar-nav li a:hover,
+.dark-vertion .mh-header .navbar-nav li.active a {
+  color: var(--text-primary);
+}
+
+.dark-vertion .mh-header .navbar-nav li a:hover::after,
+.dark-vertion .mh-header .navbar-nav li.active a::after {
+  width: 100%;
+}
+
+/* ============================================
+   HERO SECTION ENHANCEMENTS
+   ============================================ */
+/* Profile image with subtle glow */
+.dark-vertion .mh-home .img-border {
+  border: 3px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 0 60px var(--glow-primary),
+    0 0 100px rgba(11, 206, 175, 0.08),
+    inset 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.dark-vertion .mh-home .hero-img img {
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* Hero promo badge as glass chip */
+.dark-vertion .mh-home .mh-header-info .mh-promo span {
+  background: var(--glass-fill);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  color: var(--accent);
+}
+
+/* Social icons - keep original style, add glow on hover only */
+.dark-vertion .mh-home .mh-header-info .social-icon li a {
+  transition: all var(--transition-base);
+}
+
+.dark-vertion .mh-home .mh-header-info .social-icon li a:hover {
+  color: var(--accent);
+  text-shadow: 0 0 20px var(--glow-primary), 0 0 40px var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   SERVICE CARDS (What I Do)
+   Glass cards with hover lift
+   ============================================ */
+.dark-vertion .mh-service .mh-service-item {
+  background: var(--glass-fill);
+  backdrop-filter: blur(var(--glass-blur-light));
+  -webkit-backdrop-filter: blur(var(--glass-blur-light));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-subtle);
+  transition: transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.dark-vertion .mh-service .mh-service-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glass-hover);
+  border-color: var(--glass-border-hover);
+}
+
+/* ============================================
+   SKILL TAGS AS GLASS PILLS
+   ============================================ */
+.dark-vertion .mh-about-tag ul li span {
+  background: var(--glass-fill);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-pill);
+  padding: 6px 14px;
+  transition: all var(--transition-base);
+}
+
+.dark-vertion .mh-about-tag ul li span:hover {
+  background: var(--glass-fill-hover);
+  border-color: var(--accent);
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+/* ============================================
+   PORTFOLIO SECTION
+   Filter chips and project cards
+   ============================================ */
+/* Filter tabs as glass chips - no underline */
+.dark-vertion .portfolio-nav ul li {
+  background: var(--glass-fill);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-pill);
+  padding: 8px 20px;
+  transition: all var(--transition-base);
+  color: var(--text-secondary);
+}
+
+.dark-vertion .portfolio-nav ul li:hover {
+  background: var(--glass-fill-hover);
+  border-color: var(--glass-border-hover);
+  color: var(--text-primary) !important;
+}
+
+.dark-vertion .portfolio-nav ul li.current,
+.dark-vertion .portfolio-nav ul li.active {
+  background: var(--glass-fill-active);
+  border-color: var(--accent);
+  color: var(--accent) !important;
+}
+
+/* Project cards as restrained glass tiles */
+.dark-vertion .mh-project-gallery .grid-item figure {
+  background: var(--glass-fill);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.dark-vertion .mh-project-gallery .grid-item figure:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glass);
+  border-color: var(--glass-border-hover);
+}
+
+.dark-vertion .mh-project-gallery .grid-item figure img {
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+/* ============================================
+   CONTACT SECTION
+   Form inputs with glass styling
+   ============================================ */
+.dark-vertion .mh-footer .form-control,
+.dark-vertion .mh-footer .contact-message {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  transition: all var(--transition-base);
+}
+
+.dark-vertion .mh-footer .form-control:focus,
+.dark-vertion .mh-footer .contact-message:focus {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+  outline: none;
+}
+
+.dark-vertion .mh-footer .form-control::placeholder,
+.dark-vertion .mh-footer .contact-message::placeholder {
+  color: var(--text-muted);
+}
+
+/* Contact info cards as glass */
+.dark-vertion .mh-footer-address .mh-address-footer-item {
+  background: var(--glass-fill);
+  backdrop-filter: blur(var(--glass-blur-light));
+  -webkit-backdrop-filter: blur(var(--glass-blur-light));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-subtle);
+}
+
+/* CTA button emphasis */
+.dark-vertion .mh-footer .btn-fill,
+.dark-vertion .btn-fill {
+  background: var(--accent-gradient);
+  border: none;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 20px var(--accent-glow);
+  transition: all var(--transition-base);
+}
+
+.dark-vertion .mh-footer .btn-fill:hover,
+.dark-vertion .btn-fill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px var(--glow-primary-strong);
+}
+
+/* ============================================
+   KEEP TEXT-HEAVY SECTIONS CLEAN
+   Education & Experience - minimal styling
+   ============================================ */
+.dark-vertion .mh-experince .mh-education-deatils .mh-education-item {
+  background: var(--bg-elevated);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-subtle);
+}
+
+/* Education cards - clean dark background */
+.dark-vertion .mh-education .mh-education-deatils .mh-education-item {
+  background: var(--bg-elevated);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-md);
+}
+
+/* ============================================
+   RESPONSIVE - FIXED MOBILE NAVBAR
+   Restore original mobile behavior
+   ============================================ */
+@media (max-width: 991px) {
+
+  /* Reset glass nav to original behavior on mobile */
+  .dark-vertion .mh-header {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    padding: 10px 15px;
+    border: none;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
+  }
+
+  /* Let the mobile nav overlay work as before */
+  .dark-vertion .mh-header .navbar-nav li a {
+    border-bottom: none !important;
+  }
+
+  .dark-vertion .mh-header .navbar-nav li a::after {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .dark-vertion .mh-header .navbar-nav li {
+    margin: 8px 0;
+  }
+
+  .dark-vertion .mh-service .mh-service-item {
+    backdrop-filter: blur(6px);
+  }
+
+  .dark-vertion .portfolio-nav ul li {
+    margin: 5px;
+    padding: 6px 14px;
+    font-size: 13px;
+  }
+}
 
 /*# sourceMappingURL=styles.css.map */
