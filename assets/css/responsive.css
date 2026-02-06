@@ -47,11 +47,6 @@
     padding: 40px 0;
   }
 
-  .mh-home-2 .mh-header-info p {
-    padding: 0 0px;
-    font-weight: 300;
-  }
-
   .home-section-separator {
     padding-top: 100px;
     padding-bottom: 100px;
@@ -61,10 +56,6 @@
     width: 60px;
     height: 60px;
     line-height: 60px;
-  }
-
-  .mh-home-2 .mh-header-info .mh-about-tag {
-    width: 80%;
   }
 
   .mh-xs-mobile-nav {
@@ -473,19 +464,8 @@
     line-height: 70px;
   }
 
-  .mh-home-2 .mh-header-info ul.mh-home-contact li {
-    display: inline-block;
-    margin: 10px 15px;
-    width: 40%;
-    text-align: left;
-  }
-
   .mh-testimonial .mh-client-item {
     padding: 30px 10px;
-  }
-
-  .mh-home-2 .mh-header-info .mh-about-tag {
-    width: 100%;
   }
 
   .mh-blog .mh-blog-item .blog-inner {
@@ -613,11 +593,6 @@
     margin-top: 40px;
   }
 
-  .mh-home-2 .mh-header-info ul.mh-home-contact li {
-    width: 100%;
-    margin: 6px 10px;
-  }
-
   .mh-footer-3 .mh-footer-address .mh-address-footer-item {
     display: block;
     padding: 20px 0px;
@@ -635,11 +610,6 @@
 
   .xs-no-padding {
     padding: 0;
-  }
-
-  .mh-home-2 .mh-header-info {
-    text-align: center;
-    padding-top: 50px;
   }
 
   .mh-portfolio-modal-inner {
