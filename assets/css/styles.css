@@ -4296,6 +4296,42 @@ BLOG Pagination
   width: 100%;
 }
 
+/* Blog page: force same nav size as main (height, width, font) – desktop only */
+@media (min-width: 992px) {
+  body.dark-vertion.blog-page .mh-header {
+    padding: 12px 32px !important;
+    max-width: 900px !important;
+    width: fit-content !important;
+  }
+
+  body.dark-vertion.blog-page .mh-header.nav-strict {
+    padding: 12px 28px !important;
+  }
+
+  body.dark-vertion.blog-page .mh-header .navbar-nav li {
+    margin: 0 16px !important;
+  }
+
+  body.dark-vertion.blog-page .mh-header .navbar-nav li a,
+  body.dark-vertion.blog-page .mh-header .navbar-nav .nav-link {
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    line-height: 1.5 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  body.dark-vertion.blog-page .mh-header .navbar,
+  body.dark-vertion.blog-page .mh-header .navbar-collapse {
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+  }
+
+  body.dark-vertion.blog-page .mh-header .container {
+    max-width: 100% !important;
+  }
+}
+
 /* ============================================
    HERO SECTION ENHANCEMENTS
    ============================================ */
@@ -4521,6 +4557,25 @@ BLOG Pagination
 }
 
 .dark-vertion .mh-education .mh-education-deatils .mh-education-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glass-hover);
+  border-color: var(--glass-border-hover);
+}
+
+/* Blog page post cards – same glass design + edge glow (medium.html) */
+.dark-vertion #post-container {
+  background: var(--glass-fill);
+  backdrop-filter: blur(var(--glass-blur-light));
+  -webkit-backdrop-filter: blur(var(--glass-blur-light));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-glass);
+  transition: transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.dark-vertion #post-container:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-glass-hover);
   border-color: var(--glass-border-hover);

@@ -23,7 +23,7 @@ const getClassicPost = (postData) => {
         ${postData.postTitle}
       </div>
       <div id="post-content">
-        ${trimContent(postData.postDescription)}...
+        ${trimContent(postData.postDescription, postData.postTitle)}...
         <p id="post-link">
           <a href="${postData.postLink}" target="_blank"> Continue reading... </a>
         </p>
@@ -54,7 +54,7 @@ const getCompactPost = (postData) => {
         ${postData.postTitle}
       </div>
       <div id="post-content">
-        ${trimContent(postData.postDescription)}...
+        ${trimContent(postData.postDescription, postData.postTitle)}...
         <p id="post-link">
           <a href="${postData.postLink}" target="_blank"> Continue reading... </a>
         </p>
@@ -91,13 +91,46 @@ const formatDate = (date) => {
   return dateFormatted;
 }
 
-const trimContent = (content) => {
+/**
+ * Remove the post title from the start of the description (Medium often repeats it there).
+ * Uses DOM parse to remove the first element if its text matches the title.
+ */
+const stripTitleFromDescription = (html, title) => {
+	if (!title || !html || typeof html !== "string") return html;
+	const parser = new DOMParser();
+	const doc = parser.parseFromString(html, "text/html");
+	const body = doc.body;
+	if (!body || !body.firstElementChild) return html;
+	const first = body.firstElementChild;
+	const firstText = (first.textContent || "").trim();
+	const titleTrim = title.trim();
+	// Remove first element if it equals the title or the title equals the first element's text
+	if (firstText === titleTrim || titleTrim === firstText || firstText.indexOf(titleTrim) === 0) {
+		first.remove();
+		return body.innerHTML.trim();
+	}
+	// Fallback: strip common wrappers that contain only the title
+	const tagName = (first.tagName || "").toLowerCase();
+	if (["h1", "h2", "h3", "h4", "p"].indexOf(tagName) !== -1 && firstText.length < 200) {
+		const normalizedFirst = firstText.replace(/\s+/g, " ").trim();
+		const normalizedTitle = titleTrim.replace(/\s+/g, " ").trim();
+		if (normalizedFirst === normalizedTitle || normalizedFirst.indexOf(normalizedTitle) === 0) {
+			first.remove();
+			return body.innerHTML.trim();
+		}
+	}
+	return html;
+};
+
+const trimContent = (content, postTitle) => {
+	// Remove duplicate title from start of description
+	let text = stripTitleFromDescription(content, postTitle);
 	// removes images from content
-	let plainText = content.replace(/<img[^>]*>/g, "");
+	text = text.replace(/<img[^>]*>/g, "");
 	// max content length
-	let maxLength = 400
-	let trimmedString = plainText.substr(0, maxLength);
-	trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(" ")))
+	let maxLength = 400;
+	let trimmedString = text.substr(0, maxLength);
+	trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(" ") || trimmedString.length));
 	return trimmedString;
 }
 
