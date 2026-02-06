@@ -47,11 +47,6 @@
     padding: 40px 0;
   }
 
-  .mh-home-2 .mh-header-info p {
-    padding: 0 0px;
-    font-weight: 300;
-  }
-
   .home-section-separator {
     padding-top: 100px;
     padding-bottom: 100px;
@@ -61,10 +56,6 @@
     width: 60px;
     height: 60px;
     line-height: 60px;
-  }
-
-  .mh-home-2 .mh-header-info .mh-about-tag {
-    width: 80%;
   }
 
   .mh-xs-mobile-nav {
@@ -92,7 +83,12 @@
     z-index: 990;
     margin-top: 0px;
     padding: 0;
-    background-color: #0bceaf;
+    /* Glass mobile drawer */
+    background: var(--glass-fill-active);
+    backdrop-filter: blur(var(--glass-blur-heavy));
+    -webkit-backdrop-filter: blur(var(--glass-blur-heavy));
+    border-right: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-glass);
     transform: translateX(-100%) translateY(0) translateZ(0) rotate(0deg) scale(1);
     -o-transform: translateX(-100%) translateY(0) translateZ(0) rotate(0deg) scale(1);
     -ms-transform: translateX(-100%) translateY(0) translateZ(0) rotate(0deg) scale(1);
@@ -224,7 +220,6 @@
   }
 
   .mh-xs-mobile-nav .navbar-header .navbar-toggler .icon-bar {
-    background-color: #0bceaf;
     -webkit-transition: all 0.4s ease-out;
     transition: all 0.4s ease-out;
     -webkit-font-smoothing: antialiased;
@@ -261,7 +256,6 @@
     z-index: 990;
     margin-top: 0px;
     padding: 0;
-    background-color: #0bceaf;
     transform: translateX(-100%) translateY(0) translateZ(0) rotate(0deg) scale(1);
     -o-transform: translateX(-100%) translateY(0) translateZ(0) rotate(0deg) scale(1);
     -ms-transform: translateX(-100%) translateY(0) translateZ(0) rotate(0deg) scale(1);
@@ -392,6 +386,7 @@
   .mh-xs-mobile-nav .navbar-nav {
     padding-top: 50px;
     padding-right: 20px;
+    padding-left: 25px;
   }
 }
 
@@ -469,19 +464,8 @@
     line-height: 70px;
   }
 
-  .mh-home-2 .mh-header-info ul.mh-home-contact li {
-    display: inline-block;
-    margin: 10px 15px;
-    width: 40%;
-    text-align: left;
-  }
-
   .mh-testimonial .mh-client-item {
     padding: 30px 10px;
-  }
-
-  .mh-home-2 .mh-header-info .mh-about-tag {
-    width: 100%;
   }
 
   .mh-blog .mh-blog-item .blog-inner {
@@ -609,11 +593,6 @@
     margin-top: 40px;
   }
 
-  .mh-home-2 .mh-header-info ul.mh-home-contact li {
-    width: 100%;
-    margin: 6px 10px;
-  }
-
   .mh-footer-3 .mh-footer-address .mh-address-footer-item {
     display: block;
     padding: 20px 0px;
@@ -631,11 +610,6 @@
 
   .xs-no-padding {
     padding: 0;
-  }
-
-  .mh-home-2 .mh-header-info {
-    text-align: center;
-    padding-top: 50px;
   }
 
   .mh-portfolio-modal-inner {

@@ -1,34 +1,80 @@
 :root {
   --color-primary: #000000;
   --color-background: #202026;
-  background-color: #202026;
   --color-border: #dddddd;
   --color-link: #0373b7;
 }
 
 [data-theme="dark"] {
   --color-primary: #ffffff;
-  --color-background: #202026
+  --color-background: #202026;
   --color-border: #555555;
-  --color-link: #0bceaf;;
+  --color-link: #0bceaf;
 }
 
-#post-container{
-  max-width: 700px;
+/* Nav and post-card glass design live in main styles.css (.dark-vertion .mh-header and .dark-vertion #post-container) */
+
+/* ============================================
+   BLOG INTRO SECTION (above the article list)
+   Same card style as What I Do / Education cards
+   ============================================ */
+.blog-intro {
+  padding: 120px 0 40px;  /* extra top space so content clears fixed nav */
+}
+
+.blog-intro-card {
+  background: var(--glass-fill);
+  backdrop-filter: blur(var(--glass-blur-light));
+  -webkit-backdrop-filter: blur(var(--glass-blur-light));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-glass);
+  padding: var(--space-md, 24px) var(--space-md, 24px);
+  max-width: 795px;
+  margin: 0 auto;
+  transition: transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.blog-intro-card:hover {
+  box-shadow: var(--shadow-glass-hover);
+  border-color: var(--glass-border-hover);
+}
+
+.blog-intro-title {
+  color: var(--text-primary);
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.blog-intro-text {
+  color: var(--text-secondary);
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.blog-intro-lead {
+  color: var(--accent);
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+/* No section-separator; use minimal gap between intro and first post */
+.blog-posts-section .row {
+  padding-top: 24px;
+}
+
+#post-container {
+  max-width: 1078px;
   margin: 20px auto;
   padding: 30px;
-  /* border:1px solid; */
-  /* box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); */
   line-height: 1.2;
-  background-color: var(--color-background);
   color: var(--color-primary);
-  /* border-color: var(--color-border); */
-
   margin-bottom: 40px;
-  border-color: transparent;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.10), 0 5px 20px 0 rgba(0, 0.3, 0.3, 0.9);
-  
 }
 
 #post-header{
@@ -91,6 +137,21 @@
 
 
 /* MEDIA QUERIES */
+@media (max-width: 576px) {
+  .blog-intro {
+    padding: 100px 0 30px;
+  }
+  .blog-intro-card {
+    padding: 24px 20px;
+  }
+  .blog-intro-title {
+    font-size: 24px;
+  }
+  .blog-intro-text {
+    font-size: 15px;
+  }
+}
+
 /* ---- 480 ---- */
 @media (max-width: 480px){
   /* --- MINI --- */

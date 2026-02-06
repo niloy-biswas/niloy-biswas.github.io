@@ -34,9 +34,7 @@
 		<meta name="robots" content="index, follow">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<link rel="stylesheet" href="medium-style.css"/>
 		<script type="text/javascript" src="./medium-on-website.js"></script>
-
 
 		<!-- Google Font-->
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -53,76 +51,91 @@
 		<link rel="stylesheet" href="../assets/plugins/css/owl.css">
 		<!-- Fancybox-->
 		<link rel="stylesheet" href="../assets/plugins/css/jquery.fancybox.min.css">
-		<!-- Custom CSS-->
+		<!-- Glass theme (same as home page) -->
+		<link rel="stylesheet" href="../assets/css/glass-theme.css">
+		<!-- Blog page styles first so main styles win for nav -->
+		<link rel="stylesheet" href="medium-style.css">
+		<!-- Custom CSS (must load after medium-style so nav stays same as main page) -->
 		<link rel="stylesheet" href="../assets/css/styles.css">
 		<link rel="stylesheet" href="../assets/css/responsive.css">
 
-
 	</head>
 
-	<!--
-        ===================
-           NAVIGATION
-        ===================
-    -->
-    <header class="black-bg mh-header mh-fixed-nav nav-scroll mh-xs-mobile-nav wow fadeInUp" id="mh-header">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row">
-                <nav class="navbar navbar-expand-lg mh-nav nav-btn">
-                    <a class="navbar-brand" href="#">
-                        <!-- <img src="#" alt="" class="img-fluid"> -->
-                        <!-- <h2>Maha</h2> -->
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon icon"></span>
-                    </button>
+	<body class="dark-vertion black-bg blog-page">
+		<!--
+			===================
+			   NAVIGATION
+			===================
+		-->
+		<header class="black-bg mh-header mh-fixed-nav nav-scroll mh-xs-mobile-nav wow fadeInUp" id="mh-header">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row">
+					<nav class="navbar navbar-expand-lg mh-nav nav-btn">
+						<a class="navbar-brand" href="#">
+							<!-- <img src="#" alt="" class="img-fluid"> -->
+							<!-- <h2>Maha</h2> -->
+						</a>
+						<button class="navbar-toggler" type="button" data-toggle="collapse"
+							data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+							aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon icon"></span>
+						</button>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-0 ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="../#mh-home">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../#mh-about">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../#mh-skills">Skills</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../#mh-experience">Experiences</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../#mh-portfolio">Portfolio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../#mh-achievements">Achievements</a>
-                            </li>
-                            <!-- <li class="nav-item">
-                                    <a class="nav-link" href="#mh-blog">Blog</a>
-                            </li> -->
-                            <li class="nav-item">
-                                <a class="nav-link" href="">Blog</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../#mh-contact">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </header>
+						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+							<ul class="navbar-nav mr-0 ml-auto">
+								<li class="nav-item">
+									<a class="nav-link" href="../#mh-home">Home</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="../#mh-about">About</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="../#mh-skills">Skills</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="../#mh-experience">Experiences</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="../#mh-portfolio">Portfolio</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="../#mh-achievements">Achievements</a>
+								</li>
+								<li class="nav-item active">
+									<a class="nav-link" href="medium.html#mh-blog">Blog</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="../#mh-contact">Contact</a>
+								</li>
+							</ul>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</header>
 
-
-	<body class="dark-vertion black-bg">
+		<!-- Blog intro: perspective + lead-in to articles -->
+		<section class="blog-intro" id="blog-intro">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="blog-intro-card">
+							<h2 class="blog-intro-title">Blog</h2>
+							<p class="blog-intro-text">
+								As a data analyst and data science enthusiast, I use this space to share what I learn and build—from analytics and visualization to ML and research. The goal is to pass on knowledge and ideas that might help others with similar curiosity and goals.
+							</p>
+							<p class="blog-intro-lead">Feel free to explore in medium or leave a comment if you have any questions or suggestions. <br> Here are a few of my blogs...</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 		
-		<section class="mh-experince" id="mh-experience">
+		<section class="mh-experince blog-posts-section" id="mh-blog">
 			<div class="bolor-overlay">
 				<div class="container">
-					<div class="row section-separator">
+					<div class="row">
 						<div class="col-sm-12 col-md-12">
 							<div id="posts" data-theme="dark" data-template="classic"></div>
 						</div>
@@ -131,7 +144,10 @@
 			</div>
 		</section>
 
-
+		<!-- jQuery, Popper, Bootstrap (required for mobile navbar toggle) -->
+		<script src="../assets/plugins/js/jquery.min.js"></script>
+		<script src="../assets/plugins/js/popper.min.js"></script>
+		<script src="../assets/plugins/js/bootstrap.min.js"></script>
 		<script src="../assets/js/custom-scripts.js"></script>
 
 	</body>

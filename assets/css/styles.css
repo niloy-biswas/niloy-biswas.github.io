@@ -911,7 +911,12 @@ h6 {
 }
 
 .white-vertion .mh-portfolio-modal {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg, 20px);
+  box-shadow: var(--shadow-glass);
 }
 
 .white-vertion .page-item.active .page-link {
@@ -1115,12 +1120,44 @@ h6 {
   opacity: 0.9;
 }
 
+/* Full-page modern blue gradient so html is covered when body has dark theme */
+html:has(body.dark-vertion.black-bg) {
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  min-height: 100%;
+}
+
 .dark-vertion.black-bg {
-  background-color: #100e17;
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* Bokeh overlay: soft orbs + light specks (sitting on top of gradient) */
+.dark-vertion.black-bg::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: var(--bg-gradient-bokeh);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  z-index: 0;
+}
+
+/* Give content stacking above bokeh; exclude header so it keeps position:fixed */
+.dark-vertion.black-bg > *:not(.fancybox-container):not(header) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Keep fixed nav above other content and preserve its fixed positioning */
+.dark-vertion.black-bg > header.mh-header {
+  z-index: 1000;
 }
 
 .dark-vertion .section-loader {
-  background: #100e17;
+  background: var(--bg-gradient);
 }
 
 .dark-vertion ::-webkit-input-placeholder {
@@ -1285,34 +1322,52 @@ h6 {
     0 0px 1px 1px rgba(255, 255, 255, 0.8);
 }
 
+/* Rounded cards: edge-only glow (no glow in middle) */
+/* Work/Experience cards - same glass design as What I Do */
 .dark-vertion .mh-work .mh-experience-deatils .mh-work-item {
-  -webkit-box-shadow: -1rem 0 3rem #000;
-  box-shadow: -1rem 0 3rem #000;
+  background: var(--glass-fill);
+  backdrop-filter: blur(var(--glass-blur-light));
+  -webkit-backdrop-filter: blur(var(--glass-blur-light));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-glass);
+  transition: transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.dark-vertion .mh-work .mh-experience-deatils .mh-work-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glass-hover);
+  border-color: var(--glass-border-hover);
 }
 
 .dark-vertion .mh-pricing .mh-pricing {
-  -webkit-box-shadow: -1rem 0 3rem #000;
-  box-shadow: -1rem 0 3rem #000;
+  box-shadow: var(--shadow-glass);
+}
+
+.dark-vertion .mh-pricing .mh-pricing:hover {
+  box-shadow: var(--shadow-glass-hover);
 }
 
 .dark-vertion .mh-blog .mh-blog-item {
-  -webkit-box-shadow: -1rem 0 3rem #000;
-  box-shadow: -1rem 0 3rem #000;
+  box-shadow: var(--shadow-glass);
+}
+
+.dark-vertion .mh-blog .mh-blog-item:hover {
+  box-shadow: var(--shadow-glass-hover);
 }
 
 .dark-vertion .mh-footer-address .mh-address-footer-item {
-  -webkit-box-shadow: -1rem 0 3rem #000;
-  box-shadow: -1rem 0 3rem #000;
+  box-shadow: var(--shadow-glass);
 }
 
 .dark-vertion .mh-experince .mh-education-deatils .mh-education-item {
-  -webkit-box-shadow: -1rem 0 3rem #000;
-  box-shadow: -1rem 0 3rem #000;
+  box-shadow: var(--shadow-glass);
 }
 
 .dark-vertion .mh-service .mh-service-item {
-  -webkit-box-shadow: -1rem 0 3rem #000;
-  box-shadow: -1rem 0 3rem #000;
+  box-shadow: var(--shadow-glass);
 }
 
 .dark-vertion .mh-home .hero-img img {
@@ -1530,71 +1585,6 @@ h6 {
        Navigation
     ==============
 */
-.mh-home-2 .mh-header-info {
-  text-align: center;
-  padding-top: 100px;
-}
-
-.mh-home-2 .mh-header-info .hero-img {
-  margin-bottom: 30px;
-}
-
-.mh-home-2 .mh-header-info .hero-img img {
-  border: 0px solid #fff;
-  border-radius: 50%;
-}
-
-.mh-home-2 .mh-header-info h1 {
-  font-size: 50px;
-  font-weight: 600;
-  line-height: 60px;
-  margin-top: 10px;
-  margin-bottom: 0px;
-  opacity: 0.9;
-}
-
-.mh-home-2 .mh-header-info h4 {
-  font-size: 18px;
-  line-height: 30px;
-  margin-bottom: 20px;
-  opacity: 0.9;
-}
-
-.mh-home-2 .mh-header-info p {
-  padding: 0 120px;
-  font-weight: 300;
-}
-
-.mh-home-2 .mh-header-info ul li {
-  margin: 10px 6px;
-}
-
-.mh-home-2 .mh-header-info ul.mh-home-contact {
-  margin-bottom: 15px;
-}
-
-.mh-home-2 .mh-header-info ul.mh-home-contact li {
-  display: inline-block;
-  margin: 10px 15px;
-}
-
-.mh-home-2 .mh-header-info ul.mh-home-contact li .fa {
-  margin-right: 10px;
-}
-
-
-.mh-home-2 .mh-header-info ul.mh-home-contact li:hover .fa-brands {
-  color: #0bceaf;
-}
-
-.mh-home-2 .mh-header-info .mh-about-tag {
-  width: 60%;
-  margin: 0 auto;
-}
-
-.mh-home-2 .mh-header-info .mh-about-tag ul li {
-  margin: 6px;
-}
 
 /*
     ==============
@@ -2095,19 +2085,29 @@ h6 {
 
 .mh-portfolio-modal {
   display: none;
-  background: #282828;
+  min-height: 85vh;
+  width: 100%;
+  max-width: min(1078px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: var(--space-md, 24px);
+  background: var(--glass-fill);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg, 20px);
+  box-shadow: var(--shadow-glass);
+  box-sizing: border-box;
 }
 
 .mh-portfolio-modal-inner {
-  max-height: 500px;
-  overflow-y: scroll;
+  max-height: calc(85vh - 120px);
+  overflow-y: auto;
   margin-right: 20px;
 }
 
 .mh-portfolio-modal-inner::-webkit-scrollbar-track {
-  border: 1px solid #000;
-  padding: 2px 0;
-  background-color: #fff;
+  background: var(--glass-fill);
+  border-radius: var(--radius-sm, 8px);
 }
 
 .mh-portfolio-modal-inner::-webkit-scrollbar {
@@ -2115,9 +2115,12 @@ h6 {
 }
 
 .mh-portfolio-modal-inner::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 10px #000;
-  box-shadow: inset 0 0 10px #000;
+  background: var(--glass-border-hover);
+  border-radius: var(--radius-sm, 8px);
+}
+
+.mh-portfolio-modal-inner::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .mh-portfolio-modal-inner h2 {
@@ -2132,6 +2135,28 @@ h6 {
 
 .mh-portfolio-modal-img img {
   margin-bottom: 20px;
+}
+
+/* Fancybox wrapper: let portfolio modal show at 85vh with glass */
+.fancybox-slide--html .fancybox-content {
+  background: transparent !important;
+  padding: 12px;
+  max-height: 85vh;
+  height: auto;
+  min-height: 0;
+}
+
+.fancybox-slide--html .fancybox-content .mh-portfolio-modal {
+  display: block;
+}
+
+/* Fancybox overlay: match site background instead of black (dark theme) */
+body.dark-vertion .fancybox-bg {
+  background: rgba(10, 14, 28, 0.92) !important;
+}
+
+body.dark-vertion.fancybox-active .fancybox-bg {
+  background: rgba(10, 14, 28, 0.92) !important;
 }
 
 .mix {
@@ -2670,534 +2695,6 @@ h6 {
 }
 
 /*
-===============
-    Mobile Nav
-==============
-*/
-.old {
-  /*==============
-                Overlay            
-      ================== */
-  /*  Navigation Menu */
-}
-
-.old .navbar-collapse {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 320px;
-  left: 0;
-  z-index: 990;
-  margin-top: 0px;
-  padding: 0;
-  background-color: #0bceaf;
-  transform: translateX(-100%) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -o-transform: translateX(-100%) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -ms-transform: translateX(-100%) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -moz-transform: translateX(-100%) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -webkit-transform: translateX(-100%) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -webkit-transition: all 0.4s ease-out;
-  transition: all 0.4s ease-out;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-y: none;
-}
-
-.old .navbar-collapse.show {
-  transform: translateX(0) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -o-transform: translateX(0) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -ms-transform: translateX(0) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -moz-transform: translateX(0) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -webkit-transform: translateX(0) translateY(0) translateZ(0) rotate(0deg) scale(1);
-}
-
-.old .collapse {
-  display: block;
-}
-
-.old .navbar-fixed-bottom .navbar-collapse,
-.old .navbar-fixed-top .navbar-collapse {
-  max-height: inherit;
-}
-
-.old .navbar-header {
-  position: fixed;
-  z-index: 999;
-  width: 100%;
-  margin-top: 0px;
-  left: 0;
-}
-
-.old .navbar-toggler .icon {
-  transform: translateX(-50%) translateY(-50%) translateZ(0) rotate(0deg) scale(1);
-  -o-transform: translateX(-50%) translateY(-50%) translateZ(0) rotate(0deg) scale(1);
-  -ms-transform: translateX(-50%) translateY(-50%) translateZ(0) rotate(0deg) scale(1);
-  -moz-transform: translateX(-50%) translateY(-50%) translateZ(0) rotate(0deg) scale(1);
-  -webkit-transform: translateX(-50%) translateY(-50%) translateZ(0) rotate(0deg) scale(1);
-}
-
-.old .navbar-toggler .icon,
-.old .navbar-toggler .icon::after,
-.old .navbar-toggler .icon::before {
-  width: 22px;
-  height: 2px;
-  position: absolute;
-  background-color: #fff;
-  border-radius: 2px;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.old .navbar-toggler .icon::after,
-.old .navbar-toggler .icon::before {
-  content: "";
-  top: 0;
-  right: 0;
-  -webkit-transition: all 0.6s ease-out;
-  transition: all 0.6s ease-out;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.old .navbar-toggler .icon::after {
-  transform: translateX(0) translateY(6px) translateZ(0) rotate(0deg) scale(1);
-  -o-transform: translateX(0) translateY(6px) translateZ(0) rotate(0deg) scale(1);
-  -ms-transform: translateX(0) translateY(6px) translateZ(0) rotate(0deg) scale(1);
-  -moz-transform: translateX(0) translateY(6px) translateZ(0) rotate(0deg) scale(1);
-  -webkit-transform: translateX(0) translateY(6px) translateZ(0) rotate(0deg) scale(1);
-}
-
-.old .navbar-toggler .icon::before {
-  transform: translateX(0) translateY(-6px) translateZ(0) rotate(0deg) scale(1);
-  -o-transform: translateX(0) translateY(-6px) translateZ(0) rotate(0deg) scale(1);
-  -ms-transform: translateX(0) translateY(-6px) translateZ(0) rotate(0deg) scale(1);
-  -moz-transform: translateX(0) translateY(-6px) translateZ(0) rotate(0deg) scale(1);
-  -webkit-transform: translateX(0) translateY(-6px) translateZ(0) rotate(0deg) scale(1);
-}
-
-.old .navbar-toggler.active .icon::after {
-  transform: translateX(0) translateY(0) translateZ(0) rotate(138deg) scale(1);
-  -o-transform: translateX(0) translateY(0) translateZ(0) rotate(138deg) scale(1);
-  -ms-transform: translateX(0) translateY(0) translateZ(0) rotate(138deg) scale(1);
-  -moz-transform: translateX(0) translateY(0) translateZ(0) rotate(138deg) scale(1);
-  -webkit-transform: translateX(0) translateY(0) translateZ(0) rotate(138deg) scale(1);
-}
-
-.old .navbar-toggler.active .icon::before {
-  transform: translateX(0) translateY(0) translateZ(0) rotate(-135deg) scale(1);
-  -o-transform: translateX(0) translateY(0) translateZ(0) rotate(-135deg) scale(1);
-  -ms-transform: translateX(0) translateY(0) translateZ(0) rotate(-135deg) scale(1);
-  -moz-transform: translateX(0) translateY(0) translateZ(0) rotate(-135deg) scale(1);
-  -webkit-transform: translateX(0) translateY(0) translateZ(0) rotate(-135deg) scale(1);
-}
-
-.old .navbar-toggler.active .icon::after,
-.old .navbar-toggler.active .icon::before {
-  background-color: #fff;
-}
-
-.old .navbar-toggler.active .icon {
-  background-color: transparent;
-}
-
-.old .navbar-toggler:focus {
-  outline: 0 !important;
-}
-
-.old .strict {
-  background-color: rgba(0, 0, 0, 0.9);
-  padding-bottom: 65px;
-}
-
-.old .navbar-toggler {
-  padding: 15px;
-  margin-right: 15px;
-  margin-left: 20%;
-  margin-top: 15px;
-  z-index: 1000;
-  -webkit-transition: all 0.4s ease-out;
-  transition: all 0.4s ease-out;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  display: block;
-}
-
-.old .navbar-header .navbar-toggler .icon-bar {
-  background-color: #0bceaf;
-  -webkit-transition: all 0.4s ease-out;
-  transition: all 0.4s ease-out;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.old .navbar-header .navbar-toggler.active .icon-bar {
-  background-color: #fff;
-}
-
-.old .overlay {
-  position: fixed;
-  display: none;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.4);
-  z-index: 3;
-}
-
-.old .overlay.active {
-  display: block;
-}
-
-.old .navbar-collapse {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 320px;
-  left: 0;
-  z-index: 990;
-  margin-top: 0px;
-  padding: 0;
-  background-color: #0bceaf;
-  transform: translateX(-100%) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -o-transform: translateX(-100%) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -ms-transform: translateX(-100%) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -moz-transform: translateX(-100%) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -webkit-transform: translateX(-100%) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -webkit-transition: all 0.4s ease-out;
-  transition: all 0.4s ease-out;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-y: none;
-}
-
-.old .navbar-collapse .nav {
-  margin-top: 75px;
-  border-top: 1px solid;
-  border-top-color: rgba(255, 255, 255, 0.1);
-  padding: 20px;
-}
-
-.old .navbar-collapse .nav li {
-  text-align: center;
-  margin-bottom: 0px;
-  width: 100%;
-  display: block;
-  -webkit-transition: all 0.4s ease-out;
-  transition: all 0.4s ease-out;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-transform: translate3d(-20px, -10px, 0);
-  transform: translate3d(-20px, -10px, 0);
-}
-
-.old .navbar-collapse .nav li a {
-  background-color: transparent;
-  text-transform: uppercase;
-  font-size: 17px;
-  line-height: 26px;
-}
-
-.old .navbar-collapse .nav li a:hover {
-  color: white !important;
-  background: transparent;
-}
-
-.old .navbar-collapse .nav li a.active {
-  color: #fff;
-}
-
-.old .navbar-collapse .nav li.active {
-  color: #fff;
-}
-
-.old .navbar-collapse.active {
-  transform: translateX(0) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -o-transform: translateX(0) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -ms-transform: translateX(0) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -moz-transform: translateX(0) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -webkit-transform: translateX(0) translateY(0) translateZ(0) rotate(0deg) scale(1);
-}
-
-.old .collapse.in {
-  background-color: rgba(0, 0, 0, 0.9);
-}
-
-.old .navbar-dark .navbar-toggler {
-  border-color: transparent;
-}
-
-.old .navbar-dark .navbar-toggler-icon {
-  background-image: inherit;
-}
-
-.new {
-  z-index: 99;
-  /*-------------------------------*/
-  /*            Overlay            */
-  /*-------------------------------*/
-  /*  Navigation Menu */
-}
-
-.new .nav-btn .navbar-toggler.active {
-  display: none;
-}
-
-.new .navbar-collapse {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 320px;
-  left: 0;
-  z-index: 990;
-  margin-top: 0px;
-  padding: 0;
-  background-color: #0bceaf;
-  transform: translateX(-100%) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -o-transform: translateX(-100%) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -ms-transform: translateX(-100%) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -moz-transform: translateX(-100%) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -webkit-transform: translateX(-100%) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -webkit-transition: all 0.4s ease-out;
-  transition: all 0.4s ease-out;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-y: none;
-}
-
-.new .navbar-collapse.active {
-  transform: translateX(0) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -o-transform: translateX(0) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -ms-transform: translateX(0) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -moz-transform: translateX(0) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -webkit-transform: translateX(0) translateY(0) translateZ(0) rotate(0deg) scale(1);
-}
-
-.new .collapse {
-  display: block;
-}
-
-.new .navbar-fixed-bottom .navbar-collapse,
-.new .navbar-fixed-top .navbar-collapse {
-  max-height: inherit;
-}
-
-.new .navbar-header {
-  position: fixed;
-  z-index: 999;
-  width: 100%;
-  margin-top: 0px;
-  left: 0;
-}
-
-.new .navbar-toggler .icon {
-  transform: translateX(-50%) translateY(-50%) translateZ(0) rotate(0deg) scale(1);
-  -o-transform: translateX(-50%) translateY(-50%) translateZ(0) rotate(0deg) scale(1);
-  -ms-transform: translateX(-50%) translateY(-50%) translateZ(0) rotate(0deg) scale(1);
-  -moz-transform: translateX(-50%) translateY(-50%) translateZ(0) rotate(0deg) scale(1);
-  -webkit-transform: translateX(-50%) translateY(-50%) translateZ(0) rotate(0deg) scale(1);
-}
-
-.new .navbar-toggler .icon,
-.new .navbar-toggler .icon::after,
-.new .navbar-toggler .icon::before {
-  width: 22px;
-  height: 2px;
-  position: absolute;
-  background-color: #fff;
-  border-radius: 2px;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.new .navbar-toggler .icon::after,
-.new .navbar-toggler .icon::before {
-  content: "";
-  top: 0;
-  right: 0;
-  -webkit-transition: all 0.6s ease-out;
-  transition: all 0.6s ease-out;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.new .navbar-toggler .icon::after {
-  transform: translateX(0) translateY(6px) translateZ(0) rotate(0deg) scale(1);
-  -o-transform: translateX(0) translateY(6px) translateZ(0) rotate(0deg) scale(1);
-  -ms-transform: translateX(0) translateY(6px) translateZ(0) rotate(0deg) scale(1);
-  -moz-transform: translateX(0) translateY(6px) translateZ(0) rotate(0deg) scale(1);
-  -webkit-transform: translateX(0) translateY(6px) translateZ(0) rotate(0deg) scale(1);
-}
-
-.new .navbar-toggler .icon::before {
-  transform: translateX(0) translateY(-6px) translateZ(0) rotate(0deg) scale(1);
-  -o-transform: translateX(0) translateY(-6px) translateZ(0) rotate(0deg) scale(1);
-  -ms-transform: translateX(0) translateY(-6px) translateZ(0) rotate(0deg) scale(1);
-  -moz-transform: translateX(0) translateY(-6px) translateZ(0) rotate(0deg) scale(1);
-  -webkit-transform: translateX(0) translateY(-6px) translateZ(0) rotate(0deg) scale(1);
-}
-
-.new .navbar-toggler.active .icon::after {
-  transform: translateX(0) translateY(0) translateZ(0) rotate(138deg) scale(1);
-  -o-transform: translateX(0) translateY(0) translateZ(0) rotate(138deg) scale(1);
-  -ms-transform: translateX(0) translateY(0) translateZ(0) rotate(138deg) scale(1);
-  -moz-transform: translateX(0) translateY(0) translateZ(0) rotate(138deg) scale(1);
-  -webkit-transform: translateX(0) translateY(0) translateZ(0) rotate(138deg) scale(1);
-}
-
-.new .navbar-toggler.active .icon::before {
-  transform: translateX(0) translateY(0) translateZ(0) rotate(-135deg) scale(1);
-  -o-transform: translateX(0) translateY(0) translateZ(0) rotate(-135deg) scale(1);
-  -ms-transform: translateX(0) translateY(0) translateZ(0) rotate(-135deg) scale(1);
-  -moz-transform: translateX(0) translateY(0) translateZ(0) rotate(-135deg) scale(1);
-  -webkit-transform: translateX(0) translateY(0) translateZ(0) rotate(-135deg) scale(1);
-}
-
-.new .navbar-toggler.active .icon::after,
-.new .navbar-toggler.active .icon::before {
-  background-color: #fff;
-}
-
-.new .navbar-toggler.active .icon {
-  background-color: transparent;
-}
-
-.new .navbar-toggler:focus {
-  outline: 0 !important;
-}
-
-.new .strict {
-  background-color: rgba(0, 0, 0, 0.9);
-  padding-bottom: 65px;
-}
-
-.new .navbar-toggler {
-  padding: 15px;
-  margin-right: 15px;
-  margin-left: 20%;
-  margin-top: 15px;
-  z-index: 1000;
-  -webkit-transition: all 0.4s ease-out;
-  transition: all 0.4s ease-out;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  display: block;
-}
-
-.new .navbar-header .navbar-toggler .icon-bar {
-  background-color: #0bceaf;
-  -webkit-transition: all 0.4s ease-out;
-  transition: all 0.4s ease-out;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.new .navbar-header .navbar-toggler.active .icon-bar {
-  background-color: #fff;
-}
-
-.new .overlay {
-  position: fixed;
-  display: none;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 3;
-}
-
-.new .overlay.active {
-  display: block;
-}
-
-.new .navbar-collapse {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 320px;
-  left: 0;
-  z-index: 990;
-  margin-top: 0px;
-  padding: 0;
-  background-color: #0bceaf;
-  transform: translateX(-100%) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -o-transform: translateX(-100%) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -ms-transform: translateX(-100%) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -moz-transform: translateX(-100%) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -webkit-transform: translateX(-100%) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -webkit-transition: all 0.4s ease-out;
-  transition: all 0.4s ease-out;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-y: none;
-}
-
-.new .navbar-collapse .nav {
-  margin-top: 75px;
-  border-top: 1px solid;
-  border-top-color: rgba(255, 255, 255, 0.1);
-  padding: 20px;
-}
-
-.new .navbar-collapse .nav li {
-  text-align: center;
-  margin-bottom: 0px;
-  width: 100%;
-  display: block;
-  -webkit-transition: all 0.4s ease-out;
-  transition: all 0.4s ease-out;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-transform: translate3d(-20px, -10px, 0);
-  transform: translate3d(-20px, -10px, 0);
-}
-
-.new .navbar-collapse .nav li a {
-  background-color: transparent;
-  text-transform: uppercase;
-  font-size: 17px;
-  line-height: 26px;
-}
-
-.new .navbar-collapse .nav li a:hover {
-  color: white !important;
-  background: transparent;
-}
-
-.new .navbar-collapse .nav li a.active {
-  color: #fff;
-}
-
-.new .navbar-collapse .nav li.active {
-  color: #fff;
-}
-
-.new .navbar-collapse.active {
-  transform: translateX(0) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -o-transform: translateX(0) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -ms-transform: translateX(0) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -moz-transform: translateX(0) translateY(0) translateZ(0) rotate(0deg) scale(1);
-  -webkit-transform: translateX(0) translateY(0) translateZ(0) rotate(0deg) scale(1);
-}
-
-.new .collapse.in {
-  background-color: rgba(0, 0, 0, 0.9);
-}
-
-.new .navbar-dark .navbar-toggler {
-  border-color: transparent;
-}
-
-.new .navbar-dark .navbar-toggler-icon {
-  background-image: inherit;
-}
-
-/*
 ====================
    PORTFOLIO
 ===================
@@ -3220,10 +2717,6 @@ h6 {
 .portfolio-nav ul li span {
   padding: 15px 0;
   border-bottom: 2px solid transparent;
-}
-
-.portfolio-nav ul li.current span {
-  border-bottom: 2px solid #0bceaf;
 }
 
 .mh-project-gallery .grid-item figure {
@@ -4133,12 +3626,481 @@ BLOG Pagination
   padding: 5px;
 }
 
+.expanded-images .image-column-full {
+  width: 100%;
+  clear: both;
+}
+
 .expanded-images img {
   max-width: 100%;
   max-height: 100%;
   margin-bottom: 10px;
 }
 
+/* Citation box: match glass card design inside education/experience */
+.citation-box {
+  background: var(--glass-fill);
+  backdrop-filter: blur(var(--glass-blur-light));
+  -webkit-backdrop-filter: blur(var(--glass-blur-light));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-glass);
+  padding: 1rem 1.25rem;
+  margin: 0.5rem 0 1rem;
+}
 
+.citation-box pre {
+  margin: 0;
+  background: none;
+  border: none;
+}
+
+.citation-box code,
+.citation-box code *,
+.citation-box .token {
+  color: #fff !important;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/*
+================================================================================
+  GLASS UI ENHANCEMENTS
+  Selective glassmorphism for premium, professional appearance
+  Uses design tokens from glass-theme.css
+================================================================================
+*/
+
+/* ============================================
+   FLOATING GLASS NAVIGATION
+   Fixed: Removed transform jump, uses margin auto instead
+   ============================================ */
+.dark-vertion .mh-header {
+  position: fixed;
+  top: 20px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  max-width: 900px;
+  padding: 12px 32px;
+  background: var(--glass-fill);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-glass);
+  z-index: 1000;
+}
+
+.dark-vertion .mh-header.nav-strict {
+  padding: 10px 28px;
+  background: var(--glass-fill-hover);
+  top: 10px;
+}
+
+.dark-vertion .mh-header .navbar-nav li {
+  margin: 0 16px;
+}
+
+/* Fixed: Remove original border-bottom underline to prevent double underline */
+.dark-vertion .mh-header .navbar-nav li a {
+  color: var(--text-secondary);
+  font-size: 15px;
+  font-weight: 500;
+  border-bottom: none !important;
+  position: relative;
+}
+
+/* Override the white border on active state */
+.dark-vertion .mh-header .navbar-nav li.active a {
+  border-color: transparent !important;
+  border-bottom: none !important;
+}
+
+/* Single underline using ::after pseudo-element */
+.dark-vertion .mh-header .navbar-nav li a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width var(--transition-base);
+}
+
+.dark-vertion .mh-header .navbar-nav li a:hover,
+.dark-vertion .mh-header .navbar-nav li.active a {
+  color: var(--text-primary);
+}
+
+.dark-vertion .mh-header .navbar-nav li a:hover::after,
+.dark-vertion .mh-header .navbar-nav li.active a::after {
+  width: 100%;
+}
+
+/* Blog page: force same nav size as main (height, width, font) – desktop only */
+@media (min-width: 992px) {
+  body.dark-vertion.blog-page .mh-header {
+    padding: 12px 32px !important;
+    max-width: 900px !important;
+    width: fit-content !important;
+  }
+
+  body.dark-vertion.blog-page .mh-header.nav-strict {
+    padding: 12px 28px !important;
+  }
+
+  body.dark-vertion.blog-page .mh-header .navbar-nav li {
+    margin: 0 16px !important;
+  }
+
+  body.dark-vertion.blog-page .mh-header .navbar-nav li a,
+  body.dark-vertion.blog-page .mh-header .navbar-nav .nav-link {
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    line-height: 1.5 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  body.dark-vertion.blog-page .mh-header .navbar,
+  body.dark-vertion.blog-page .mh-header .navbar-collapse {
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+  }
+
+  body.dark-vertion.blog-page .mh-header .container {
+    max-width: 100% !important;
+  }
+}
+
+/* ============================================
+   HERO SECTION ENHANCEMENTS
+   ============================================ */
+/* Bottom-align row so image bottom lines up with social icons */
+.dark-vertion .mh-home .row.vertical-middle-content {
+  align-items: flex-end;
+}
+
+/* Profile image: smaller size, aligned with left section */
+.dark-vertion .mh-home .img-border {
+  width: 320px;
+  height: 320px;
+  border: 3px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 0 60px var(--glow-primary),
+    0 0 100px rgba(11, 206, 175, 0.08),
+    inset 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.dark-vertion .mh-home .hero-img {
+  margin-top: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+@media (max-width: 767px) {
+  .dark-vertion .mh-home .row.vertical-middle-content {
+    align-items: center;
+  }
+  .dark-vertion .mh-home .hero-img {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.dark-vertion .mh-home .hero-img img {
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* Hero promo badge as glass chip with subtle glow */
+.dark-vertion .mh-home .mh-header-info .mh-promo span {
+  background: var(--glass-fill);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-edge-glow);
+  color: var(--accent);
+}
+
+/* Social icons - keep original style, add glow on hover only */
+.dark-vertion .mh-home .mh-header-info .social-icon li a {
+  transition: all var(--transition-base);
+}
+
+.dark-vertion .mh-home .mh-header-info .social-icon li a:hover {
+  color: var(--accent);
+  text-shadow: 0 0 20px var(--glow-primary), 0 0 40px var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   SERVICE CARDS (What I Do)
+   Glass cards with hover lift
+   ============================================ */
+.dark-vertion .mh-service .mh-service-item {
+  background: var(--glass-fill);
+  backdrop-filter: blur(var(--glass-blur-light));
+  -webkit-backdrop-filter: blur(var(--glass-blur-light));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-glass);
+  transition: transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.dark-vertion .mh-service .mh-service-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glass-hover);
+  border-color: var(--glass-border-hover);
+}
+
+/* ============================================
+   SKILL TAGS AS GLASS PILLS
+   ============================================ */
+.dark-vertion .mh-about-tag ul li span {
+  background: var(--glass-fill);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--glass-edge-glow);
+  padding: 6px 14px;
+  transition: all var(--transition-base);
+}
+
+.dark-vertion .mh-about-tag ul li span:hover {
+  background: var(--glass-fill-hover);
+  border-color: var(--accent);
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+/* ============================================
+   PORTFOLIO SECTION
+   Filter chips and project cards
+   ============================================ */
+/* Filter tabs as glass chips with subtle glow */
+.dark-vertion .portfolio-nav ul li {
+  background: var(--glass-fill);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--glass-edge-glow);
+  padding: 8px 20px;
+  transition: all var(--transition-base);
+  color: var(--text-secondary);
+}
+
+.dark-vertion .portfolio-nav ul li:hover {
+  background: var(--glass-fill-hover);
+  border-color: var(--glass-border-hover);
+  color: var(--text-primary) !important;
+}
+
+.dark-vertion .portfolio-nav ul li.current,
+.dark-vertion .portfolio-nav ul li.active {
+  background: var(--glass-fill-active);
+  border-color: var(--accent);
+  box-shadow: var(--glass-edge-glow-focus);
+  color: var(--accent) !important;
+}
+
+/* Project cards as restrained glass tiles with edge glow */
+.dark-vertion .mh-project-gallery .grid-item figure {
+  background: var(--glass-fill);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-glass);
+  overflow: hidden;
+  transition: transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.dark-vertion .mh-project-gallery .grid-item figure:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glass-hover);
+  border-color: var(--glass-border-hover);
+}
+
+.dark-vertion .mh-project-gallery .grid-item figure img {
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+/* ============================================
+   CONTACT SECTION
+   Form inputs with glass styling
+   ============================================ */
+.dark-vertion .mh-footer .form-control,
+.dark-vertion .mh-footer .contact-message {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--glass-edge-glow);
+  color: var(--text-primary);
+  transition: all var(--transition-base);
+}
+
+.dark-vertion .mh-footer .form-control:focus,
+.dark-vertion .mh-footer .contact-message:focus {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--accent);
+  box-shadow: var(--glass-edge-glow-focus);
+  outline: none;
+}
+
+.dark-vertion .mh-footer .form-control::placeholder,
+.dark-vertion .mh-footer .contact-message::placeholder {
+  color: var(--text-muted);
+}
+
+/* Contact info cards as glass with edge glow */
+.dark-vertion .mh-footer-address .mh-address-footer-item {
+  background: var(--glass-fill);
+  backdrop-filter: blur(var(--glass-blur-light));
+  -webkit-backdrop-filter: blur(var(--glass-blur-light));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-glass);
+}
+
+/* CTA button emphasis */
+.dark-vertion .mh-footer .btn-fill,
+.dark-vertion .btn-fill {
+  background: var(--accent-gradient);
+  border: none;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 20px var(--accent-glow);
+  transition: all var(--transition-base);
+}
+
+.dark-vertion .mh-footer .btn-fill:hover,
+.dark-vertion .btn-fill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px var(--glow-primary-strong);
+}
+
+/* ============================================
+   KEEP TEXT-HEAVY SECTIONS CLEAN
+   Education & Experience - minimal styling
+   ============================================ */
+/* Experience cards - same glass design as What I Do */
+.dark-vertion .mh-experince .mh-education-deatils .mh-education-item {
+  background: var(--glass-fill);
+  backdrop-filter: blur(var(--glass-blur-light));
+  -webkit-backdrop-filter: blur(var(--glass-blur-light));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-glass);
+  transition: transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.dark-vertion .mh-experince .mh-education-deatils .mh-education-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glass-hover);
+  border-color: var(--glass-border-hover);
+}
+
+/* Education cards - same glass design as What I Do */
+.dark-vertion .mh-education .mh-education-deatils .mh-education-item {
+  background: var(--glass-fill);
+  backdrop-filter: blur(var(--glass-blur-light));
+  -webkit-backdrop-filter: blur(var(--glass-blur-light));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-glass);
+  transition: transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.dark-vertion .mh-education .mh-education-deatils .mh-education-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glass-hover);
+  border-color: var(--glass-border-hover);
+}
+
+/* Blog page post cards – same glass design + edge glow (medium.html) */
+.dark-vertion #post-container {
+  background: var(--glass-fill);
+  backdrop-filter: blur(var(--glass-blur-light));
+  -webkit-backdrop-filter: blur(var(--glass-blur-light));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-glass);
+  transition: transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.dark-vertion #post-container:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glass-hover);
+  border-color: var(--glass-border-hover);
+}
+
+/* ============================================
+   RESPONSIVE - FIXED MOBILE NAVBAR
+   Restore original mobile behavior
+   ============================================ */
+@media (max-width: 991px) {
+
+  /* Reset glass nav to original behavior on mobile */
+  .dark-vertion .mh-header {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    padding: 10px 15px;
+    border: none;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
+  }
+
+  /* Let the mobile nav overlay work as before */
+  .dark-vertion .mh-header .navbar-nav li a {
+    border-bottom: none !important;
+  }
+
+  .dark-vertion .mh-header .navbar-nav li a::after {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .dark-vertion .mh-header .navbar-nav li {
+    margin: 8px 0;
+  }
+
+  .dark-vertion .mh-service .mh-service-item,
+  .dark-vertion .mh-experince .mh-education-deatils .mh-education-item,
+  .dark-vertion .mh-education .mh-education-deatils .mh-education-item,
+  .dark-vertion .mh-work .mh-experience-deatils .mh-work-item {
+    backdrop-filter: blur(6px);
+  }
+
+  .dark-vertion .portfolio-nav ul li {
+    margin: 5px;
+    padding: 6px 14px;
+    font-size: 13px;
+  }
+}
 
 /*# sourceMappingURL=styles.css.map */

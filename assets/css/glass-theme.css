@@ -1,0 +1,191 @@
+/*
+================================================================================
+  GLASS THEME - Design Tokens for Selective Glassmorphism
+================================================================================
+  
+  This file contains all CSS custom properties for the glass UI system.
+  Modify these values to quickly tune glass intensity and colors.
+
+  Usage:
+  - Lighter glass: decrease --glass-fill opacity, decrease --glass-blur
+  - Heavier glass: increase --glass-fill opacity, increase --glass-blur
+  - Warmer glow: shift accent toward yellow/orange hues
+  - Cooler glow: shift accent toward blue/cyan hues
+
+================================================================================
+*/
+
+:root {
+    /* ============================================
+     BACKGROUND LEVELS
+     ============================================ */
+    --bg-base: #100e17;
+    --bg-elevated: #1a1820;
+    --bg-card: #202026;
+    --bg-surface: #252530;
+    /* Modern deep blue gradient (reference: navy top-left → lighter blue bottom-right) */
+    --bg-gradient: linear-gradient(145deg, #0a0e1c 0%, #0c1222 20%, #0f1729 40%, #131f38 60%, #1a2845 80%, #1e2d4e 100%);
+    /* Bokeh: soft light orbs + faint specks for depth */
+    --bg-gradient-bokeh: radial-gradient(ellipse 120% 100% at 10% 15%, rgba(11, 206, 175, 0.06) 0%, transparent 45%),
+        radial-gradient(ellipse 100% 80% at 88% 85%, rgba(100, 160, 255, 0.05) 0%, transparent 45%),
+        radial-gradient(2px 2px at 15% 25%, rgba(255, 255, 255, 0.08) 0%, transparent 100%),
+        radial-gradient(2px 2px at 75% 35%, rgba(255, 255, 255, 0.06) 0%, transparent 100%),
+        radial-gradient(2px 2px at 50% 70%, rgba(255, 255, 255, 0.05) 0%, transparent 100%);
+
+    /* ============================================
+     GLASS PROPERTIES
+     Adjust these to tune glass intensity
+     ============================================ */
+    --glass-fill: rgba(255, 255, 255, 0.04);
+    --glass-fill-hover: rgba(255, 255, 255, 0.07);
+    --glass-fill-active: rgba(255, 255, 255, 0.10);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-border-hover: rgba(255, 255, 255, 0.12);
+    --glass-blur: 12px;
+    --glass-blur-light: 8px;
+    --glass-blur-heavy: 20px;
+
+    /* ============================================
+     SHADOWS & GLOWS
+     Edge-only glow (rim of card, no glow in middle).
+     To change glow color: replace rgba(11, 206, 175, …) everywhere below.
+     Current glow color: teal/cyan = rgba(11, 206, 175, opacity) ≈ #0bceaf
+     ============================================ */
+
+    /* Cards (What I Do, Education, Experience, Portfolio, etc.) */
+    --shadow-glass:
+        0 8px 32px rgba(0, 0, 0, 0.35),                    /* drop shadow only */
+        0 0 0 1px rgba(11, 206, 175, 0.15),                /* ← GLOW: 1px teal ring on card edge */
+        0 0 12px 0 rgba(11, 206, 175, 0.1);                /* ← GLOW: soft teal halo outside card (12px blur) */
+    --shadow-glass-hover:
+        0 12px 40px rgba(0, 0, 0, 0.45),
+        0 0 0 1px rgba(11, 206, 175, 0.22),               /* ← GLOW: stronger teal ring on hover */
+        0 0 14px 0 rgba(11, 206, 175, 0.15);               /* ← GLOW: stronger teal halo on hover */
+    --shadow-subtle: 0 4px 16px rgba(0, 0, 0, 0.25);
+    --glow-primary: rgba(11, 206, 175, 0.15);
+    --glow-primary-strong: rgba(11, 206, 175, 0.25);
+
+    /* Chips, inputs, pills – same teal glow, smaller blur */
+    --glass-edge-glow:
+        0 0 0 1px rgba(11, 206, 175, 0.15),               /* ← GLOW: 1px teal outline */
+        0 0 8px 0 rgba(11, 206, 175, 0.08);                /* ← GLOW: teal halo outside (8px blur) */
+    --glass-edge-glow-focus:
+        0 0 0 1px rgba(11, 206, 175, 0.28),               /* ← GLOW: brighter teal ring when focused */
+        0 0 10px 0 rgba(11, 206, 175, 0.15);               /* ← GLOW: teal halo on focus */
+
+    /* ============================================
+     ACCENT COLORS
+     ============================================ */
+    --accent: #0bceaf;
+    --accent-hover: #0ab69a;
+    --accent-glow: rgba(11, 206, 175, 0.20);
+    --accent-gradient: linear-gradient(135deg, #0bceaf 0%, #0ab69a 100%);
+
+    /* ============================================
+     TEXT COLORS
+     ============================================ */
+    --text-primary: rgba(255, 255, 255, 0.95);
+    --text-secondary: rgba(255, 255, 255, 0.75);
+    --text-muted: rgba(255, 255, 255, 0.55);
+
+    /* ============================================
+     RADIUS SCALE
+     ============================================ */
+    --radius-xs: 4px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+    --radius-pill: 50px;
+    --radius-circle: 50%;
+
+    /* ============================================
+     SPACING SCALE
+     ============================================ */
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 40px;
+    --space-xl: 60px;
+
+    /* ============================================
+     TRANSITIONS
+     ============================================ */
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+/* ============================================
+   BACKDROP-FILTER FALLBACK
+   For browsers that don't support backdrop-filter
+   ============================================ */
+@supports not (backdrop-filter: blur(12px)) {
+    :root {
+        --glass-fill: rgba(32, 32, 38, 0.95);
+        --glass-fill-hover: rgba(40, 40, 48, 0.95);
+    }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+/* Base glass panel */
+.glass-panel {
+    background: var(--glass-fill);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+}
+
+/* Light glass (for smaller elements) */
+.glass-light {
+    background: var(--glass-fill);
+    backdrop-filter: blur(var(--glass-blur-light));
+    -webkit-backdrop-filter: blur(var(--glass-blur-light));
+    border: 1px solid var(--glass-border);
+}
+
+/* Glass chip (for tags, pills) */
+.glass-chip {
+    background: var(--glass-fill);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-pill);
+    transition: all var(--transition-base);
+}
+
+.glass-chip:hover {
+    background: var(--glass-fill-hover);
+    border-color: var(--glass-border-hover);
+}
+
+/* Glass card with hover */
+.glass-card {
+    background: var(--glass-fill);
+    backdrop-filter: blur(var(--glass-blur-light));
+    -webkit-backdrop-filter: blur(var(--glass-blur-light));
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    transition: transform var(--transition-base),
+        box-shadow var(--transition-base),
+        border-color var(--transition-base);
+}
+
+.glass-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glass-hover);
+    border-color: var(--glass-border-hover);
+}
+
+/* Accent glow effect */
+.glow-accent {
+    box-shadow: 0 0 30px var(--accent-glow);
+}
+
+.glow-accent-strong {
+    box-shadow: 0 0 40px var(--glow-primary-strong);
+}
