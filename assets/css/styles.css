@@ -1120,12 +1120,44 @@ h6 {
   opacity: 0.9;
 }
 
+/* Full-page modern blue gradient so html is covered when body has dark theme */
+html:has(body.dark-vertion.black-bg) {
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  min-height: 100%;
+}
+
 .dark-vertion.black-bg {
-  background-color: #100e17;
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* Bokeh overlay: soft orbs + light specks (sitting on top of gradient) */
+.dark-vertion.black-bg::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: var(--bg-gradient-bokeh);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  z-index: 0;
+}
+
+/* Give content stacking above bokeh; exclude header so it keeps position:fixed */
+.dark-vertion.black-bg > *:not(.fancybox-container):not(header) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Keep fixed nav above other content and preserve its fixed positioning */
+.dark-vertion.black-bg > header.mh-header {
+  z-index: 1000;
 }
 
 .dark-vertion .section-loader {
-  background: #100e17;
+  background: var(--bg-gradient);
 }
 
 .dark-vertion ::-webkit-input-placeholder {
@@ -1290,34 +1322,52 @@ h6 {
     0 0px 1px 1px rgba(255, 255, 255, 0.8);
 }
 
+/* Rounded cards: edge-only glow (no glow in middle) */
+/* Work/Experience cards - same glass design as What I Do */
 .dark-vertion .mh-work .mh-experience-deatils .mh-work-item {
-  -webkit-box-shadow: -1rem 0 3rem #000;
-  box-shadow: -1rem 0 3rem #000;
+  background: var(--glass-fill);
+  backdrop-filter: blur(var(--glass-blur-light));
+  -webkit-backdrop-filter: blur(var(--glass-blur-light));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-glass);
+  transition: transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.dark-vertion .mh-work .mh-experience-deatils .mh-work-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glass-hover);
+  border-color: var(--glass-border-hover);
 }
 
 .dark-vertion .mh-pricing .mh-pricing {
-  -webkit-box-shadow: -1rem 0 3rem #000;
-  box-shadow: -1rem 0 3rem #000;
+  box-shadow: var(--shadow-glass);
+}
+
+.dark-vertion .mh-pricing .mh-pricing:hover {
+  box-shadow: var(--shadow-glass-hover);
 }
 
 .dark-vertion .mh-blog .mh-blog-item {
-  -webkit-box-shadow: -1rem 0 3rem #000;
-  box-shadow: -1rem 0 3rem #000;
+  box-shadow: var(--shadow-glass);
+}
+
+.dark-vertion .mh-blog .mh-blog-item:hover {
+  box-shadow: var(--shadow-glass-hover);
 }
 
 .dark-vertion .mh-footer-address .mh-address-footer-item {
-  -webkit-box-shadow: -1rem 0 3rem #000;
-  box-shadow: -1rem 0 3rem #000;
+  box-shadow: var(--shadow-glass);
 }
 
 .dark-vertion .mh-experince .mh-education-deatils .mh-education-item {
-  -webkit-box-shadow: -1rem 0 3rem #000;
-  box-shadow: -1rem 0 3rem #000;
+  box-shadow: var(--shadow-glass);
 }
 
 .dark-vertion .mh-service .mh-service-item {
-  -webkit-box-shadow: -1rem 0 3rem #000;
-  box-shadow: -1rem 0 3rem #000;
+  box-shadow: var(--shadow-glass);
 }
 
 .dark-vertion .mh-home .hero-img img {
@@ -4263,12 +4313,13 @@ BLOG Pagination
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
 }
 
-/* Hero promo badge as glass chip */
+/* Hero promo badge as glass chip with subtle glow */
 .dark-vertion .mh-home .mh-header-info .mh-promo span {
   background: var(--glass-fill);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-edge-glow);
   color: var(--accent);
 }
 
@@ -4293,7 +4344,7 @@ BLOG Pagination
   -webkit-backdrop-filter: blur(var(--glass-blur-light));
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-subtle);
+  box-shadow: var(--shadow-glass);
   transition: transform var(--transition-base),
     box-shadow var(--transition-base),
     border-color var(--transition-base);
@@ -4314,6 +4365,7 @@ BLOG Pagination
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-pill);
+  box-shadow: var(--glass-edge-glow);
   padding: 6px 14px;
   transition: all var(--transition-base);
 }
@@ -4328,13 +4380,14 @@ BLOG Pagination
    PORTFOLIO SECTION
    Filter chips and project cards
    ============================================ */
-/* Filter tabs as glass chips - no underline */
+/* Filter tabs as glass chips with subtle glow */
 .dark-vertion .portfolio-nav ul li {
   background: var(--glass-fill);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-pill);
+  box-shadow: var(--glass-edge-glow);
   padding: 8px 20px;
   transition: all var(--transition-base);
   color: var(--text-secondary);
@@ -4350,16 +4403,18 @@ BLOG Pagination
 .dark-vertion .portfolio-nav ul li.active {
   background: var(--glass-fill-active);
   border-color: var(--accent);
+  box-shadow: var(--glass-edge-glow-focus);
   color: var(--accent) !important;
 }
 
-/* Project cards as restrained glass tiles */
+/* Project cards as restrained glass tiles with edge glow */
 .dark-vertion .mh-project-gallery .grid-item figure {
   background: var(--glass-fill);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-md);
+  box-shadow: var(--shadow-glass);
   overflow: hidden;
   transition: transform var(--transition-base),
     box-shadow var(--transition-base),
@@ -4368,7 +4423,7 @@ BLOG Pagination
 
 .dark-vertion .mh-project-gallery .grid-item figure:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-glass);
+  box-shadow: var(--shadow-glass-hover);
   border-color: var(--glass-border-hover);
 }
 
@@ -4385,6 +4440,7 @@ BLOG Pagination
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-sm);
+  box-shadow: var(--glass-edge-glow);
   color: var(--text-primary);
   transition: all var(--transition-base);
 }
@@ -4393,7 +4449,7 @@ BLOG Pagination
 .dark-vertion .mh-footer .contact-message:focus {
   background: rgba(255, 255, 255, 0.05);
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-glow);
+  box-shadow: var(--glass-edge-glow-focus);
   outline: none;
 }
 
@@ -4402,14 +4458,14 @@ BLOG Pagination
   color: var(--text-muted);
 }
 
-/* Contact info cards as glass */
+/* Contact info cards as glass with edge glow */
 .dark-vertion .mh-footer-address .mh-address-footer-item {
   background: var(--glass-fill);
   backdrop-filter: blur(var(--glass-blur-light));
   -webkit-backdrop-filter: blur(var(--glass-blur-light));
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-subtle);
+  box-shadow: var(--shadow-glass);
 }
 
 /* CTA button emphasis */
@@ -4432,18 +4488,42 @@ BLOG Pagination
    KEEP TEXT-HEAVY SECTIONS CLEAN
    Education & Experience - minimal styling
    ============================================ */
+/* Experience cards - same glass design as What I Do */
 .dark-vertion .mh-experince .mh-education-deatils .mh-education-item {
-  background: var(--bg-elevated);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--glass-fill);
+  backdrop-filter: blur(var(--glass-blur-light));
+  -webkit-backdrop-filter: blur(var(--glass-blur-light));
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-subtle);
+  box-shadow: var(--shadow-glass);
+  transition: transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
 }
 
-/* Education cards - clean dark background */
+.dark-vertion .mh-experince .mh-education-deatils .mh-education-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glass-hover);
+  border-color: var(--glass-border-hover);
+}
+
+/* Education cards - same glass design as What I Do */
 .dark-vertion .mh-education .mh-education-deatils .mh-education-item {
-  background: var(--bg-elevated);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--glass-fill);
+  backdrop-filter: blur(var(--glass-blur-light));
+  -webkit-backdrop-filter: blur(var(--glass-blur-light));
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-md);
+  box-shadow: var(--shadow-glass);
+  transition: transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.dark-vertion .mh-education .mh-education-deatils .mh-education-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glass-hover);
+  border-color: var(--glass-border-hover);
 }
 
 /* ============================================
@@ -4485,7 +4565,10 @@ BLOG Pagination
     margin: 8px 0;
   }
 
-  .dark-vertion .mh-service .mh-service-item {
+  .dark-vertion .mh-service .mh-service-item,
+  .dark-vertion .mh-experince .mh-education-deatils .mh-education-item,
+  .dark-vertion .mh-education .mh-education-deatils .mh-education-item,
+  .dark-vertion .mh-work .mh-experience-deatils .mh-work-item {
     backdrop-filter: blur(6px);
   }
 

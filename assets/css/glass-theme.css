@@ -23,6 +23,14 @@
     --bg-elevated: #1a1820;
     --bg-card: #202026;
     --bg-surface: #252530;
+    /* Modern deep blue gradient (reference: navy top-left → lighter blue bottom-right) */
+    --bg-gradient: linear-gradient(145deg, #0a0e1c 0%, #0c1222 20%, #0f1729 40%, #131f38 60%, #1a2845 80%, #1e2d4e 100%);
+    /* Bokeh: soft light orbs + faint specks for depth */
+    --bg-gradient-bokeh: radial-gradient(ellipse 120% 100% at 10% 15%, rgba(11, 206, 175, 0.06) 0%, transparent 45%),
+        radial-gradient(ellipse 100% 80% at 88% 85%, rgba(100, 160, 255, 0.05) 0%, transparent 45%),
+        radial-gradient(2px 2px at 15% 25%, rgba(255, 255, 255, 0.08) 0%, transparent 100%),
+        radial-gradient(2px 2px at 75% 35%, rgba(255, 255, 255, 0.06) 0%, transparent 100%),
+        radial-gradient(2px 2px at 50% 70%, rgba(255, 255, 255, 0.05) 0%, transparent 100%);
 
     /* ============================================
      GLASS PROPERTIES
@@ -39,12 +47,31 @@
 
     /* ============================================
      SHADOWS & GLOWS
+     Edge-only glow (rim of card, no glow in middle).
+     To change glow color: replace rgba(11, 206, 175, …) everywhere below.
+     Current glow color: teal/cyan = rgba(11, 206, 175, opacity) ≈ #0bceaf
      ============================================ */
-    --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.35);
-    --shadow-glass-hover: 0 12px 40px rgba(0, 0, 0, 0.45);
+
+    /* Cards (What I Do, Education, Experience, Portfolio, etc.) */
+    --shadow-glass:
+        0 8px 32px rgba(0, 0, 0, 0.35),                    /* drop shadow only */
+        0 0 0 1px rgba(11, 206, 175, 0.15),                /* ← GLOW: 1px teal ring on card edge */
+        0 0 12px 0 rgba(11, 206, 175, 0.1);                /* ← GLOW: soft teal halo outside card (12px blur) */
+    --shadow-glass-hover:
+        0 12px 40px rgba(0, 0, 0, 0.45),
+        0 0 0 1px rgba(11, 206, 175, 0.22),               /* ← GLOW: stronger teal ring on hover */
+        0 0 14px 0 rgba(11, 206, 175, 0.15);               /* ← GLOW: stronger teal halo on hover */
     --shadow-subtle: 0 4px 16px rgba(0, 0, 0, 0.25);
     --glow-primary: rgba(11, 206, 175, 0.15);
     --glow-primary-strong: rgba(11, 206, 175, 0.25);
+
+    /* Chips, inputs, pills – same teal glow, smaller blur */
+    --glass-edge-glow:
+        0 0 0 1px rgba(11, 206, 175, 0.15),               /* ← GLOW: 1px teal outline */
+        0 0 8px 0 rgba(11, 206, 175, 0.08);                /* ← GLOW: teal halo outside (8px blur) */
+    --glass-edge-glow-focus:
+        0 0 0 1px rgba(11, 206, 175, 0.28),               /* ← GLOW: brighter teal ring when focused */
+        0 0 10px 0 rgba(11, 206, 175, 0.15);               /* ← GLOW: teal halo on focus */
 
     /* ============================================
      ACCENT COLORS
