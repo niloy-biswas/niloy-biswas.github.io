@@ -1133,13 +1133,31 @@ html:has(body.dark-vertion.black-bg) {
   min-height: 100vh;
 }
 
-/* Bokeh overlay: soft orbs + light specks (sitting on top of gradient) */
+/* Overlay: subtle geometric shapes + fine grain texture (on top of gradient) */
 .dark-vertion.black-bg::before {
   content: '';
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background-image: var(--bg-gradient-bokeh);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E"),
+    var(--bg-gradient-bokeh);
+  background-repeat: repeat, no-repeat;
+  background-size: 256px 256px, 100% 100%;
+  z-index: 0;
+}
+
+/* Soft round orbs (right side, easy on the eyes) */
+.dark-vertion.black-bg::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(ellipse 120% 100% at 88% 25%, rgba(255, 255, 255, 0.05) 0%, transparent 55%),
+    radial-gradient(circle 50% at 75% 55%, rgba(200, 220, 255, 0.04) 0%, transparent 50%),
+    radial-gradient(circle 40% at 92% 70%, rgba(255, 255, 255, 0.03) 0%, transparent 45%),
+    radial-gradient(circle 35% at 82% 40%, rgba(255, 255, 255, 0.025) 0%, transparent 45%);
   background-repeat: no-repeat;
   background-size: 100% 100%;
   z-index: 0;
@@ -1154,6 +1172,19 @@ html:has(body.dark-vertion.black-bg) {
 /* Keep fixed nav above other content and preserve its fixed positioning */
 .dark-vertion.black-bg > header.mh-header {
   z-index: 1000;
+}
+
+/* Ensure footer is visible on desktop above the fixed bokeh overlay */
+.dark-vertion.black-bg > footer.mh-footer {
+  position: relative;
+  z-index: 2;
+}
+
+.dark-vertion.black-bg > footer.mh-footer .map-image {
+  position: relative;
+  z-index: 1;
+  padding-top: 60px;
+  padding-bottom: 40px;
 }
 
 .dark-vertion .section-loader {
@@ -3971,6 +4002,15 @@ BLOG Pagination
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-glass);
+  transition: transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.dark-vertion .mh-footer-address .mh-address-footer-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glass-hover);
+  border-color: var(--glass-border-hover);
 }
 
 /* CTA button emphasis */
