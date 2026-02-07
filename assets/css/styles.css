@@ -1156,6 +1156,19 @@ html:has(body.dark-vertion.black-bg) {
   z-index: 1000;
 }
 
+/* Ensure footer is visible on desktop above the fixed bokeh overlay */
+.dark-vertion.black-bg > footer.mh-footer {
+  position: relative;
+  z-index: 2;
+}
+
+.dark-vertion.black-bg > footer.mh-footer .map-image {
+  position: relative;
+  z-index: 1;
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
 .dark-vertion .section-loader {
   background: var(--bg-gradient);
 }
