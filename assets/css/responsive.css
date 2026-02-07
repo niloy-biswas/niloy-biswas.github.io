@@ -495,6 +495,21 @@
     margin-bottom: 30px;
   }
 
+  /* Experience/Education: reserve space for logo next to title only */
+  .mh-experince .mh-education-deatils .mh-education-item h4,
+  .mh-work .mh-experience-deatils .mh-work-item h4 {
+    padding-right: 72px;
+  }
+
+  .mh-experince .mh-education-deatils .mh-education-item > a > img[style*="absolute"],
+  .mh-work .mh-experience-deatils .mh-work-item > a > img[style*="absolute"] {
+    width: 48px !important;
+    height: 48px !important;
+    max-width: 48px;
+    max-height: 48px;
+    object-fit: contain;
+  }
+
   .mh-work h3 {
     margin-bottom: 30px;
     margin-top: 30px;
