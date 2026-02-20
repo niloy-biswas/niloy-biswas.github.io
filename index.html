@@ -12,7 +12,7 @@
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
-        gtag('config', 'G-MDND743N8W');
+        gtag('config', 'G-MDND743N8W', { cookie_domain: 'niloy.tech' });
     </script>
     <!-- Microsoft Clearity Script -->
     <script type="text/javascript">
@@ -203,7 +203,10 @@
                                     <a class="nav-link" href="#mh-blog">Blog</a>
                             </li> -->
                             <li class="nav-item">
-                                <a class="nav-link" href="./blog/medium.html#mh-blog">Blog</a>
+                                <a class="nav-link" href="./blog/">Blog</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://labs.niloy.tech" target="_blank" rel="noopener noreferrer">Labs</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#mh-contact">Contact</a>
@@ -2364,6 +2367,29 @@
 
     <script src="assets/js/custom-scripts.js"></script>
 
+    <!-- Clean URL: remove hash fragment after scroll -->
+    <script>
+        (function () {
+            // After page loads with a hash, scroll to target then clean the URL
+            window.addEventListener('load', function () {
+                if (window.location.hash) {
+                    setTimeout(function () {
+                        history.replaceState(null, '', window.location.pathname);
+                    }, 100);
+                }
+            });
+
+            // On same-page anchor clicks, clean the hash after scrolling
+            document.addEventListener('click', function (e) {
+                var link = e.target.closest('a[href^="#"]');
+                if (link) {
+                    setTimeout(function () {
+                        history.replaceState(null, '', window.location.pathname);
+                    }, 50);
+                }
+            });
+        })();
+    </script>
 
     <!-- ****************
       After neccessary customization/modification, Please minify 
