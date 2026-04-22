@@ -66,10 +66,6 @@
   color: var(--accent);
 }
 
-.portfolio-nav ul li.current span {
-  border-bottom: 2px solid var(--accent);
-}
-
 .mh-pricing .mh-pricing:hover .btn {
   background-color: var(--accent-hover);
 }
