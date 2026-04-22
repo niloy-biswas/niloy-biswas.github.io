@@ -582,6 +582,15 @@
   }
 }
 
+/* sm viewport: col-sm-6 active but container capped at 540px → each col ~270px, circle overflows */
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .mh-home .img-border,
+  .dark-vertion .mh-home .img-border {
+    height: 220px;
+    width: 220px;
+  }
+}
+
 @media only screen and (max-width: 575px) {
   .xs-column-reverse {
     display: -webkit-box;
