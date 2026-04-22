@@ -77,6 +77,7 @@
     --accent: #0bceaf;
     --accent-hover: #0ab69a;
     --accent-glow: rgba(11, 206, 175, 0.20);
+    --accent-overlay: rgba(11, 206, 175, 0.90);
     --accent-gradient: linear-gradient(135deg, #0bceaf 0%, #0ab69a 100%);
 
     /* ============================================

@@ -270,10 +270,10 @@
   }
 
   .mh-xs-mobile-nav .navbar-toggler {
-    padding: 15px;
+    padding: 10px;
     margin-right: 15px;
     margin-left: 15px;
-    margin-top: 30px;
+    margin-top: 10px;
     z-index: 1000;
     -webkit-transition: all 0.4s ease-out;
     transition: all 0.4s ease-out;
@@ -396,7 +396,7 @@
   }
 
   .mh-header {
-    padding: 10px 0;
+    padding: 4px 0;
   }
 
   .home-padding {
@@ -579,6 +579,15 @@
 
   .mh-single-project-slide-by-side {
     padding-bottom: 30px;
+  }
+}
+
+/* sm viewport: col-sm-6 active but container capped at 540px → each col ~270px, circle overflows */
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .mh-home .img-border,
+  .dark-vertion .mh-home .img-border {
+    height: 220px;
+    width: 220px;
   }
 }
 
