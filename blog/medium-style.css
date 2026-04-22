@@ -99,13 +99,11 @@
 }
 
 #post-author{
-  font-family: 'Roboto', sans-serif;
   font-size: 18px;
   font-weight: bold;
 }
 
 #post-date{
-  font-family: 'Roboto', sans-serif;
   font-size: 14px;
   /* color: rgb(255, 255, 255); */
   color: #0bceaf;
@@ -118,14 +116,12 @@
 }
 
 #post-title{
-  font-family: 'Palanquin', sans-serif;
   font-size: 26px;
   font-weight: 700;
   margin-bottom: 5px
 }
 
 #post-content{
-  font-family: 'Roboto',sans-serif;
   font-size: 14px;
 }
 

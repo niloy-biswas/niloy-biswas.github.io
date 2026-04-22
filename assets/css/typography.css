@@ -1,0 +1,45 @@
+/* Typography — single source of truth for all font-family declarations.
+   Google Fonts loaded via <link> in each HTML file (no @import penalty).
+   Change fonts here; updates apply site-wide. */
+
+body {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+}
+
+h4 {
+  font-family: "Fraunces", serif;
+  font-weight: 350;
+}
+
+h5,
+h6 {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+}
+
+/* Navbar — mobile needs 4-class selector to beat responsive.css specificity */
+.mh-header .navbar-nav li a,
+.mh-xs-mobile-nav .navbar-collapse .navbar-nav .nav-link {
+  font-family: "Fraunces", serif;
+  font-weight: 350;
+}
+
+/* Blog post elements (ID-based, won't inherit h-tag rules) */
+#post-title {
+  font-family: "Fraunces", serif;
+  font-weight: 350;
+}
+
+#post-author,
+#post-date,
+#post-content {
+  font-family: "Inter", sans-serif;
+}
