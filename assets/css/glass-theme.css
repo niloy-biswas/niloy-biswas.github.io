@@ -108,6 +108,19 @@
     --space-xl: 60px;
 
     /* ============================================
+     TYPE SCALE (Major Third — ratio 1.25)
+     Base: 16px
+     ============================================ */
+    --text-sm:   13px;   /* captions, labels       */
+    --text-base: 16px;   /* body, p                */
+    --text-md:   20px;   /* h5, h6, lead           */
+    --text-lg:   25px;   /* h4                     */
+    --text-xl:   31px;   /* h3                     */
+    --text-2xl:  39px;   /* h2                     */
+    --text-3xl:  49px;   /* h1 sections            */
+    --text-hero: 72px;   /* hero name, keep large  */
+
+    /* ============================================
      TRANSITIONS
      ============================================ */
     --transition-fast: 0.2s ease;

@@ -1,28 +1,53 @@
-/* Typography — single source of truth for all font-family declarations.
-   Google Fonts loaded via <link> in each HTML file (no @import penalty).
-   Change fonts here; updates apply site-wide. */
+/* Typography — single source of truth for font-family and size scale.
+   Tokens defined in glass-theme.css. Google Fonts loaded via <link> in HTML. */
 
 body {
   font-family: "Inter", sans-serif;
   font-weight: 400;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
-h1,
-h2,
+h1 {
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: var(--text-3xl, 49px);
+  line-height: 1.15;
+}
+
+h2 {
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: var(--text-2xl, 39px);
+  line-height: 1.2;
+}
+
 h3 {
   font-family: "Fraunces", serif;
   font-weight: 600;
+  font-size: var(--text-xl, 31px);
+  line-height: 1.25;
 }
 
 h4 {
   font-family: "Fraunces", serif;
   font-weight: 350;
+  font-size: var(--text-lg, 25px);
+  line-height: 1.3;
 }
 
-h5,
+h5 {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: var(--text-md, 20px);
+  line-height: 1.35;
+}
+
 h6 {
   font-family: "Inter", sans-serif;
   font-weight: 600;
+  font-size: var(--text-base, 16px);
+  line-height: 1.4;
 }
 
 /* Navbar — mobile needs 4-class selector to beat responsive.css specificity */
@@ -36,6 +61,7 @@ h6 {
 #post-title {
   font-family: "Fraunces", serif;
   font-weight: 350;
+  font-size: var(--text-xl, 31px);
 }
 
 #post-author,

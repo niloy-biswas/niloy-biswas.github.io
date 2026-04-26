@@ -19,19 +19,7 @@
 
 
 -------------------------------------------------------------------*/
-/*------------------------------------------------------------------
-[ Color codes ]
-    
-    [ Text and Background Color ]
-        Main color 1:       #1c93e5     
-        Main color 2:       #009688      
-        Main color 3:       #9c27b0
-        Main color 4:       #ff4081      
-        Background 1:       #FFFFFF            
-        Background 2:       #F6F6F6           
-        Shadow color:       #000000;            
-
--------------------------------------------------------------------*/
+/* Colors managed via CSS variables in glass-theme.css */
 /*------------------------------------------------------------------
 [Typography]
 
@@ -97,14 +85,11 @@ html {
 }
 
 body {
-  font-size: 14px;
-  font-style: none;
-  line-height: 24px;
+  font-style: normal;
   overflow-x: hidden !important;
   text-align: left;
   position: relative;
   color: #999999;
-  opacity: 0.9;
 }
 
 p {
@@ -607,8 +592,10 @@ ul li {
 }
 
 .section-separator {
-  padding: 60px 0;
-  padding-top: 100px;
+  padding-top: var(--space-xl, 60px);
+  padding-bottom: var(--space-xl, 60px);
+  border-top: 1px solid transparent;
+  border-image: linear-gradient(90deg, transparent, rgba(11, 206, 175, 0.12), transparent) 1;
 }
 
 .home-section-separator {
