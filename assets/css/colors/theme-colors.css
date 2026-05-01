@@ -43,11 +43,13 @@
 }
 
 .mh-experince .mh-education-deatils .mh-education-item .mh-eduyear {
-  color: var(--accent);
+  color: var(--text-muted);
+  font-size: 13px;
 }
 
 .mh-work .mh-experience-deatils .mh-work-item .mh-eduyear {
-  color: var(--accent);
+  color: var(--text-muted);
+  font-size: 13px;
 }
 
 .mh-experince .mh-education-deatils .mh-education-item h4 a {
