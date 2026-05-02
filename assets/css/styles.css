@@ -312,12 +312,20 @@ a:focus {
  * ---------------------
  */
 .btn {
-  -webkit-transition: color 0.3s ease;
-  transition: color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   outline: 0;
-  padding: 8px 30px;
-  font-weight: bold;
-  border-radius: 20px;
+  padding: 10px 24px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border-radius: var(--radius-pill, 50px);
+  text-decoration: none;
+  -webkit-transition: background var(--transition-fast), box-shadow var(--transition-fast);
+  transition: background var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .btn:last-child {
@@ -335,10 +343,12 @@ a:focus {
   width: 14px;
 }
 
-.btn.btn-fill {
-  background-color: #0bceaf;
-  color: #fff;
+.btn.btn-block {
+  display: flex;
+  width: 100%;
 }
+
+
 
 .btn.left-icon .icon {
   margin-right: 15px;
@@ -3248,16 +3258,17 @@ body.dark-vertion.fancybox-active .fancybox-bg {
 
 
 /* CV glass pill button -- matches "Hello I'm" badge style */
-.btn-cv-glass {
+.btn-cv-glass,
+.btn.btn-fill {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 10px 24px;
   border-radius: var(--radius-pill, 50px);
-  background: var(--glass-fill);
+  background: var(--glass-fill) !important;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid var(--glass-border);
+  border: 1px solid var(--glass-border) !important;
   box-shadow: var(--glass-edge-glow);
   color: var(--accent) !important;
   font-family: "Inter", sans-serif;
@@ -3268,8 +3279,9 @@ body.dark-vertion.fancybox-active .fancybox-bg {
   transition: background var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.btn-cv-glass:hover {
-  background: var(--glass-fill-active);
+.btn-cv-glass:hover,
+.btn.btn-fill:hover {
+  background: var(--glass-fill-active) !important;
   box-shadow: var(--glass-edge-glow-focus);
   color: var(--accent) !important;
   text-decoration: none;
