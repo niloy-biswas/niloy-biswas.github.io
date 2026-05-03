@@ -3257,6 +3257,41 @@ body.dark-vertion.fancybox-active .fancybox-bg {
 }
 
 
+/* Navbar signature */
+.navbar-signature {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-sig-img {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+
+.navbar-sig-img path {
+  fill: #0bceaf;
+  fill-opacity: 0;
+  stroke: #0bceaf;
+  stroke-width: 1.5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill-rule: evenodd;
+  stroke-dasharray: var(--sig-length);
+  stroke-dashoffset: var(--sig-length);
+}
+
+.navbar-sig-img path.sig-animate {
+  animation: sigDraw 2.5s ease-in-out forwards;
+}
+
+@keyframes sigDraw {
+  to {
+    stroke-dashoffset: 0;
+    fill-opacity: 0.9;
+  }
+}
+
 /* CV glass pill button -- matches "Hello I'm" badge style */
 .btn-cv-glass,
 .btn.btn-fill {

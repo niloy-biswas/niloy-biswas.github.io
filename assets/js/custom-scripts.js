@@ -466,3 +466,44 @@
   
       
 }(jQuery));
+
+// Signature animation + click behaviour
+(function() {
+  var sigPath = document.getElementById('niloy-sig-path');
+  var brand   = document.querySelector('.navbar-signature');
+
+  function triggerSigAnimation() {
+    if (!sigPath) return;
+    sigPath.classList.remove('sig-animate');
+    sigPath.getBoundingClientRect();
+    sigPath.classList.add('sig-animate');
+  }
+
+  function initSig() {
+    if (!sigPath) return;
+    var len = sigPath.getTotalLength();
+    if (len > 0) {
+      sigPath.style.setProperty('--sig-length', len);
+      setTimeout(triggerSigAnimation, 400);
+    }
+    if (brand) {
+      brand.addEventListener('click', function() {
+        triggerSigAnimation();
+        var items = document.querySelectorAll('.navbar-nav .nav-item');
+        items.forEach(function(i) { i.classList.remove('active'); });
+        if (items.length > 0) items[0].classList.add('active');
+      });
+    }
+  }
+
+  window.addEventListener('load', initSig);
+})();
+
+// Citation copy
+function copyCitation(btn) {
+  var text = btn.closest('.citation-box').querySelector('code').innerText;
+  navigator.clipboard.writeText(text).then(function() {
+    btn.innerHTML = '<i class="fa fa-check"></i>';
+    setTimeout(function() { btn.innerHTML = '<i class="fa fa-copy"></i>'; }, 1500);
+  });
+}
