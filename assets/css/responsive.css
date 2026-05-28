@@ -501,8 +501,8 @@
     padding-right: 72px;
   }
 
-  .mh-experince .mh-education-deatils .mh-education-item > a > img[style*="absolute"],
-  .mh-work .mh-experience-deatils .mh-work-item > a > img[style*="absolute"] {
+  .mh-experince .mh-education-deatils .mh-education-item>a>img[style*="absolute"],
+  .mh-work .mh-experience-deatils .mh-work-item>a>img[style*="absolute"] {
     width: 48px !important;
     height: 48px !important;
     max-width: 48px;
@@ -582,13 +582,19 @@
   }
 }
 
-/* sm viewport: col-sm-6 active but container capped at 540px → each col ~270px, circle overflows */
 @media only screen and (min-width: 576px) and (max-width: 767px) {
-  .mh-home .img-border,
-  .dark-vertion .mh-home .img-border {
-    height: 220px;
-    width: 220px;
+
+  .hero-cutout-container {
+    width: 200px;
+    height: 270px;
+    border-radius: 0 0 100px 100px;
   }
+  .hero-cutout-container::before,
+  .hero-cutout-container::after {
+    width: 200px;
+    height: 200px;
+  }
+  .hero-cutout-img { width: 240px; }
 }
 
 @media only screen and (max-width: 575px) {
@@ -736,6 +742,20 @@
   .text-left.text-xs-center {
     text-align: center !important;
   }
+}
+
+@media only screen and (max-width: 575px) {
+  .hero-cutout-container {
+    width: 230px;
+    height: 300px;
+    border-radius: 0 0 115px 115px;
+  }
+  .hero-cutout-container::before,
+  .hero-cutout-container::after {
+    width: 230px;
+    height: 230px;
+  }
+  .hero-cutout-img { width: 270px; }
 }
 
 @media only screen and (max-width: 420px) {

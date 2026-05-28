@@ -1149,23 +1149,23 @@ html:has(body.dark-vertion.black-bg) {
 }
 
 /* Give content stacking above bokeh; exclude header so it keeps position:fixed */
-.dark-vertion.black-bg > *:not(.fancybox-container):not(header) {
+.dark-vertion.black-bg>*:not(.fancybox-container):not(header) {
   position: relative;
   z-index: 1;
 }
 
 /* Keep fixed nav above other content and preserve its fixed positioning */
-.dark-vertion.black-bg > header.mh-header {
+.dark-vertion.black-bg>header.mh-header {
   z-index: 1000;
 }
 
 /* Ensure footer is visible on desktop above the fixed bokeh overlay */
-.dark-vertion.black-bg > footer.mh-footer {
+.dark-vertion.black-bg>footer.mh-footer {
   position: relative;
   z-index: 2;
 }
 
-.dark-vertion.black-bg > footer.mh-footer .map-image {
+.dark-vertion.black-bg>footer.mh-footer .map-image {
   position: relative;
   z-index: 1;
   padding-top: 60px;
@@ -3115,9 +3115,9 @@ body.dark-vertion.fancybox-active .fancybox-bg {
 .mh-quote-stats {
   padding: var(--space-xl, 60px) 0;
   border-top: 1px solid transparent;
-  border-image: linear-gradient(90deg, transparent, rgba(11,206,175,0.12), transparent) 1;
+  border-image: linear-gradient(90deg, transparent, rgba(11, 206, 175, 0.12), transparent) 1;
   border-bottom: 1px solid transparent;
-  border-bottom-image: linear-gradient(90deg, transparent, rgba(11,206,175,0.12), transparent) 1;
+  border-bottom-image: linear-gradient(90deg, transparent, rgba(11, 206, 175, 0.12), transparent) 1;
 }
 
 .quote-stats-inner {
@@ -3176,7 +3176,7 @@ body.dark-vertion.fancybox-active .fancybox-bg {
 .stats-divider {
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
 }
 
 .stats-grid {
@@ -3191,7 +3191,7 @@ body.dark-vertion.fancybox-active .fancybox-bg {
   align-items: center;
   text-align: center;
   padding: var(--space-md, 24px) var(--space-lg, 40px);
-  border-right: 1px solid rgba(255,255,255,0.07);
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .stat-item:first-child {
@@ -3234,15 +3234,18 @@ body.dark-vertion.fancybox-active .fancybox-bg {
   .quote-block {
     padding-left: 40px;
   }
+
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .stat-item {
     padding: var(--space-md, 24px);
-    border-bottom: 1px solid rgba(255,255,255,0.07);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
     align-items: center;
     text-align: center;
   }
+
   .stat-item:nth-child(even) {
     border-right: none;
   }
@@ -3252,6 +3255,7 @@ body.dark-vertion.fancybox-active .fancybox-bg {
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .quote-block blockquote {
     font-size: 22px;
   }
@@ -3423,13 +3427,23 @@ body.dark-vertion.fancybox-active .fancybox-bg {
 }
 
 @keyframes skill-left {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes skill-right {
-  0%   { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .sk-item {
@@ -3493,6 +3507,7 @@ body.dark-vertion.fancybox-active .fancybox-bg {
     gap: 8px;
     padding: 16px 0;
   }
+
   .skill-row-meta {
     width: 100%;
     white-space: nowrap;
@@ -3500,13 +3515,16 @@ body.dark-vertion.fancybox-active .fancybox-bg {
     align-items: center;
     gap: 10px;
   }
+
   .skill-row-num {
     display: inline;
     margin-bottom: 0;
   }
+
   .skill-row-label {
     font-size: 18px !important;
   }
+
   .skill-ticker-overflow {
     width: 100%;
   }
@@ -3542,13 +3560,23 @@ body.dark-vertion.fancybox-active .fancybox-bg {
 }
 
 @keyframes cert-scroll-left {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes cert-scroll-right {
-  0%   { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .cert-card {
@@ -3557,15 +3585,15 @@ body.dark-vertion.fancybox-active .fancybox-bg {
   flex-shrink: 0;
   border-radius: var(--radius-md, 12px);
   overflow: hidden;
-  background: var(--glass-fill, rgba(255,255,255,0.04));
-  border: 1px solid var(--glass-border, rgba(255,255,255,0.08));
+  background: var(--glass-fill, rgba(255, 255, 255, 0.04));
+  border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.08));
   text-decoration: none;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .cert-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-glass-hover, 0 8px 24px rgba(0,0,0,0.3));
+  box-shadow: var(--shadow-glass-hover, 0 8px 24px rgba(0, 0, 0, 0.3));
   text-decoration: none;
 }
 
@@ -4348,17 +4376,6 @@ BLOG Pagination
   align-items: flex-end;
 }
 
-/* Profile image: smaller size, aligned with left section */
-.dark-vertion .mh-home .img-border {
-  width: 320px;
-  height: 320px;
-  border: 3px solid rgba(255, 255, 255, 0.08);
-  box-shadow:
-    0 0 60px var(--glow-primary),
-    0 0 100px rgba(11, 206, 175, 0.08),
-    inset 0 0 30px rgba(0, 0, 0, 0.3);
-}
-
 .dark-vertion .mh-home .hero-img {
   margin-top: 0;
   display: flex;
@@ -4370,15 +4387,62 @@ BLOG Pagination
   .dark-vertion .mh-home .row.vertical-middle-content {
     align-items: center;
   }
+
   .dark-vertion .mh-home .hero-img {
     justify-content: center;
     align-items: center;
   }
 }
 
-.dark-vertion .mh-home .hero-img img {
-  border: 4px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+/* ── Hero cutout pop-out effect ── */
+.hero-cutout-container {
+  position: relative;
+  width: 280px;
+  height: 350px; /* 280px circle + 70px above for head */
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 0 0 140px 140px; /* rectangle top (head pops), semicircle bottom (clips to circle) */
+  z-index: 0; /* stacking context */
+}
+
+/* Shared base for both pseudo-elements */
+.hero-cutout-container::before,
+.hero-cutout-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  border: 3px solid rgba(11, 206, 175, 0.65);
+}
+
+/* Frosted glass fill + full ring — behind image, circle-shaped so no bleed */
+.hero-cutout-container::before {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 0;
+}
+
+/* Bottom-half ring — in front of body for depth */
+.hero-cutout-container::after {
+  background: transparent;
+  z-index: 2;
+  clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+}
+
+.hero-cutout-img {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 320px;
+  z-index: 1;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
 }
 
 /* Hero promo badge as glass chip with subtle glow */
