@@ -1,0 +1,51 @@
+/*
+ * Dash bullet lists — teal li::before markers in experience/education/achievement cards.
+ * Markup: one <ul> with <li> items per list.
+ */
+
+.mh-experince .mh-education-deatils .mh-education-item ul {
+  --list-dash-text: rgba(255, 255, 255, 0.9);
+  list-style: none;
+  margin: 0 0 0.65em;
+  padding: 0;
+}
+
+.mh-experince .mh-education-deatils .mh-education-item ul > li {
+  position: relative;
+  display: block;
+  padding-left: 1.75rem;
+  margin-bottom: 0.65em;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--list-dash-text);
+}
+
+.mh-experince .mh-education-deatils .mh-education-item ul > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 1.25rem;
+  height: 1px;
+  background-color: var(--accent);
+  border-radius: 1px;
+  transform: translateY(-50%);
+}
+
+.mh-experince .mh-education-deatils .mh-education-item ul > li:last-child {
+  margin-bottom: 0;
+}
+
+.mh-experince .mh-education-deatils .mh-education-item ul a {
+  color: var(--accent);
+}
+
+.mh-experince .mh-education-deatils .mh-education-item ul a:hover {
+  color: var(--accent-hover);
+}
+
+.mh-experince .mh-education-deatils .mh-education-item ul b,
+.mh-experince .mh-education-deatils .mh-education-item ul strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
