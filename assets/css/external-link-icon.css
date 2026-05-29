@@ -1,10 +1,4 @@
-/* Animated external-link icon (Tabler-style box + arrow) */
-.svg-sprite {
-  position: absolute;
-  width: 0;
-  height: 0;
-  overflow: hidden;
-}
+/* Animated external-link icon (Tabler-style box + arrow) — inline SVG required for part animations */
 
 .icon-external-link {
   display: inline-flex;
@@ -15,6 +9,11 @@
   vertical-align: -0.125em;
   color: var(--accent, #0bceaf);
   transition: color var(--transition-fast, 0.2s ease);
+}
+
+/* Match parent link/button text; beats .dark-vertion span { color: #fff } */
+.dark-vertion a .icon-external-link {
+  color: currentColor;
 }
 
 .icon-external-link svg {
@@ -34,13 +33,13 @@ a:focus-visible .icon-external-link {
   color: var(--accent-hover, #0ab69a);
 }
 
-.external-box {
+.icon-external-link .external-box {
   transform-box: fill-box;
   transform-origin: 50% 50%;
   transition: transform 0.3s ease-out;
 }
 
-.external-arrow {
+.icon-external-link .external-arrow {
   transform-box: fill-box;
   transform-origin: 20% 80%;
   transition: transform 0.3s ease-out;
@@ -48,7 +47,7 @@ a:focus-visible .icon-external-link {
 
 a:hover .icon-external-link .external-arrow,
 a:focus-visible .icon-external-link .external-arrow {
-  transform: translate(5px, -5px) scale(1.12);
+  transform: translate(3px, -3px) scale(1.12);
 }
 
 a:hover .icon-external-link .external-box,
@@ -57,8 +56,8 @@ a:focus-visible .icon-external-link .external-box {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .external-box,
-  .external-arrow {
+  .icon-external-link .external-box,
+  .icon-external-link .external-arrow {
     transition: none;
   }
 

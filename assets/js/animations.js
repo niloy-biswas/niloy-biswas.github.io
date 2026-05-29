@@ -369,7 +369,7 @@
   }
 
   function initExperienceReveal(distanceX) {
-    batchReveal("#mh-experience .mh-education-item", {
+    batchReveal("#mh-experience .mh-education-item, #mh-achievements .mh-education-item", {
       fromX: -distanceX,
       duration: 0.75,
       stagger: 0.1,

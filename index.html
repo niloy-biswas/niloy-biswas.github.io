@@ -77,6 +77,7 @@
     <link rel="stylesheet" href="assets/css/glass-theme.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/services-showcase.css">
+    <link rel="stylesheet" href="assets/css/list-dash.css">
     <link rel="stylesheet" href="assets/css/external-link-icon.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <!-- Theme accent colors (uses --accent from glass-theme.css) -->
@@ -147,15 +148,6 @@
 </head>
 
 <body class="dark-vertion black-bg">
-    <svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-        <symbol id="icon-external-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path class="external-box" d="M12 6h-6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/>
-            <g class="external-arrow">
-                <path d="M11 13l9-9"/>
-                <path d="M15 4h5v5"/>
-            </g>
-        </symbol>
-    </svg>
     <!-- Start Loader -->
     <!-- Turn off loader due to high loding time  -->
 
@@ -335,7 +327,7 @@
                             target="_blank" rel="noopener noreferrer" class="btn btn-cv-glass wow fadeInUp"
                             data-wow-duration="0.8s" data-wow-delay="0.4s"
                             onclick="typeof gtag === 'function' && gtag('event', 'file_download', { file_name: 'CV', event_category: 'engagement', event_label: 'Read CV' });">Read CV
-                            <span class="icon-external-link" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external-link"/></svg></span></a>
+                            <span class="icon-external-link" aria-hidden="true"></span></a>
                     </div>
                 </div>
             </div>
@@ -868,15 +860,16 @@
                                     <div class="mh-eduyear">Jan 2017 – June 2021</div>
                                     <h5 style="color: dodgerblue;">Daffodil International University (DIU) <span
                                             style="font-size:12px;"><i>(Dhaka, Bangladesh)</i></span></h5>
-                                    <!-- color: #0bceaf -->
-                                    <ul> B.Sc. in Software Engineering. CGPA: 3.7/4 </ul>
-                                    <ul>Main coursework: Data Structures, Design and analysis of Algorithms, Computer
-                                        Architecture, Artificial Intelligence, Database Systems, Operating Systems,
-                                        Software Engineering.</ul>
+                                    <ul>
+                                        <li>B.Sc. in Software Engineering. CGPA: 3.7/4</li>
+                                        <li>Main coursework: Data Structures, Design and analysis of Algorithms, Computer
+                                            Architecture, Artificial Intelligence, Database Systems, Operating Systems,
+                                            Software Engineering.</li>
+                                    </ul>
 
                                     <div class="image-container"> <!-- DIU Graduation Images-->
-                                        <div class="expand-button" onclick="expandImages(this)">
-                                            <p class="mh-eduyear">&#x2935; Click to Expand </p>
+                                        <div class="expand-button">
+                                            <p class="mh-eduyear"><span class="expand-button__icon" aria-hidden="true">&#x2935;</span> Click to Expand</p>
                                         </div>
                                         <div class="expanded-images">
                                             <div class="image-column">
@@ -910,7 +903,9 @@
                                     <h5 style="color: dodgerblue;">Shishukunja School & College <span
                                             style="font-size:12px;"><i>(Jhenaidah, Dhaka)</i></span> </h5>
                                     <!-- color: dodgerblue -->
-                                    <ul> Group – science | Board - Jessore. </ul>
+                                    <ul>
+                                        <li>Group – science | Board - Jessore.</li>
+                                    </ul>
                                 </div>
 
                             </div>
@@ -935,64 +930,70 @@
                                     <h5>Specialist - Business Intelligence Analyst <span
                                             style="font-size:12px;"><i>(Full-time)</i></span></h5>
                                     <div class="mh-eduyear">Feb 2025 - Current</div>
-                                    <ul>Built multi-model AI agents applying RAG with reranking and hybrid vector
-                                        search, using LangGraph, n8n,
-                                        and Dify to operationalize LLMs like ChatGPT, Gemini, and open-source models
-                                        from Hugging Face.</ul>
-                                    <ul>Developed a custom Python-based ETL pipeline to seamlessly extract, transform,
-                                        and migrate data from
-                                        MongoDB and PostgreSQL into BigQuery, resolving previous integration limitations
-                                        encountered with Airbyte.</ul>
+                                    <ul>
+                                        <li>Built multi-model AI agents applying RAG with reranking and hybrid vector
+                                            search, using LangGraph, n8n,
+                                            and Dify to operationalize LLMs like ChatGPT, Gemini, and open-source models
+                                            from Hugging Face.</li>
+                                        <li>Developed a custom Python-based ETL pipeline to seamlessly extract, transform,
+                                            and migrate data from
+                                            MongoDB and PostgreSQL into BigQuery, resolving previous integration limitations
+                                            encountered with Airbyte.</li>
+                                    </ul>
 
                                     <br>
                                     <h5>Sr. Business Intelligence Analyst <span
                                             style="font-size:12px;"><i>(Full-time)</i></span></h5>
                                     <div class="mh-eduyear">Jan 2023 - Jan 2025</div>
 
-                                    <ul>Managed data structure, strategy, and insights delivery for the USAID-funded
-                                        Higher Secondary Education
-                                        Project (HSEP) in collaboration with Chemonics International and Florida State
-                                        University, facilitating
-                                        data-driven decisions to enhance education quality and digital integration
-                                        across 3,000 colleges, covering
-                                        99% of colleges in Bangladesh.</ul>
-                                    <ul>Played a key role in the successful Pre-Series A funding round, raising $5.5
-                                        million, by coordinating comprehensive due
-                                        diligence with KPMG, one of the Big Four accounting firms. It is the highest
-                                        seed-stage funding ever secured by a Bangladeshi startup, as of 2023.</ul>
-                                    <ul>Led a Lead Scoring project that increased revenue by 75% in 6 months ($340K),
-                                        driving sales through a combination of RFM and behavior-based scoring.</ul>
-                                    <ul>Collaborating with the product development team to create dynamic products that
-                                        improve subscriber, retention, and product repurchase rates.</ul>
-                                    <ul>Awarded <B>"Best Performer"</B> for the July to December 2022 term, recognizing
-                                        exceptional dedication and contributions to the team at 10MS.</ul>
+                                    <ul>
+                                        <li>Managed data structure, strategy, and insights delivery for the USAID-funded
+                                            Higher Secondary Education
+                                            Project (HSEP) in collaboration with Chemonics International and Florida State
+                                            University, facilitating
+                                            data-driven decisions to enhance education quality and digital integration
+                                            across 3,000 colleges, covering
+                                            99% of colleges in Bangladesh.</li>
+                                        <li>Played a key role in the successful Pre-Series A funding round, raising $5.5
+                                            million, by coordinating comprehensive due
+                                            diligence with KPMG, one of the Big Four accounting firms. It is the highest
+                                            seed-stage funding ever secured by a Bangladeshi startup, as of 2023.</li>
+                                        <li>Led a Lead Scoring project that increased revenue by 75% in 6 months ($340K),
+                                            driving sales through a combination of RFM and behavior-based scoring.</li>
+                                        <li>Collaborating with the product development team to create dynamic products that
+                                            improve subscriber, retention, and product repurchase rates.</li>
+                                        <li>Awarded <B>"Best Performer"</B> for the July to December 2022 term, recognizing
+                                            exceptional dedication and contributions to the team at 10MS.</li>
+                                    </ul>
 
                                     <br>
                                     <h5>Business Intelligence Analyst <span
                                             style="font-size:12px;"><i>(Full-time)</i></span></h5>
                                     <div class="mh-eduyear">July 2022 - Dec 2022</div>
 
-                                    <ul>Conducted process automation and query optimization using GCP, reducing data
-                                        processing times by 40% and lowering costs by 70%.</ul>
-                                    <ul>Analyzed and identified reasons for failed transactions, leading to a remarkable
-                                        reduction of 76% in monthly failed transactions (from 55,000 to 13,000),
-                                        resulting in a substantial decrease in lost revenue by 61%, from $65.33 million
-                                        to $25.17 million.</ul>
-                                    <ul>Implementing Data cleansing, Feature Analysis, and Generate reports from
-                                        multiple Databases.</ul>
-                                    <ul>Process Automation throughout data extracted from different systems and
-                                        databases.</ul>
-                                    <ul>Supporting initiatives for data integrity and normalization.</ul>
-                                    <ul>Customer Lifecycle Management Strategy Development for Ed-Tech Platform.</ul>
-                                    <ul>A/B testing & Hypothesis testing.</ul>
-                                    <ul>Assisting strategic business unit.</ul>
+                                    <ul>
+                                        <li>Conducted process automation and query optimization using GCP, reducing data
+                                            processing times by 40% and lowering costs by 70%.</li>
+                                        <li>Analyzed and identified reasons for failed transactions, leading to a remarkable
+                                            reduction of 76% in monthly failed transactions (from 55,000 to 13,000),
+                                            resulting in a substantial decrease in lost revenue by 61%, from $65.33 million
+                                            to $25.17 million.</li>
+                                        <li>Implementing Data cleansing, Feature Analysis, and Generate reports from
+                                            multiple Databases.</li>
+                                        <li>Process Automation throughout data extracted from different systems and
+                                            databases.</li>
+                                        <li>Supporting initiatives for data integrity and normalization.</li>
+                                        <li>Customer Lifecycle Management Strategy Development for Ed-Tech Platform.</li>
+                                        <li>A/B testing &amp; Hypothesis testing.</li>
+                                        <li>Assisting strategic business unit.</li>
+                                    </ul>
 
                                     <p> <br> <b>Tools & Technology used</b> - Python, Google BigQuery, SQL, Google Data
                                         Studio, Airbyte</p>
 
                                     <div class="image-container">
-                                        <div class="expand-button" onclick="expandImages(this)">
-                                            <p class="mh-eduyear">&#x2935; Click to Expand </p>
+                                        <div class="expand-button">
+                                            <p class="mh-eduyear"><span class="expand-button__icon" aria-hidden="true">&#x2935;</span> Click to Expand</p>
                                         </div>
                                         <div class="expanded-images">
                                             <div class="image-column image-column-full">
@@ -1040,11 +1041,13 @@
                                         machine learning to contribute to SheSTEM’s mission of empowering female STEM
                                         graduates.</p>
 
-                                    <ul>Taught Python for data analysis and introductory ML through hands-on labs.</ul>
-                                    <ul>Guided participants to build an end-to-end ML project (data prep → modeling
-                                        → evaluation).</ul>
-                                    <ul>Advanced SheSTEM’s mission of Empowering Female STEM Graduates,
-                                        collaborating with SheSTEM and partner orgs on curriculum and assessments.</ul>
+                                    <ul>
+                                        <li>Taught Python for data analysis and introductory ML through hands-on labs.</li>
+                                        <li>Guided participants to build an end-to-end ML project (data prep → modeling
+                                            → evaluation).</li>
+                                        <li>Advanced SheSTEM’s mission of Empowering Female STEM Graduates,
+                                            collaborating with SheSTEM and partner orgs on curriculum and assessments.</li>
+                                    </ul>
                                 </div>
 
                                 <!-- Data Analytics Bootcamp -->
@@ -1065,13 +1068,15 @@
                                         data professionals. My sessions cover a comprehensive range of topics including:
                                     </p>
 
-                                    <ul>Introduction to Databases and SQL.</ul>
-                                    <ul>Database types: OLTP, OLAP, Relational, Non-relational.</ul>
-                                    <ul>SQL queries from basic to intermediate.</ul>
-                                    <ul>Advanced SQL techniques: subqueries, views, window functions, partitioning &
-                                        clustering.</ul>
-                                    <ul>SQL performance optimization and tuning.</ul>
-                                    <ul>Creating and managing live dashboards.</ul>
+                                    <ul>
+                                        <li>Introduction to Databases and SQL.</li>
+                                        <li>Database types: OLTP, OLAP, Relational, Non-relational.</li>
+                                        <li>SQL queries from basic to intermediate.</li>
+                                        <li>Advanced SQL techniques: subqueries, views, window functions, partitioning &amp;
+                                            clustering.</li>
+                                        <li>SQL performance optimization and tuning.</li>
+                                        <li>Creating and managing live dashboards.</li>
+                                    </ul>
 
                                     <br>
                                     <p>I am dedicated to transforming education and empowering individuals to reach
@@ -1083,8 +1088,8 @@
 
 
                                     <div class="image-container">
-                                        <div class="expand-button" onclick="expandImages(this)">
-                                            <p class="mh-eduyear">&#x2935; Click to Expand </p>
+                                        <div class="expand-button">
+                                            <p class="mh-eduyear"><span class="expand-button__icon" aria-hidden="true">&#x2935;</span> Click to Expand</p>
                                         </div>
                                         <div class="expanded-images">
                                             <!-- <div class="image-column"> -->
@@ -1107,22 +1112,6 @@
 
                                 </div>
 
-                                <script>
-                                    var expanded = false; // Track the state of expansion
-
-                                    function expandImages(button) {
-                                        var imagesContainer = button.nextElementSibling;
-                                        if (!expanded) {
-                                            imagesContainer.style.display = "block";
-                                            expanded = true;
-                                        } else {
-                                            imagesContainer.style.display = "none";
-                                            expanded = false;
-                                        }
-                                    }
-                                </script>
-
-
                                 <!-- Sheba Platform Limited -->
                                 <div class="mh-education-item dark-bg wow fadeInUp" data-wow-duration="0.8s"
                                     data-wow-delay="0.3s" style="position:relative;">
@@ -1137,19 +1126,21 @@
 
                                     <p>Data Science, Analytics & Insights (DSAI) R&D team. </p>
 
-                                    <ul>Exploratory Data Analysis, Automated Reports and Dashboards development using
-                                        SQL & Python.</ul>
-                                    <ul>Process Automation throughout data extracted from different systems and
-                                        databases.</ul>
-                                    <ul>Predictive analytics and implementation throughout the SaaS and E-Commerce
-                                        systems.</ul>
-                                    <ul>In-App Event Tracking, Funnel, Journey & App-Based Product Performance Analysis.
+                                    <ul>
+                                        <li>Exploratory Data Analysis, Automated Reports and Dashboards development using
+                                            SQL &amp; Python.</li>
+                                        <li>Process Automation throughout data extracted from different systems and
+                                            databases.</li>
+                                        <li>Predictive analytics and implementation throughout the SaaS and E-Commerce
+                                            systems.</li>
+                                        <li>In-App Event Tracking, Funnel, Journey &amp; App-Based Product Performance Analysis.
+                                        </li>
+                                        <li>Customer Lifecycle Management Strategy Development for SaaS and E-Commerce
+                                            Platform.</li>
+                                        <li>Business KPI-Centric Strategic Planning &amp; Process-flow Development and Piloting.
+                                        </li>
+                                        <li>Assisting strategic business unit.</li>
                                     </ul>
-                                    <ul>Customer Lifecycle Management Strategy Development for SaaS and E-Commerce
-                                        Platform.</ul>
-                                    <ul>Business KPI-Centric Strategic Planning & Process-flow Development and Piloting.
-                                    </ul>
-                                    <ul>Assisting strategic business unit.</ul>
 
                                     <p> <br> <b>Tools & Technology used</b> - Python, AWS, SQL, Metabase, Amplitude,
                                         Firebase, Play Console, Grafana</p>
@@ -1159,7 +1150,9 @@
                                     </h5>
                                     <div class="mh-eduyear">Oct 2021 - Dec 2021</div>
 
-                                    <ul style="display: list-item;">Data Science, Analytics & Insights (DSAI)</ul>
+                                    <ul>
+                                        <li>Data Science, Analytics &amp; Insights (DSAI)</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -1178,8 +1171,10 @@
                                         Different Feature Selection Techniques.</h4>
                                     <h6 style="color: dodgerblue;">Hindawi Publishing Corporation <span
                                             style="font-size:12px;"><i>(May 2, 2023)</i></span> </h6>
-                                    <ul>Used six well-known machine learning algorithm and find the best accuracy among
-                                        them.</ul><br>
+                                    <ul>
+                                        <li>Used six well-known machine learning algorithm and find the best accuracy among
+                                            them.</li>
+                                    </ul><br>
                                     <h6>Citation: <span style="font-size:12px;"></span> </h6>
 
                                     <div class="citation-box">
@@ -1190,7 +1185,7 @@
                                             </pre>
                                     </div>
                                     <a href="https://www.hindawi.com/journals/bmri/2023/6864343/" target="_blank"
-                                        rel="noopener noreferrer" class="btn btn-fill">Published Article <span class="icon-external-link" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external-link"/></svg></span></a>
+                                        rel="noopener noreferrer" class="btn btn-fill">Published Article <span class="icon-external-link" aria-hidden="true"></span></a>
 
                                     <!-- Start: Reviewer Certificate -->
                                     <div class="section-title col-sm-12 wow fadeInUp" data-wow-duration="0.8s"
@@ -1450,9 +1445,9 @@
                             </ul>
                         </div>
                         <a href="https://github.com/niloy-biswas/Heart-Disease-Analysis" target="_blank"
-                            rel="noopener noreferrer" class="btn btn-fill">Source: Github <span class="icon-external-link" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external-link"/></svg></span></a>
+                            rel="noopener noreferrer" class="btn btn-fill">Source: Github <span class="icon-external-link" aria-hidden="true"></span></a>
                         <a href="https://www.hindawi.com/journals/bmri/2023/6864343/" target="_blank"
-                            rel="noopener noreferrer" class="btn btn-fill">Published Article <span class="icon-external-link" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external-link"/></svg></span></a>
+                            rel="noopener noreferrer" class="btn btn-fill">Published Article <span class="icon-external-link" aria-hidden="true"></span></a>
                     </div>
                     <div class="col-sm-7">
                         <div class="mh-portfolio-modal-img">
@@ -1502,7 +1497,7 @@
                             </ul>
                         </div>
                         <a href="https://lookerstudio.google.com/reporting/0aa2ad05-df22-4851-b5a4-f9b69d8a5f5e"
-                            target="_blank" rel="noopener noreferrer" class="btn btn-fill">Source: Looker Studio <span class="icon-external-link" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external-link"/></svg></span></a>
+                            target="_blank" rel="noopener noreferrer" class="btn btn-fill">Source: Looker Studio <span class="icon-external-link" aria-hidden="true"></span></a>
                     </div>
                     <div class="col-sm-7">
                         <div class="mh-portfolio-modal-img">
@@ -1540,10 +1535,10 @@
                             </ul>
                         </div>
                         <a href="https://lookerstudio.google.com/u/1/reporting/276b3f57-2545-4161-85da-7ddbd9849f72/page/Hct0C"
-                            target="_blank" rel="noopener noreferrer" class="btn btn-fill">Source: Looker Studio <span class="icon-external-link" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external-link"/></svg></span></a>
+                            target="_blank" rel="noopener noreferrer" class="btn btn-fill">Source: Looker Studio <span class="icon-external-link" aria-hidden="true"></span></a>
                         <br><br>
                         <a href="https://medium.com/@niloy.swe/linkedin-personal-data-visualization-b139f8829c43"
-                            target="_blank" rel="noopener noreferrer" class="btn btn-fill">Source: Medium - Step by step procedure <span class="icon-external-link" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external-link"/></svg></span></a>
+                            target="_blank" rel="noopener noreferrer" class="btn btn-fill">Source: Medium - Step by step procedure <span class="icon-external-link" aria-hidden="true"></span></a>
                     </div>
                     <div class="col-sm-7">
                         <div class="mh-portfolio-modal-img">
@@ -1581,7 +1576,7 @@
                             </ul>
                         </div>
                         <a href="https://medium.com/@niloy.swe/how-to-monitor-bigquery-usage-and-costs-on-gcp-with-interactive-visualizations-in-looker-studio-f2c1d44d99d2"
-                            target="_blank" rel="noopener noreferrer" class="btn btn-fill">Source: Medium - Step by step procedure <span class="icon-external-link" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external-link"/></svg></span></a>
+                            target="_blank" rel="noopener noreferrer" class="btn btn-fill">Source: Medium - Step by step procedure <span class="icon-external-link" aria-hidden="true"></span></a>
                     </div>
                     <div class="col-sm-7">
                         <div class="mh-portfolio-modal-img">
@@ -1618,9 +1613,9 @@
                             </ul>
                         </div>
                         <a href="https://medium.com/@niloy.swe/how-to-create-a-3d-population-density-map-in-r-33dfaf7a71d7"
-                            target="_blank" rel="noopener noreferrer" class="btn btn-fill">Source: Medium - Step by step procedure <span class="icon-external-link" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external-link"/></svg></span></a> <br><br>
+                            target="_blank" rel="noopener noreferrer" class="btn btn-fill">Source: Medium - Step by step procedure <span class="icon-external-link" aria-hidden="true"></span></a> <br><br>
                         <a href="https://github.com/niloy-biswas/Population-Density-Map" target="_blank"
-                            rel="noopener noreferrer" class="btn btn-fill">Source: Github <span class="icon-external-link" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external-link"/></svg></span></a>
+                            rel="noopener noreferrer" class="btn btn-fill">Source: Github <span class="icon-external-link" aria-hidden="true"></span></a>
                     </div>
                     <div class="col-10 offset-1">
                         <div class="mh-portfolio-modal-img">
@@ -1728,7 +1723,7 @@
                             </ul>
                         </div>
                         <a href="https://lookerstudio.google.com/u/1/reporting/578c6935-cc05-49e3-8391-84d54e106ad8/page/McsWD"
-                            target="_blank" rel="noopener noreferrer" class="btn btn-fill">Source: Looker Studio <span class="icon-external-link" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external-link"/></svg></span></a>
+                            target="_blank" rel="noopener noreferrer" class="btn btn-fill">Source: Looker Studio <span class="icon-external-link" aria-hidden="true"></span></a>
                         <br><br>
                     </div>
                     <div class="col-10 offset-1">
@@ -1771,7 +1766,7 @@
                             </ul>
                         </div>
                         <a href="https://lookerstudio.google.com/u/1/reporting/078351b4-d355-4bd5-bf38-a383682f425b/page/Eg88D"
-                            target="_blank" rel="noopener noreferrer" class="btn btn-fill">Source: Looker Studio <span class="icon-external-link" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external-link"/></svg></span></a>
+                            target="_blank" rel="noopener noreferrer" class="btn btn-fill">Source: Looker Studio <span class="icon-external-link" aria-hidden="true"></span></a>
                     </div>
                     <div class="col-sm-7">
                         <div class="mh-portfolio-modal-img">
@@ -1815,7 +1810,7 @@
                             </ul>
                         </div>
                         <a href="https://lookerstudio.google.com/u/1/reporting/1aa64e74-1e84-4f68-bd7b-bbf93ef0b528/page/p_0hmr9sxmdd"
-                            target="_blank" rel="noopener noreferrer" class="btn btn-fill">Source: Looker Studio <span class="icon-external-link" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external-link"/></svg></span></a>
+                            target="_blank" rel="noopener noreferrer" class="btn btn-fill">Source: Looker Studio <span class="icon-external-link" aria-hidden="true"></span></a>
                         <br><br>
                     </div>
                     <div class="col-10 offset-1">
@@ -1835,7 +1830,7 @@
         ===================
     -->
     <!-- <section class="mh-portfolio" id="mh-portfolio"> -->
-    <section class="mh-achievements" id="mh-achievements">
+    <section class="mh-achievements" id="mh-photography">
         <div class="container">
             <div class="row section-separator">
                 <div class="section-title col-sm-12 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">
@@ -1950,7 +1945,7 @@
            Achievements
         ===================
     -->
-    <section class="mh-experince" id="mh-experience">
+    <section class="mh-experince" id="mh-achievements">
         <div class="bolor-overlay">
             <div class="container">
                 <div class="row section-separator">
@@ -1964,37 +1959,39 @@
                                 <div class="mh-education-item dark-bg wow fadeInUp" data-wow-duration="0.8s"
                                     data-wow-delay="0.3s" style="position:relative;">
                                     <ul>
-                                        <a href="https://niloy.tech/assets/images/AI Hackathon 10MS 2025.jpg"
-                                            target="_blank" style="color: #0bceaf;">Winner – 10 Minute School Internal
-                                            Hackathon:</a>
-                                        developed an innovative idea in a competitive setting, securing 1st place among
-                                        7 teams.
-                                    </ul>
-                                    <ul><b>Guest Speaker at SheSTEM Co-Design Session:</b> Provided expert insights on
-                                        emerging data science trends and essential skills at the
-                                        <a href="https://shestem.org/shestem-hosts-co-design-session-for-the-data-science-analytics-career-track-at-khulna-university-of-engineering-technology/"
-                                            target="_blank" style="color: #0bceaf;">Data Science & Analytics career
-                                            track co-design workshop</a>, organized by
-                                        <a href="https://shestem.org/" target="_blank"
-                                            style="color: #0bceaf;">SheSTEM</a> and KUET Business and Entrepreneurship
-                                        Club.
-                                    </ul>
-                                    <ul>Recognized as <B>Top Performer</B> at 10 Minute School in Q3 and Q4 of 2022.
-                                    </ul>
-                                    <ul>Achieved <b>Worldwide Rank 1</b> in SQL problem-solving on <a
-                                            href="https://www.linkedin.com/posts/niloy--biswas_sql-mysql-hackerrank-activity-6858375766560919553-rka-/"
-                                            target="_blank" style="color: #0bceaf;">HackerRank</a>.</ul>
-                                    <ul>Secured <b>5<sup>th</sup> position</b> in the DIU Intra University Programming
-                                        Contest.</ul>
-                                    <ul>Key organizer and academics of the National High School Programming Contest
-                                        (NHSPC).</ul>
-                                    <ul>Solved over 200 problems across various platforms including
-                                        <a href="https://www.hackerrank.com/profile/NiloyBiswas" target="_blank"
-                                            style="color: #0bceaf;">HackerRank</a>,
-                                        <a href="https://leetcode.com/u/niloybiswas/" target="_blank"
-                                            style="color: #0bceaf;">Leetcode</a>, and
-                                        <a href="https://judge.beecrowd.com/en/profile/160088" target="_blank"
-                                            style="color: #0bceaf;">URI Online Judge</a>.
+                                        <li>
+                                            <a href="https://niloy.tech/assets/images/AI Hackathon 10MS 2025.jpg"
+                                                target="_blank" rel="noopener noreferrer">Winner – 10 Minute School Internal
+                                                Hackathon:</a>
+                                            developed an innovative idea in a competitive setting, securing 1st place among
+                                            7 teams.
+                                        </li>
+                                        <li><b>Guest Speaker at SheSTEM Co-Design Session:</b> Provided expert insights on
+                                            emerging data science trends and essential skills at the
+                                            <a href="https://shestem.org/shestem-hosts-co-design-session-for-the-data-science-analytics-career-track-at-khulna-university-of-engineering-technology/"
+                                                target="_blank" rel="noopener noreferrer">Data Science &amp; Analytics career
+                                                track co-design workshop</a>, organized by
+                                            <a href="https://shestem.org/" target="_blank"
+                                                rel="noopener noreferrer">SheSTEM</a> and KUET Business and Entrepreneurship
+                                            Club.
+                                        </li>
+                                        <li>Recognized as <B>Top Performer</B> at 10 Minute School in Q3 and Q4 of 2022.
+                                        </li>
+                                        <li>Achieved <b>Worldwide Rank 1</b> in SQL problem-solving on <a
+                                                href="https://www.linkedin.com/posts/niloy--biswas_sql-mysql-hackerrank-activity-6858375766560919553-rka-/"
+                                                target="_blank" rel="noopener noreferrer">HackerRank</a>.</li>
+                                        <li>Secured <b>5<sup>th</sup> position</b> in the DIU Intra University Programming
+                                            Contest.</li>
+                                        <li>Key organizer and academics of the National High School Programming Contest
+                                            (NHSPC).</li>
+                                        <li>Solved over 200 problems across various platforms including
+                                            <a href="https://www.hackerrank.com/profile/NiloyBiswas" target="_blank"
+                                                rel="noopener noreferrer">HackerRank</a>,
+                                            <a href="https://leetcode.com/u/niloybiswas/" target="_blank"
+                                                rel="noopener noreferrer">Leetcode</a>, and
+                                            <a href="https://judge.beecrowd.com/en/profile/160088" target="_blank"
+                                                rel="noopener noreferrer">URI Online Judge</a>.
+                                        </li>
                                     </ul>
 
                                 </div>
@@ -2007,7 +2004,7 @@
         </div>
     </section>
 
-    <section class="mh-achievements" id="mh-achievements">
+    <section class="mh-achievements" id="mh-certificates">
         <div class="container">
             <div class="row section-separator">
                 <div class="section-title col-sm-12 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">
@@ -2248,6 +2245,8 @@
     <!-- GSAP (for premium scroll + counter animations) -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="assets/js/external-link-icon.js"></script>
+    <script src="assets/js/expand-images.js"></script>
     <script src="assets/js/service-showcase.js"></script>
     <script src="assets/js/animations.js"></script>
     <!-- Map api -->
