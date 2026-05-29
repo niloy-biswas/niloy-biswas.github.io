@@ -1,0 +1,71 @@
+/* Animated external-link icon (Tabler-style box + arrow) */
+.svg-sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.icon-external-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 0;
+  vertical-align: -0.125em;
+  color: var(--accent, #0bceaf);
+  transition: color var(--transition-fast, 0.2s ease);
+}
+
+.icon-external-link svg {
+  display: block;
+  width: 1.2em;
+  height: 1.2em;
+}
+
+.btn-cv-glass .icon-external-link svg,
+.btn.btn-fill .icon-external-link svg {
+  width: 1.15em;
+  height: 1.15em;
+}
+
+a:hover .icon-external-link,
+a:focus-visible .icon-external-link {
+  color: var(--accent-hover, #0ab69a);
+}
+
+.external-box {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  transition: transform 0.3s ease-out;
+}
+
+.external-arrow {
+  transform-box: fill-box;
+  transform-origin: 20% 80%;
+  transition: transform 0.3s ease-out;
+}
+
+a:hover .icon-external-link .external-arrow,
+a:focus-visible .icon-external-link .external-arrow {
+  transform: translate(5px, -5px) scale(1.12);
+}
+
+a:hover .icon-external-link .external-box,
+a:focus-visible .icon-external-link .external-box {
+  transform: scale(0.95);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .external-box,
+  .external-arrow {
+    transition: none;
+  }
+
+  a:hover .icon-external-link .external-arrow,
+  a:focus-visible .icon-external-link .external-arrow,
+  a:hover .icon-external-link .external-box,
+  a:focus-visible .icon-external-link .external-box {
+    transform: none;
+  }
+}

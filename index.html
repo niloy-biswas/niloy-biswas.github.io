@@ -77,6 +77,7 @@
     <link rel="stylesheet" href="assets/css/glass-theme.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/services-showcase.css">
+    <link rel="stylesheet" href="assets/css/external-link-icon.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <!-- Theme accent colors (uses --accent from glass-theme.css) -->
     <link rel="stylesheet" href="assets/css/colors/theme-colors.css">
@@ -146,6 +147,15 @@
 </head>
 
 <body class="dark-vertion black-bg">
+    <svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <symbol id="icon-external-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path class="external-box" d="M12 6h-6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/>
+            <g class="external-arrow">
+                <path d="M11 13l9-9"/>
+                <path d="M15 4h5v5"/>
+            </g>
+        </symbol>
+    </svg>
     <!-- Start Loader -->
     <!-- Turn off loader due to high loding time  -->
 
@@ -325,7 +335,7 @@
                             target="_blank" rel="noopener noreferrer" class="btn btn-cv-glass wow fadeInUp"
                             data-wow-duration="0.8s" data-wow-delay="0.4s"
                             onclick="typeof gtag === 'function' && gtag('event', 'file_download', { file_name: 'CV', event_category: 'engagement', event_label: 'Read CV' });">Read CV
-                            <i class="fa fa-arrow-up-right-from-square"></i></a>
+                            <span class="icon-external-link" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external-link"/></svg></span></a>
                     </div>
                 </div>
             </div>
@@ -1180,7 +1190,7 @@
                                             </pre>
                                     </div>
                                     <a href="https://www.hindawi.com/journals/bmri/2023/6864343/" target="_blank"
-                                        rel="noopener noreferrer" class="btn btn-fill">Published Article <i class="fa fa-arrow-up-right-from-square"></i></a>
+                                        rel="noopener noreferrer" class="btn btn-fill">Published Article <span class="icon-external-link" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external-link"/></svg></span></a>
 
                                     <!-- Start: Reviewer Certificate -->
                                     <div class="section-title col-sm-12 wow fadeInUp" data-wow-duration="0.8s"
@@ -1440,9 +1450,9 @@
                             </ul>
                         </div>
                         <a href="https://github.com/niloy-biswas/Heart-Disease-Analysis" target="_blank"
-                            rel="noopener noreferrer" class="btn btn-fill">Source: Github <i class="fa fa-arrow-up-right-from-square"></i></a>
+                            rel="noopener noreferrer" class="btn btn-fill">Source: Github <span class="icon-external-link" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external-link"/></svg></span></a>
                         <a href="https://www.hindawi.com/journals/bmri/2023/6864343/" target="_blank"
-                            rel="noopener noreferrer" class="btn btn-fill">Published Article <i class="fa fa-arrow-up-right-from-square"></i></a>
+                            rel="noopener noreferrer" class="btn btn-fill">Published Article <span class="icon-external-link" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external-link"/></svg></span></a>
                     </div>
                     <div class="col-sm-7">
                         <div class="mh-portfolio-modal-img">
@@ -1492,7 +1502,7 @@
                             </ul>
                         </div>
                         <a href="https://lookerstudio.google.com/reporting/0aa2ad05-df22-4851-b5a4-f9b69d8a5f5e"
-                            target="_blank" rel="noopener noreferrer" class="btn btn-fill">Source: Looker Studio <i class="fa fa-arrow-up-right-from-square"></i></a>
+                            target="_blank" rel="noopener noreferrer" class="btn btn-fill">Source: Looker Studio <span class="icon-external-link" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external-link"/></svg></span></a>
                     </div>
                     <div class="col-sm-7">
                         <div class="mh-portfolio-modal-img">
@@ -1530,10 +1540,10 @@
                             </ul>
                         </div>
                         <a href="https://lookerstudio.google.com/u/1/reporting/276b3f57-2545-4161-85da-7ddbd9849f72/page/Hct0C"
-                            target="_blank" rel="noopener noreferrer" class="btn btn-fill">Source: Looker Studio <i class="fa fa-arrow-up-right-from-square"></i></a>
+                            target="_blank" rel="noopener noreferrer" class="btn btn-fill">Source: Looker Studio <span class="icon-external-link" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external-link"/></svg></span></a>
                         <br><br>
                         <a href="https://medium.com/@niloy.swe/linkedin-personal-data-visualization-b139f8829c43"
-                            target="_blank" rel="noopener noreferrer" class="btn btn-fill">Source: Medium - Step by step procedure <i class="fa fa-arrow-up-right-from-square"></i></a>
+                            target="_blank" rel="noopener noreferrer" class="btn btn-fill">Source: Medium - Step by step procedure <span class="icon-external-link" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external-link"/></svg></span></a>
                     </div>
                     <div class="col-sm-7">
                         <div class="mh-portfolio-modal-img">
@@ -1571,7 +1581,7 @@
                             </ul>
                         </div>
                         <a href="https://medium.com/@niloy.swe/how-to-monitor-bigquery-usage-and-costs-on-gcp-with-interactive-visualizations-in-looker-studio-f2c1d44d99d2"
-                            target="_blank" rel="noopener noreferrer" class="btn btn-fill">Source: Medium - Step by step procedure <i class="fa fa-arrow-up-right-from-square"></i></a>
+                            target="_blank" rel="noopener noreferrer" class="btn btn-fill">Source: Medium - Step by step procedure <span class="icon-external-link" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external-link"/></svg></span></a>
                     </div>
                     <div class="col-sm-7">
                         <div class="mh-portfolio-modal-img">
@@ -1608,9 +1618,9 @@
                             </ul>
                         </div>
                         <a href="https://medium.com/@niloy.swe/how-to-create-a-3d-population-density-map-in-r-33dfaf7a71d7"
-                            target="_blank" rel="noopener noreferrer" class="btn btn-fill">Source: Medium - Step by step procedure <i class="fa fa-arrow-up-right-from-square"></i></a> <br><br>
+                            target="_blank" rel="noopener noreferrer" class="btn btn-fill">Source: Medium - Step by step procedure <span class="icon-external-link" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external-link"/></svg></span></a> <br><br>
                         <a href="https://github.com/niloy-biswas/Population-Density-Map" target="_blank"
-                            rel="noopener noreferrer" class="btn btn-fill">Source: Github <i class="fa fa-arrow-up-right-from-square"></i></a>
+                            rel="noopener noreferrer" class="btn btn-fill">Source: Github <span class="icon-external-link" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external-link"/></svg></span></a>
                     </div>
                     <div class="col-10 offset-1">
                         <div class="mh-portfolio-modal-img">
@@ -1718,7 +1728,7 @@
                             </ul>
                         </div>
                         <a href="https://lookerstudio.google.com/u/1/reporting/578c6935-cc05-49e3-8391-84d54e106ad8/page/McsWD"
-                            target="_blank" rel="noopener noreferrer" class="btn btn-fill">Source: Looker Studio <i class="fa fa-arrow-up-right-from-square"></i></a>
+                            target="_blank" rel="noopener noreferrer" class="btn btn-fill">Source: Looker Studio <span class="icon-external-link" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external-link"/></svg></span></a>
                         <br><br>
                     </div>
                     <div class="col-10 offset-1">
@@ -1761,7 +1771,7 @@
                             </ul>
                         </div>
                         <a href="https://lookerstudio.google.com/u/1/reporting/078351b4-d355-4bd5-bf38-a383682f425b/page/Eg88D"
-                            target="_blank" rel="noopener noreferrer" class="btn btn-fill">Source: Looker Studio <i class="fa fa-arrow-up-right-from-square"></i></a>
+                            target="_blank" rel="noopener noreferrer" class="btn btn-fill">Source: Looker Studio <span class="icon-external-link" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external-link"/></svg></span></a>
                     </div>
                     <div class="col-sm-7">
                         <div class="mh-portfolio-modal-img">
@@ -1805,7 +1815,7 @@
                             </ul>
                         </div>
                         <a href="https://lookerstudio.google.com/u/1/reporting/1aa64e74-1e84-4f68-bd7b-bbf93ef0b528/page/p_0hmr9sxmdd"
-                            target="_blank" rel="noopener noreferrer" class="btn btn-fill">Source: Looker Studio <i class="fa fa-arrow-up-right-from-square"></i></a>
+                            target="_blank" rel="noopener noreferrer" class="btn btn-fill">Source: Looker Studio <span class="icon-external-link" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external-link"/></svg></span></a>
                         <br><br>
                     </div>
                     <div class="col-10 offset-1">
