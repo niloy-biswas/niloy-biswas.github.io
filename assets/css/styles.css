@@ -4418,12 +4418,13 @@ BLOG Pagination
   border: 3px solid rgba(11, 206, 175, 0.65);
 }
 
-/* Frosted glass fill + full ring — behind image, circle-shaped so no bleed */
+/* Top-half ring — behind image so head pops over, frosted glass fill */
 .hero-cutout-container::before {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(41, 150, 152, 0.04);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   z-index: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
 }
 
 /* Bottom-half ring — in front of body for depth */
