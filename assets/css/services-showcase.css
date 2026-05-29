@@ -1,0 +1,483 @@
+/*
+ * Services showcase — 3-card layout with animated SVG visuals.
+ * Modular stylesheet; pair with assets/js/service-showcase.js
+ */
+
+.services-showcase {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2.5vw, 28px);
+  align-items: end;
+  margin: 0 0 8px;
+  padding: 0;
+  list-style: none;
+}
+
+.services-showcase__card {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin: 0;
+  min-height: 100%;
+}
+
+.services-showcase__card--left {
+  transform: translateY(6px) rotateY(2deg);
+}
+
+.services-showcase__card--center {
+  transform: translateY(-10px);
+  z-index: 2;
+}
+
+.services-showcase__card--right {
+  transform: translateY(6px) rotateY(-2deg);
+}
+
+.service-card__viz {
+  position: relative;
+  flex-shrink: 0;
+  height: clamp(140px, 18vw, 188px);
+  margin: -4px -4px 18px;
+  padding: 12px 10px 8px;
+  border-radius: var(--radius-md, 12px) var(--radius-md, 12px) 8px 8px;
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    rgba(255, 255, 255, 0.02) 45%,
+    transparent 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  transition: border-color var(--transition-base);
+}
+
+.service-viz {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.service-viz__axis {
+  stroke: rgba(255, 255, 255, 0.12);
+  stroke-width: 1;
+}
+
+.service-viz__node {
+  fill: rgba(11, 206, 175, 0.15);
+  stroke: var(--accent, #0bceaf);
+  stroke-width: 1.5;
+}
+
+.service-viz__node--warm {
+  fill: rgba(237, 114, 86, 0.12);
+  stroke: #ed7256;
+}
+
+.service-viz__edge {
+  fill: none;
+  stroke: rgba(11, 206, 175, 0.45);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+.service-viz__bar {
+  fill: var(--accent, #0bceaf);
+  opacity: 0.85;
+  transform-box: fill-box;
+  transform-origin: center bottom;
+}
+
+.service-viz__bar--warm {
+  fill: #ed7256;
+}
+
+.service-viz__bar--dim {
+  fill: rgba(39, 150, 226, 0.75);
+}
+
+.service-viz__line {
+  fill: none;
+  stroke: var(--accent, #0bceaf);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.service-viz__area {
+  fill: rgba(11, 206, 175, 0.12);
+  stroke: none;
+  opacity: 0;
+}
+
+.services-showcase--static .service-viz__area {
+  opacity: 1 !important;
+}
+
+/* Showcase cards: keep stagger layout + same teal glow & lift as other service cards */
+.dark-vertion .mh-service .services-showcase__card {
+  transition: transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.dark-vertion .mh-service .services-showcase__card:hover {
+  box-shadow: var(--shadow-glass-hover);
+  border-color: var(--glass-border-hover);
+}
+
+.dark-vertion .mh-service .services-showcase__card--left:hover {
+  transform: translateY(2px) rotateY(2deg);
+}
+
+.dark-vertion .mh-service .services-showcase__card--center:hover {
+  transform: translateY(-14px);
+}
+
+.dark-vertion .mh-service .services-showcase__card--right:hover {
+  transform: translateY(2px) rotateY(-2deg);
+}
+
+.dark-vertion .mh-service .services-showcase__card:hover .service-card__viz {
+  border-color: rgba(11, 206, 175, 0.18);
+}
+
+.service-viz__point {
+  fill: var(--bg-card, #202026);
+  stroke: var(--accent, #0bceaf);
+  stroke-width: 2;
+}
+
+.service-viz__point--warm {
+  stroke: #ed7256;
+}
+
+.service-viz__pipe {
+  fill: rgba(255, 255, 255, 0.05);
+  stroke: rgba(39, 150, 226, 0.7);
+  stroke-width: 1.25;
+}
+
+.service-viz__label {
+  fill: rgba(255, 255, 255, 0.35);
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 9px;
+}
+
+/* ETL pipeline (Data Engineering card) */
+.service-viz__etl-label {
+  fill: rgba(255, 255, 255, 0.45);
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.service-viz__edge--flow,
+.service-viz__edge--dashed {
+  stroke-width: 1.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.service-viz__edge--flow {
+  stroke: rgba(11, 206, 175, 0.35);
+}
+
+.service-viz__edge--dashed {
+  stroke: rgba(255, 255, 255, 0.22);
+  stroke-dasharray: 4 3;
+}
+
+.service-viz__node-ring {
+  fill: none;
+  stroke: rgba(11, 206, 175, 0.25);
+  stroke-width: 1;
+}
+
+.service-viz__gear {
+  fill: rgba(11, 206, 175, 0.85);
+  stroke: none;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.service-viz__gear--sm {
+  fill: rgba(39, 150, 226, 0.75);
+  opacity: 0.9;
+}
+
+.service-viz__pipe--load {
+  fill: url(#etl-grad-accent);
+  fill-opacity: 0.18;
+  stroke: rgba(11, 206, 175, 0.55);
+  stroke-width: 1.5;
+}
+
+.service-viz__db-cap {
+  fill: rgba(11, 206, 175, 0.35);
+  stroke: none;
+}
+
+.service-viz__db-cap--load {
+  fill: rgba(255, 255, 255, 0.5);
+}
+
+.service-viz__db-body {
+  fill: rgba(255, 255, 255, 0.12);
+  stroke: rgba(11, 206, 175, 0.4);
+  stroke-width: 0.75;
+}
+
+.service-viz--etl .service-viz__pipe:not(.service-viz__pipe--load) {
+  fill: rgba(11, 206, 175, 0.1);
+  stroke: rgba(39, 150, 226, 0.55);
+}
+
+.service-viz--etl .service-viz__node {
+  fill: url(#etl-grad-accent);
+  fill-opacity: 0.2;
+  stroke: var(--accent, #0bceaf);
+  stroke-width: 1.75;
+}
+
+/* Agent workflow (AI Agent Development card) */
+.service-viz--agent .service-viz__trigger,
+.service-viz--agent .service-viz__agent-hub,
+.service-viz--agent .service-viz__router,
+.service-viz--agent .service-viz__action {
+  fill: rgba(255, 255, 255, 0.05);
+  stroke: rgba(11, 206, 175, 0.5);
+  stroke-width: 1.25;
+}
+
+.service-viz--agent .service-viz__agent-hub {
+  fill: url(#agent-grad);
+  fill-opacity: 0.16;
+  stroke-width: 1.5;
+}
+
+.service-viz--agent .service-viz__trigger {
+  stroke: rgba(39, 150, 226, 0.55);
+  /* Flat left, no rounding on left edge */
+  stroke-linejoin: miter;
+}
+
+.service-viz--agent .service-viz__router {
+  stroke: rgba(255, 255, 255, 0.35);
+}
+
+.service-viz--agent .service-viz__action {
+  stroke: rgba(237, 114, 86, 0.45);
+}
+
+.service-viz--agent .service-viz__trigger-icon {
+  fill: rgba(39, 150, 226, 0.25);
+  stroke: rgba(39, 150, 226, 0.5);
+  stroke-width: 0.75;
+}
+
+.service-viz--agent .service-viz__trigger-bolt {
+  fill: #ed7256;
+  stroke: none;
+}
+
+.service-viz--agent .service-viz__agent-bot {
+  fill: rgba(11, 206, 175, 0.35);
+  stroke: var(--accent, #0bceaf);
+  stroke-width: 1;
+}
+
+.service-viz--agent .service-viz__agent-title {
+  fill: rgba(255, 255, 255, 0.88);
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.service-viz--agent .service-viz__router-icon {
+  stroke: rgba(255, 255, 255, 0.55);
+  stroke-width: 1.25;
+  fill: none;
+}
+
+.service-viz--agent .service-viz__action-dot {
+  fill: var(--accent, #0bceaf);
+  stroke: none;
+}
+
+.service-viz--agent .service-viz__action-dot--warm {
+  fill: #ed7256;
+}
+
+.service-viz--agent .service-viz__sat-label,
+.service-viz--agent .service-viz__port-label {
+  fill: rgba(255, 255, 255, 0.55);
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 8px;
+  font-weight: 600;
+  text-anchor: middle;
+}
+
+.service-viz--agent .service-viz__port-label {
+  fill: rgba(255, 255, 255, 0.3);
+  font-size: 6px;
+  font-weight: 500;
+  text-anchor: start;
+}
+
+.service-viz--agent .service-viz__node {
+  fill: rgba(11, 206, 175, 0.12);
+  stroke: var(--accent, #0bceaf);
+  stroke-width: 1.25;
+}
+
+.services-showcase__card--left .service-card__viz {
+  height: clamp(156px, 21vw, 204px);
+}
+
+.services-showcase__card--left .service-viz--agent {
+  transform: scale(1.04);
+  transform-origin: center center;
+}
+
+[data-viz-part] {
+  cursor: default;
+  outline: none;
+}
+
+[data-viz-part]:focus-visible {
+  outline: 2px solid var(--accent, #0bceaf);
+  outline-offset: 2px;
+}
+
+.service-viz__part--active {
+  filter: brightness(1.2);
+}
+
+.service-viz__part--active.service-viz__bar {
+  opacity: 1;
+}
+
+.service-viz-tooltip {
+  position: absolute;
+  left: 50%;
+  top: 8px;
+  transform: translateX(-50%) translateY(4px);
+  padding: 5px 10px;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-primary, #fff);
+  background: rgba(16, 14, 23, 0.92);
+  border: 1px solid rgba(11, 206, 175, 0.35);
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  z-index: 3;
+}
+
+.service-viz-tooltip.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.mh-service .services-showcase__card h3 {
+  margin-bottom: 12px;
+  font-size: clamp(20px, 2.2vw, 24px);
+  line-height: 1.25;
+}
+
+.mh-service .services-showcase__card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text-secondary, rgba(255, 255, 255, 0.72));
+  text-align: left;
+}
+
+/* Override legacy centered service text inside showcase */
+.mh-service .services-showcase .mh-service-item {
+  text-align: left;
+}
+
+.services-showcase--static .service-viz__edge,
+.services-showcase--static .service-viz__line {
+  stroke-dashoffset: 0 !important;
+}
+
+.services-showcase--static .service-viz__bar {
+  transform: scaleY(1) !important;
+}
+
+.services-showcase--static .service-viz__node,
+.services-showcase--static .service-viz__pipe,
+.services-showcase--static .service-viz__point,
+.services-showcase--static .service-viz__db-cap,
+.services-showcase--static .service-viz__db-body,
+.services-showcase--static .service-viz__gear,
+.services-showcase--static .service-viz__node-ring,
+.services-showcase--static .service-viz__trigger-icon,
+.services-showcase--static .service-viz__trigger-bolt,
+.services-showcase--static .service-viz__agent-bot,
+.services-showcase--static .service-viz__router-icon,
+.services-showcase--static .service-viz__action-dot,
+.services-showcase--static .service-viz__agent-title,
+.services-showcase--static .service-viz__sat-label,
+.services-showcase--static .service-viz__port-label {
+  opacity: 1 !important;
+}
+
+@media (max-width: 991px) {
+  .services-showcase {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .dark-vertion .mh-service .services-showcase__card--left:hover,
+  .dark-vertion .mh-service .services-showcase__card--center:hover,
+  .dark-vertion .mh-service .services-showcase__card--right:hover {
+    transform: translateY(-4px);
+  }
+
+  .services-showcase__card--left,
+  .services-showcase__card--center,
+  .services-showcase__card--right {
+    transform: none;
+  }
+
+  .services-showcase__card--center {
+    z-index: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-card__viz {
+    height: 150px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .mh-service .services-showcase .mh-service-item {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services-showcase__card--left,
+  .services-showcase__card--center,
+  .services-showcase__card--right {
+    transform: none;
+  }
+
+  .service-viz-tooltip {
+    transition: none;
+  }
+}

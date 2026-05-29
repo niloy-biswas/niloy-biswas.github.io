@@ -9,7 +9,12 @@
   gsap.registerPlugin(ScrollTrigger);
 
   var prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (prefersReduced) return;
+  if (prefersReduced) {
+    if (window.ServiceShowcase) {
+      window.ServiceShowcase.init({ canHover: false });
+    }
+    return;
+  }
 
   function cubicBezier(p1x, p1y, p2x, p2y) {
     // Minimal cubic-bezier easing for GSAP ease callback.
@@ -223,29 +228,40 @@
     });
   }
 
-  function initServicesBothSides(distanceX) {
-    var cards = Array.prototype.slice.call(document.querySelectorAll("#mh-services .mh-service-item"));
+  function initServicesShowcaseEntrance(distanceX, distanceY) {
+    var cards = Array.prototype.slice.call(
+      document.querySelectorAll("#mh-services .services-showcase__card")
+    );
     if (!cards.length) return;
+
+    var fromStates = [
+      { opacity: 0, x: -distanceX, y: 0 },
+      { opacity: 0, x: 0, y: distanceY },
+      { opacity: 0, x: distanceX, y: 0 }
+    ];
 
     ScrollTrigger.batch(cards, {
       start: "top 70%",
       once: true,
-      onEnter: function (batch) {
-        gsap.fromTo(
-          batch,
-          {
-            opacity: 0,
-            x: function (i) { return (i % 2 === 0 ? -distanceX : distanceX); }
-          },
-          {
-            opacity: 1,
-            x: 0,
-            duration: 0.75,
-            ease: easePremium,
-            stagger: 0.1,
-            clearProps: "transform"
-          }
-        );
+      onEnter: function () {
+        cards.forEach(function (card, i) {
+          var from = fromStates[i] || fromStates[0];
+          gsap.fromTo(
+            card,
+            from,
+            {
+              opacity: 1,
+              x: 0,
+              y: 0,
+              duration: 0.8,
+              ease: easePremium,
+              delay: i * 0.1,
+              onComplete: function () {
+                gsap.set(card, { clearProps: "all" });
+              }
+            }
+          );
+        });
       }
     });
   }
@@ -376,7 +392,16 @@
       heroEntrance(isMobile ? 12 : 28);
       initStatCounters();
       initExperienceReveal(isMobile ? 12 : 24);
-      initServicesBothSides(isMobile ? 12 : 24);
+      initServicesShowcaseEntrance(
+        isMobile ? 12 : 28,
+        isMobile ? 10 : 20
+      );
+      if (window.ServiceShowcase) {
+        window.ServiceShowcase.init({
+          ease: easePremium,
+          canHover: canHover
+        });
+      }
       initSkillsCascade();
       initHeadingUnderline();
 

@@ -76,6 +76,7 @@
     <!-- Custom CSS-->
     <link rel="stylesheet" href="assets/css/glass-theme.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/services-showcase.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <!-- Theme accent colors (uses --accent from glass-theme.css) -->
     <link rel="stylesheet" href="assets/css/colors/theme-colors.css">
@@ -409,48 +410,163 @@
                     <h2>How I can help</h2>
                     <p class="services-tagline">Available for freelance &amp; consulting projects</p>
                 </div>
-                <div class="col-sm-6">
-                    <div class="mh-service-item shadow-1 dark-bg wow fadeInUp" data-wow-duration="0.8s"
-                        data-wow-delay="0.5s">
-                        <i class="fa fa-code iron-color"></i>
-                        <h3>AI Agent Development</h3>
-                        <p>
-                            I build multi-model AI agents using RAG pipelines, LangGraph, and hybrid vector search —
-                            ready to plug into your product and scale with your users.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="mh-service-item shadow-1 dark-bg wow fadeInUp" data-wow-duration="0.8s"
-                        data-wow-delay="0.7s">
-                        <i class="fa fa-braille sky-color"></i>
-                        <h3>Growth Analytics</h3>
-                        <p>
-                            I model your lead funnel, score prospects by behaviour, and run A/B tests that turn
-                            data into conversion decisions your team can act on immediately.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="mh-service-item shadow-1 dark-bg wow fadeInUp" data-wow-duration="0.8s"
-                        data-wow-delay="0.5s">
-                        <i class="fa fa-bar-chart iron-color"></i>
-                        <h3>Data Strategy</h3>
-                        <p>
-                            I architect your data stack — ETL pipelines, BigQuery warehouses, and executive
-                            dashboards — built for the scale your business is heading toward.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="mh-service-item shadow-1 dark-bg wow fadeInUp" data-wow-duration="0.8s"
-                        data-wow-delay="0.7s">
-                        <i class="fa fa-object-ungroup sky-color"></i>
-                        <h3>Data Engineering</h3>
-                        <p>
-                            I design and optimise data pipelines and build dashboards across Looker Studio,
-                            Tableau, and Metabase that streamline decisions across product and operations.
-                        </p>
+                <div class="col-sm-12">
+                    <div class="services-showcase" role="list">
+                        <article class="mh-service-item shadow-1 dark-bg services-showcase__card services-showcase__card--left"
+                            role="listitem" data-service="ai-agents">
+                            <div class="service-card__viz" aria-hidden="true">
+                                <span class="service-viz-tooltip" aria-live="polite"></span>
+                                <svg class="service-viz service-viz--agent" viewBox="0 0 360 160" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <linearGradient id="agent-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#0bceaf"/>
+                                            <stop offset="100%" stop-color="#2796e2"/>
+                                        </linearGradient>
+                                        <marker id="agent-arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                                            <path d="M0 0 L6 3 L0 6 Z" fill="rgba(11, 206, 175, 0.7)"/>
+                                        </marker>
+                                    </defs>
+                                    <!-- Trigger: flat left edge, rounded right (vertical) -->
+                                    <path class="service-viz__pipe service-viz__trigger" data-viz-part data-tooltip="Trigger · webhook / event" d="M14 48 L14 104 L46 104 Q54 104 54 96 L54 60 Q54 52 46 52 L14 52 Z"/>
+                                    <rect class="service-viz__trigger-icon" x="24" y="62" width="16" height="18" rx="2"/>
+                                    <path class="service-viz__trigger-bolt" d="M6 72 L9 72 L7.5 81 L11 75 L8 75 L9.5 66 Z"/>
+                                    <!-- Agent hub -->
+                                    <rect class="service-viz__pipe service-viz__agent-hub" data-viz-part data-tooltip="AI Agent · LangGraph orchestration" x="62" y="40" width="132" height="52" rx="10"/>
+                                    <circle class="service-viz__agent-bot" cx="84" cy="64" r="9"/>
+                                    <rect class="service-viz__agent-bot" x="78" y="72" width="11" height="8" rx="2"/>
+                                    <text class="service-viz__agent-title" x="100" y="70">AI Agent</text>
+                                    <!-- Router -->
+                                    <rect class="service-viz__pipe service-viz__router" data-viz-part data-tooltip="Router · conditional logic" x="212" y="52" width="38" height="38" rx="7"/>
+                                    <path class="service-viz__router-icon" d="M224 71 L238 71 M231 64 L231 78"/>
+                                    <!-- Outputs -->
+                                    <rect class="service-viz__pipe service-viz__action" data-viz-part data-tooltip="Action · deploy / integrate" x="272" y="36" width="58" height="32" rx="8"/>
+                                    <rect class="service-viz__pipe service-viz__action" data-viz-part data-tooltip="Action · scale &amp; monitor" x="272" y="84" width="58" height="32" rx="8"/>
+                                    <circle class="service-viz__action-dot" cx="288" cy="52" r="5"/>
+                                    <circle class="service-viz__action-dot service-viz__action-dot--warm" cx="288" cy="100" r="5"/>
+                                    <!-- Satellite tools (bottom) -->
+                                    <circle class="service-viz__node" data-viz-part data-tooltip="Chat model · multi-LLM" cx="96" cy="128" r="14"/>
+                                    <text class="service-viz__sat-label" x="96" y="132">LLM</text>
+                                    <circle class="service-viz__node" data-viz-part data-tooltip="Memory · RAG / vector store" cx="158" cy="128" r="14"/>
+                                    <text class="service-viz__sat-label" x="158" y="132">RAG</text>
+                                    <circle class="service-viz__node service-viz__node--warm" data-viz-part data-tooltip="Tools · APIs &amp; search" cx="220" cy="128" r="14"/>
+                                    <text class="service-viz__sat-label" x="220" y="132">Tool</text>
+                                    <!-- Main flow (on top) -->
+                                    <path class="service-viz__edge service-viz__edge--flow" marker-end="url(#agent-arrow)" d="M54 76 L62 76"/>
+                                    <path class="service-viz__edge service-viz__edge--flow" marker-end="url(#agent-arrow)" d="M194 66 L212 71"/>
+                                    <path class="service-viz__edge service-viz__edge--flow" marker-end="url(#agent-arrow)" d="M250 64 C262 56, 268 52, 272 52"/>
+                                    <path class="service-viz__edge service-viz__edge--flow" marker-end="url(#agent-arrow)" d="M250 78 C262 88, 268 96, 272 100"/>
+                                    <!-- Dashed tool connections -->
+                                    <path class="service-viz__edge service-viz__edge--dashed" d="M96 92 C88 110, 96 114, 96 114"/>
+                                    <path class="service-viz__edge service-viz__edge--dashed" d="M124 92 C142 110, 154 114, 158 114"/>
+                                    <path class="service-viz__edge service-viz__edge--dashed" d="M176 92 C198 110, 212 114, 220 114"/>
+                                    <text class="service-viz__port-label" x="84" y="104">model</text>
+                                    <text class="service-viz__port-label" x="142" y="104">memory</text>
+                                    <text class="service-viz__port-label" x="204" y="104">tools</text>
+                                </svg>
+                            </div>
+                            <h3>AI Agent Development</h3>
+                            <p>
+                                I build multi-model AI agents using RAG pipelines, LangGraph, and hybrid vector search —
+                                ready to plug into your product and scale with your users.
+                            </p>
+                        </article>
+
+                        <article class="mh-service-item shadow-1 dark-bg services-showcase__card services-showcase__card--center"
+                            role="listitem" data-service="analytics-strategy">
+                            <div class="service-card__viz" aria-hidden="true">
+                                <span class="service-viz-tooltip" aria-live="polite"></span>
+                                <svg class="service-viz service-viz--dual" viewBox="0 0 360 160" xmlns="http://www.w3.org/2000/svg">
+                                    <line class="service-viz__axis" x1="28" y1="88" x2="332" y2="88"/>
+                                    <line class="service-viz__axis" x1="28" y1="148" x2="332" y2="148"/>
+                                    <path class="service-viz__area" d="M48 82 L96 68 L144 72 L192 52 L240 58 L288 42 L288 88 L48 88 Z"/>
+                                    <path class="service-viz__line" data-viz-part data-tooltip="Funnel · +24% conversion" d="M48 82 L96 68 L144 72 L192 52 L240 58 L288 42"/>
+                                    <circle class="service-viz__point" data-viz-part data-tooltip="A/B test · winner variant" cx="192" cy="52" r="6"/>
+                                    <circle class="service-viz__point service-viz__point--warm" data-viz-part data-tooltip="Lead score · 87" cx="288" cy="42" r="6"/>
+                                    <rect class="service-viz__bar service-viz__bar--warm" data-viz-part data-tooltip="Leads Funnel" x="70" y="110" width="34" height="38" rx="3"/>
+                                    <rect class="service-viz__bar" data-viz-part data-tooltip="Data Processing" x="122" y="96" width="34" height="52" rx="3"/>
+                                    <rect class="service-viz__bar service-viz__bar--dim" data-viz-part data-tooltip="Lead Scoring" x="174" y="104" width="34" height="44" rx="3"/>
+                                    <rect class="service-viz__bar" data-viz-part data-tooltip="Data Warehouse" x="226" y="88" width="34" height="60" rx="3"/>
+                                    <rect class="service-viz__bar service-viz__bar--dim" data-viz-part data-tooltip="Insights &amp; Dashboards" x="278" y="98" width="34" height="50" rx="3"/>
+                                    <text class="service-viz__label" x="28" y="78">Growth</text>
+                                    <text class="service-viz__label" x="28" y="138">Stack</text>
+                                </svg>
+                            </div>
+                            <h3>Analytics &amp; Data Strategy</h3>
+                            <p>
+                                I model your lead funnel, score prospects, and run A/B tests—then architect the stack behind them:
+                                ETL pipelines, BigQuery warehouses, and executive dashboards built for where your business is headed.
+                            </p>
+                        </article>
+
+                        <article class="mh-service-item shadow-1 dark-bg services-showcase__card services-showcase__card--right"
+                            role="listitem" data-service="data-engineering">
+                            <div class="service-card__viz" aria-hidden="true">
+                                <span class="service-viz-tooltip" aria-live="polite"></span>
+                                <svg class="service-viz service-viz--etl" viewBox="0 0 360 160" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <linearGradient id="etl-grad-accent" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#0bceaf"/>
+                                            <stop offset="100%" stop-color="#2796e2"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <text class="service-viz__etl-label" x="28" y="20">Extract</text>
+                                    <text class="service-viz__etl-label" x="152" y="20">Transform</text>
+                                    <text class="service-viz__etl-label" x="286" y="20">Load</text>
+                                    <!-- Extract: 5 source nodes -->
+                                    <g class="service-viz__etl-extract">
+                                        <rect class="service-viz__pipe" data-viz-part data-tooltip="Extract · APIs &amp; apps" x="26" y="36" width="22" height="18" rx="5"/>
+                                        <rect class="service-viz__pipe" data-viz-part data-tooltip="Extract · databases" x="26" y="58" width="22" height="18" rx="5"/>
+                                        <rect class="service-viz__pipe" data-viz-part data-tooltip="Extract · files &amp; sheets" x="26" y="80" width="22" height="18" rx="5"/>
+                                        <rect class="service-viz__pipe" data-viz-part data-tooltip="Extract · events" x="26" y="102" width="22" height="18" rx="5"/>
+                                        <rect class="service-viz__pipe" data-viz-part data-tooltip="Extract · third-party" x="26" y="124" width="22" height="18" rx="5"/>
+                                        <ellipse class="service-viz__db-cap" cx="37" cy="40" rx="5" ry="1.5"/>
+                                        <ellipse class="service-viz__db-cap" cx="37" cy="62" rx="5" ry="1.5"/>
+                                        <ellipse class="service-viz__db-cap" cx="37" cy="84" rx="5" ry="1.5"/>
+                                        <ellipse class="service-viz__db-cap" cx="37" cy="106" rx="5" ry="1.5"/>
+                                        <ellipse class="service-viz__db-cap" cx="37" cy="128" rx="5" ry="1.5"/>
+                                    </g>
+                                    <!-- Transform hub (drawn before lines so connectors sit on top) -->
+                                    <circle class="service-viz__node" data-viz-part data-tooltip="Transform · dbt / SQL" cx="168" cy="82" r="30"/>
+                                    <circle class="service-viz__node-ring" cx="168" cy="82" r="24"/>
+                                    <path class="service-viz__gear" d="M168 62 L170 68 L176 68 L171 72 L173 78 L168 74 L163 78 L165 72 L160 68 L166 68 Z"/>
+                                    <path class="service-viz__gear service-viz__gear--sm" d="M182 86 L184 90 L188 89 L185 93 L187 97 L182 94 L177 97 L179 93 L176 89 L180 90 Z"/>
+                                    <!-- Flow paths: sources → transform (endpoints on circle edge) -->
+                                    <path class="service-viz__edge service-viz__edge--flow" d="M48 45 C92 45, 118 58, 139 73"/>
+                                    <path class="service-viz__edge service-viz__edge--flow" d="M48 67 C96 67, 122 72, 138 78"/>
+                                    <path class="service-viz__edge service-viz__edge--flow" d="M48 89 C100 89, 122 84, 138 84"/>
+                                    <path class="service-viz__edge service-viz__edge--flow" d="M48 111 C102 108, 125 92, 139 89"/>
+                                    <path class="service-viz__edge service-viz__edge--flow" d="M48 133 C108 122, 128 98, 141 94"/>
+                                    <!-- Flow paths: transform → load -->
+                                    <path class="service-viz__edge service-viz__edge--flow" d="M198 72 C220 64, 248 58, 272 62"/>
+                                    <path class="service-viz__edge service-viz__edge--flow" d="M198 82 C228 82, 252 78, 272 80"/>
+                                    <path class="service-viz__edge service-viz__edge--flow" d="M198 92 C222 100, 250 104, 272 98"/>
+                                    <path class="service-viz__edge service-viz__edge--flow" d="M198 86 C240 92, 258 88, 272 84"/>
+                                    <!-- Load destination -->
+                                    <rect class="service-viz__pipe service-viz__pipe--load" data-viz-part data-tooltip="Load · BigQuery warehouse" x="272" y="54" width="56" height="56" rx="10"/>
+                                    <ellipse class="service-viz__db-cap service-viz__db-cap--load" cx="288" cy="68" rx="7" ry="2"/>
+                                    <rect class="service-viz__db-body" x="281" y="68" width="14" height="16" rx="2"/>
+                                    <ellipse class="service-viz__db-cap service-viz__db-cap--load" cx="288" cy="84" rx="7" ry="2"/>
+                                    <ellipse class="service-viz__db-cap service-viz__db-cap--load" cx="304" cy="72" rx="6" ry="1.8"/>
+                                    <rect class="service-viz__db-body" x="298" y="72" width="12" height="14" rx="2"/>
+                                    <ellipse class="service-viz__db-cap service-viz__db-cap--load" cx="304" cy="86" rx="6" ry="1.8"/>
+                                    <ellipse class="service-viz__db-cap service-viz__db-cap--load" cx="316" cy="80" rx="5" ry="1.5"/>
+                                    <rect class="service-viz__db-body" x="311" y="80" width="10" height="12" rx="2"/>
+                                    <ellipse class="service-viz__db-cap service-viz__db-cap--load" cx="316" cy="92" rx="5" ry="1.5"/>
+                                    <!-- Data dots along main trunk -->
+                                    <circle class="service-viz__point" cx="98" cy="58" r="2.5"/>
+                                    <circle class="service-viz__point" cx="115" cy="68" r="2.5"/>
+                                    <circle class="service-viz__point" cx="132" cy="76" r="2.5"/>
+                                    <circle class="service-viz__point" cx="228" cy="78" r="2.5"/>
+                                    <circle class="service-viz__point" cx="248" cy="76" r="2.5"/>
+                                    <circle class="service-viz__point service-viz__point--warm" data-viz-part data-tooltip="BI · Looker · Tableau" cx="262" cy="74" r="3"/>
+                                </svg>
+                            </div>
+                            <h3>Data Engineering</h3>
+                            <p>
+                                I design and optimise data pipelines and build dashboards across Looker Studio,
+                                Tableau, and Metabase that streamline decisions across product and operations.
+                            </p>
+                        </article>
                     </div>
                 </div>
                 <div class="col-sm-12 text-center wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s">
@@ -2122,6 +2238,7 @@
     <!-- GSAP (for premium scroll + counter animations) -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="assets/js/service-showcase.js"></script>
     <script src="assets/js/animations.js"></script>
     <!-- Map api -->
     <!-- <script src="http://maps.googleapis.com/maps/api/js?v=3.exp&amp;key=AIzaSyAE_V-SAZMoiEnH8Dowy5vHwXHjEChF9Kc"></script> -->
