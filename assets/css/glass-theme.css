@@ -8,32 +8,26 @@
 */
 
 :root {
-    /* Background */
-    --bg-base: #100e17;
-    --bg-elevated: #1a1820;
-    --bg-card: #202026;
-    --bg-surface: #252530;
-    --bg-gradient: linear-gradient(
-      155deg,
-      #0e1016 0%,
-      #100e17 38%,
-      #12101a 68%,
-      #14121c 100%
-    );
+    /* Background — prototype palette (#030712 + green/cyan/indigo glows) */
+    --bg-base: #030712;
+    --bg-elevated: #0a0f1e;
+    --bg-card: #0d1220;
+    --bg-surface: #101828;
+    --bg-gradient: #030712;
 
-    /* Ambient (orbs + grid) — same family as --bg-base and --accent */
+    /* Ambient (gradient canvas + grid mesh) */
+    --ambient-glow-green: rgba(16, 185, 129, 0.12);
+    --ambient-glow-cyan: rgba(6, 182, 212, 0.08);
+    --ambient-glow-indigo: rgba(99, 102, 241, 0.08);
+    --ambient-glow-blur: 40px;
+    --ambient-grid-dot: #e2e8f0;
+    --ambient-grid-opacity: 0.03;
+    --ambient-grid-size: 28px;
+
+    /* Accent + glass */
     --accent-rgb: 11, 206, 175;
-    --ambient-teal: var(--accent-rgb);
-    --ambient-plum: 36, 32, 52;
-    --ambient-grid-dot: rgba(var(--accent-rgb), 0.12);
-    --ambient-orb-teal-core: rgba(var(--accent-rgb), 0.2);
-    --ambient-orb-teal-mid: rgba(var(--accent-rgb), 0.08);
-    --ambient-orb-plum-core: rgba(var(--ambient-plum), 0.55);
-    --ambient-orb-plum-mid: rgba(28, 26, 40, 0.35);
-
-    /* Glass */
     --glass-fill: rgba(255, 255, 255, 0.04);
-    --glass-fill-card: rgba(20, 18, 26, 0.78);
+    --glass-fill-card: rgba(10, 15, 30, 0.55);
     --glass-fill-hover: rgba(255, 255, 255, 0.07);
     --glass-fill-active: rgba(255, 255, 255, 0.10);
     --glass-border: rgba(255, 255, 255, 0.08);
@@ -118,8 +112,9 @@
 
 @supports not (backdrop-filter: blur(12px)) {
   :root {
-    --glass-fill: rgba(32, 32, 38, 0.95);
-    --glass-fill-hover: rgba(40, 40, 48, 0.95);
+    --glass-fill: rgba(10, 15, 30, 0.95);
+    --glass-fill-card: rgba(10, 15, 30, 0.95);
+    --glass-fill-hover: rgba(14, 20, 36, 0.95);
   }
 }
 
@@ -139,85 +134,18 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 120% 90% at 0% 20%, rgba(var(--ambient-teal), 0.07) 0%, transparent 52%),
-    radial-gradient(ellipse 100% 80% at 100% 75%, rgba(var(--ambient-plum), 0.45) 0%, transparent 55%),
-    radial-gradient(ellipse 80% 60% at 50% 100%, rgba(16, 14, 23, 0.6) 0%, transparent 50%);
+    radial-gradient(circle at 50% 20%, var(--ambient-glow-green) 0%, transparent 50%),
+    radial-gradient(circle at 15% 80%, var(--ambient-glow-cyan) 0%, transparent 40%),
+    radial-gradient(circle at 85% 80%, var(--ambient-glow-indigo) 0%, transparent 40%);
+  filter: blur(var(--ambient-glow-blur));
 }
 
 .ambient-bg__grid {
   position: absolute;
   inset: 0;
-  opacity: 0.35;
+  opacity: var(--ambient-grid-opacity);
   background-image: radial-gradient(var(--ambient-grid-dot) 1px, transparent 1px);
-  background-size: 24px 24px;
-  mask-image: radial-gradient(ellipse 85% 75% at 50% 45%, #000 20%, transparent 72%);
-  -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 45%, #000 20%, transparent 72%);
-}
-
-.ambient-bg__orb {
-  position: absolute;
-  border-radius: 50%;
-}
-
-.ambient-bg__orb--teal {
-  top: 8%;
-  left: -18rem;
-  width: 42rem;
-  height: 42rem;
-  background: radial-gradient(
-    circle,
-    var(--ambient-orb-teal-core) 0%,
-    var(--ambient-orb-teal-mid) 38%,
-    transparent 68%
-  );
-  animation: ambient-orb-pulse-teal 4.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-.ambient-bg__orb--plum {
-  bottom: 5%;
-  right: -18rem;
-  width: 40rem;
-  height: 40rem;
-  background: radial-gradient(
-    circle,
-    var(--ambient-orb-plum-mid) 0%,
-    var(--ambient-orb-plum-core) 42%,
-    transparent 70%
-  );
-  animation: ambient-orb-pulse-plum 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  animation-delay: 2s;
-}
-
-@keyframes ambient-orb-pulse-teal {
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  50% {
-    opacity: 0.72;
-    transform: scale(1.04);
-  }
-}
-
-@keyframes ambient-orb-pulse-plum {
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  50% {
-    opacity: 0.78;
-    transform: scale(1.03);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .ambient-bg__orb {
-    animation: none;
-  }
+  background-size: var(--ambient-grid-size) var(--ambient-grid-size);
 }
 
 .site-shell {
@@ -263,8 +191,8 @@
 .dark-vertion .site-shell .glass-card,
 .dark-vertion .site-shell #post-container {
   background: var(--glass-fill-card);
-  backdrop-filter: blur(var(--glass-blur-light));
-  -webkit-backdrop-filter: blur(var(--glass-blur-light));
+  backdrop-filter: blur(var(--glass-blur-heavy));
+  -webkit-backdrop-filter: blur(var(--glass-blur-heavy));
   border: 1px solid var(--glass-border);
   border-radius: var(--glass-card-radius);
   box-shadow: var(--shadow-glass);
