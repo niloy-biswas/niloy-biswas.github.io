@@ -52,12 +52,6 @@
     padding-bottom: 100px;
   }
 
-  .mh-footer-address .mh-address-footer-item .each-icon .fa {
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-  }
-
   .mh-xs-mobile-nav {
     z-index: 99;
     /*-------------------------------*/
@@ -434,10 +428,6 @@
     margin-top: 0px;
   }
 
-  .mh-footer-3 .mh-footer-address .mh-address-footer-item .each-info {
-    padding-left: 20px;
-  }
-
   .mh-blog-sidebar .social-icon li {
     margin-right: 2px;
   }
@@ -530,12 +520,6 @@
 
   .mh-about .mh-about-inner {
     margin-top: 40px;
-  }
-
-  .mh-footer-address .mh-address-footer-item .each-icon .fa {
-    width: 70px;
-    height: 70px;
-    line-height: 70px;
   }
 
   .mh-testimonial .mh-client-item {
@@ -676,21 +660,6 @@
   .mh-map {
     padding: 0px;
     margin-top: 40px;
-  }
-
-  .mh-footer-3 .mh-footer-address .mh-address-footer-item {
-    display: block;
-    padding: 20px 0px;
-  }
-
-  .mh-footer-3 .mh-footer-address .mh-address-footer-item .each-info {
-    padding-left: 20px;
-    text-align: center;
-  }
-
-  .mh-footer-3 .mh-footer-address .mh-address-footer-item .each-info {
-    padding-left: 0;
-    text-align: center;
   }
 
   .xs-no-padding {

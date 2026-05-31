@@ -77,6 +77,7 @@
     <link rel="stylesheet" href="assets/css/glass-theme.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/services-showcase.css">
+    <link rel="stylesheet" href="assets/css/contact-section.css">
     <link rel="stylesheet" href="assets/css/list-dash.css">
     <link rel="stylesheet" href="assets/css/external-link-icon.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
@@ -152,8 +153,6 @@
     <div class="ambient-bg" aria-hidden="true">
         <div class="ambient-bg__wash"></div>
         <div class="ambient-bg__grid"></div>
-        <div class="ambient-bg__orb ambient-bg__orb--teal"></div>
-        <div class="ambient-bg__orb ambient-bg__orb--plum"></div>
     </div>
 
     <div class="site-shell">
@@ -2107,113 +2106,148 @@
 
     <!--
         ===================
-           FOOTER 1
+           CONTACT
         ===================
     -->
-    <footer class="mh-footer" id="mh-contact">
-        <div class="map-image image-bg">
+    <footer class="mh-footer">
+        <section class="contact-section" id="mh-contact">
             <div class="container">
-                <div class="row section-separator">
-                    <div class="col-sm-12 section-title wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
-                        <h3>Contact Me</h3>
-                    </div>
-                    <div class="col-sm-12 mh-footer-address">
-                        <div class="row">
-                            <div class="col-sm-12 col-md-4">
-                                <div class="mh-address-footer-item glass-card wow fadeInUp"
-                                    data-wow-duration="0.8s" data-wow-delay="0.3s">
-                                    <div class="each-icon">
-                                        <i class="fa fa-location-arrow"></i>
-                                    </div>
-                                    <div class="each-info">
-                                        <h4>Address</h4>
-                                        <address>
-                                            Prominent Housing, <br>
-                                            Nikunja-2, Dhaka
-                                        </address>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-4">
-                                <div class="mh-address-footer-item glass-card wow fadeInUp"
-                                    data-wow-duration="0.8s" data-wow-delay="0.5s">
-                                    <div class="each-icon">
+                <div class="contact-section__inner">
+                <header class="section-title contact-section__header wow fadeInUp" data-wow-duration="0.8s"
+                    data-wow-delay="0.2s">
+                    <h2>Let's build <span class="contact-section__highlight">something</span></h2>
+                    <p class="contact-section__tagline">Have a project in mind, looking to automate your lead-scoring,
+                        build RAG models, or just want to say hello? Drop me a message below!</p>
+                </header>
+
+                <div class="contact-section__grid">
+                    <article class="contact-section__card glass-card wow fadeInUp" data-wow-duration="0.8s"
+                        data-wow-delay="0.3s">
+                        <button type="button" class="contact-section__say-hi" data-contact-focus
+                            aria-label="Focus the contact form">Say hi!</button>
+
+                        <div class="contact-section__card-header">
+                            <h3 class="contact-section__card-title">
+                                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                Direct Connections
+                            </h3>
+                            <p class="contact-section__card-subtitle">Reach out directly via these channels.</p>
+                        </div>
+
+                        <ul class="contact-section__info-list">
+                            <li>
+                                <a href="mailto:niloy.swe@gmail.com" class="contact-section__info-item">
+                                    <span class="contact-section__info-icon" aria-hidden="true">
                                         <i class="fa fa-envelope"></i>
-                                    </div>
-                                    <div class="each-info">
-                                        <h4>Email</h4>
-                                        <a
-                                            href="mailto:&#110;&#105;&#108;&#111;&#121;&#46;&#115;&#119;&#101;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#110;&#105;&#108;&#111;&#121;&#46;&#115;&#119;&#101;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br><br>
-                                    </div>
+                                    </span>
+                                    <span class="contact-section__info-details">
+                                        <span class="contact-section__info-label">Email Me</span>
+                                        <span class="contact-section__info-value">niloy.swe@gmail.com</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li data-contact-booking>
+                                <a href="https://calendar.app.google/iUkEPuo8fcdPuhgy6"
+                                    id="contact-booking-link" class="contact-section__info-item"
+                                    target="_blank" rel="noopener noreferrer"
+                                    aria-label="Book a meeting — opens scheduling page in a new tab">
+                                    <span class="contact-section__info-icon contact-section__info-icon--meeting"
+                                        aria-hidden="true">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                    <span class="contact-section__info-details">
+                                        <span class="contact-section__info-label">Book a Meeting</span>
+                                        <span class="contact-section__info-value">Schedule a 30-min video call</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="contact-section__info-item">
+                                    <span class="contact-section__info-icon contact-section__info-icon--location"
+                                        aria-hidden="true">
+                                        <i class="fa fa-map-marker"></i>
+                                    </span>
+                                    <span class="contact-section__info-details">
+                                        <span class="contact-section__info-label">Location</span>
+                                        <span class="contact-section__info-value">Dhaka, Bangladesh</span>
+                                    </span>
                                 </div>
-                            </div>
-                            <div class="col-sm-12 col-md-4">
-                                <div class="mh-address-footer-item glass-card wow fadeInUp"
-                                    data-wow-duration="0.8s" data-wow-delay="0.7s">
-                                    <div class="each-icon">
-                                        <i class="fa fa-phone"></i>
-                                    </div>
-                                    <div class="each-info">
-                                        <h4>Phone</h4>
-                                        <!-- <a href="callto:&#110;&#105;&#108;&#111;&#121;&#46;&#115;&#119;&#101;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">+880 1&#55;&#53;&#54; 770&#53;&#48;&#49;</a><br><br> -->
-                                        <a href=""></a><br><br>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            </li>
+                        </ul>
 
-                    <!-- Sending Email using Contact Form -->
-                    <div class="col-sm-12 col-md-12 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
+                        <div class="contact-section__card-footer">
+                            <span class="contact-section__socials-label">Connect</span>
+                            <ul class="social-icon">
+                                <li><a href="https://www.linkedin.com/in/niloy--biswas/" target="_blank"
+                                        rel="noopener noreferrer" aria-label="Visit my LinkedIn profile"><i
+                                            class="fa-brands fa-linkedin-in"></i></a></li>
+                                <li><a href="https://github.com/niloy-biswas" target="_blank" rel="noopener noreferrer"
+                                        aria-label="Visit my Github profile"><i class="fa-brands fa-github"></i></a>
+                                </li>
+                                <li><a href="https://medium.com/@niloy.swe" target="_blank" rel="noopener noreferrer"
+                                        aria-label="Visit my Medium profile"><i class="fa-brands fa-medium"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="contact-section__card glass-card wow fadeInUp" data-wow-duration="0.8s"
+                        data-wow-delay="0.4s">
+                        <div class="contact-section__card-header">
+                            <h3 class="contact-section__card-title">
+                                <i class="fa fa-comment" aria-hidden="true"></i>
+                                Send a Message
+                            </h3>
+                            <p class="contact-section__card-subtitle">I typically respond within a few hours.</p>
+                        </div>
+
                         <form action="https://formspree.io/f/mgvakegz" method="POST" id="contactForm"
-                            class="single-form quate-form">
-                            <div id="msgSubmit" class="h3 text-center hidden"></div>
-                            <div class="row">
-                                <div class="col-md-6 col-sm-12">
-                                    <input name="firstName" class="contact-name form-control" id="firstName" type="text"
-                                        placeholder="First Name" required>
+                            class="contact-section__form">
+                            <div id="msgSubmit" class="contact-section__form-status hidden" role="status"
+                                aria-live="polite"></div>
+
+                            <div class="contact-section__input-grid">
+                                <div class="contact-section__field">
+                                    <label for="firstName" class="contact-section__label">First Name</label>
+                                    <input name="firstName" class="contact-section__input" id="firstName" type="text"
+                                        placeholder="John" required>
                                 </div>
-                                <div class="col-md-6 col-sm-12">
-                                    <input name="lastName" class="contact-email form-control" id="lastName" type="text"
-                                        placeholder="Last Name" required>
-                                </div>
-                                <div class="col-sm-12">
-                                    <input name="_replyto" class="contact-subject form-control" id="email" type="email"
-                                        placeholder="Your Email" required>
-                                </div>
-                                <div class="col-sm-12">
-                                    <textarea name="message" class="contact-message" id="message" rows="6"
-                                        placeholder="Your Message" required></textarea>
-                                </div>
-                                <div class="btn-form col-sm-12">
-                                    <button type="submit" class="btn btn-fill btn-block" id="form-submit">Send
-                                        Message</button>
+                                <div class="contact-section__field">
+                                    <label for="lastName" class="contact-section__label">Last Name</label>
+                                    <input name="lastName" class="contact-section__input" id="lastName" type="text"
+                                        placeholder="Doe" required>
                                 </div>
                             </div>
+
+                            <div class="contact-section__field contact-section__field--full">
+                                <label for="email" class="contact-section__label">Email Address</label>
+                                <input name="_replyto" class="contact-section__input" id="email" type="email"
+                                    placeholder="john@example.com" required>
+                            </div>
+
+                            <div class="contact-section__field contact-section__field--full">
+                                <label for="message" class="contact-section__label">Your Message</label>
+                                <textarea name="message" class="contact-section__textarea" id="message" rows="5"
+                                    placeholder="Hi Niloy, let's collaborate on..." required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-cv-glass contact-section__submit" id="form-submit">
+                                Send Message
+                                <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            </button>
                         </form>
+                    </article>
+                </div>
 
-                        <!-- Sending Email using Contact Form END -->
+                </div>
+            </div>
+        </section>
 
-                        <div class="col-sm-12 mh-copyright wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="text-left text-xs-center">
-                                        <p>All right reserved Niloy Biswas @ 2026</p>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <ul class="social-icon">
-                                        <li><a href="https://www.facebook.com/Niloy.swe/"><i
-                                                    class="fa-brands fa-facebook-f"></i></a></li>
-                                        <li><a href="https://github.com/niloy-biswas"><i
-                                                    class="fa-brands fa-github"></i></a></li>
-                                        <li><a href="https://www.linkedin.com/in/niloy--biswas/"><i
-                                                    class="fa-brands fa-linkedin-in"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <div class="site-footer">
+            <div class="container">
+                <div class="site-footer__bar wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s">
+                    <p class="site-footer__copy">&copy; 2026 Niloy Biswas. All rights reserved.</p>
+                    <p class="site-footer__tagline">Data Analyst &amp; AI Product Engineer</p>
                 </div>
             </div>
         </div>
@@ -2251,6 +2285,7 @@
     <script src="assets/js/external-link-icon.js"></script>
     <script src="assets/js/expand-images.js"></script>
     <script src="assets/js/service-showcase.js"></script>
+    <script src="assets/js/contact-section.js"></script>
     <script src="assets/js/animations.js"></script>
     <!-- Map api -->
     <!-- <script src="http://maps.googleapis.com/maps/api/js?v=3.exp&amp;key=AIzaSyAE_V-SAZMoiEnH8Dowy5vHwXHjEChF9Kc"></script> -->
