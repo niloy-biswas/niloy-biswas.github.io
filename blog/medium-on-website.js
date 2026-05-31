@@ -4,7 +4,7 @@ const API_URL = "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedi
 const getClassicPost = (postData) => {
   let template = 
   `
-    <div id="post-container">
+    <div id="post-container" class="glass-card">
       <div id="post-header">
         <div id="post-author-image">
           <img src="${postData.authorImage}" alt="${postData.authorName}"/>
@@ -36,7 +36,7 @@ const getClassicPost = (postData) => {
 const getCompactPost = (postData) => {
   let template = 
   `
-    <div id="post-container">
+    <div id="post-container" class="glass-card">
       <div id="post-header">
         <div id="post-author-image">
           <img src="${postData.authorImage}" alt="${postData.authorName}"/>
@@ -67,7 +67,7 @@ const getCompactPost = (postData) => {
 const getMiniPost = (postData) => {
   let template = 
   `
-    <div id="post-container" class="mini">
+    <div id="post-container" class="glass-card mini">
     <a id="post-link" class="mini" href="${postData.postLink}">
       <div id="post-title" class="mini">
       <span>
