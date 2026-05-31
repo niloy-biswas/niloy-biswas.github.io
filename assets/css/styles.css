@@ -1525,6 +1525,64 @@ html:has(body.dark-vertion.black-bg) {
        ABOUT
     ==============
 */
+/* Interactive skills HUD — assets/images/portfolio-hud.svg (viewBox 0 88 1465 618) */
+.mh-about .mh-about-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  row-gap: 2rem;
+}
+
+.mh-about .mh-about-hud-col,
+.mh-about .mh-about-text-col {
+  position: relative;
+  z-index: 1;
+}
+
+.mh-about .mh-about-hud-col {
+  display: flex;
+  justify-content: flex-end;
+  overflow: visible;
+}
+
+.mh-about .mh-about-hud {
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 1465 / 618;
+  margin: 0;
+  flex-shrink: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.mh-about .mh-about-hud .portfolio-hud-embed {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+  pointer-events: auto;
+}
+
+@media (min-width: 768px) {
+  .mh-about .mh-about-hud-col {
+    padding-top: calc(20px + 20px + 1.2 * var(--text-2xl, 39px));
+  }
+
+  .mh-about .mh-about-text-col {
+    padding-left: 8px;
+  }
+}
+
+@media (max-width: 767px) {
+  .mh-about .mh-about-hud-col {
+    justify-content: center;
+  }
+
+  .mh-about .mh-about-text-col {
+    padding-left: 0;
+  }
+}
+
 .mh-about .mh-about-inner {
   padding-left: 50px;
   text-align: left;
