@@ -40,12 +40,14 @@
   height: clamp(140px, 18vw, 188px);
   margin: -4px -4px 18px;
   padding: 12px 10px 8px;
-  border-radius: var(--radius-md, 12px) var(--radius-md, 12px) 8px 8px;
+  border-radius: var(--glass-card-radius, var(--radius-md, 12px))
+    var(--glass-card-radius, var(--radius-md, 12px)) var(--radius-sm, 8px)
+    var(--radius-sm, 8px);
   background: linear-gradient(
     165deg,
-    rgba(255, 255, 255, 0.06) 0%,
-    rgba(255, 255, 255, 0.02) 45%,
-    transparent 100%
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(20, 18, 26, 0.55) 55%,
+    rgba(20, 18, 26, 0.72) 100%
   );
   border: 1px solid rgba(255, 255, 255, 0.06);
   overflow: hidden;

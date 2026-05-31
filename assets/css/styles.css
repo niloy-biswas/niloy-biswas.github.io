@@ -1101,7 +1101,7 @@ h6 {
   opacity: 0.9;
 }
 
-/* Full-page modern blue gradient so html is covered when body has dark theme */
+/* Full-page faded dark gradient so html is covered when body has dark theme */
 html:has(body.dark-vertion.black-bg) {
   background: var(--bg-gradient);
   background-attachment: fixed;
@@ -1109,59 +1109,33 @@ html:has(body.dark-vertion.black-bg) {
 }
 
 .dark-vertion.black-bg {
-  background: var(--bg-gradient);
-  background-attachment: fixed;
+  background: transparent;
   min-height: 100vh;
 }
 
-/* Overlay: subtle geometric shapes + fine grain texture (on top of gradient) */
+/* Overlay: fine grain only — color atmosphere is in glass-theme.css (.ambient-bg) */
 .dark-vertion.black-bg::before {
   content: '';
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E"),
-    var(--bg-gradient-bokeh);
-  background-repeat: repeat, no-repeat;
-  background-size: 256px 256px, 100% 100%;
-  z-index: 0;
-}
-
-/* Soft round orbs (right side, easy on the eyes) */
-.dark-vertion.black-bg::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    radial-gradient(ellipse 120% 100% at 88% 25%, rgba(255, 255, 255, 0.05) 0%, transparent 55%),
-    radial-gradient(circle 50% at 75% 55%, rgba(200, 220, 255, 0.04) 0%, transparent 50%),
-    radial-gradient(circle 40% at 92% 70%, rgba(255, 255, 255, 0.03) 0%, transparent 45%),
-    radial-gradient(circle 35% at 82% 40%, rgba(255, 255, 255, 0.025) 0%, transparent 45%);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  z-index: 0;
-}
-
-/* Give content stacking above bokeh; exclude header so it keeps position:fixed */
-.dark-vertion.black-bg>*:not(.fancybox-container):not(header) {
-  position: relative;
-  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.028'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  z-index: -1;
 }
 
 /* Keep fixed nav above other content and preserve its fixed positioning */
-.dark-vertion.black-bg>header.mh-header {
+.dark-vertion.black-bg .site-shell > header.mh-header {
   z-index: 1000;
 }
 
-/* Ensure footer is visible on desktop above the fixed bokeh overlay */
-.dark-vertion.black-bg>footer.mh-footer {
+.dark-vertion.black-bg .site-shell > footer.mh-footer {
   position: relative;
   z-index: 2;
 }
 
-.dark-vertion.black-bg>footer.mh-footer .map-image {
+.dark-vertion.black-bg .site-shell > footer.mh-footer .map-image {
   position: relative;
   z-index: 1;
   padding-top: 60px;
@@ -1334,26 +1308,6 @@ html:has(body.dark-vertion.black-bg) {
     0 0px 1px 1px rgba(255, 255, 255, 0.8);
 }
 
-/* Rounded cards: edge-only glow (no glow in middle) */
-/* Work/Experience cards - same glass design as What I Do */
-.dark-vertion .mh-work .mh-experience-deatils .mh-work-item {
-  background: var(--glass-fill);
-  backdrop-filter: blur(var(--glass-blur-light));
-  -webkit-backdrop-filter: blur(var(--glass-blur-light));
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-glass);
-  transition: transform var(--transition-base),
-    box-shadow var(--transition-base),
-    border-color var(--transition-base);
-}
-
-.dark-vertion .mh-work .mh-experience-deatils .mh-work-item:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-glass-hover);
-  border-color: var(--glass-border-hover);
-}
-
 .dark-vertion .mh-pricing .mh-pricing {
   box-shadow: var(--shadow-glass);
 }
@@ -1368,18 +1322,6 @@ html:has(body.dark-vertion.black-bg) {
 
 .dark-vertion .mh-blog .mh-blog-item:hover {
   box-shadow: var(--shadow-glass-hover);
-}
-
-.dark-vertion .mh-footer-address .mh-address-footer-item {
-  box-shadow: var(--shadow-glass);
-}
-
-.dark-vertion .mh-experince .mh-education-deatils .mh-education-item {
-  box-shadow: var(--shadow-glass);
-}
-
-.dark-vertion .mh-service .mh-service-item {
-  box-shadow: var(--shadow-glass);
 }
 
 .dark-vertion .mh-home .hero-img img {
@@ -1611,61 +1553,6 @@ html:has(body.dark-vertion.black-bg) {
 */
 .mh-home .mh-header-info {
   padding-top: 100px;
-}
-
-.hero-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.625rem;
-  width: fit-content;
-  margin: 0 0 1.25rem;
-  padding: 0.5rem 1.125rem;
-  border-radius: var(--radius-lg, 20px);
-  background: var(--glass-fill);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-edge-glow);
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.dark-vertion .mh-home .mh-header-info .hero-status {
-  color: var(--accent);
-}
-
-.hero-status__dot {
-  flex-shrink: 0;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--accent);
-  box-shadow: 0 0 8px var(--accent-glow);
-  animation: hero-status-blink 2s ease-in-out infinite;
-}
-
-@keyframes hero-status-blink {
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(11, 206, 175, 0.55);
-  }
-
-  50% {
-    opacity: 0.35;
-    transform: scale(0.92);
-    box-shadow: 0 0 0 6px rgba(11, 206, 175, 0);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-status__dot {
-    animation: none;
-    opacity: 1;
-  }
 }
 
 .mh-home .mh-header-info h1 {
@@ -2037,10 +1924,6 @@ html:has(body.dark-vertion.black-bg) {
 .mh-experince .mh-education-deatils .mh-education-item {
   margin-bottom: 30px;
   padding: 26px 30px;
-  border-radius: 4px;
-  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16),
-    0 2px 10px 0 rgba(0, 0, 0, 0.12);
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
 .mh-experince .mh-education-deatils .mh-education-item:last-child {
@@ -2124,10 +2007,6 @@ html:has(body.dark-vertion.black-bg) {
 .mh-work .mh-experience-deatils .mh-work-item {
   margin-bottom: 30px;
   padding: 20px 30px;
-  border-radius: 4px;
-  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16),
-    0 2px 10px 0 rgba(0, 0, 0, 0.12);
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
 .mh-work .mh-experience-deatils .mh-work-item:last-child {
@@ -2649,7 +2528,6 @@ body.dark-vertion.fancybox-active .fancybox-bg {
   padding: 30px;
   text-align: center;
   margin-bottom: 30px;
-  border-radius: 4px;
 }
 
 .mh-footer-address .mh-address-footer-item h4 {
@@ -3733,7 +3611,6 @@ body.dark-vertion.fancybox-active .fancybox-bg {
 
 .mh-service .mh-service-item {
   padding: 20px;
-  border-radius: 4px;
   text-align: justify;
   margin: 15px 0;
   /* text-justify: inter-word; */
@@ -4311,14 +4188,7 @@ BLOG Pagination
   margin-bottom: 10px;
 }
 
-/* Citation box: match glass card design inside education/experience */
 .citation-box {
-  background: var(--glass-fill);
-  backdrop-filter: blur(var(--glass-blur-light));
-  -webkit-backdrop-filter: blur(var(--glass-blur-light));
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-glass);
   padding: 1rem 1.25rem;
   margin: 0.5rem 0 1rem;
 }
@@ -4541,28 +4411,6 @@ BLOG Pagination
 }
 
 /* ============================================
-   SERVICE CARDS (What I Do)
-   Glass cards with hover lift
-   ============================================ */
-.dark-vertion .mh-service .mh-service-item {
-  background: var(--glass-fill);
-  backdrop-filter: blur(var(--glass-blur-light));
-  -webkit-backdrop-filter: blur(var(--glass-blur-light));
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-glass);
-  transition: transform var(--transition-base),
-    box-shadow var(--transition-base),
-    border-color var(--transition-base);
-}
-
-.dark-vertion .mh-service .mh-service-item:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-glass-hover);
-  border-color: var(--glass-border-hover);
-}
-
-/* ============================================
    SKILL TAGS AS GLASS PILLS
    ============================================ */
 .dark-vertion .mh-about-tag ul li span {
@@ -4664,25 +4512,6 @@ BLOG Pagination
   color: var(--text-muted);
 }
 
-/* Contact info cards as glass with edge glow */
-.dark-vertion .mh-footer-address .mh-address-footer-item {
-  background: var(--glass-fill);
-  backdrop-filter: blur(var(--glass-blur-light));
-  -webkit-backdrop-filter: blur(var(--glass-blur-light));
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-glass);
-  transition: transform var(--transition-base),
-    box-shadow var(--transition-base),
-    border-color var(--transition-base);
-}
-
-.dark-vertion .mh-footer-address .mh-address-footer-item:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-glass-hover);
-  border-color: var(--glass-border-hover);
-}
-
 /* CTA button emphasis */
 .dark-vertion .mh-footer .btn-fill,
 .dark-vertion .btn-fill {
@@ -4697,67 +4526,6 @@ BLOG Pagination
 .dark-vertion .btn-fill:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 30px var(--glow-primary-strong);
-}
-
-/* ============================================
-   KEEP TEXT-HEAVY SECTIONS CLEAN
-   Education & Experience - minimal styling
-   ============================================ */
-/* Experience cards - same glass design as What I Do */
-.dark-vertion .mh-experince .mh-education-deatils .mh-education-item {
-  background: var(--glass-fill);
-  backdrop-filter: blur(var(--glass-blur-light));
-  -webkit-backdrop-filter: blur(var(--glass-blur-light));
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-glass);
-  transition: transform var(--transition-base),
-    box-shadow var(--transition-base),
-    border-color var(--transition-base);
-}
-
-.dark-vertion .mh-experince .mh-education-deatils .mh-education-item:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-glass-hover);
-  border-color: var(--glass-border-hover);
-}
-
-/* Education cards - same glass design as What I Do */
-.dark-vertion .mh-education .mh-education-deatils .mh-education-item {
-  background: var(--glass-fill);
-  backdrop-filter: blur(var(--glass-blur-light));
-  -webkit-backdrop-filter: blur(var(--glass-blur-light));
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-glass);
-  transition: transform var(--transition-base),
-    box-shadow var(--transition-base),
-    border-color var(--transition-base);
-}
-
-.dark-vertion .mh-education .mh-education-deatils .mh-education-item:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-glass-hover);
-  border-color: var(--glass-border-hover);
-}
-
-/* Blog page post cards – same glass design + edge glow (medium.html) */
-.dark-vertion #post-container {
-  background: var(--glass-fill);
-  backdrop-filter: blur(var(--glass-blur-light));
-  -webkit-backdrop-filter: blur(var(--glass-blur-light));
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-glass);
-  transition: transform var(--transition-base),
-    box-shadow var(--transition-base),
-    border-color var(--transition-base);
-}
-
-.dark-vertion #post-container:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-glass-hover);
-  border-color: var(--glass-border-hover);
 }
 
 /* ============================================
@@ -4797,13 +4565,6 @@ BLOG Pagination
 @media (max-width: 767px) {
   .dark-vertion .mh-header .navbar-nav li {
     margin: 8px 0;
-  }
-
-  .dark-vertion .mh-service .mh-service-item,
-  .dark-vertion .mh-experince .mh-education-deatils .mh-education-item,
-  .dark-vertion .mh-education .mh-education-deatils .mh-education-item,
-  .dark-vertion .mh-work .mh-experience-deatils .mh-work-item {
-    backdrop-filter: blur(6px);
   }
 
   .dark-vertion .portfolio-nav ul li {
