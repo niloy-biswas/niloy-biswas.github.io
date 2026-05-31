@@ -879,10 +879,6 @@ h6 {
   background-color: #fff;
 }
 
-.white-vertion .mh-home .mh-header-info .mh-promo span {
-  color: #fff;
-}
-
 .white-vertion .mh-project-gallery .grid-item figure figcaption a {
   color: #fff;
 }
@@ -1617,21 +1613,59 @@ html:has(body.dark-vertion.black-bg) {
   padding-top: 100px;
 }
 
-.mh-home .mh-header-info .mh-promo {
-  margin-bottom: 30px;
+.hero-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  width: fit-content;
+  margin: 0 0 1.25rem;
+  padding: 0.5rem 1.125rem;
+  border-radius: var(--radius-lg, 20px);
+  background: var(--glass-fill);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-edge-glow);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
-.mh-home .mh-header-info .mh-promo span {
-  background-color: #0bceaf;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: 1px;
-  font-weight: bold;
-  padding: 10px 30px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  border-bottom-left-radius: 0px;
+.dark-vertion .mh-home .mh-header-info .hero-status {
+  color: var(--accent);
+}
+
+.hero-status__dot {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  box-shadow: 0 0 8px var(--accent-glow);
+  animation: hero-status-blink 2s ease-in-out infinite;
+}
+
+@keyframes hero-status-blink {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(11, 206, 175, 0.55);
+  }
+
+  50% {
+    opacity: 0.35;
+    transform: scale(0.92);
+    box-shadow: 0 0 0 6px rgba(11, 206, 175, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-status__dot {
+    animation: none;
+    opacity: 1;
+  }
 }
 
 .mh-home .mh-header-info h1 {
@@ -1646,6 +1680,10 @@ html:has(body.dark-vertion.black-bg) {
   font-size: 26px;
   line-height: 34px;
   margin-bottom: 30px;
+}
+
+.dark-vertion .mh-home .mh-header-info h4 .hero-role .wrap {
+  color: var(--accent);
 }
 
 .mh-home .mh-header-info ul {
@@ -1742,17 +1780,54 @@ html:has(body.dark-vertion.black-bg) {
 */
 .mh-about .mh-about-inner {
   padding-left: 50px;
-  text-align: justify;
-  text-justify: inter-word;
+  text-align: left;
 }
 
 .mh-about .mh-about-inner h1 {
   margin-bottom: 20px;
   margin-top: 20px;
+  font-size: var(--text-2xl, 39px);
+  font-weight: 350;
+  line-height: 1.2;
 }
 
 .mh-about .mh-about-inner p {
   margin-bottom: 30px;
+}
+
+.dark-vertion .mh-about .mh-about-inner p {
+  color: #fff;
+}
+
+.dark-vertion .mh-about .mh-about-inner p .about-accent {
+  color: var(--accent);
+}
+
+.mh-about .mh-about-inner p .about-inline-tag {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.4em;
+  padding: 0.1em 0.5em;
+  font: inherit;
+  line-height: inherit;
+  vertical-align: baseline;
+  white-space: nowrap;
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xs, 4px);
+  box-shadow: var(--glass-edge-glow);
+}
+
+.dark-vertion .mh-about .mh-about-inner p .about-inline-tag {
+  color: var(--accent);
+}
+
+.mh-about .mh-about-inner p .about-inline-tag::before {
+  content: "[ ";
+}
+
+.mh-about .mh-about-inner p .about-inline-tag::after {
+  content: " ]";
 }
 
 .mh-about .mh-about-inner .btn {
@@ -3292,7 +3367,7 @@ body.dark-vertion.fancybox-active .fancybox-bg {
   }
 }
 
-/* CV glass pill button -- matches "Hello I'm" badge style */
+/* CV glass pill button */
 .btn-cv-glass,
 .btn.btn-fill {
   display: inline-flex;
@@ -4452,16 +4527,6 @@ BLOG Pagination
   border: none !important;
   border-radius: 0 !important;
   box-shadow: none !important;
-}
-
-/* Hero promo badge as glass chip with subtle glow */
-.dark-vertion .mh-home .mh-header-info .mh-promo span {
-  background: var(--glass-fill);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-edge-glow);
-  color: var(--accent);
 }
 
 /* Social icons - keep original style, add glow on hover only */

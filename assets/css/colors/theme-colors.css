@@ -18,10 +18,6 @@
   color: var(--accent);
 }
 
-.mh-home .mh-header-info .mh-promo span {
-  background-color: var(--accent);
-}
-
 .mh-home .mh-header-info ul li:hover .fa {
   color: var(--accent);
 }

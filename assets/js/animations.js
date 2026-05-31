@@ -64,7 +64,7 @@
 
     // Avoid navbar; target hero content only.
     var items = [
-      ".mh-home .mh-promo",
+      ".mh-home .hero-status",
       ".mh-home .mh-header-info h1",
       ".mh-home .mh-header-info h4",
       ".mh-home .mh-header-info > ul",
