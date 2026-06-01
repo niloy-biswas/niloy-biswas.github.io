@@ -2985,6 +2985,7 @@ body.dark-vertion.fancybox-active .fancybox-bg {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-muted);
+  text-align: right;
 }
 
 .qs-accent,
