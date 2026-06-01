@@ -268,7 +268,7 @@
 
   function initProjectHover() {
     var figures = Array.prototype.slice.call(
-      document.querySelectorAll("#mh-portfolio .mh-project-gallery .grid-item figure")
+      document.querySelectorAll("#mh-portfolio .portfolioContainer .grid-item figure")
     );
     if (!figures.length) return;
 

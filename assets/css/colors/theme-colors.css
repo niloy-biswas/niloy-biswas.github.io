@@ -118,7 +118,7 @@
   background-color: var(--accent);
 }
 
-.mh-project-gallery .grid-item figure:hover figcaption {
+.portfolioContainer .grid-item figure:hover figcaption {
   background: var(--accent-overlay);
 }
 

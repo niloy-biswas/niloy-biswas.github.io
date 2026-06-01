@@ -1200,7 +1200,7 @@
                                         <h4>Reviewer Recognition</h4>
                                     </div>
                                     <div class="part col-sm-12">
-                                        <div class="mh-project-gallery col-sm-12 wow fadeInUp" id="project-gallery"
+                                        <div class="mh-project-gallery col-sm-12 wow fadeInUp" id="reviewer-gallery"
                                             data-wow-duration="0.8s" data-wow-delay="0.5s">
                                             <div class="portfolioContainer row">
                                                 <div class="grid-item col-md-4 col-sm-6 col-xs-12">
@@ -1272,155 +1272,352 @@
     <section class="mh-portfolio" id="mh-portfolio">
         <div class="container">
             <div class="row section-separator">
-                <div class="section-title col-sm-12 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">
-                    <h2>Portfolio</h2>
+                <div class="section-title col-sm-12 text-center wow fadeInUp" data-wow-duration="0.8s"
+                    data-wow-delay="0.1s">
+                    <h2>Case Studies &amp; <span class="text-gradient-accent">Projects</span></h2>
+                    <p class="portfolio-tagline">A highly-curated archive of machine learning systems, data
+                        warehousing pipelines, and analytics suites developed to solve complex commercial scale and
+                        operational roadblocks.</p>
                 </div>
                 <div class="part col-sm-12">
-                    <div class="portfolio-nav col-sm-12" id="filter-button">
+                    <div class="portfolio-nav col-sm-12 wow fadeInUp" data-wow-duration="0.8s"
+                        data-wow-delay="0.2s" id="portfolio-filter">
                         <ul>
-                            <li data-filter="*" class="current wow fadeInUp" data-wow-duration="0.8s"
-                                data-wow-delay="0.1s"> <span>All Categories</span></li>
-                            <li data-filter=".DViz" class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
-                                <span>Data Analytics</span>
-                            </li>
-                            <li data-filter=".ml" class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
-                                <span>Machine Learning</span>
-                            </li>
+                            <li data-filter="all" class="current wow fadeInUp" data-wow-duration="0.8s"
+                                data-wow-delay="0.1s"><span>All Categories</span></li>
+                            <li data-filter="analytics" class="wow fadeInUp" data-wow-duration="0.8s"
+                                data-wow-delay="0.2s"><span>Data Analytics</span></li>
+                            <li data-filter="ml" class="wow fadeInUp" data-wow-duration="0.8s"
+                                data-wow-delay="0.2s"><span>Machine Learning</span></li>
                         </ul>
                     </div>
-                    <div class="mh-project-gallery col-sm-12 wow fadeInUp" id="project-gallery" data-wow-duration="0.8s"
-                        data-wow-delay="0.5s">
-                        <div class="portfolioContainer row">
-                            <div class="grid-item col-md-4 col-sm-6 col-xs-12 ml">
-                                <figure>
-                                    <img src="assets/images/portfolio/FaceRecognition.jpeg"
-                                        alt="Face Recognition - Machine Learning Project">
-                                    <figcaption class="fig-caption">
-                                        <i class="fa fa-q"></i>
-                                        <h5 class="title">Face Recognition</h5>
-                                        <span class="sub-title">Computer Vision</span>
-                                        <a href="https://github.com/niloy-biswas/Face-Recognition" target="_blank"
-                                            rel="noopener noreferrer"></a>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                            <div class="grid-item col-md-4 col-sm-6 col-xs-12 DViz">
-                                <figure>
-                                    <img src="assets/images/portfolio/CHICAGO-TAXIES.png"
-                                        alt="Data Studio - Data Analytics Project">
-                                    <figcaption class="fig-caption">
-                                        <i class="fa fa-q"></i>
-                                        <h5 class="title">Chicago-Taxi Trips</h5>
-                                        <span class="sub-title">Data Analytics</span>
-                                        <a href="https://lookerstudio.google.com/reporting/0aa2ad05-df22-4851-b5a4-f9b69d8a5f5e"
-                                            target="_blank" rel="noopener noreferrer" data-fancybox
-                                            data-src="#ChicagoTaxies"></a>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                            <div class="grid-item col-md-4 col-sm-6 col-xs-12 ml">
-                                <figure>
-                                    <img src="assets/images/portfolio/HD.jpeg"
-                                        alt="Heart Disease - Machine Learning Project">
-                                    <figcaption class="fig-caption">
-                                        <i class="fa fa-q"></i>
-                                        <h5 class="title">Heart Disease Prediction</h5>
-                                        <span class="sub-title">ML</span>
-                                        <a href="https://github.com/niloy-biswas/Heart-Disease-Analysis" target="_blank"
-                                            rel="noopener noreferrer" data-fancybox data-src="#HeartDisease"></a>
-                                    </figcaption>
-                                </figure>
-                            </div>
+                    <div class="mh-project-gallery col-sm-12 wow fadeInUp" id="mh-portfolio-gallery"
+                        data-wow-duration="0.8s" data-wow-delay="0.4s">
+                        <div class="portfolio-showcase" role="list">
 
-                            <div class="grid-item col-md-4 col-sm-6 col-xs-12 DViz">
-                                <figure>
-                                    <img src="assets/images/portfolio/likedinDash.png"
-                                        alt="LinkedIn Connections - Data Studio - Data Analytics Project">
-                                    <figcaption class="fig-caption">
-                                        <i class="fa fa-q"></i>
-                                        <h5 class="title">LinkedIn Network Visualization</h5>
-                                        <span class="sub-title">Looker Studio</span>
-                                        <a href="https://lookerstudio.google.com/u/1/reporting/276b3f57-2545-4161-85da-7ddbd9849f72/page/Hct0C"
-                                            target="_blank" rel="noopener noreferrer" data-fancybox
-                                            data-src="#LinkedinDashboard"></a>
-                                    </figcaption>
-                                </figure>
-                            </div>
+                            <article
+                                class="portfolio-showcase__card glass-card"
+                                data-category="ml" role="listitem">
+                                <a class="portfolio-showcase__link"
+                                    href="https://github.com/niloy-biswas/Face-Recognition" target="_blank"
+                                    rel="noopener noreferrer">
+                                    <div class="portfolio-showcase__media">
+                                        <span class="portfolio-showcase__badge portfolio-showcase__badge--ml">Computer
+                                            Vision</span>
+                                        <img src="assets/images/portfolio/FaceRecognition.jpeg"
+                                            alt="Face Recognition project thumbnail" loading="lazy">
+                                        <div class="portfolio-showcase__media-overlay" aria-hidden="true"></div>
+                                    </div>
+                                    <div class="portfolio-showcase__body">
+                                        <div class="portfolio-showcase__tags">
+                                            <span class="portfolio-showcase__tag">Python</span>
+                                            <span class="portfolio-showcase__tag">OpenCV</span>
+                                        </div>
+                                        <h3>Face Recognition</h3>
+                                        <p>End-to-end face detection and recognition pipeline for identity matching in
+                                            image streams.</p>
+                                    </div>
+                                    <div class="portfolio-showcase__footer">
+                                        <span class="portfolio-showcase__action">View on GitHub
+                                            <svg class="portfolio-showcase__action-icon" viewBox="0 0 24 24"
+                                                aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                                            </svg>
+                                        </span>
+                                        <span class="portfolio-showcase__meta">Open source</span>
+                                    </div>
+                                </a>
+                            </article>
 
-                            <div class="grid-item col-md-4 col-sm-6 col-xs-12 DViz">
-                                <figure>
-                                    <img src="assets/images/portfolio/BigQuery_CostingHalf.png"
-                                        alt="BigQuery Cost Monitoring - Data Studio - Data Analytics Project">
-                                    <figcaption class="fig-caption">
-                                        <i class="fa fa-q"></i>
-                                        <h5 class="title">BigQuery Cost Monitoring</h5>
-                                        <span class="sub-title">Looker Studio</span>
-                                        <a href="" data-fancybox data-src="#BQCostMonitoring"></a>
-                                    </figcaption>
-                                </figure>
-                            </div>
+                            <article
+                                class="portfolio-showcase__card glass-card"
+                                data-category="analytics" role="listitem">
+                                <a class="portfolio-showcase__link"
+                                    href="https://lookerstudio.google.com/reporting/0aa2ad05-df22-4851-b5a4-f9b69d8a5f5e"
+                                    target="_blank" rel="noopener noreferrer" data-fancybox
+                                    data-src="#ChicagoTaxies">
+                                    <div class="portfolio-showcase__media">
+                                        <span
+                                            class="portfolio-showcase__badge portfolio-showcase__badge--analytics">Looker
+                                            Studio</span>
+                                        <img src="assets/images/portfolio/CHICAGO-TAXIES.png"
+                                            alt="Chicago taxi trips dashboard thumbnail" loading="lazy">
+                                        <div class="portfolio-showcase__media-overlay" aria-hidden="true"></div>
+                                    </div>
+                                    <div class="portfolio-showcase__body">
+                                        <div class="portfolio-showcase__tags">
+                                            <span class="portfolio-showcase__tag">BigQuery</span>
+                                            <span class="portfolio-showcase__tag">SQL</span>
+                                        </div>
+                                        <h3>Chicago Taxi Trips</h3>
+                                        <p>Interactive BI dashboard over large-scale trip data with KPIs for demand,
+                                            revenue, and route patterns.</p>
+                                    </div>
+                                    <div class="portfolio-showcase__footer">
+                                        <span class="portfolio-showcase__action">Launch dashboard
+                                            <svg class="portfolio-showcase__action-icon" viewBox="0 0 24 24"
+                                                aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                                            </svg>
+                                        </span>
+                                        <span class="portfolio-showcase__meta">Live report</span>
+                                    </div>
+                                </a>
+                            </article>
 
-                            <div class="grid-item col-md-4 col-sm-6 col-xs-12 DViz">
-                                <figure>
-                                    <img src="assets/images/portfolio/Bangladesh_population_density_thumbnail.png"
-                                        alt="Population Density Map - 3D Map">
-                                    <figcaption class="fig-caption">
-                                        <i class="fa fa-q"></i>
-                                        <h5 class="title">Population Density Map</h5>
-                                        <span class="sub-title">R-Programming</span>
-                                        <a href="" data-fancybox data-src="#PopulationDensity"></a>
-                                    </figcaption>
-                                </figure>
-                            </div>
+                            <article
+                                class="portfolio-showcase__card glass-card"
+                                data-category="ml" role="listitem">
+                                <a class="portfolio-showcase__link"
+                                    href="https://github.com/niloy-biswas/Heart-Disease-Analysis" target="_blank"
+                                    rel="noopener noreferrer" data-fancybox data-src="#HeartDisease">
+                                    <div class="portfolio-showcase__media">
+                                        <span class="portfolio-showcase__badge portfolio-showcase__badge--ml">ML
+                                            Classification</span>
+                                        <img src="assets/images/portfolio/HD.jpeg"
+                                            alt="Heart disease prediction project thumbnail" loading="lazy">
+                                        <div class="portfolio-showcase__media-overlay" aria-hidden="true"></div>
+                                    </div>
+                                    <div class="portfolio-showcase__body">
+                                        <div class="portfolio-showcase__tags">
+                                            <span class="portfolio-showcase__tag">scikit-learn</span>
+                                            <span class="portfolio-showcase__tag">Python</span>
+                                        </div>
+                                        <h3>Heart Disease Prediction</h3>
+                                        <p>Compares classifiers on clinical features to flag cardiovascular risk with
+                                            interpretable model outputs.</p>
+                                    </div>
+                                    <div class="portfolio-showcase__footer">
+                                        <span class="portfolio-showcase__action">View case study
+                                            <svg class="portfolio-showcase__action-icon" viewBox="0 0 24 24"
+                                                aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                                            </svg>
+                                        </span>
+                                        <span class="portfolio-showcase__meta">GitHub + details</span>
+                                    </div>
+                                </a>
+                            </article>
 
-                            <div class="grid-item col-md-4 col-sm-6 col-xs-12 DViz">
-                                <figure>
-                                    <img src="assets/images/portfolio/US_Superstore_Thumbnail.png"
-                                        alt="Data Studio - Data Analytics Project">
-                                    <figcaption class="fig-caption">
-                                        <i class="fa fa-q"></i>
-                                        <h5 class="title">US Superstore - Sales Summary</h5>
-                                        <span class="sub-title">Data Analytics</span>
-                                        <a href="https://lookerstudio.google.com/u/1/reporting/578c6935-cc05-49e3-8391-84d54e106ad8/page/McsWD"
-                                            target="_blank" rel="noopener noreferrer" data-fancybox
-                                            data-src="#USSuperstore"></a>
-                                    </figcaption>
-                                </figure>
-                            </div>
+                            <article
+                                class="portfolio-showcase__card glass-card"
+                                data-category="analytics" role="listitem">
+                                <a class="portfolio-showcase__link"
+                                    href="https://lookerstudio.google.com/u/1/reporting/276b3f57-2545-4161-85da-7ddbd9849f72/page/Hct0C"
+                                    target="_blank" rel="noopener noreferrer" data-fancybox
+                                    data-src="#LinkedinDashboard">
+                                    <div class="portfolio-showcase__media">
+                                        <span
+                                            class="portfolio-showcase__badge portfolio-showcase__badge--analytics">Network
+                                            viz</span>
+                                        <img src="assets/images/portfolio/likedinDash.png"
+                                            alt="LinkedIn connections dashboard thumbnail" loading="lazy">
+                                        <div class="portfolio-showcase__media-overlay" aria-hidden="true"></div>
+                                    </div>
+                                    <div class="portfolio-showcase__body">
+                                        <div class="portfolio-showcase__tags">
+                                            <span class="portfolio-showcase__tag">Looker Studio</span>
+                                            <span class="portfolio-showcase__tag">Graph</span>
+                                        </div>
+                                        <h3>LinkedIn Network Visualization</h3>
+                                        <p>Explores connection clusters and geography from exported LinkedIn data in an
+                                            executive-friendly view.</p>
+                                    </div>
+                                    <div class="portfolio-showcase__footer">
+                                        <span class="portfolio-showcase__action">Launch dashboard
+                                            <svg class="portfolio-showcase__action-icon" viewBox="0 0 24 24"
+                                                aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                                            </svg>
+                                        </span>
+                                        <span class="portfolio-showcase__meta">Live report</span>
+                                    </div>
+                                </a>
+                            </article>
 
-                            <div class="grid-item col-md-4 col-sm-6 col-xs-12 DViz">
-                                <figure>
-                                    <img src="assets/images/portfolio/CRM_Sales_Thumbnail.png"
-                                        alt="Data Studio - Data Analytics Project">
-                                    <figcaption class="fig-caption">
-                                        <i class="fa fa-q"></i>
-                                        <h5 class="title">CRM Sales Performance Dashboard</h5>
-                                        <span class="sub-title">Data Analytics</span>
-                                        <a href="https://lookerstudio.google.com/u/1/reporting/078351b4-d355-4bd5-bf38-a383682f425b/page/Eg88D"
-                                            target="_blank" rel="noopener noreferrer" data-fancybox
-                                            data-src="#CRMSales"></a>
-                                    </figcaption>
-                                </figure>
-                            </div>
+                            <article
+                                class="portfolio-showcase__card glass-card"
+                                data-category="analytics" role="listitem">
+                                <a class="portfolio-showcase__link" href="#" data-fancybox
+                                    data-src="#BQCostMonitoring">
+                                    <div class="portfolio-showcase__media">
+                                        <span
+                                            class="portfolio-showcase__badge portfolio-showcase__badge--analytics">GCP</span>
+                                        <img src="assets/images/portfolio/BigQuery_CostingHalf.png"
+                                            alt="BigQuery cost monitoring dashboard thumbnail" loading="lazy">
+                                        <div class="portfolio-showcase__media-overlay" aria-hidden="true"></div>
+                                    </div>
+                                    <div class="portfolio-showcase__body">
+                                        <div class="portfolio-showcase__tags">
+                                            <span class="portfolio-showcase__tag">BigQuery</span>
+                                            <span class="portfolio-showcase__tag">Looker</span>
+                                        </div>
+                                        <h3>BigQuery Cost Monitoring</h3>
+                                        <p>Tracks warehouse spend and query patterns so teams can spot runaway jobs
+                                            before invoices spike.</p>
+                                    </div>
+                                    <div class="portfolio-showcase__footer">
+                                        <span class="portfolio-showcase__action">View case study
+                                            <svg class="portfolio-showcase__action-icon" viewBox="0 0 24 24"
+                                                aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                                            </svg>
+                                        </span>
+                                        <span class="portfolio-showcase__meta">Case study</span>
+                                    </div>
+                                </a>
+                            </article>
 
-                            <div class="grid-item col-md-4 col-sm-6 col-xs-12 DViz">
-                                <figure>
-                                    <img src="assets/images/portfolio/AirQuality_Thumbnail.png"
-                                        alt="Data Studio - Data Analytics Project">
-                                    <figcaption class="fig-caption">
-                                        <i class="fa fa-q"></i>
-                                        <h5 class="title">Air Quality of Dhaka</h5>
-                                        <span class="sub-title">Data Analytics</span>
-                                        <a href="https://lookerstudio.google.com/u/1/reporting/1aa64e74-1e84-4f68-bd7b-bbf93ef0b528/page/p_0hmr9sxmdd"
-                                            target="_blank" rel="noopener noreferrer" data-fancybox
-                                            data-src="#AirQuality"></a>
-                                    </figcaption>
-                                </figure>
-                            </div>
+                            <article
+                                class="portfolio-showcase__card glass-card"
+                                data-category="analytics" role="listitem">
+                                <a class="portfolio-showcase__link" href="#" data-fancybox
+                                    data-src="#PopulationDensity">
+                                    <div class="portfolio-showcase__media">
+                                        <span
+                                            class="portfolio-showcase__badge portfolio-showcase__badge--analytics">R ·
+                                            Maps</span>
+                                        <img src="assets/images/portfolio/Bangladesh_population_density_thumbnail.png"
+                                            alt="South Asia population density map thumbnail" loading="lazy">
+                                        <div class="portfolio-showcase__media-overlay" aria-hidden="true"></div>
+                                    </div>
+                                    <div class="portfolio-showcase__body">
+                                        <div class="portfolio-showcase__tags">
+                                            <span class="portfolio-showcase__tag">R</span>
+                                            <span class="portfolio-showcase__tag">ggplot2</span>
+                                        </div>
+                                        <h3>Population Density Map</h3>
+                                        <p>Choropleth and 3D density views across South Asian countries for demographic
+                                            comparison at a glance.</p>
+                                    </div>
+                                    <div class="portfolio-showcase__footer">
+                                        <span class="portfolio-showcase__action">View gallery
+                                            <svg class="portfolio-showcase__action-icon" viewBox="0 0 24 24"
+                                                aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                                            </svg>
+                                        </span>
+                                        <span class="portfolio-showcase__meta">Map gallery</span>
+                                    </div>
+                                </a>
+                            </article>
 
-                        </div> <!-- End: .grid .project-gallery -->
-                    </div> <!-- End: .grid .project-gallery -->
-                </div> <!-- End: .part -->
+                            <article
+                                class="portfolio-showcase__card glass-card"
+                                data-category="analytics" role="listitem">
+                                <a class="portfolio-showcase__link"
+                                    href="https://lookerstudio.google.com/u/1/reporting/578c6935-cc05-49e3-8391-84d54e106ad8/page/McsWD"
+                                    target="_blank" rel="noopener noreferrer" data-fancybox data-src="#USSuperstore">
+                                    <div class="portfolio-showcase__media">
+                                        <span
+                                            class="portfolio-showcase__badge portfolio-showcase__badge--analytics">Retail
+                                            BI</span>
+                                        <img src="assets/images/portfolio/US_Superstore_Thumbnail.png"
+                                            alt="US Superstore sales dashboard thumbnail" loading="lazy">
+                                        <div class="portfolio-showcase__media-overlay" aria-hidden="true"></div>
+                                    </div>
+                                    <div class="portfolio-showcase__body">
+                                        <div class="portfolio-showcase__tags">
+                                            <span class="portfolio-showcase__tag">Looker Studio</span>
+                                            <span class="portfolio-showcase__tag">Sales</span>
+                                        </div>
+                                        <h3>US Superstore — Sales Summary</h3>
+                                        <p>Regional performance, category mix, and profit drivers for a classic retail
+                                            analytics scenario.</p>
+                                    </div>
+                                    <div class="portfolio-showcase__footer">
+                                        <span class="portfolio-showcase__action">Launch dashboard
+                                            <svg class="portfolio-showcase__action-icon" viewBox="0 0 24 24"
+                                                aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                                            </svg>
+                                        </span>
+                                        <span class="portfolio-showcase__meta">Live report</span>
+                                    </div>
+                                </a>
+                            </article>
+
+                            <article
+                                class="portfolio-showcase__card glass-card"
+                                data-category="analytics" role="listitem">
+                                <a class="portfolio-showcase__link"
+                                    href="https://lookerstudio.google.com/u/1/reporting/078351b4-d355-4bd5-bf38-a383682f425b/page/Eg88D"
+                                    target="_blank" rel="noopener noreferrer" data-fancybox data-src="#CRMSales">
+                                    <div class="portfolio-showcase__media">
+                                        <span
+                                            class="portfolio-showcase__badge portfolio-showcase__badge--analytics">CRM</span>
+                                        <img src="assets/images/portfolio/CRM_Sales_Thumbnail.png"
+                                            alt="CRM sales performance dashboard thumbnail" loading="lazy">
+                                        <div class="portfolio-showcase__media-overlay" aria-hidden="true"></div>
+                                    </div>
+                                    <div class="portfolio-showcase__body">
+                                        <div class="portfolio-showcase__tags">
+                                            <span class="portfolio-showcase__tag">Looker Studio</span>
+                                            <span class="portfolio-showcase__tag">Pipeline</span>
+                                        </div>
+                                        <h3>CRM Sales Performance Dashboard</h3>
+                                        <p>Pipeline health, win rates, and rep-level targets for revenue operations
+                                            teams.</p>
+                                    </div>
+                                    <div class="portfolio-showcase__footer">
+                                        <span class="portfolio-showcase__action">Launch dashboard
+                                            <svg class="portfolio-showcase__action-icon" viewBox="0 0 24 24"
+                                                aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                                            </svg>
+                                        </span>
+                                        <span class="portfolio-showcase__meta">Live report</span>
+                                    </div>
+                                </a>
+                            </article>
+
+                            <article
+                                class="portfolio-showcase__card glass-card"
+                                data-category="analytics" role="listitem">
+                                <a class="portfolio-showcase__link"
+                                    href="https://lookerstudio.google.com/u/1/reporting/1aa64e74-1e84-4f68-bd7b-bbf93ef0b528/page/p_0hmr9sxmdd"
+                                    target="_blank" rel="noopener noreferrer" data-fancybox data-src="#AirQuality">
+                                    <div class="portfolio-showcase__media">
+                                        <span
+                                            class="portfolio-showcase__badge portfolio-showcase__badge--analytics">Public
+                                            data</span>
+                                        <img src="assets/images/portfolio/AirQuality_Thumbnail.png"
+                                            alt="Dhaka air quality dashboard thumbnail" loading="lazy">
+                                        <div class="portfolio-showcase__media-overlay" aria-hidden="true"></div>
+                                    </div>
+                                    <div class="portfolio-showcase__body">
+                                        <div class="portfolio-showcase__tags">
+                                            <span class="portfolio-showcase__tag">Looker Studio</span>
+                                            <span class="portfolio-showcase__tag">AQI</span>
+                                        </div>
+                                        <h3>Air Quality of Dhaka</h3>
+                                        <p>Time-series and geographic views of pollution levels to surface seasonal
+                                            trends in the capital.</p>
+                                    </div>
+                                    <div class="portfolio-showcase__footer">
+                                        <span class="portfolio-showcase__action">Launch dashboard
+                                            <svg class="portfolio-showcase__action-icon" viewBox="0 0 24 24"
+                                                aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                                            </svg>
+                                        </span>
+                                        <span class="portfolio-showcase__meta">Live report</span>
+                                    </div>
+                                </a>
+                            </article>
+
+                        </div>
+                    </div>
+                </div>
             </div> <!-- End: .row -->
         </div>
 
@@ -1844,7 +2041,7 @@
                     <h2>Photography</h2><br>
                 </div>
                 <div class="part col-sm-12">
-                    <div class="mh-project-gallery col-sm-12 wow fadeInUp" id="project-gallery" data-wow-duration="0.8s"
+                    <div class="mh-project-gallery col-sm-12 wow fadeInUp" id="photography-gallery" data-wow-duration="0.8s"
                         data-wow-delay="0.5s">
                         <div class="portfolioContainer row">
                             <div class="grid-item col-md-4 col-sm-6 col-xs-12">
@@ -1896,7 +2093,7 @@
                 </div>
                 <!-- For Photography Exhibitions -->
                 <div class="part col-sm-12">
-                    <div class="mh-project-gallery col-sm-12 wow fadeInUp" id="project-gallery" data-wow-duration="0.8s"
+                    <div class="mh-project-gallery col-sm-12 wow fadeInUp" id="exhibitions-gallery" data-wow-duration="0.8s"
                         data-wow-delay="0.5s">
                         <div class="portfolioContainer row">
                             <div class="grid-item col-md-4 col-sm-6 col-xs-12">
@@ -2282,9 +2479,6 @@
     <script src="assets/plugins/js/jquery.nav.js"></script>
     <!-- Fancybox js-->
     <script src="assets/plugins/js/jquery.fancybox.min.js"></script>
-    <!-- isotope js-->
-    <script src="assets/plugins/js/isotope.pkgd.js"></script>
-    <script src="assets/plugins/js/packery-mode.pkgd.js"></script>
     <!-- GSAP (for premium scroll + counter animations) -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>

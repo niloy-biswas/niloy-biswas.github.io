@@ -9,29 +9,32 @@
       $(window).on("load", function() { 
         $(".section-loader").fadeOut("slow");
         
-        var $container = $('#mh-portfolio .portfolioContainer');
-        $container.isotope({
-            filter: '*',
-            animationOptions: {
-                queue: true
-            }
-        });
-     
-        $('#mh-portfolio .portfolio-nav li').click(function(){
-            $('#mh-portfolio .portfolio-nav .current').removeClass('current');
-            $(this).addClass('current');
-     
-            var selector = $(this).attr('data-filter');
-            $container.isotope({
-                filter: selector,
-                animationOptions: {
-                    queue: true
-                }
-             });
-             return false;
-        });
       });
       /* Loader Code End */
+
+      function initPortfolioFilter() {
+        var $section = $('#mh-portfolio');
+        var $showcase = $section.find('.portfolio-showcase');
+        if (!$section.length || !$showcase.length) return;
+
+        $section.on('click', '.portfolio-nav [data-filter]', function () {
+          var $item = $(this);
+          var category = $item.attr('data-filter');
+
+          $section.find('.portfolio-nav li').removeClass('current active');
+          $item.addClass('current active');
+
+          $showcase.find('.portfolio-showcase__card').each(function () {
+            var cardCategory = $(this).attr('data-category') || '';
+            var show = category === 'all' || cardCategory === category;
+            $(this).toggleClass('is-hidden', !show);
+          });
+
+          return false;
+        });
+      }
+
+      initPortfolioFilter();
 
 
       // var height = $('.mh-service-item').height();

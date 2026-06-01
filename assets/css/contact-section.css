@@ -39,19 +39,6 @@
   color: var(--text-primary);
 }
 
-.contact-section__highlight {
-  background: linear-gradient(
-    135deg,
-    var(--contact-highlight-start) 0%,
-    var(--accent) 50%,
-    var(--contact-highlight-end) 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-}
-
 .contact-section__tagline {
   font-size: 15px;
   color: var(--text-muted);

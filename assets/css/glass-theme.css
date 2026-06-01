@@ -188,6 +188,21 @@
   border-color: var(--glass-border-hover);
 }
 
+/* Teal gradient text — contact "something", portfolio "Projects", etc. */
+.text-gradient-accent,
+.contact-section__highlight {
+  background: linear-gradient(
+    135deg,
+    #6ef0dc 0%,
+    var(--accent, #0bceaf) 50%,
+    #06b6d4 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--accent, #0bceaf);
+}
+
 .dark-vertion .site-shell .glass-card,
 .dark-vertion .site-shell #post-container {
   background: var(--glass-fill-card);
