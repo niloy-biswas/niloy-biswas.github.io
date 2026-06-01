@@ -1,0 +1,260 @@
+{
+  "projects": [
+    {
+      "id": "chicago-taxi",
+      "order": 1,
+      "slug": "chicago-taxi",
+      "category": "analytics",
+      "showOnHome": true,
+      "title": "Chicago Taxi Trips",
+      "badge": {
+        "label": "Looker Studio",
+        "variant": "analytics"
+      },
+      "card": {
+        "thumbnail": "projects/chicago-taxi/images/CHICAGO-TAXIES.png",
+        "thumbnailAlt": "Chicago taxi trips dashboard thumbnail",
+        "tags": [
+          "BigQuery",
+          "SQL"
+        ],
+        "summary": "Interactive BI dashboard over large-scale trip data with KPIs for demand, revenue, and route patterns."
+      },
+      "links": {
+        "caseStudy": "/projects/chicago-taxi/",
+        "primary": "https://lookerstudio.google.com/reporting/0aa2ad05-df22-4851-b5a4-f9b69d8a5f5e",
+        "primaryLabel": "Launch dashboard",
+        "footerAction": "View project",
+        "footerMeta": "Live dashboard"
+      },
+      "page": {
+        "title": "Chicago Taxi Trips | Niloy Biswas",
+        "description": "Looker Studio and BigQuery dashboard for Chicago taxi trip data — demand, revenue, and route patterns at scale."
+      }
+    },
+    {
+      "id": "heart-disease",
+      "order": 2,
+      "slug": "heart-disease",
+      "category": "ml",
+      "showOnHome": true,
+      "title": "Heart Disease Prediction",
+      "badge": {
+        "label": "ML Classification",
+        "variant": "ml"
+      },
+      "card": {
+        "thumbnail": "projects/heart-disease/images/HD.jpeg",
+        "thumbnailAlt": "Heart disease prediction project thumbnail",
+        "tags": [
+          "scikit-learn",
+          "Python"
+        ],
+        "summary": "Compares classifiers on clinical features to flag cardiovascular risk with interpretable model outputs."
+      },
+      "links": {
+        "caseStudy": "/projects/heart-disease/",
+        "primary": "https://github.com/niloy-biswas/Heart-Disease-Analysis",
+        "primaryLabel": "View on GitHub",
+        "footerAction": "View project",
+        "footerMeta": "ML · GitHub"
+      },
+      "page": {
+        "title": "Heart Disease Prediction | Niloy Biswas",
+        "description": "Machine learning comparison for heart disease prediction using clinical features — logistic regression, trees, SVM, and more."
+      }
+    },
+    {
+      "id": "linkedin-network",
+      "order": 3,
+      "slug": "linkedin-network",
+      "category": "analytics",
+      "showOnHome": true,
+      "title": "LinkedIn Network Visualization",
+      "badge": {
+        "label": "Network viz",
+        "variant": "analytics"
+      },
+      "card": {
+        "thumbnail": "projects/linkedin-network/images/likedinDash.png",
+        "thumbnailAlt": "LinkedIn connections dashboard thumbnail",
+        "tags": [
+          "Looker Studio",
+          "Graph"
+        ],
+        "summary": "Explores connection clusters and geography from exported LinkedIn data in an executive-friendly view."
+      },
+      "links": {
+        "caseStudy": "/projects/linkedin-network/",
+        "primary": "https://lookerstudio.google.com/u/1/reporting/276b3f57-2545-4161-85da-7ddbd9849f72/page/Hct0C",
+        "primaryLabel": "Launch dashboard",
+        "footerAction": "View project",
+        "footerMeta": "Live dashboard"
+      },
+      "page": {
+        "title": "LinkedIn Network Visualization | Niloy Biswas",
+        "description": "Visualize LinkedIn connection data with Looker Studio and Kumu — clusters, geography, and network insights."
+      }
+    },
+    {
+      "id": "bigquery-cost-monitoring",
+      "order": 4,
+      "slug": "bigquery-cost-monitoring",
+      "category": "analytics",
+      "showOnHome": true,
+      "title": "BigQuery Cost Monitoring",
+      "badge": {
+        "label": "GCP",
+        "variant": "analytics"
+      },
+      "card": {
+        "thumbnail": "projects/bigquery-cost-monitoring/images/BigQuery_CostingHalf.png",
+        "thumbnailAlt": "BigQuery cost monitoring dashboard thumbnail",
+        "tags": [
+          "BigQuery",
+          "Looker"
+        ],
+        "summary": "Tracks warehouse spend and query patterns so teams can spot runaway jobs before invoices spike."
+      },
+      "links": {
+        "caseStudy": "/projects/bigquery-cost-monitoring/",
+        "primary": "https://medium.com/@niloy.swe/how-to-monitor-bigquery-usage-and-costs-on-gcp-with-interactive-visualizations-in-looker-studio-f2c1d44d99d2",
+        "primaryLabel": "Read on Medium",
+        "footerAction": "Read write-up",
+        "footerMeta": "Medium + Looker"
+      },
+      "page": {
+        "title": "BigQuery Cost Monitoring | Niloy Biswas",
+        "description": "Monitor BigQuery usage and costs on GCP with Looker Studio and the INFORMATION_SCHEMA JOBS table."
+      }
+    },
+    {
+      "id": "population-density-maps",
+      "order": 5,
+      "slug": "population-density-maps",
+      "category": "analytics",
+      "showOnHome": true,
+      "title": "Population Density Map",
+      "badge": {
+        "label": "R · Maps",
+        "variant": "analytics"
+      },
+      "card": {
+        "thumbnail": "projects/population-density-maps/images/Bangladesh_population_density_thumbnail.png",
+        "thumbnailAlt": "South Asia population density map thumbnail",
+        "tags": [
+          "R",
+          "ggplot2"
+        ],
+        "summary": "Choropleth and 3D density views across South Asian countries for demographic comparison at a glance."
+      },
+      "links": {
+        "caseStudy": "/projects/population-density-maps/",
+        "primary": "https://github.com/niloy-biswas/Population-Density-Map",
+        "primaryLabel": "View on GitHub",
+        "footerAction": "View gallery",
+        "footerMeta": "R · 3D maps"
+      },
+      "page": {
+        "title": "Population Density Maps | Niloy Biswas",
+        "description": "3D population density maps with R and Rayshader — Bangladesh, South Asia, and regional demographic storytelling."
+      }
+    },
+    {
+      "id": "us-superstore",
+      "order": 6,
+      "slug": "us-superstore",
+      "category": "analytics",
+      "showOnHome": true,
+      "title": "US Superstore — Sales Summary",
+      "badge": {
+        "label": "Retail BI",
+        "variant": "analytics"
+      },
+      "card": {
+        "thumbnail": "projects/us-superstore/images/US_Superstore_Thumbnail.png",
+        "thumbnailAlt": "US Superstore sales dashboard thumbnail",
+        "tags": [
+          "Looker Studio",
+          "Sales"
+        ],
+        "summary": "Regional performance, category mix, and profit drivers for a classic retail analytics scenario."
+      },
+      "links": {
+        "caseStudy": "/projects/us-superstore/",
+        "primary": "https://lookerstudio.google.com/u/1/reporting/578c6935-cc05-49e3-8391-84d54e106ad8/page/McsWD",
+        "primaryLabel": "Launch dashboard",
+        "footerAction": "View project",
+        "footerMeta": "Live dashboard"
+      },
+      "page": {
+        "title": "US Superstore Sales Dashboard | Niloy Biswas",
+        "description": "Looker Studio retail analytics — sales, returns, RFM segmentation, and profit drivers for the Superstore dataset."
+      }
+    },
+    {
+      "id": "crm-sales",
+      "order": 7,
+      "slug": "crm-sales",
+      "category": "analytics",
+      "showOnHome": true,
+      "title": "CRM Sales Performance Dashboard",
+      "badge": {
+        "label": "CRM",
+        "variant": "analytics"
+      },
+      "card": {
+        "thumbnail": "projects/crm-sales/images/CRM_Sales_Thumbnail.png",
+        "thumbnailAlt": "CRM sales performance dashboard thumbnail",
+        "tags": [
+          "Looker Studio",
+          "Pipeline"
+        ],
+        "summary": "Pipeline health, win rates, and rep-level targets for revenue operations teams."
+      },
+      "links": {
+        "caseStudy": "/projects/crm-sales/",
+        "primary": "https://lookerstudio.google.com/u/1/reporting/078351b4-d355-4bd5-bf38-a383682f425b/page/Eg88D",
+        "primaryLabel": "Launch dashboard",
+        "footerAction": "View project",
+        "footerMeta": "Live dashboard"
+      },
+      "page": {
+        "title": "CRM Sales Performance Dashboard | Niloy Biswas",
+        "description": "CRM sales performance Looker Studio dashboard — pipeline health, win rates, and manager-level insights."
+      }
+    },
+    {
+      "id": "air-quality",
+      "order": 8,
+      "slug": "air-quality",
+      "category": "analytics",
+      "showOnHome": true,
+      "title": "Air Quality of Dhaka",
+      "badge": {
+        "label": "Public data",
+        "variant": "analytics"
+      },
+      "card": {
+        "thumbnail": "projects/air-quality/images/AirQuality_Thumbnail.png",
+        "thumbnailAlt": "Dhaka air quality dashboard thumbnail",
+        "tags": [
+          "Looker Studio",
+          "AQI"
+        ],
+        "summary": "Time-series and geographic views of pollution levels to surface seasonal trends in the capital."
+      },
+      "links": {
+        "caseStudy": "/projects/air-quality/",
+        "primary": "https://lookerstudio.google.com/u/1/reporting/1aa64e74-1e84-4f68-bd7b-bbf93ef0b528/page/p_0hmr9sxmdd",
+        "primaryLabel": "Launch dashboard",
+        "footerAction": "View project",
+        "footerMeta": "Live dashboard"
+      },
+      "page": {
+        "title": "Air Quality of Dhaka | Niloy Biswas",
+        "description": "Dhaka air quality dashboard — AQI trends, seasonal patterns, and global pollution context with Looker Studio."
+      }
+    }
+  ]
+}

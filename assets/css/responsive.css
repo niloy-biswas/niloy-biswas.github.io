@@ -52,12 +52,6 @@
     padding-bottom: 100px;
   }
 
-  .mh-footer-address .mh-address-footer-item .each-icon .fa {
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-  }
-
   .mh-xs-mobile-nav {
     z-index: 99;
     /*-------------------------------*/
@@ -430,16 +424,8 @@
     padding-right: 0;
   }
 
-  .mh-home .mh-header-info .mh-promo {
-    margin-bottom: 20px;
-  }
-
   .nav-strict .navbar-toggler {
     margin-top: 0px;
-  }
-
-  .mh-footer-3 .mh-footer-address .mh-address-footer-item .each-info {
-    padding-left: 20px;
   }
 
   .mh-blog-sidebar .social-icon li {
@@ -501,8 +487,8 @@
     padding-right: 72px;
   }
 
-  .mh-experince .mh-education-deatils .mh-education-item > a > img[style*="absolute"],
-  .mh-work .mh-experience-deatils .mh-work-item > a > img[style*="absolute"] {
+  .mh-experince .mh-education-deatils .mh-education-item>a>img[style*="absolute"],
+  .mh-work .mh-experience-deatils .mh-work-item>a>img[style*="absolute"] {
     width: 48px !important;
     height: 48px !important;
     max-width: 48px;
@@ -534,12 +520,6 @@
 
   .mh-about .mh-about-inner {
     margin-top: 40px;
-  }
-
-  .mh-footer-address .mh-address-footer-item .each-icon .fa {
-    width: 70px;
-    height: 70px;
-    line-height: 70px;
   }
 
   .mh-testimonial .mh-client-item {
@@ -582,13 +562,19 @@
   }
 }
 
-/* sm viewport: col-sm-6 active but container capped at 540px → each col ~270px, circle overflows */
 @media only screen and (min-width: 576px) and (max-width: 767px) {
-  .mh-home .img-border,
-  .dark-vertion .mh-home .img-border {
-    height: 220px;
-    width: 220px;
+
+  .hero-cutout-container {
+    width: 200px;
+    height: 270px;
+    border-radius: 0 0 100px 100px;
   }
+  .hero-cutout-container::before,
+  .hero-cutout-container::after {
+    width: 200px;
+    height: 200px;
+  }
+  .hero-cutout-img { width: 240px; }
 }
 
 @media only screen and (max-width: 575px) {
@@ -658,10 +644,6 @@
     padding: 30px 0;
   }
 
-  .mh-home .mh-header-info .mh-promo {
-    margin-bottom: 20px;
-  }
-
   .mh-featured-project-content {
     margin-top: 40px;
     text-align: center;
@@ -680,35 +662,20 @@
     margin-top: 40px;
   }
 
-  .mh-footer-3 .mh-footer-address .mh-address-footer-item {
-    display: block;
-    padding: 20px 0px;
-  }
-
-  .mh-footer-3 .mh-footer-address .mh-address-footer-item .each-info {
-    padding-left: 20px;
-    text-align: center;
-  }
-
-  .mh-footer-3 .mh-footer-address .mh-address-footer-item .each-info {
-    padding-left: 0;
-    text-align: center;
-  }
-
   .xs-no-padding {
     padding: 0;
   }
 
-  .mh-portfolio-modal-inner {
+  .case-study-page .mh-portfolio-modal-inner {
     margin-right: 0;
   }
 
-  .mh-portfolio-modal {
+  .case-study__shell {
     padding: 10px;
   }
 
-  .mh-portfolio-modal-img {
-    margin-top: 50px;
+  .case-study-page .mh-portfolio-modal-img {
+    margin-top: 24px;
   }
 
   .mh-service .mh-service-item {
@@ -736,6 +703,20 @@
   .text-left.text-xs-center {
     text-align: center !important;
   }
+}
+
+@media only screen and (max-width: 575px) {
+  .hero-cutout-container {
+    width: 230px;
+    height: 300px;
+    border-radius: 0 0 115px 115px;
+  }
+  .hero-cutout-container::before,
+  .hero-cutout-container::after {
+    width: 230px;
+    height: 230px;
+  }
+  .hero-cutout-img { width: 270px; }
 }
 
 @media only screen and (max-width: 420px) {

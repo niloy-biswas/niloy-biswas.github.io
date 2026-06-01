@@ -1,0 +1,192 @@
+#!/usr/bin/env node
+/**
+ * Build homepage portfolio grid, project case-study pages, and sitemap.xml from projects/manifest.json.
+ * Run: node scripts/build-portfolio.mjs
+ */
+
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, '..');
+const MANIFEST_PATH = path.join(ROOT, 'projects', 'manifest.json');
+const INDEX_PATH = path.join(ROOT, 'index.html');
+const SITEMAP_PATH = path.join(ROOT, 'sitemap.xml');
+const TEMPLATE_PATH = path.join(__dirname, 'templates', 'project-page.html');
+const NAV_PATH = path.join(__dirname, 'templates', 'nav-snippet.html');
+
+const GRID_START = '<!-- PORTFOLIO_GRID_START -->';
+const GRID_END = '<!-- PORTFOLIO_GRID_END -->';
+const SITE_ORIGIN = 'https://niloy.tech';
+
+const ACTION_ICON =
+  '<span class="icon-external-link" aria-hidden="true"></span>';
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+/** Case study content uses project-local images/; only external asset/ links get rewritten. */
+function fixAssetPaths(html) {
+  return html.replace(/\b(href|src)="assets\//g, '$1="../../assets/');
+}
+
+function readManifest() {
+  return JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
+}
+
+function loadManifest() {
+  return readManifest()
+    .projects.filter((p) => p.showOnHome !== false)
+    .sort((a, b) => a.order - b.order);
+}
+
+function renderCard(project) {
+  const { slug, category, title, badge, card, links } = project;
+  const tags = card.tags
+    .map(
+      (t) =>
+        `                                            <span class="portfolio-showcase__tag">${escapeHtml(t)}</span>`
+    )
+    .join('\n');
+
+  return `                            <article
+                                class="portfolio-showcase__card glass-card"
+                                data-category="${escapeHtml(category)}" role="listitem">
+                                <a class="portfolio-showcase__link"
+                                    href="${escapeHtml(links.caseStudy)}">
+                                    <div class="portfolio-showcase__media">
+                                        <span class="portfolio-showcase__badge portfolio-showcase__badge--${escapeHtml(badge.variant)}">${escapeHtml(badge.label)}</span>
+                                        <img src="${escapeHtml(card.thumbnail)}"
+                                            alt="${escapeHtml(card.thumbnailAlt)}" loading="lazy">
+                                        <div class="portfolio-showcase__media-overlay" aria-hidden="true"></div>
+                                    </div>
+                                    <div class="portfolio-showcase__body">
+                                        <div class="portfolio-showcase__tags">
+${tags}
+                                        </div>
+                                        <h3>${escapeHtml(title)}</h3>
+                                        <p>${escapeHtml(card.summary)}</p>
+                                    </div>
+                                    <div class="portfolio-showcase__footer">
+                                        <span class="portfolio-showcase__action">${escapeHtml(links.footerAction)}
+                                            ${ACTION_ICON}
+                                        </span>
+                                        <span class="portfolio-showcase__meta">${escapeHtml(links.footerMeta)}</span>
+                                    </div>
+                                </a>
+                            </article>`;
+}
+
+function buildGrid(projects) {
+  const cards = projects.map(renderCard).join('\n\n');
+  const indexHtml = fs.readFileSync(INDEX_PATH, 'utf8');
+  const startIdx = indexHtml.indexOf(GRID_START);
+  const endIdx = indexHtml.indexOf(GRID_END);
+
+  if (startIdx === -1 || endIdx === -1 || endIdx < startIdx) {
+    throw new Error(
+      `Missing ${GRID_START} or ${GRID_END} in index.html — add markers inside .portfolio-showcase`
+    );
+  }
+
+  const before = indexHtml.slice(0, startIdx + GRID_START.length);
+  const after = indexHtml.slice(endIdx);
+  const built = `${before}\n${cards}\n                        ${after}`;
+  fs.writeFileSync(INDEX_PATH, built);
+  console.log(`Updated portfolio grid (${projects.length} cards) in index.html`);
+}
+
+function buildProjectPage(project, navHtml, pageTemplate) {
+  const contentPath = path.join(ROOT, 'projects', project.slug, 'content.html');
+  if (!fs.existsSync(contentPath)) {
+    console.warn(`Skip page (no content.html): ${project.slug}`);
+    return;
+  }
+
+  let content = fs.readFileSync(contentPath, 'utf8');
+  content = fixAssetPaths(content);
+
+  const canonical = `${SITE_ORIGIN}${project.links.caseStudy}`;
+  const thumb = project.card.thumbnail.replace(/^\//, '');
+  const ogImage = `${SITE_ORIGIN}/${thumb}`;
+
+  const generatedBanner =
+    '<!-- Generated by scripts/build-portfolio.mjs — edit content.html / manifest.json, then re-run build. -->\n';
+
+  let html = pageTemplate
+    .replace(/\{\{TITLE\}\}/g, escapeHtml(project.page.title))
+    .replace(/\{\{DESCRIPTION\}\}/g, escapeHtml(project.page.description))
+    .replace(/\{\{CANONICAL\}\}/g, canonical)
+    .replace(/\{\{OG_IMAGE\}\}/g, ogImage)
+    .replace(/\{\{NAV\}\}/g, navHtml)
+    .replace(/\{\{CONTENT\}\}/g, content);
+
+  const outPath = path.join(ROOT, 'projects', project.slug, 'index.html');
+  fs.writeFileSync(outPath, generatedBanner + html);
+  console.log(`Built ${outPath}`);
+}
+
+function buildSitemap(projects) {
+  const lastmod = new Date().toISOString().slice(0, 10);
+  const urls = [
+    { loc: `${SITE_ORIGIN}/`, changefreq: 'weekly', priority: '1.0' },
+    { loc: `${SITE_ORIGIN}/blog/`, changefreq: 'weekly', priority: '0.8' },
+    ...projects
+      .filter((p) => p.page?.useTemplate !== false)
+      .map((p) => ({
+        loc: `${SITE_ORIGIN}${p.links.caseStudy}`,
+        changefreq: 'monthly',
+        priority: '0.7',
+      })),
+  ];
+
+  const entries = urls
+    .map(
+      (u) => `   <url>
+      <loc>${u.loc}</loc>
+      <lastmod>${lastmod}</lastmod>
+      <changefreq>${u.changefreq}</changefreq>
+      <priority>${u.priority}</priority>
+   </url>`
+    )
+    .join('\n');
+
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+${entries}
+</urlset>
+`;
+
+  fs.writeFileSync(SITEMAP_PATH, xml);
+  console.log(`Updated sitemap.xml (${urls.length} URLs)`);
+}
+
+function main() {
+  const manifest = readManifest();
+  const pageTemplate = fs.readFileSync(TEMPLATE_PATH, 'utf8');
+  const navHtml = fs.readFileSync(NAV_PATH, 'utf8');
+
+  buildGrid(loadManifest());
+  buildSitemap(manifest.projects);
+
+  for (const project of manifest.projects) {
+    if (project.page?.useTemplate === false) {
+      console.log(`Skip page (useTemplate: false): ${project.slug}`);
+      continue;
+    }
+    buildProjectPage(project, navHtml, pageTemplate);
+  }
+
+  console.log('Done.');
+}
+
+main();

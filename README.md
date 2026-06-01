@@ -1,8 +1,5 @@
 # niloy.tech
-This is my personal portfolio.
 
+Personal portfolio.
 
-[<img src="front-page.png">](https://niloy.tech/)
-
-
-Click the link for Live - [niloy-biswas.github.io](https://niloy-biswas.github.io)
+[![niloy.tech](front-page.png)](https://niloy.tech/)

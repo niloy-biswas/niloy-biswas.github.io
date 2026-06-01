@@ -9,29 +9,32 @@
       $(window).on("load", function() { 
         $(".section-loader").fadeOut("slow");
         
-        var $container = $('#mh-portfolio .portfolioContainer');
-        $container.isotope({
-            filter: '*',
-            animationOptions: {
-                queue: true
-            }
-        });
-     
-        $('#mh-portfolio .portfolio-nav li').click(function(){
-            $('#mh-portfolio .portfolio-nav .current').removeClass('current');
-            $(this).addClass('current');
-     
-            var selector = $(this).attr('data-filter');
-            $container.isotope({
-                filter: selector,
-                animationOptions: {
-                    queue: true
-                }
-             });
-             return false;
-        });
       });
       /* Loader Code End */
+
+      function initPortfolioFilter() {
+        var $section = $('#mh-portfolio');
+        var $showcase = $section.find('.portfolio-showcase');
+        if (!$section.length || !$showcase.length) return;
+
+        $section.on('click', '.portfolio-nav [data-filter]', function () {
+          var $item = $(this);
+          var category = $item.attr('data-filter');
+
+          $section.find('.portfolio-nav li').removeClass('current active');
+          $item.addClass('current active');
+
+          $showcase.find('.portfolio-showcase__card').each(function () {
+            var cardCategory = $(this).attr('data-category') || '';
+            var show = category === 'all' || cardCategory === category;
+            $(this).toggleClass('is-hidden', !show);
+          });
+
+          return false;
+        });
+      }
+
+      initPortfolioFilter();
 
 
       // var height = $('.mh-service-item').height();
@@ -70,12 +73,14 @@
     |================
     */
         
-      $('#mh-header').onePageNav({
-          currentClass: 'active', 
+      if ($('#mh-home').length) {
+        $('#mh-header').onePageNav({
+          currentClass: 'active',
           changeHash: false,
           scrollSpeed: 750,
           scrollThreshold: 0.5,
-      });
+        });
+      }
     
     /*
     |=================
@@ -349,51 +354,6 @@
         
         
         
-    /*
-    |=================
-    | CONTACT FORM
-    |=================
-    */
-      document.addEventListener("DOMContentLoaded", function() {
-        const form = document.getElementById("contactForm");
-        const msgSubmit = document.getElementById("msgSubmit");
-      
-        function showSuccess() {
-          form.reset();
-          msgSubmit.textContent = "Your message has been sent successfully!";
-          msgSubmit.classList.remove("hidden", "text-danger", "shake");
-          msgSubmit.classList.add("text-success", "fadeInUp");
-        }
-      
-        function showError() {
-          msgSubmit.textContent = "Oops! There was a problem sending your message.";
-          msgSubmit.classList.remove("hidden", "text-success", "fadeInUp");
-          msgSubmit.classList.add("text-danger", "shake");
-        }
-      
-        form.addEventListener("submit", function(ev) {
-          ev.preventDefault();
-          const data = new FormData(form);
-          ajax(form.method, form.action, data, showSuccess, showError);
-        });
-      
-        function ajax(method, url, data, successCallback, errorCallback) {
-          const xhr = new XMLHttpRequest();
-          xhr.open(method, url);
-          xhr.setRequestHeader("Accept", "application/json");
-          xhr.onreadystatechange = function() {
-            if (xhr.readyState !== XMLHttpRequest.DONE) return;
-            if (xhr.status === 200) {
-              successCallback();
-            } else {
-              errorCallback();
-            }
-          };
-          xhr.send(data);
-        }
-      });
-    
-
       /*
       MOVING Cursor
       */

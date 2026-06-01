@@ -12,34 +12,16 @@
   --color-link: #0bceaf;
 }
 
-/* Nav and post-card glass design live in main styles.css (.dark-vertion .mh-header and .dark-vertion #post-container) */
+/* Glass surfaces: glass-theme.css (.glass-card) */
 
-/* ============================================
-   BLOG INTRO SECTION (above the article list)
-   Same card style as What I Do / Education cards
-   ============================================ */
 .blog-intro {
-  padding: 120px 0 40px;  /* extra top space so content clears fixed nav */
+  padding: 120px 0 40px;
 }
 
 .blog-intro-card {
-  background: var(--glass-fill);
-  backdrop-filter: blur(var(--glass-blur-light));
-  -webkit-backdrop-filter: blur(var(--glass-blur-light));
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-glass);
-  padding: var(--space-md, 24px) var(--space-md, 24px);
+  padding: var(--space-md, 24px);
   max-width: 795px;
   margin: 0 auto;
-  transition: transform var(--transition-base),
-    box-shadow var(--transition-base),
-    border-color var(--transition-base);
-}
-
-.blog-intro-card:hover {
-  box-shadow: var(--shadow-glass-hover);
-  border-color: var(--glass-border-hover);
 }
 
 .blog-intro-title {

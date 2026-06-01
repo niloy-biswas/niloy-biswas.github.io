@@ -1,0 +1,79 @@
+/* Full-page project case studies (projects/{slug}/) */
+/* Content markup still uses legacy class names (mh-portfolio-modal-inner) from the old Fancybox modals. */
+
+.case-study-page {
+  padding-top: 100px;
+  padding-bottom: clamp(48px, 8vw, 80px);
+  min-height: 100vh;
+}
+
+.case-study__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: clamp(20px, 3vw, 32px);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+.case-study__back:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.case-study__shell {
+  width: 100%;
+  max-width: min(1100px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: var(--space-md, 24px);
+  background: var(--glass-fill);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg, 20px);
+  box-shadow: var(--shadow-glass);
+  box-sizing: border-box;
+}
+
+.case-study-page .mh-portfolio-modal-inner {
+  max-height: none;
+  overflow: visible;
+  margin-right: 0;
+}
+
+.case-study-page .mh-portfolio-modal-inner h2 {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.case-study-page .mh-portfolio-modal-inner p,
+.case-study-page .mh-portfolio-modal-inner li {
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.case-study-page .mh-portfolio-modal-img img {
+  margin-bottom: 20px;
+  border-radius: var(--radius-md, 12px);
+  border: 1px solid var(--glass-border);
+}
+
+.case-study-page .mh-about-tag ul {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 767px) {
+  .case-study-page {
+    padding-top: 88px;
+  }
+
+  .case-study__shell {
+    padding: 16px;
+  }
+}
