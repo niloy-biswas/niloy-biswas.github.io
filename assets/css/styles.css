@@ -2052,6 +2052,11 @@ html:has(body.dark-vertion.black-bg) {
 }
 
 /* 2×2 project grid (glass-card handles hover, border, radius) */
+.mh-portfolio {
+  --portfolio-badge-analytics: rgba(34, 211, 238, 0.92);
+  --portfolio-badge-ml: rgba(139, 124, 248, 0.92);
+}
+
 .mh-portfolio .portfolio-showcase {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -2140,12 +2145,12 @@ html:has(body.dark-vertion.black-bg) {
 }
 
 .mh-portfolio .portfolio-showcase__badge--analytics {
-  background: rgba(82, 168, 184, 0.92);
+  background: var(--portfolio-badge-analytics);
   color: #02040a;
 }
 
 .mh-portfolio .portfolio-showcase__badge--ml {
-  background: rgba(39, 150, 226, 0.92);
+  background: var(--portfolio-badge-ml);
   color: #fff;
 }
 
