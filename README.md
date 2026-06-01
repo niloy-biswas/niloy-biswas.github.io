@@ -1,8 +1,13 @@
 # niloy.tech
-This is my personal portfolio.
 
+Personal portfolio site.
 
-[<img src="front-page.png">](https://niloy.tech/)
+**Agents / contributors:** see [AGENTS.md](AGENTS.md) for the site map and portfolio workflow.
 
+**Portfolio build** (after editing `projects/manifest.json` or `projects/*/content.html`):
 
-Click the link for Live - [niloy-biswas.github.io](https://niloy-biswas.github.io)
+```bash
+node scripts/build-portfolio.mjs
+```
+
+Live: [niloy.tech](https://niloy.tech/)

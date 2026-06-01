@@ -23,9 +23,14 @@
 }
 
 .btn-cv-glass .icon-external-link svg,
-.btn.btn-fill .icon-external-link svg {
+.btn.btn-fill .icon-external-link svg,
+.mh-portfolio .portfolio-showcase__action .icon-external-link svg {
   width: 1.15em;
   height: 1.15em;
+}
+
+.mh-portfolio .portfolio-showcase__action .icon-external-link {
+  color: currentColor;
 }
 
 a:hover .icon-external-link,

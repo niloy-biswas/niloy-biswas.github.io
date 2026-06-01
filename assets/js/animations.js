@@ -266,57 +266,6 @@
     });
   }
 
-  function initProjectHover() {
-    var figures = Array.prototype.slice.call(
-      document.querySelectorAll("#mh-portfolio .portfolioContainer .grid-item figure")
-    );
-    if (!figures.length) return;
-
-    figures.forEach(function (fig) {
-      var isActive = false;
-
-      function enter() {
-        if (isActive) return;
-        isActive = true;
-        gsap.to(fig, {
-          y: -4,
-          duration: 0.22,
-          ease: "power4.out",
-          overwrite: true
-        });
-        gsap.to(fig, {
-          borderColor: "var(--accent)",
-          duration: 0.22,
-          ease: "power3.out",
-          overwrite: true
-        });
-      }
-
-      function leave() {
-        isActive = false;
-        gsap.to(fig, {
-          y: 0,
-          duration: 0.22,
-          ease: "power3.out",
-          overwrite: true,
-          clearProps: "transform"
-        });
-        gsap.to(fig, {
-          borderColor: "",
-          duration: 0.22,
-          ease: "power3.out",
-          overwrite: true,
-          clearProps: "borderColor"
-        });
-      }
-
-      fig.addEventListener("mouseenter", enter);
-      fig.addEventListener("mouseleave", leave);
-      fig.addEventListener("focusin", enter);
-      fig.addEventListener("focusout", leave);
-    });
-  }
-
   function initSkillsCascade() {
     var section = document.querySelector("#mh-skills");
     if (!section) return;
@@ -404,10 +353,6 @@
       }
       initSkillsCascade();
       initHeadingUnderline();
-
-      if (canHover) {
-        initProjectHover();
-      }
     }
   );
 })();

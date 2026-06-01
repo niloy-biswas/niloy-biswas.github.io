@@ -73,12 +73,14 @@
     |================
     */
         
-      $('#mh-header').onePageNav({
-          currentClass: 'active', 
+      if ($('#mh-home').length) {
+        $('#mh-header').onePageNav({
+          currentClass: 'active',
           changeHash: false,
           scrollSpeed: 750,
           scrollThreshold: 0.5,
-      });
+        });
+      }
     
     /*
     |=================

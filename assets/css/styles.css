@@ -887,15 +887,6 @@ h6 {
   color: #fff;
 }
 
-.white-vertion .mh-portfolio-modal {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-lg, 20px);
-  box-shadow: var(--shadow-glass);
-}
-
 .white-vertion .page-item.active .page-link {
   background-color: #fff;
   color: #0bceaf;
@@ -1992,51 +1983,6 @@ html:has(body.dark-vertion.black-bg) {
   border-bottom: 2px solid transparent;
 }
 
-.mh-portfolio-modal {
-  display: none;
-  min-height: 85vh;
-  width: 100%;
-  max-width: min(1078px, calc(100vw - 32px));
-  margin: 0 auto;
-  padding: var(--space-md, 24px);
-  background: var(--glass-fill);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-lg, 20px);
-  box-shadow: var(--shadow-glass);
-  box-sizing: border-box;
-}
-
-.mh-portfolio-modal-inner {
-  max-height: calc(85vh - 120px);
-  overflow-y: auto;
-  margin-right: 20px;
-}
-
-.mh-portfolio-modal-inner::-webkit-scrollbar-track {
-  background: var(--glass-fill);
-  border-radius: var(--radius-sm, 8px);
-}
-
-.mh-portfolio-modal-inner::-webkit-scrollbar {
-  width: 10px;
-}
-
-.mh-portfolio-modal-inner::-webkit-scrollbar-thumb {
-  background: var(--glass-border-hover);
-  border-radius: var(--radius-sm, 8px);
-}
-
-.mh-portfolio-modal-inner::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.mh-portfolio-modal-inner h2 {
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
-
 .mh-portfolio .section-title h2 {
   margin: 0 0 16px;
 }
@@ -2231,13 +2177,8 @@ html:has(body.dark-vertion.black-bg) {
   color: var(--accent);
 }
 
-.mh-portfolio .portfolio-showcase__action-icon {
-  width: 14px;
-  height: 14px;
-  stroke: currentColor;
-  stroke-width: 2.5;
-  fill: none;
-  flex-shrink: 0;
+.dark-vertion .site-shell .mh-portfolio .glass-card:hover .portfolio-showcase__action .icon-external-link {
+  color: var(--accent);
 }
 
 .mh-portfolio .portfolio-showcase__meta {
@@ -2298,23 +2239,6 @@ html:has(body.dark-vertion.black-bg) {
   .mh-portfolio .portfolio-showcase__media img {
     transition: none;
   }
-}
-
-.mh-portfolio-modal-img img {
-  margin-bottom: 20px;
-}
-
-/* Fancybox wrapper: let portfolio modal show at 85vh with glass */
-.fancybox-slide--html .fancybox-content {
-  background: transparent !important;
-  padding: 12px;
-  max-height: 85vh;
-  height: auto;
-  min-height: 0;
-}
-
-.fancybox-slide--html .fancybox-content .mh-portfolio-modal {
-  display: block;
 }
 
 /* Fancybox overlay: match site background instead of black (dark theme) */

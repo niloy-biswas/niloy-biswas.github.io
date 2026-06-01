@@ -666,16 +666,16 @@
     padding: 0;
   }
 
-  .mh-portfolio-modal-inner {
+  .case-study-page .mh-portfolio-modal-inner {
     margin-right: 0;
   }
 
-  .mh-portfolio-modal {
+  .case-study__shell {
     padding: 10px;
   }
 
-  .mh-portfolio-modal-img {
-    margin-top: 50px;
+  .case-study-page .mh-portfolio-modal-img {
+    margin-top: 24px;
   }
 
   .mh-service .mh-service-item {
