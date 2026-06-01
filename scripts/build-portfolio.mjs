@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Build homepage portfolio grid and project case-study pages from projects/manifest.json.
+ * Build homepage portfolio grid, project case-study pages, and sitemap.xml from projects/manifest.json.
  * Run: node scripts/build-portfolio.mjs
  */
 
@@ -12,6 +12,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const MANIFEST_PATH = path.join(ROOT, 'projects', 'manifest.json');
 const INDEX_PATH = path.join(ROOT, 'index.html');
+const SITEMAP_PATH = path.join(ROOT, 'sitemap.xml');
 const TEMPLATE_PATH = path.join(__dirname, 'templates', 'project-page.html');
 const NAV_PATH = path.join(__dirname, 'templates', 'nav-snippet.html');
 
@@ -131,12 +132,51 @@ function buildProjectPage(project, navHtml, pageTemplate) {
   console.log(`Built ${outPath}`);
 }
 
+function buildSitemap(projects) {
+  const lastmod = new Date().toISOString().slice(0, 10);
+  const urls = [
+    { loc: `${SITE_ORIGIN}/`, changefreq: 'weekly', priority: '1.0' },
+    { loc: `${SITE_ORIGIN}/blog/`, changefreq: 'weekly', priority: '0.8' },
+    ...projects
+      .filter((p) => p.page?.useTemplate !== false)
+      .map((p) => ({
+        loc: `${SITE_ORIGIN}${p.links.caseStudy}`,
+        changefreq: 'monthly',
+        priority: '0.7',
+      })),
+  ];
+
+  const entries = urls
+    .map(
+      (u) => `   <url>
+      <loc>${u.loc}</loc>
+      <lastmod>${lastmod}</lastmod>
+      <changefreq>${u.changefreq}</changefreq>
+      <priority>${u.priority}</priority>
+   </url>`
+    )
+    .join('\n');
+
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+${entries}
+</urlset>
+`;
+
+  fs.writeFileSync(SITEMAP_PATH, xml);
+  console.log(`Updated sitemap.xml (${urls.length} URLs)`);
+}
+
 function main() {
   const manifest = readManifest();
   const pageTemplate = fs.readFileSync(TEMPLATE_PATH, 'utf8');
   const navHtml = fs.readFileSync(NAV_PATH, 'utf8');
 
   buildGrid(loadManifest());
+  buildSitemap(manifest.projects);
 
   for (const project of manifest.projects) {
     if (project.page?.useTemplate === false) {
