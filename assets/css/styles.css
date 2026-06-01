@@ -641,35 +641,6 @@ ul li {
   padding: 0 200px;
 }
 
-.img-overlay {
-  background-image: url(../images/footer-bg.png);
-  background-size: cover;
-  background-size: cover;
-  background-repeat: no-repeat;
-  margin: 0 auto;
-  background-position: center center;
-}
-
-.image-bg {
-  background-size: cover;
-  background-size: cover;
-  background-repeat: no-repeat;
-  margin: 0 auto;
-  background-position: center center;
-}
-
-.home-2-img {
-  background-image: url(../images/home-bg-img.jpg);
-}
-
-.featured-img-one {
-  background-image: url(../images/home-bg-img.jpg);
-}
-
-.featured-img-two {
-  background-image: url(../images/extra-feature-bg.jpg);
-}
-
 .mt-30 {
   margin-top: 30px;
 }
@@ -1516,7 +1487,7 @@ html:has(body.dark-vertion.black-bg) {
        ABOUT
     ==============
 */
-/* Interactive skills HUD — assets/images/portfolio-hud.svg (viewBox 0 88 1465 618) */
+/* Interactive skills HUD — assets/images/site/portfolio-hud.svg (viewBox 0 88 1465 618) */
 .mh-about .mh-about-row {
   display: flex;
   flex-wrap: wrap;
@@ -2833,15 +2804,6 @@ body.dark-vertion.fancybox-active .fancybox-bg {
 
 .dark-vertion .portfolioContainer .grid-item figure img {
   border-radius: var(--radius-md) var(--radius-md) 0 0;
-}
-
-.home-ov-img {
-  background-image: url(../images/header-bg-2.png);
-  background-size: cover;
-  background-size: cover;
-  background-repeat: no-repeat;
-  margin: 0 auto;
-  background-position: center center;
 }
 
 .mh-featured-project .mh-featured-item {
