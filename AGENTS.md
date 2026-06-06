@@ -109,7 +109,7 @@ node scripts/build-portfolio.mjs
 | Path | Contents |
 |------|----------|
 | `assets/mascot/` | PNG fallbacks (`tenten.png`, `tenten-love-eye.png`) |
-| `assets/lottie/` | Lottie JSON used on page (`blink-smile`, `looking-around`, `eye-blinking`, `love-eye`) |
+| `assets/lottie/` | Lottie JSON used on page (`loading`, `blink-smile`, `looking-around`, `love-eye`) |
 | `assets/videos/` | Surface flow WebM (`general-flow`, `recorded-flow`, `exam-flow`, `liveclass-flow`) |
 | `assets/ui/` | `timeline.png`, `tenten-card.png`, `og-tenten.jpg` |
 
