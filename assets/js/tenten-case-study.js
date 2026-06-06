@@ -63,13 +63,17 @@
   var easePremium = cubicBezier(0.16, 1, 0.3, 1);
 
   function lottieMount(el) {
-    var isPeek = el.classList.contains('tenten-mascot-peek');
-    var container = isPeek ? el.querySelector('.tenten-mascot-peek__lottie') : null;
+    var mountClass = el.classList.contains('tenten-mascot-peek')
+      ? 'tenten-mascot-peek__lottie'
+      : el.classList.contains('tenten-mascot-crest')
+        ? 'tenten-mascot-crest__lottie'
+        : null;
+    var container = mountClass ? el.querySelector('.' + mountClass) : null;
     if (!container) {
       container = document.createElement('div');
       container.style.width = '100%';
       container.style.height = '100%';
-      if (isPeek) container.className = 'tenten-mascot-peek__lottie';
+      if (mountClass) container.className = mountClass;
       el.insertBefore(container, el.firstChild);
     }
     return container;
@@ -80,7 +84,9 @@
     var fallback = el.querySelector(
       el.classList.contains('tenten-mascot-peek')
         ? '.tenten-mascot-peek__fallback'
-        : '.tenten-hero__mascot-fallback'
+        : el.classList.contains('tenten-mascot-crest')
+          ? '.tenten-mascot-crest__fallback'
+          : '.tenten-hero__mascot-fallback'
     );
     if (fallback) fallback.hidden = true;
     return window.lottie.loadAnimation({
@@ -104,47 +110,63 @@
     return corner === 'bl' ? { x: -40, y: 40 } : { x: 40, y: 40 };
   }
 
+  function revealLottieScroll(el, trigger, fromVars, toVars) {
+    if (prefersReduced) return;
+    var json = el.getAttribute('data-lottie');
+    var anim = json ? initLottie(el, json, true) : null;
+    var endVars = Object.assign({ opacity: 1, scale: 1, x: 0, y: 0 }, toVars || {});
+
+    if (window.gsap) {
+      gsap.set(el, fromVars);
+    }
+
+    if (!window.gsap || !window.ScrollTrigger) {
+      if (anim) anim.play();
+      window.gsap && gsap.set(el, endVars);
+      return;
+    }
+
+    ScrollTrigger.create({
+      trigger: trigger || el,
+      start: 'top 78%',
+      once: true,
+      onEnter: function () {
+        gsap.to(el, Object.assign({
+          duration: 0.75,
+          ease: easePremium,
+          onStart: function () {
+            if (anim) anim.play();
+          }
+        }, endVars));
+      }
+    });
+  }
+
+  function initProblemCrest() {
+    var crest = root.querySelector('.tenten-mascot-crest[data-lottie]');
+    if (!crest) return;
+
+    var crestPose = { rotation: -14, transformOrigin: '55% 72%' };
+    revealLottieScroll(
+      crest,
+      crest.closest('.tenten-problem-stage') || crest,
+      Object.assign({ opacity: 0, scale: 0.82, x: -18, y: -36 }, crestPose),
+      crestPose
+    );
+  }
+
   function initMascotPeeks() {
     var peeks = root.querySelectorAll('.tenten-mascot-peek[data-lottie]');
     if (!peeks.length) return;
 
     peeks.forEach(function (peek) {
-      var json = peek.getAttribute('data-lottie');
       var corner = peek.classList.contains('tenten-mascot-peek--bl') ? 'bl' : 'br';
-
-      if (prefersReduced) return;
-
       var off = peekOffset(corner);
-      if (window.gsap) {
-        gsap.set(peek, { opacity: 0, scale: 0.75, x: off.x, y: off.y });
-      }
-
-      var anim = json ? initLottie(peek, json, true) : null;
-
-      if (!window.gsap || !window.ScrollTrigger) {
-        if (anim) anim.play();
-        gsap && gsap.set(peek, { opacity: 1, scale: 1, x: 0, y: 0 });
-        return;
-      }
-
-      ScrollTrigger.create({
-        trigger: peek.closest('.tenten-callout') || peek,
-        start: 'top 78%',
-        once: true,
-        onEnter: function () {
-          gsap.to(peek, {
-            opacity: 1,
-            scale: 1,
-            x: 0,
-            y: 0,
-            duration: 0.75,
-            ease: easePremium,
-            onStart: function () {
-              if (anim) anim.play();
-            }
-          });
-        }
-      });
+      revealLottieScroll(
+        peek,
+        peek.closest('.tenten-callout') || peek,
+        { opacity: 0, scale: 0.75, x: off.x, y: off.y }
+      );
     });
   }
 
@@ -416,6 +438,7 @@
 
   initBackLink();
   initHeroMascot();
+  initProblemCrest();
   initMascotPeeks();
   var rebuildSurfacePin = initSurfaceScrollReveals();
   initSurfaceVideos(rebuildSurfacePin);

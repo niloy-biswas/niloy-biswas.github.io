@@ -258,6 +258,183 @@
   color: var(--text-secondary);
 }
 
+/* Problem — left crest behind card + frosted glass pain points */
+.tenten-problem-stage {
+  position: relative;
+  margin-bottom: clamp(28px, 4vw, 40px);
+  overflow: visible;
+}
+
+.tenten-problem-stage .tenten-problem {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 0;
+}
+
+.tenten-problem {
+  padding: clamp(36px, 5vw, 52px) clamp(20px, 3.5vw, 36px) clamp(44px, 6vw, 60px);
+  text-align: left;
+}
+
+.tenten-problem__header {
+  margin-bottom: clamp(4px, 1vw, 8px);
+  text-align: center;
+}
+
+.tenten-case-study .tenten-problem__kicker {
+  display: block;
+  margin: 0 0 10px;
+  font-family: "Inter", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent, #0bceaf);
+}
+
+.tenten-problem__title {
+  margin: 0 0 clamp(18px, 2.5vw, 24px);
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1.55rem, 3.4vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+}
+
+.tenten-problem .tenten-callout__body {
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.tenten-mascot-crest {
+  position: absolute;
+  top: clamp(-83px, -12vw, -65px);
+  left: clamp(-6px, 1.5vw, 18px);
+  width: clamp(96px, 16vw, 136px);
+  height: clamp(96px, 16vw, 136px);
+  transform: rotate(-14deg);
+  transform-origin: 55% 72%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.tenten-mascot-crest__fallback {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.tenten-mascot-crest__fallback[hidden] {
+  display: none;
+}
+
+.tenten-problem__lead {
+  margin: clamp(22px, 3vw, 30px) 0 clamp(20px, 3vw, 26px);
+  max-width: none;
+  font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.tenten-problem__notes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(12px, 2vw, 16px);
+  margin: 0 0 clamp(28px, 4vw, 36px);
+  padding: 0;
+  width: 100%;
+  list-style: none;
+}
+
+.tenten-problem__note {
+  margin: 0;
+  padding: clamp(18px, 2.5vw, 22px) clamp(16px, 2vw, 20px);
+  font-family: "Inter", sans-serif;
+  font-size: clamp(0.88rem, 1.4vw, 0.95rem);
+  font-weight: 500;
+  line-height: 1.55;
+  letter-spacing: 0;
+  color: var(--text-secondary);
+  text-align: left;
+  background: var(--glass-fill-card);
+  backdrop-filter: blur(var(--glass-blur-light));
+  -webkit-backdrop-filter: blur(var(--glass-blur-light));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-glass);
+  transform-origin: center center;
+  transition:
+    border-color var(--transition-base),
+    box-shadow var(--transition-base),
+    transform var(--transition-base),
+    background var(--transition-base);
+}
+
+.tenten-problem__note--1 {
+  transform: rotate(-0.8deg);
+  border-top: 2px solid rgba(249, 115, 22, 0.45);
+}
+
+.tenten-problem__note--2 {
+  transform: rotate(0.6deg) translateY(3px);
+  border-top: 2px solid rgba(225, 29, 72, 0.45);
+}
+
+.tenten-problem__note--3 {
+  transform: rotate(-0.5deg) translateY(-2px);
+  border-top: 2px solid rgba(168, 85, 247, 0.45);
+}
+
+.tenten-problem__note--4 {
+  transform: rotate(0.7deg) translateY(4px);
+  border-top: 2px solid rgba(99, 102, 241, 0.45);
+}
+
+.tenten-problem__note:hover {
+  background: var(--glass-fill-hover);
+  border-color: var(--glass-border-hover);
+  box-shadow: var(--shadow-glass-hover);
+}
+
+.tenten-problem__note--1:hover {
+  transform: rotate(-0.3deg) translateY(-2px);
+}
+
+.tenten-problem__note--2:hover {
+  transform: rotate(0.3deg) translateY(1px);
+}
+
+.tenten-problem__note--3:hover {
+  transform: rotate(-0.2deg) translateY(-3px);
+}
+
+.tenten-problem__note--4:hover {
+  transform: rotate(0.4deg) translateY(2px);
+}
+
+.tenten-problem__closing {
+  margin: 0;
+  max-width: none;
+  text-align: left;
+}
+
+.tenten-problem__closing p {
+  margin: 0 0 14px;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.tenten-problem__closing p:last-child {
+  margin-bottom: 0;
+}
+
+.tenten-problem__closing strong {
+  color: var(--text-primary);
+}
+
 /* Corner Lottie / mascot */
 .tenten-mascot-peek {
   position: absolute;
@@ -648,6 +825,10 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 24px 20px;
   }
+
+  .tenten-problem__notes {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 767px) {
@@ -664,6 +845,29 @@
     bottom: -4%;
     width: 64px;
     height: 64px;
+  }
+
+  .tenten-mascot-crest {
+    width: 76px;
+    height: 76px;
+    top: -55px;
+    left: -2px;
+    transform: rotate(-11deg);
+  }
+
+  .tenten-problem__notes {
+    grid-template-columns: 1fr;
+  }
+
+  .tenten-problem__note--1,
+  .tenten-problem__note--2,
+  .tenten-problem__note--3,
+  .tenten-problem__note--4,
+  .tenten-problem__note--1:hover,
+  .tenten-problem__note--2:hover,
+  .tenten-problem__note--3:hover,
+  .tenten-problem__note--4:hover {
+    transform: none;
   }
 
   .tenten-voices {
@@ -683,7 +887,19 @@
 
 @media (prefers-reduced-motion: reduce) {
   .tenten-work-card,
-  .tenten-surface-card {
+  .tenten-surface-card,
+  .tenten-problem__note {
     transition: none;
+  }
+
+  .tenten-problem__note--1,
+  .tenten-problem__note--2,
+  .tenten-problem__note--3,
+  .tenten-problem__note--4,
+  .tenten-problem__note--1:hover,
+  .tenten-problem__note--2:hover,
+  .tenten-problem__note--3:hover,
+  .tenten-problem__note--4:hover {
+    transform: none;
   }
 }
