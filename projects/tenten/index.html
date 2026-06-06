@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MDND743N8W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-MDND743N8W', { cookie_domain: 'niloy.tech' });
+    </script>
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "jf2n0138eg");
+    </script>
+
+    <title>TenTen — AI Study Partner | Niloy Biswas</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description"
+        content="Case study: R&amp;D and AI engineering on TenTen, 10 Minute School's integrated Bangla study partner — RAG, intent routing, and product analytics.">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    <link rel="canonical" href="https://niloy.tech/projects/tenten/">
+
+    <meta property="og:title" content="TenTen — AI Study Partner | Niloy Biswas">
+    <meta property="og:description"
+        content="Case study: R&amp;D and AI engineering on TenTen — RAG over curriculum content, Bangla LLM behaviour, and product analytics at 10 Minute School.">
+    <meta property="og:url" content="https://niloy.tech/projects/tenten/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="niloy.tech">
+    <meta property="og:image" content="https://niloy.tech/projects/tenten/assets/ui/og-tenten.jpg">
+    <meta property="og:image:alt" content="TenTen — integrated AI study partner at 10 Minute School">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TenTen — AI Study Partner | Niloy Biswas">
+    <meta name="twitter:description"
+        content="Case study: R&amp;D and AI engineering on TenTen — RAG, Bangla LLM, and product analytics at 10 Minute School.">
+    <meta name="twitter:image" content="https://niloy.tech/projects/tenten/assets/ui/og-tenten.jpg">
+    <meta name="twitter:image:alt" content="TenTen — integrated AI study partner at 10 Minute School">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/all.min.css">
+    <link rel="stylesheet" href="../../assets/plugins/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/plugins/css/animate.css">
+    <link rel="stylesheet" href="../../assets/css/glass-theme.css">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/tenten-case-study.css">
+    <link rel="stylesheet" href="../../assets/css/external-link-icon.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    <link rel="stylesheet" href="../../assets/css/colors/theme-colors.css">
+    <link rel="stylesheet" href="../../assets/css/typography.css">
+</head>
+
+<body class="dark-vertion black-bg">
+    <div class="ambient-bg" aria-hidden="true">
+        <div class="ambient-bg__wash"></div>
+        <div class="ambient-bg__grid"></div>
+    </div>
+
+    <div class="site-shell">
+        <header class="black-bg mh-header mh-fixed-nav nav-scroll mh-xs-mobile-nav wow fadeInUp" id="mh-header">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <nav class="navbar navbar-expand-lg mh-nav nav-btn">
+                        <a class="navbar-brand navbar-signature" href="../../index.html"><svg class="navbar-sig-img" viewBox="165 120 310 165" xmlns="http://www.w3.org/2000/svg" aria-label="Niloy Biswas"><path id="niloy-sig-path" d="M381.428955,224.844650 C379.470703,225.318939 377.918457,225.744293 376.337921,225.979919 C368.377014,227.166779 361.263367,221.914734 360.635498,212.236801 C358.001862,214.726654 355.785248,216.790665 353.603577,218.891006 C347.905273,224.376907 341.071167,225.568344 335.025146,221.999557 C330.554718,219.360809 329.008118,215.042252 328.696686,208.931107 C325.584015,212.381897 323.247986,215.185638 320.682739,217.761063 C317.525726,220.930649 313.856018,223.081253 309.124451,223.026733 C302.441406,222.949722 298.842499,217.860153 300.318695,211.136108 C302.357971,201.847046 307.607819,194.425232 313.317657,187.203354 C315.039398,185.025650 316.744171,182.796783 318.748383,180.899475 C319.508667,180.179779 321.090607,180.328033 322.298035,180.080673 C322.246094,181.201859 322.531647,182.482559 322.088989,183.419052 C318.457489,191.101639 314.647156,198.699539 310.992401,206.371399 C309.965027,208.528076 309.018768,210.790512 308.524323,213.108749 C308.229980,214.488953 308.516663,216.328262 309.287720,217.447586 C309.631134,217.946121 312.320648,217.675278 313.074982,216.903259 C317.206085,212.675140 321.015106,208.135040 325.033264,203.793243 C330.773621,197.590546 330.000244,189.083694 332.867920,181.843216 C337.889801,169.163681 344.251617,157.350372 352.790131,146.727325 C355.885071,142.876846 354.612000,138.706955 353.280243,134.926270 C351.799744,130.723526 348.584137,127.702950 343.866760,127.017342 C333.945953,125.575493 326.628967,130.373291 321.104492,137.743134 C305.159576,159.014236 294.625885,183.169846 284.731232,207.633133 C282.035919,214.296982 279.127869,220.874832 276.162506,227.857010 C272.922516,228.628372 271.103210,227.918335 270.845856,223.268631 C270.397125,215.160767 268.246277,207.109589 268.200562,199.026779 C268.147949,189.730865 269.449860,180.409256 270.466614,171.132019 C271.086914,165.472473 272.278503,159.875549 273.213470,154.250488 C272.747681,154.095001 272.281891,153.939514 271.816101,153.784027 C270.205078,156.587677 268.516113,159.349792 266.996277,162.202042 C259.658325,175.973297 252.550674,189.871063 244.996658,203.522186 C239.310654,213.797577 232.515839,223.271362 221.641617,228.833054 C208.276230,235.668884 191.671982,236.672714 178.988312,227.226257 C167.743515,218.851456 168.221176,203.067566 178.166000,193.420654 C189.699524,182.232651 216.642639,183.221268 227.133255,194.853668 C225.380585,197.792740 224.008469,199.027649 220.420013,196.150848 C211.796631,189.237625 192.906754,188.797211 185.163315,196.993515 C178.480545,204.067154 177.181778,216.033066 188.559814,223.791687 C198.759933,230.747131 212.325516,229.328751 222.598679,221.825394 C234.786087,212.923935 241.070801,199.660660 248.080658,186.872116 C257.814667,169.113800 267.962067,151.580780 278.100891,134.048691 C278.785034,132.865723 280.882507,132.500092 282.322693,131.754333 C282.870636,133.235580 284.056854,134.805618 283.865112,136.183960 C282.393646,146.761139 279.920868,157.250656 279.191620,167.865829 C278.357239,180.010773 278.998352,192.257080 278.998352,205.742569 C281.553314,200.237228 283.809509,195.470612 285.986603,190.668121 C295.497437,169.688110 304.625671,148.450806 320.079559,130.915009 C326.894775,123.181671 336.044556,120.418144 346.078369,122.182167 C353.384308,123.466606 359.099030,130.006989 359.270264,138.439087 C360.995422,137.394012 362.433990,136.587372 363.802277,135.675308 C365.146393,134.779373 366.309692,133.209946 367.744812,132.932831 C371.216339,132.262436 375.441223,130.926956 378.107117,132.298889 C379.809448,133.174942 380.378326,138.720444 379.545258,141.624451 C376.134979,153.512436 369.713440,163.988312 361.902832,173.458588 C354.281342,182.699493 346.027740,191.417450 338.110870,200.417084 C334.647919,204.353607 335.256439,215.134628 339.664307,217.759033 C341.476288,218.837875 345.559601,218.229065 347.347778,216.804214 C351.898773,213.177795 356.069458,208.929840 359.767426,204.418427 C363.317627,200.087280 365.563599,194.634872 369.327393,190.544495 C373.797241,185.686874 379.275940,181.757599 384.459869,177.303680 C386.252655,178.866486 387.469788,179.927460 388.675415,180.978409 C389.025269,180.897415 389.532715,180.913803 389.606079,180.743378 C391.395355,176.585526 395.024658,175.063004 398.827545,176.193008 C402.805969,177.375168 405.108185,181.176468 404.877991,185.305923 C404.515350,191.811050 403.360962,198.272064 402.521454,204.912125 C406.118195,204.968002 408.454376,201.327026 410.864685,198.259811 C415.235748,192.697403 419.220306,186.832260 423.403778,181.121017 C425.510254,178.245300 427.640717,178.254196 429.253265,180.702209 C425.357239,188.843460 421.598450,196.702301 417.829742,204.556412 C417.688385,204.850967 417.322968,205.079422 417.277344,205.372253 C416.675964,209.231857 413.878662,213.956055 418.410248,216.507339 C422.597778,218.864960 426.096863,214.953415 429.027313,212.364487 C439.022797,203.533936 446.764343,192.876221 453.309937,181.297302 C455.124268,178.087860 457.287109,175.075470 459.274384,171.997009 C463.224121,172.785248 463.735382,174.505585 462.080933,177.830551 C456.496643,189.053467 451.146820,200.393341 445.743378,211.705719 C444.505615,214.296951 443.412048,216.957062 442.252136,219.585480 C442.530029,219.980865 442.807922,220.376251 443.085815,220.771637 C446.784058,217.955399 450.740570,215.413971 454.110046,212.247833 C457.686920,208.886749 460.808075,205.016098 463.935577,201.209671 C466.170929,198.489029 466.049866,198.369095 470.470581,200.666428 C468.159821,203.783264 466.106995,206.978836 463.633911,209.806915 C456.577362,217.876511 448.050568,224.157043 438.894257,229.652008 C437.616394,230.418869 436.378693,231.601578 435.656891,232.891006 C429.702148,243.528519 424.330444,254.524048 417.850800,264.825348 C413.317230,272.032684 407.857941,278.839142 398.182495,280.090210 C390.773895,281.048187 385.266266,276.519592 387.229858,269.444824 C388.773407,263.883545 391.501740,258.254944 395.068909,253.733139 C402.736938,244.013031 413.116547,237.318848 423.675323,231.031143 C428.055756,228.422592 430.627075,224.548569 432.880096,216.712860 C427.557037,219.746658 422.679657,223.451889 416.522095,221.790222 C409.674438,219.942307 409.141815,213.651947 407.712524,208.020630 C406.300629,208.382233 405.109802,208.818954 403.883118,208.976578 C400.242371,209.444336 397.775970,211.288956 395.179779,214.020065 C391.287048,218.115051 386.327667,221.196030 381.428955,224.844650 z"/></svg></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-0 ml-auto">
+                                <li class="nav-item"><a class="nav-link" href="../../index.html#mh-home">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="../../index.html#mh-skills">Skills</a></li>
+                                <li class="nav-item"><a class="nav-link" href="../../index.html#mh-experience">Experiences</a></li>
+                                <li class="nav-item active"><a class="nav-link" href="../../index.html#mh-portfolio">Portfolio</a></li>
+                                <li class="nav-item"><a class="nav-link" href="../../index.html#mh-achievements">Achievements</a></li>
+                                <li class="nav-item"><a class="nav-link" href="../../blog/">Blog</a></li>
+                                <li class="nav-item"><a class="nav-link" href="https://labs.niloy.tech" target="_blank" rel="noopener noreferrer">Labs</a></li>
+                                <li class="nav-item"><a class="nav-link" href="../../index.html#mh-contact">Contact</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <main class="tenten-case-study" id="tenten-case-study">
+            <div class="container tenten-case-study__inner">
+                <a class="tenten-case-study__back" href="../../index.html#mh-portfolio" data-case-study-back>← Back to Case Studies &amp; Projects</a>
+
+                <header class="tenten-hero">
+                    <div class="tenten-hero__mascot" aria-hidden="true">
+                        <div class="tenten-hero__mascot-copy">
+                            <p class="tenten-hero__mascot-greeting">Hello, I'm</p>
+                            <p class="tenten-hero__mascot-name">TenTen</p>
+                        </div>
+                        <div class="tenten-hero__mascot-lottie" data-tenten-hero-mascot data-lottie="assets/lottie/blink-smile.json">
+                            <img class="tenten-hero__mascot-fallback" src="assets/mascot/tenten.png" alt="" width="200" height="200">
+                        </div>
+                    </div>
+
+                    <h1 class="tenten-hero__title">Bangladesh's First Integrated AI Learning Ecosystem</h1>
+
+                    <p class="tenten-hero__lead">Building an AI study partner (TenTen) inside the <strong>10 Minute School</strong> app — from early R&amp;D in Google Colab to production RAG, Bangla LLM behaviour, intent routing, and product analytics after limited release in Nov '25.</p>
+
+                    <hr class="tenten-hero__rule" aria-hidden="true">
+
+                    <dl class="tenten-hero__meta">
+                        <div class="tenten-hero__meta-item">
+                            <dt class="tenten-hero__meta-label">Product area</dt>
+                            <dd class="tenten-hero__meta-value">AI study partner (TenTen)</dd>
+                        </div>
+                        <div class="tenten-hero__meta-item">
+                            <dt class="tenten-hero__meta-label">My role</dt>
+                            <dd class="tenten-hero__meta-value">BI Analyst &amp; AI/LLM Engineer</dd>
+                        </div>
+                        <div class="tenten-hero__meta-item">
+                            <dt class="tenten-hero__meta-label">Platform</dt>
+                            <dd class="tenten-hero__meta-value">10 Minute School app</dd>
+                        </div>
+                        <div class="tenten-hero__meta-item">
+                            <dt class="tenten-hero__meta-label">Timeline</dt>
+                            <dd class="tenten-hero__meta-value">~10 months R&amp;D · Nov '25 launch</dd>
+                        </div>
+                    </dl>
+
+                    <div class="tenten-hero__actions">
+                        <a href="https://10minuteschool.com/tenten/" class="btn btn-fill" target="_blank" rel="noopener noreferrer">View product <span class="icon-external-link" aria-hidden="true"></span></a>
+                    </div>
+                </header>
+
+                <section class="tenten-callout" data-tenten-reveal aria-labelledby="tenten-ecosystem-title">
+                    <div class="tenten-mascot-peek tenten-mascot-peek--br" data-lottie="assets/lottie/looking-around.json" aria-hidden="true">
+                        <img class="tenten-mascot-peek__fallback" src="assets/mascot/tenten.png" alt="" width="112" height="112">
+                    </div>
+                    <p class="tenten-callout__kicker">Not a chatbot</p>
+                    <h2 class="tenten-callout__title" id="tenten-ecosystem-title">An integrated study partner inside the learning journey</h2>
+                    <p class="tenten-callout__body">TenTen lives where learning actually breaks — general chat, recorded lessons, exam review, and live class. It knows each student's class, grade, and curriculum context so answers stay personalized, not generic.</p>
+                </section>
+
+                <section class="tenten-callout" data-tenten-reveal aria-labelledby="tenten-problem-title">
+                    <div class="tenten-mascot-peek tenten-mascot-peek--bl" data-lottie="assets/lottie/eye-blinking.json" aria-hidden="true">
+                        <img class="tenten-mascot-peek__fallback" src="assets/mascot/tenten.png" alt="" width="112" height="112">
+                    </div>
+                    <p class="tenten-callout__kicker">The problem</p>
+                    <h2 class="tenten-callout__title" id="tenten-problem-title">When learning paused, students had nowhere to turn</h2>
+                    <p class="tenten-callout__body">Stuck mid-lesson on a recorded class. Confused after an exam explanation. Half-formed Bangla questions about homework or platform basics. These everyday moments needed a study partner — not another static FAQ page.</p>
+                </section>
+
+                <section class="tenten-section" data-tenten-reveal>
+                    <h2 class="tenten-section__heading">From pilot to <span class="text-gradient-accent">product</span></h2>
+                    <img class="tenten-timeline-img" src="assets/ui/timeline.png" alt="TenTen development timeline — research, design, and launch" loading="lazy" width="1200" height="400">
+                </section>
+
+                <section class="tenten-section" data-tenten-reveal aria-labelledby="tenten-work-title">
+                    <h2 class="tenten-section__heading" id="tenten-work-title">What I <span class="text-gradient-accent">built</span></h2>
+                    <div class="tenten-work-grid">
+                        <article class="tenten-work-card glass-card">
+                            <span class="tenten-work-card__icon">R&amp;D</span>
+                            <h3>Early prototypes in Colab</h3>
+                            <p>Started retrieval and prompt experiments ~10 months before launch — testing Bangla Q&amp;A, chunking strategies, and answer quality before production wiring.</p>
+                        </article>
+                        <article class="tenten-work-card glass-card">
+                            <span class="tenten-work-card__icon">RAG</span>
+                            <h3>Curriculum-grounded retrieval</h3>
+                            <p>Built pipelines to pull evidence from textbooks and trusted 10MS content when students ask academic doubts — with evaluation loops to track retrieval quality.</p>
+                        </article>
+                        <article class="tenten-work-card glass-card">
+                            <span class="tenten-work-card__icon">Routing</span>
+                            <h3>Mixed-intent handling</h3>
+                            <p>Not every question maps to a book chunk. Routed operational queries — class schedules, 10MS FAQs, platform help — separately from subject-matter RAG.</p>
+                        </article>
+                        <article class="tenten-work-card glass-card">
+                            <span class="tenten-work-card__icon">Analytics</span>
+                            <h3>Post-launch measurement</h3>
+                            <p>Product analytics on usage, retention, and answer helpfulness so improvements stay data-led after limited release in Nov '25.</p>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="tenten-section" data-tenten-reveal aria-labelledby="tenten-challenges-title">
+                    <h2 class="tenten-section__heading" id="tenten-challenges-title">Engineering <span class="text-gradient-accent">challenges</span></h2>
+                    <div class="tenten-challenges">
+                        <div class="tenten-challenge">
+                            <h3>Bangla understanding</h3>
+                            <p>Base models often misread Bangla phrasing, code-mixing, and informal student language — requiring iterative prompt and eval work, not one-shot prompts.</p>
+                        </div>
+                        <div class="tenten-challenge">
+                            <h3>Ambiguous retrieval</h3>
+                            <p>Student questions are vague; textbook chunks are dense. Matching the right passage from curriculum content was one of the hardest RAG problems we faced.</p>
+                        </div>
+                        <div class="tenten-challenge">
+                            <h3>Beyond textbook intent</h3>
+                            <p>“When is my next class?” and general 10MS questions need different tooling than “explain this physics step” — intent routing was essential.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="tenten-section tenten-partners" data-tenten-reveal aria-labelledby="tenten-partners-title">
+                    <h2 class="tenten-section__heading" id="tenten-partners-title">Backed by <span class="text-gradient-accent">AI ecosystem partners</span></h2>
+                    <p class="tenten-partners__lead">TenTen's development was supported through programs and cloud infrastructure from leading AI companies — helping a Bangladesh EdTech team ship production-grade LLM features, not just prototypes.</p>
+                    <ul class="tenten-partners__list">
+                        <li>OpenAI</li>
+                        <li>Anthropic</li>
+                        <li>Microsoft Azure</li>
+                    </ul>
+                </section>
+
+                <section class="tenten-callout" data-tenten-reveal aria-labelledby="tenten-solution-title">
+                    <div class="tenten-mascot-peek tenten-mascot-peek--br" data-lottie="assets/lottie/blink-smile.json" aria-hidden="true">
+                        <img class="tenten-mascot-peek__fallback" src="assets/mascot/tenten.png" alt="" width="112" height="112">
+                    </div>
+                    <p class="tenten-callout__kicker">In the product</p>
+                    <h2 class="tenten-callout__title" id="tenten-solution-title">How TenTen shows up for students</h2>
+                    <p class="tenten-callout__body">In general chat, students can ask about their own platform activity — what classes they took, what to revise next. TenTen answers in context, grounded where it matters and routed where it doesn't.</p>
+                </section>
+
+                <section class="tenten-section" aria-labelledby="tenten-surfaces-title">
+                    <h2 class="tenten-section__heading" id="tenten-surfaces-title">Four learning <span class="text-gradient-accent">surfaces</span></h2>
+                    <p class="tenten-section__lead">One integrated study partner across the moments that matter — not four separate chatbots.</p>
+
+                    <div class="tenten-surfaces-viewport">
+                        <div class="tenten-surfaces-grid">
+                            <article class="tenten-surface-card glass-card" data-tenten-surface-card>
+                                <span class="tenten-surface-card__kicker">General chat</span>
+                                <h3 class="tenten-surface-card__title">24/7 doubt solving</h3>
+                                <p class="tenten-surface-card__desc">Ask any academic question, anytime — step-by-step help across subjects.</p>
+                                <div class="tenten-surface-card__frame">
+                                    <video class="tenten-surface-card__video" autoplay muted loop playsinline preload="metadata" width="320" height="778" aria-label="TenTen general chat — step-by-step doubt solving in the app">
+                                        <source src="assets/videos/general-flow.webm" type="video/webm">
+                                    </video>
+                                </div>
+                            </article>
+
+                            <article class="tenten-surface-card glass-card" data-tenten-surface-card>
+                                <span class="tenten-surface-card__kicker">Recorded class</span>
+                                <h3 class="tenten-surface-card__title">Help without leaving the video</h3>
+                                <p class="tenten-surface-card__desc">Ask about a specific moment in a recorded lesson — context travels with the question.</p>
+                                <div class="tenten-surface-card__frame">
+                                    <video class="tenten-surface-card__video" autoplay muted loop playsinline preload="metadata" width="320" height="778" aria-label="TenTen in recorded class — contextual help during video lessons">
+                                        <source src="assets/videos/recorded-flow.webm" type="video/webm">
+                                    </video>
+                                </div>
+                            </article>
+
+                            <article class="tenten-surface-card glass-card" data-tenten-surface-card>
+                                <span class="tenten-surface-card__kicker">Exam solution</span>
+                                <h3 class="tenten-surface-card__title">Understand why an answer was wrong</h3>
+                                <p class="tenten-surface-card__desc">Instant explanations after exams — follow-up questions on MCQ solutions.</p>
+                                <div class="tenten-surface-card__frame">
+                                    <video class="tenten-surface-card__video" autoplay muted loop playsinline preload="metadata" width="320" height="778" aria-label="TenTen exam solution — reviewing mistakes after a test">
+                                        <source src="assets/videos/exam-flow.webm" type="video/webm">
+                                    </video>
+                                </div>
+                            </article>
+
+                            <article class="tenten-surface-card glass-card" data-tenten-surface-card>
+                                <span class="tenten-surface-card__kicker">Live class</span>
+                                <h3 class="tenten-surface-card__title">Doubts during and after class</h3>
+                                <p class="tenten-surface-card__desc">Learning support inside live sessions — ask without breaking the flow.</p>
+                                <div class="tenten-surface-card__frame">
+                                    <video class="tenten-surface-card__video" autoplay muted loop playsinline preload="metadata" width="320" height="778" aria-label="TenTen live class — in-session learning support">
+                                        <source src="assets/videos/liveclass-flow.webm" type="video/webm">
+                                    </video>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="tenten-section" data-tenten-reveal aria-labelledby="tenten-impact-title">
+                    <h2 class="tenten-section__heading" id="tenten-impact-title">Impact in <span class="text-gradient-accent">numbers</span></h2>
+
+                    <div class="tenten-stats">
+                        <p class="tenten-stats__label">Since limited release (Nov '25)</p>
+                        <div class="tenten-stats__grid">
+                            <div class="tenten-stat glass-card">
+                                <span class="tenten-stat__value" data-count="400" data-suffix="K+">0</span>
+                                <span class="tenten-stat__label">Messages answered</span>
+                            </div>
+                            <div class="tenten-stat glass-card">
+                                <span class="tenten-stat__value" data-count="14" data-suffix="K+">0</span>
+                                <span class="tenten-stat__label">Students served</span>
+                            </div>
+                            <div class="tenten-stat glass-card">
+                                <span class="tenten-stat__value" data-count="150" data-suffix="K+">0</span>
+                                <span class="tenten-stat__label">Sessions</span>
+                            </div>
+                            <div class="tenten-stat glass-card">
+                                <span class="tenten-stat__value" data-count="500" data-suffix="+">0</span>
+                                <span class="tenten-stat__label">Daily active learners</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tenten-stats">
+                        <p class="tenten-stats__label">Recent month snapshot</p>
+                        <div class="tenten-stats__grid">
+                            <div class="tenten-stat glass-card">
+                                <span class="tenten-stat__value" data-count="100" data-suffix="K+">0</span>
+                                <span class="tenten-stat__label">Questions in month</span>
+                            </div>
+                            <div class="tenten-stat glass-card">
+                                <span class="tenten-stat__value" data-count="900" data-suffix="+">0</span>
+                                <span class="tenten-stat__label">Avg. daily students</span>
+                            </div>
+                            <div class="tenten-stat glass-card">
+                                <span class="tenten-stat__value" data-count="8" data-suffix="K+">0</span>
+                                <span class="tenten-stat__label">Monthly active students</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tenten-stats">
+                        <p class="tenten-stats__label">Product insights</p>
+                        <div class="tenten-stats__grid tenten-stats__grid--secondary">
+                            <div class="tenten-stat glass-card">
+                                <span class="tenten-stat__value" data-count="86" data-suffix="%">0</span>
+                                <span class="tenten-stat__label">Answer helpfulness</span>
+                            </div>
+                            <div class="tenten-stat glass-card">
+                                <span class="tenten-stat__value" data-count="84" data-suffix="%">0</span>
+                                <span class="tenten-stat__label">Weekly actives returning</span>
+                            </div>
+                            <div class="tenten-stat glass-card">
+                                <span class="tenten-stat__value" data-count="5">0</span>
+                                <span class="tenten-stat__label">Messages per session (avg.)</span>
+                            </div>
+                            <div class="tenten-stat glass-card">
+                                <span class="tenten-stat__value" data-count="61" data-suffix="%">0</span>
+                                <span class="tenten-stat__label">Students from rural areas</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="tenten-callout" data-tenten-reveal aria-labelledby="tenten-reach-title">
+                    <div class="tenten-mascot-peek tenten-mascot-peek--bl" data-lottie="assets/lottie/love-eye.json" aria-hidden="true">
+                        <img class="tenten-mascot-peek__fallback" src="assets/mascot/tenten-love-eye.png" alt="" width="112" height="112">
+                    </div>
+                    <p class="tenten-callout__kicker">Reach</p>
+                    <h2 class="tenten-callout__title" id="tenten-reach-title">AI reaching every corner of Bangladesh</h2>
+                    <p class="tenten-callout__body">Students use TenTen from 4,200+ locations across all eight divisions. Math solving leads usage — but conversations go far beyond a single subject or surface.</p>
+                </section>
+
+                <section class="tenten-section" data-tenten-reveal aria-labelledby="tenten-voices-title">
+                    <h2 class="tenten-section__heading" id="tenten-voices-title">What students <span class="text-gradient-accent">are saying</span></h2>
+                    <p class="tenten-section__lead">Real responses from the TenTen student survey — in students' own words.</p>
+                    <div class="tenten-voices">
+                        <blockquote class="tenten-voice glass-card">
+                            <span class="tenten-voice__stars" aria-hidden="true">★★★★★</span>
+                            <p class="tenten-voice__text">Tenten chatgpt er moto na — tenten correct answer dai.</p>
+                            <footer>Unlike generic chatbots — TenTen gives answers students trust.</footer>
+                        </blockquote>
+                        <blockquote class="tenten-voice glass-card">
+                            <span class="tenten-voice__stars" aria-hidden="true">★★★★★</span>
+                            <p class="tenten-voice__text">আমাকে শিক্ষকের মতো করে যেকোনো প্রশ্নের উত্তর দেয়। আর উত্তরটা বইয়ের সাথে মিলে যায়।</p>
+                            <footer>Answers like a teacher — grounded in the textbook.</footer>
+                        </blockquote>
+                        <blockquote class="tenten-voice glass-card">
+                            <span class="tenten-voice__stars" aria-hidden="true">★★★★★</span>
+                            <p class="tenten-voice__text">ami bivinno AI use korechi doubt solve er jonno — tobe best answer tenten er kach thekei peyechi.</p>
+                            <footer>Tried many AIs for doubts — best answers came from TenTen.</footer>
+                        </blockquote>
+                        <blockquote class="tenten-voice glass-card">
+                            <span class="tenten-voice__stars" aria-hidden="true">★★★★★</span>
+                            <p class="tenten-voice__text">টেনটেন আমার কাছে খুবই উপকারী বন্ধু মনে হয় এবং আমার ডাউট একদমই সলভ হয়ে যায়।</p>
+                            <footer>A helpful study partner that clears doubts completely.</footer>
+                        </blockquote>
+                    </div>
+                </section>
+
+                <footer class="tenten-credits">
+                    <p>Product design and UI explorations by <a href="https://diponkar.com/casestudy/tenten" target="_blank" rel="noopener noreferrer">Diponkar</a>. Case study focuses on data &amp; AI engineering — R&amp;D, retrieval, routing, and analytics.</p>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../assets/plugins/js/jquery.min.js"></script>
+    <script src="../../assets/plugins/js/popper.min.js"></script>
+    <script src="../../assets/plugins/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/custom-scripts.js"></script>
+    <script src="../../assets/js/external-link-icon.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lottie-web@5.12.2/build/player/lottie.min.js"></script>
+    <script src="../../assets/js/tenten-case-study.js"></script>
+</body>
+
+</html>

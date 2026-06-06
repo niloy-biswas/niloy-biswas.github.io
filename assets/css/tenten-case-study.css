@@ -1,0 +1,689 @@
+/*
+ * TenTen case study — modular page styles (projects/tenten/)
+ * Uses site tokens from glass-theme.css; scoped under .tenten-case-study
+ */
+
+.tenten-case-study {
+  --tenten-gradient: linear-gradient(
+    90deg,
+    #f97316 0%,
+    #e11d48 28%,
+    #a855f7 55%,
+    #6366f1 78%,
+    #38bdf8 100%
+  );
+  --tenten-panel-bg: rgba(10, 15, 30, 0.72);
+  padding-top: 100px;
+  padding-bottom: clamp(56px, 10vw, 96px);
+  min-height: 100vh;
+}
+
+.tenten-case-study__inner {
+  max-width: min(1080px, calc(100vw - 32px));
+  margin: 0 auto;
+}
+
+.tenten-case-study__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: clamp(24px, 4vw, 40px);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+.tenten-case-study__back:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* Hero — centered Diponkar-style */
+.tenten-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: clamp(48px, 7vw, 80px);
+  padding: clamp(8px, 2vw, 16px) 0 clamp(8px, 2vw, 24px);
+}
+
+.tenten-hero__mascot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(14px, 2.5vw, 22px);
+  margin-bottom: clamp(24px, 3.5vw, 32px);
+}
+
+.tenten-hero__mascot-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.tenten-hero__mascot-greeting {
+  margin: 0;
+  font-family: "Caveat", cursive;
+  font-size: clamp(1.35rem, 3.4vw, 1.85rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.96);
+}
+
+.tenten-hero__mascot-name {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(2.35rem, 6.2vw, 3.35rem);
+  font-weight: 800;
+  font-style: italic;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  background: linear-gradient(180deg, #ffffff 0%, #d1d5db 42%, #9ca3af 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tenten-hero__mascot-lottie {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(140px, 22vw, 200px);
+  height: clamp(140px, 22vw, 200px);
+}
+
+.tenten-hero__mascot-lottie svg {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.tenten-hero__mascot-fallback {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.tenten-hero__mascot-fallback[hidden] {
+  display: none;
+}
+
+.tenten-hero__title {
+  margin: 0 0 clamp(16px, 2.5vw, 24px);
+  max-width: min(900px, 92vw);
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1.85rem, 4.8vw, 3.15rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  background: var(--tenten-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tenten-hero__lead {
+  margin: 0;
+  max-width: min(640px, 92vw);
+  font-family: "Inter", sans-serif;
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.tenten-hero__lead strong {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.tenten-hero__rule {
+  width: min(720px, 100%);
+  margin: clamp(28px, 4vw, 40px) 0 clamp(24px, 3.5vw, 32px);
+  border: none;
+  border-top: 1px solid var(--glass-border);
+  opacity: 0.85;
+}
+
+.tenten-hero__meta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(16px, 3vw, 28px);
+  width: min(900px, 100%);
+  margin: 0;
+  text-align: center;
+}
+
+.tenten-hero__meta-item {
+  margin: 0;
+  min-width: 0;
+}
+
+.tenten-hero__meta-label {
+  display: block;
+  margin: 0 0 8px;
+  font-family: "Inter", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.tenten-hero__meta-value {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(0.82rem, 1.5vw, 0.95rem);
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+.tenten-hero__actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: clamp(28px, 4vw, 36px);
+}
+
+/* Section headings */
+.tenten-section {
+  margin-bottom: clamp(40px, 6vw, 72px);
+}
+
+.tenten-section__heading {
+  margin: 0 0 24px;
+  font-family: "Fraunces", serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.tenten-section__heading .text-gradient-accent {
+  font-weight: inherit;
+}
+
+/* Callout cards — corner mascot peek */
+.tenten-callout {
+  position: relative;
+  margin-bottom: clamp(28px, 4vw, 40px);
+  padding: clamp(32px, 5vw, 48px) clamp(24px, 4vw, 40px);
+  padding-bottom: clamp(48px, 7vw, 64px);
+  text-align: center;
+  background: var(--tenten-panel-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-glass);
+  overflow: visible;
+}
+
+.tenten-callout__kicker {
+  display: block;
+  margin: 0 0 12px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.tenten-callout__title {
+  margin: 0 0 16px;
+  font-family: "Fraunces", serif;
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  font-weight: 500;
+  line-height: 1.2;
+  background: var(--tenten-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tenten-callout__body {
+  margin: 0 auto;
+  max-width: 58ch;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+/* Corner Lottie / mascot */
+.tenten-mascot-peek {
+  position: absolute;
+  width: clamp(72px, 12vw, 112px);
+  height: clamp(72px, 12vw, 112px);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.tenten-mascot-peek__fallback {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.tenten-mascot-peek__fallback[hidden] {
+  display: none;
+}
+
+.tenten-mascot-peek--br {
+  right: -4%;
+  bottom: -8%;
+}
+
+.tenten-mascot-peek--bl {
+  left: -4%;
+  bottom: -8%;
+}
+
+/* Engineer work grid */
+.tenten-work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.tenten-work-card {
+  padding: 22px 20px;
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.tenten-work-card:hover {
+  border-color: var(--glass-border-hover);
+  box-shadow: var(--shadow-glass-hover);
+  transform: translateY(-2px);
+}
+
+.tenten-work-card__icon {
+  display: inline-flex;
+  margin-bottom: 12px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.tenten-work-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.tenten-work-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+/* Challenge pills */
+.tenten-challenges {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.tenten-challenge {
+  padding: 20px;
+  border-left: 3px solid rgba(var(--accent-rgb), 0.5);
+  background: var(--glass-fill);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.tenten-challenge h3 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.tenten-challenge p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+/* Stats */
+.tenten-stats {
+  margin-bottom: 20px;
+}
+
+.tenten-stats__label {
+  margin: 0 0 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.tenten-stats__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.tenten-stats__grid--secondary .tenten-stat {
+  padding: 14px 16px;
+}
+
+.tenten-stats__grid--secondary .tenten-stat__value {
+  font-size: clamp(1.25rem, 3vw, 1.6rem);
+}
+
+.tenten-stat {
+  padding: 20px 18px;
+  text-align: center;
+  background: var(--glass-fill-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+}
+
+.tenten-stat__value {
+  display: block;
+  margin-bottom: 4px;
+  font-family: "Fraunces", serif;
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 500;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.tenten-stat__label {
+  font-size: 0.8rem;
+  line-height: 1.35;
+  color: var(--text-muted);
+}
+
+/* Four learning surfaces — in-grid row, vertical scroll reveals more */
+.tenten-section__lead {
+  margin: -12px 0 28px;
+  max-width: 52ch;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.tenten-surfaces-viewport {
+  container-type: inline-size;
+  --tenten-surface-gap: clamp(16px, 3vw, 24px);
+  overflow: hidden;
+  width: 100%;
+  padding: 14px 4px 12px;
+}
+
+.tenten-surfaces-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  gap: var(--tenten-surface-gap);
+  width: max-content;
+  will-change: transform;
+}
+
+.tenten-surface-card {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 calc((100cqw - var(--tenten-surface-gap)) / 2);
+  width: calc((100cqw - var(--tenten-surface-gap)) / 2);
+  min-width: 0;
+  padding: clamp(18px, 3vw, 24px);
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.tenten-surface-card:hover {
+  border-color: var(--glass-border-hover);
+  box-shadow: var(--shadow-glass-hover);
+  position: relative;
+  z-index: 1;
+}
+
+.tenten-surface-card__kicker {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.tenten-surface-card__title {
+  margin: 0 0 6px;
+  font-family: "Fraunces", serif;
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  color: var(--text-primary);
+}
+
+.tenten-surface-card__desc {
+  margin: 0 0 16px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.tenten-surface-card__frame {
+  display: flex;
+  justify-content: center;
+  border-radius: 20px;
+  padding: 8px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  border: 1px solid var(--glass-border);
+  line-height: 0;
+}
+
+.tenten-surface-card__frame video {
+  display: block;
+  width: 60.75%;
+  height: auto;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+/* AI ecosystem partners */
+.tenten-partners {
+  padding: clamp(28px, 4vw, 40px);
+  text-align: center;
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+}
+
+.tenten-partners .tenten-section__heading {
+  margin-bottom: 12px;
+}
+
+.tenten-partners__lead {
+  margin: 0 auto 24px;
+  max-width: 58ch;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.tenten-partners__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tenten-partners__list li {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+  background: var(--glass-fill-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-pill);
+}
+
+/* Student voices (NPS survey) */
+.tenten-voices {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.tenten-voice {
+  margin: 0;
+  padding: 22px 20px;
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.tenten-voice:hover {
+  border-color: rgba(var(--accent-rgb), 0.25);
+  box-shadow: var(--shadow-glass);
+}
+
+.tenten-voice__text {
+  margin: 0 0 12px;
+  font-family: "Fraunces", serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.tenten-voice__text::before {
+  content: "\201C";
+  color: var(--accent);
+}
+
+.tenten-voice footer {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+.tenten-voice__stars {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  color: #fbbf24;
+}
+
+/* Timeline image */
+.tenten-timeline-img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--glass-border);
+}
+
+/* Insight row */
+.tenten-insights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+}
+
+.tenten-insight {
+  padding: 18px;
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+}
+
+.tenten-insight p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.tenten-insight strong {
+  color: var(--text-primary);
+}
+
+
+/* Credits */
+.tenten-credits {
+  margin-top: clamp(40px, 6vw, 64px);
+  padding-top: 24px;
+  border-top: 1px solid var(--glass-border);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.tenten-credits a {
+  color: var(--accent);
+}
+
+/* Buttons — align with site */
+.tenten-case-study .btn.btn-fill {
+  border-radius: var(--radius-pill);
+}
+
+@media (max-width: 991px) {
+  .tenten-hero__meta {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .tenten-case-study {
+    padding-top: 88px;
+  }
+
+  .tenten-hero__meta {
+    gap: 20px 16px;
+  }
+
+  .tenten-mascot-peek--br,
+  .tenten-mascot-peek--bl {
+    bottom: -4%;
+    width: 64px;
+    height: 64px;
+  }
+
+  .tenten-voices {
+    grid-template-columns: 1fr;
+  }
+
+  .tenten-surface-card {
+    flex-basis: calc(100cqw - 8px);
+    width: calc(100cqw - 8px);
+  }
+
+  .tenten-surface-card:hover,
+  .tenten-work-card:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tenten-work-card,
+  .tenten-surface-card {
+    transition: none;
+  }
+}
