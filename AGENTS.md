@@ -22,7 +22,7 @@ Reference for AI agents editing this repo. **Static GitHub Pages** (no npm/CI bu
 | Reviewer certs | inside experience | `index.html` | `.portfolioContainer` | Fancybox `data-fancybox="reviewer"` |
 | Contact | `#mh-contact` | `index.html` | `contact-section.css` | `contact-section.js` |
 | Blog | `blog/index.html` | `blog/` | `medium-style.css`, `styles.css` | `medium-on-website.js` |
-| Case study pages | `/projects/{slug}/` | `projects/{slug}/content.html` | `case-study.css` | `case-study.js` |
+| Case study pages | `/projects/{slug}/` | `projects/{slug}/content.html` or custom `index.html` | `case-study.css` or `tenten-case-study.css` | `case-study.js` or `tenten-case-study.js` |
 
 **Shared everywhere:** `glass-theme.css` (tokens, `.glass-card`, `.text-gradient-accent`), `typography.css`, `responsive.css`, Bootstrap, jQuery.
 
@@ -102,7 +102,18 @@ node scripts/build-portfolio.mjs
 | `page.title`, `page.description` | SEO |
 | `page.useTemplate: false` | Skip generated `index.html` (hand-built page) |
 
-**Current slugs:** `chicago-taxi`, `heart-disease`, `linkedin-network`, `bigquery-cost-monitoring`, `population-density-maps`, `us-superstore`, `crm-sales`, `air-quality`
+**Current slugs:** `tenten` (custom page, portfolio #1), `chicago-taxi`, `heart-disease`, `linkedin-network` (off homepage), `bigquery-cost-monitoring`, `population-density-maps`, `us-superstore`, `crm-sales`, `air-quality`
+
+**Custom showcase (`tenten`):** `page.useTemplate: false` — hand-built [`projects/tenten/index.html`](projects/tenten/index.html), styles in [`assets/css/tenten-case-study.css`](assets/css/tenten-case-study.css), motion in [`assets/js/tenten-case-study.js`](assets/js/tenten-case-study.js). **Deployed assets only** under `projects/tenten/assets/`:
+
+| Path | Contents |
+|------|----------|
+| `assets/mascot/` | PNG fallbacks (`tenten.png`, `tenten-love-eye.png`) |
+| `assets/lottie/` | Lottie JSON used on page (`blink-smile`, `looking-around`, `eye-blinking`, `love-eye`) |
+| `assets/videos/` | Surface flow WebM (`general-flow`, `recorded-flow`, `exam-flow`, `liveclass-flow`) |
+| `assets/ui/` | `timeline.png`, `tenten-card.png`, `og-tenten.jpg` |
+
+**Source / archive only** (not linked from the live page): `projects/tenten/TenTen icons and lottie/`, `TenTen.pdf`. Do not deploy `demo html/`.
 
 ### Case study content
 
