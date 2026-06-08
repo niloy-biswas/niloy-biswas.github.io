@@ -142,17 +142,24 @@
     });
   }
 
-  function initProblemCrest() {
-    var crest = root.querySelector('.tenten-mascot-crest[data-lottie]');
-    if (!crest) return;
+  function initMascotCrests() {
+    var crests = root.querySelectorAll('.tenten-mascot-crest[data-lottie]');
+    if (!crests.length) return;
 
-    var crestPose = { rotation: -14, transformOrigin: '55% 72%' };
-    revealLottieScroll(
-      crest,
-      crest.closest('.tenten-problem-stage') || crest,
-      Object.assign({ opacity: 0, scale: 0.82, x: -18, y: -36 }, crestPose),
-      crestPose
-    );
+    crests.forEach(function (crest) {
+      var isSolution = crest.classList.contains('tenten-mascot-crest--solution');
+      var crestPose = isSolution
+        ? { rotation: 14, transformOrigin: '45% 72%' }
+        : { rotation: -14, transformOrigin: '55% 72%' };
+      var fromX = isSolution ? 18 : -18;
+
+      revealLottieScroll(
+        crest,
+        crest.closest('.tenten-problem-stage, .tenten-solution-stage') || crest,
+        Object.assign({ opacity: 0, scale: 0.82, x: fromX, y: -36 }, crestPose),
+        crestPose
+      );
+    });
   }
 
   function initMascotPeeks() {
@@ -438,7 +445,7 @@
 
   initBackLink();
   initHeroMascot();
-  initProblemCrest();
+  initMascotCrests();
   initMascotPeeks();
   var rebuildSurfacePin = initSurfaceScrollReveals();
   initSurfaceVideos(rebuildSurfacePin);

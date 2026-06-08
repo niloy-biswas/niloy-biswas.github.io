@@ -258,30 +258,36 @@
   color: var(--text-secondary);
 }
 
-/* Problem — left crest behind card + frosted glass pain points */
-.tenten-problem-stage {
+/* Problem / solution — crest stages + callout panels */
+.tenten-problem-stage,
+.tenten-solution-stage {
   position: relative;
   margin-bottom: clamp(28px, 4vw, 40px);
   overflow: visible;
 }
 
-.tenten-problem-stage .tenten-problem {
+.tenten-problem-stage .tenten-problem,
+.tenten-solution-stage .tenten-solution {
   position: relative;
   z-index: 1;
   margin-bottom: 0;
 }
 
-.tenten-problem {
+.tenten-problem,
+.tenten-solution {
   padding: clamp(36px, 5vw, 52px) clamp(20px, 3.5vw, 36px) clamp(44px, 6vw, 60px);
   text-align: left;
 }
 
-.tenten-problem__header {
+.tenten-problem__header,
+.tenten-solution__header {
   margin-bottom: clamp(4px, 1vw, 8px);
   text-align: center;
 }
 
-.tenten-case-study .tenten-problem__kicker {
+.tenten-case-study .tenten-problem__kicker,
+.tenten-case-study .tenten-solution__kicker,
+.tenten-case-study .tenten-work-journey__kicker {
   display: block;
   margin: 0 0 10px;
   font-family: "Inter", sans-serif;
@@ -292,7 +298,12 @@
   color: var(--accent, #0bceaf);
 }
 
-.tenten-problem__title {
+.tenten-case-study .tenten-solution__kicker {
+  margin-bottom: 8px;
+}
+
+.tenten-problem__title,
+.tenten-solution__title {
   margin: 0 0 clamp(18px, 2.5vw, 24px);
   font-family: "Inter", sans-serif;
   font-size: clamp(1.55rem, 3.4vw, 2.2rem);
@@ -302,7 +313,8 @@
   color: var(--text-primary);
 }
 
-.tenten-problem .tenten-callout__body {
+.tenten-problem .tenten-callout__body,
+.tenten-solution .tenten-callout__body {
   max-width: none;
   margin-left: 0;
   margin-right: 0;
@@ -358,18 +370,9 @@
   letter-spacing: 0;
   color: var(--text-secondary);
   text-align: left;
-  background: var(--glass-fill-card);
-  backdrop-filter: blur(var(--glass-blur-light));
-  -webkit-backdrop-filter: blur(var(--glass-blur-light));
-  border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-glass);
   transform-origin: center center;
-  transition:
-    border-color var(--transition-base),
-    box-shadow var(--transition-base),
-    transform var(--transition-base),
-    background var(--transition-base);
+  transition: transform var(--transition-base);
 }
 
 .tenten-problem__note--1 {
@@ -392,12 +395,6 @@
   border-top: 2px solid rgba(99, 102, 241, 0.45);
 }
 
-.tenten-problem__note:hover {
-  background: var(--glass-fill-hover);
-  border-color: var(--glass-border-hover);
-  box-shadow: var(--shadow-glass-hover);
-}
-
 .tenten-problem__note--1:hover {
   transform: rotate(-0.3deg) translateY(-2px);
 }
@@ -414,25 +411,91 @@
   transform: rotate(0.4deg) translateY(2px);
 }
 
-.tenten-problem__closing {
+.tenten-problem__closing,
+.tenten-solution__closing {
   margin: 0;
   max-width: none;
   text-align: left;
 }
 
-.tenten-problem__closing p {
+.tenten-problem__closing p,
+.tenten-solution__closing p {
   margin: 0 0 14px;
   font-size: 1rem;
   line-height: 1.65;
   color: var(--text-secondary);
 }
 
-.tenten-problem__closing p:last-child {
+.tenten-problem__closing p:last-child,
+.tenten-solution__closing p:last-child {
   margin-bottom: 0;
 }
 
-.tenten-problem__closing strong {
+.tenten-solution__closing p {
+  margin-bottom: 0;
+}
+
+.tenten-problem__closing strong,
+.tenten-solution__closing strong {
   color: var(--text-primary);
+}
+
+.tenten-case-study .tenten-solution__tagline {
+  display: block;
+  margin: 0 0 12px;
+  font-family: "Inter", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.tenten-mascot-crest--solution {
+  left: auto;
+  right: clamp(-6px, 1.5vw, 18px);
+  transform: rotate(14deg);
+  transform-origin: 45% 72%;
+}
+
+.tenten-solution__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(12px, 2vw, 16px);
+  margin: clamp(24px, 4vw, 32px) 0 clamp(28px, 4vw, 36px);
+}
+
+.tenten-solution__pillar {
+  padding: clamp(20px, 2.5vw, 24px) clamp(18px, 2vw, 22px);
+  border-radius: var(--radius-lg);
+}
+
+.tenten-solution__pillar h3,
+.tenten-challenge h3 {
+  margin: 0 0 10px;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+
+.tenten-solution__pillar p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.tenten-solution__pillar--1 {
+  border-top: 2px solid rgba(var(--accent-rgb), 0.55);
+}
+
+.tenten-solution__pillar--2 {
+  border-top: 2px solid rgba(56, 189, 248, 0.45);
+}
+
+.tenten-solution__pillar--3 {
+  border-top: 2px solid rgba(99, 102, 241, 0.45);
 }
 
 /* Corner Lottie / mascot */
@@ -464,76 +527,226 @@
   bottom: -8%;
 }
 
-/* Engineer work grid */
+/* What I built / challenges — full-width leads */
+.tenten-work-section .tenten-section__lead,
+.tenten-challenges-section .tenten-section__lead {
+  max-width: none;
+}
+
+.tenten-work-journey {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(20px, 4vw, 36px);
+  align-items: center;
+  margin: 0 0 clamp(28px, 4vw, 40px);
+}
+
+.tenten-work-journey__copy {
+  min-width: 0;
+}
+
+.tenten-work-journey__title {
+  margin: 0 0 clamp(14px, 2.5vw, 18px);
+  font-family: "Fraunces", serif;
+  font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+.tenten-work-journey__body p {
+  margin: 0 0 12px;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(0.9rem, 1.5vw, 0.98rem);
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.tenten-work-journey__body p:last-child {
+  margin-bottom: 0;
+}
+
+.tenten-work-journey__figure {
+  margin: 0;
+  min-width: 0;
+  line-height: 0;
+}
+
+.tenten-work-journey__figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2820 / 1664;
+  object-fit: contain;
+}
+
 .tenten-work-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(14px, 2.5vw, 20px);
 }
 
 .tenten-work-card {
-  padding: 22px 20px;
-  background: var(--glass-fill);
-  border: 1px solid var(--glass-border);
+  display: flex;
+  flex-direction: column;
+  padding: clamp(22px, 3vw, 28px) clamp(20px, 2.5vw, 24px);
   border-radius: var(--radius-lg);
-  transition: border-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base);
 }
 
-.tenten-work-card:hover {
-  border-color: var(--glass-border-hover);
-  box-shadow: var(--shadow-glass-hover);
-  transform: translateY(-2px);
+.tenten-work-card--rd {
+  border-top: 2px solid rgba(249, 115, 22, 0.5);
+}
+
+.tenten-work-card--rag {
+  border-top: 2px solid rgba(var(--accent-rgb), 0.55);
+}
+
+.tenten-work-card--routing {
+  border-top: 2px solid rgba(99, 102, 241, 0.5);
+}
+
+.tenten-work-card--analytics {
+  border-top: 2px solid rgba(56, 189, 248, 0.45);
+}
+
+.tenten-work-card__visual {
+  display: flex;
+  justify-content: center;
+  margin: -4px 0 14px;
+  padding: 8px;
+  border-radius: 14px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  border: 1px solid var(--glass-border);
+  line-height: 0;
+}
+
+.tenten-work-card__visual img {
+  display: block;
+  width: 38%;
+  max-width: 120px;
+  height: auto;
+  border-radius: 10px;
+  opacity: 0.92;
+}
+
+.tenten-work-card__visual--workflow img {
+  width: 100%;
+  max-width: none;
+  border-radius: 8px;
 }
 
 .tenten-work-card__icon {
   display: inline-flex;
   margin-bottom: 12px;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent);
 }
 
 .tenten-work-card h3 {
-  margin: 0 0 8px;
-  font-size: 1.05rem;
+  margin: 0 0 10px;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1rem, 1.8vw, 1.1rem);
   font-weight: 600;
+  line-height: 1.3;
   color: var(--text-primary);
 }
 
-.tenten-work-card p {
-  margin: 0;
-  font-size: 0.9rem;
+.tenten-work-card__lead {
+  margin: 0 0 12px;
+  font-size: 0.88rem;
   line-height: 1.55;
   color: var(--text-secondary);
 }
 
-/* Challenge pills */
+.tenten-work-card .list-dash {
+  --list-dash-text: var(--text-secondary);
+  margin: 0;
+}
+
+.tenten-work-card .list-dash > li {
+  font-size: 0.84rem;
+}
+
+.tenten-work-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--glass-border);
+}
+
+.tenten-work-card__tags span {
+  padding: 4px 10px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-pill);
+}
+
+/* Engineering challenges */
 .tenten-challenges {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(12px, 2vw, 16px);
 }
 
 .tenten-challenge {
-  padding: 20px;
-  border-left: 3px solid rgba(var(--accent-rgb), 0.5);
-  background: var(--glass-fill);
-  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: clamp(20px, 2.5vw, 24px) clamp(18px, 2vw, 22px);
+  border-radius: var(--radius-lg);
 }
 
-.tenten-challenge h3 {
-  margin: 0 0 8px;
+.tenten-challenge--1 {
+  border-top: 2px solid rgba(225, 29, 72, 0.45);
+}
+
+.tenten-challenge--2 {
+  border-top: 2px solid rgba(168, 85, 247, 0.45);
+}
+
+.tenten-challenge--3 {
+  border-top: 2px solid rgba(var(--accent-rgb), 0.55);
+}
+
+.tenten-challenge__glyph {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 12px;
   font-size: 1rem;
-  color: var(--text-primary);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--accent);
+  background: rgba(var(--accent-rgb), 0.1);
+  border: 1px solid rgba(var(--accent-rgb), 0.22);
+  border-radius: 50%;
 }
 
 .tenten-challenge p {
-  margin: 0;
-  font-size: 0.9rem;
+  margin: 0 0 10px;
+  font-size: 0.88rem;
   line-height: 1.55;
   color: var(--text-secondary);
+}
+
+.tenten-challenge p:last-child {
+  margin-bottom: 0;
+}
+
+.tenten-challenge__stakes {
+  padding-top: 10px;
+  border-top: 1px solid var(--glass-border);
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--text-muted);
 }
 
 /* Stats */
@@ -767,13 +980,6 @@
   color: #fbbf24;
 }
 
-/* Timeline image */
-.tenten-timeline-img {
-  width: 100%;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--glass-border);
-}
-
 /* Insight row */
 .tenten-insights {
   display: grid;
@@ -829,6 +1035,15 @@
   .tenten-problem__notes {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .tenten-solution__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tenten-challenges {
+    grid-template-columns: 1fr;
+  }
+
 }
 
 @media (max-width: 767px) {
@@ -855,6 +1070,12 @@
     transform: rotate(-11deg);
   }
 
+  .tenten-mascot-crest--solution {
+    left: auto;
+    right: -2px;
+    transform: rotate(11deg);
+  }
+
   .tenten-problem__notes {
     grid-template-columns: 1fr;
   }
@@ -879,8 +1100,23 @@
     width: calc(100cqw - 8px);
   }
 
+  .tenten-work-journey {
+    grid-template-columns: 1fr;
+  }
+
+  .tenten-work-journey__figure {
+    max-width: 420px;
+    margin-inline: auto;
+  }
+
+  .tenten-work-grid {
+    grid-template-columns: 1fr;
+  }
+
   .tenten-surface-card:hover,
-  .tenten-work-card:hover {
+  .tenten-problem__note:hover,
+  .tenten-work-card:hover,
+  .tenten-challenge:hover {
     transform: none;
   }
 }
@@ -888,8 +1124,14 @@
 @media (prefers-reduced-motion: reduce) {
   .tenten-work-card,
   .tenten-surface-card,
-  .tenten-problem__note {
+  .tenten-problem__note,
+  .tenten-solution__pillar,
+  .tenten-challenge {
     transition: none;
+  }
+
+  .tenten-solution__pillar:hover {
+    transform: none;
   }
 
   .tenten-problem__note--1,
