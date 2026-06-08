@@ -111,7 +111,7 @@ node scripts/build-portfolio.mjs
 | `assets/mascot/` | PNG fallbacks (`tenten.png`, `tenten-love-eye.png`) |
 | `assets/lottie/` | Lottie JSON used on page (`loading`, `blink-smile`, `looking-around`, `love-eye`) |
 | `assets/videos/` | Surface flow WebM (`general-flow`, `recorded-flow`, `exam-flow`, `liveclass-flow`) |
-| `assets/ui/` | `timeline.png`, `tenten-n8n-workflow.png`, `tenten-card.png`, `og-tenten.jpg`; work-card thumbs `exam/`, `recorded/`, `liveclass/` (`flow-1.png`) |
+| `assets/ui/` | `timeline.png`, `tenten-n8n-workflow.png`, `rag-flow-animated.svg`, `agent-routing-flow.svg`, `analytics-dashboard.svg`, `tenten-card.png`, `og-tenten.jpg`; surface UI stills under `general/`, `recorded/`, `exam/`, `liveclass/`; work-card diagrams (RAG, Routing, Analytics) embed SVGs via `<object class="tenten-work-card__svg">` (self-animated; source archives in `TenTen icons and lottie/`) |
 
 **Source / archive only** (not linked from the live page): `projects/tenten/TenTen icons and lottie/`, `TenTen.pdf`. Do not deploy `demo html/`.
 
