@@ -635,6 +635,22 @@
   border-radius: 8px;
 }
 
+.tenten-work-card__visual--svg {
+  margin: -4px 0 14px;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+.tenten-work-card__svg {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  border-radius: 10px;
+  pointer-events: none;
+}
+
 .tenten-work-card__icon {
   display: inline-flex;
   margin-bottom: 12px;
