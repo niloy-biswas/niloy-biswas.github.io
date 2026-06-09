@@ -527,9 +527,10 @@
   bottom: -8%;
 }
 
-/* What I built / challenges — full-width leads */
+/* Full-width section leads (no 52ch wrap) */
 .tenten-work-section .tenten-section__lead,
-.tenten-challenges-section .tenten-section__lead {
+.tenten-challenges-section .tenten-section__lead,
+.tenten-surfaces-section .tenten-section__lead {
   max-width: none;
 }
 
@@ -817,7 +818,7 @@
   color: var(--text-muted);
 }
 
-/* Four learning surfaces — in-grid row, vertical scroll reveals more */
+/* Four learning surfaces — horizontal card strip */
 .tenten-section__lead {
   margin: -12px 0 28px;
   max-width: 52ch;
