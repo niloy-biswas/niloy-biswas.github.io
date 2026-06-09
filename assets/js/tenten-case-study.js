@@ -337,6 +337,9 @@
     var cards = root.querySelectorAll('[data-tenten-surface-card]');
     if (!viewport || !track || cards.length < 2) return;
 
+    var surfaceRevealX = 28;
+    var surfacePinGap = 100;
+
     function trackShift() {
       return Math.max(0, track.scrollWidth - viewport.clientWidth);
     }
@@ -347,10 +350,10 @@
       return;
     }
 
-    gsap.set(cards[0], { opacity: 0, y: 20 });
-    gsap.set(cards[1], { opacity: 0.35, x: 40 });
-    if (cards[2]) gsap.set(cards[2], { opacity: 0.2, x: 72 });
-    if (cards[3]) gsap.set(cards[3], { opacity: 0.2, x: 72 });
+    gsap.set(cards[0], { opacity: 0, y: 16 });
+    gsap.set(cards[1], { opacity: 0.35, x: 20 });
+    if (cards[2]) gsap.set(cards[2], { opacity: 0.2, x: surfaceRevealX });
+    if (cards[3]) gsap.set(cards[3], { opacity: 0.2, x: surfaceRevealX });
 
     ScrollTrigger.create({
       trigger: viewport,
@@ -381,12 +384,12 @@
       gsap.set(track, { x: -(distance * progress) });
 
       if (cards[2]) {
-        var p3 = gsap.utils.clamp(0, 1, (progress - 0.12) / 0.45);
-        gsap.set(cards[2], { opacity: 0.2 + p3 * 0.8, x: 72 * (1 - p3) });
+        var p3 = gsap.utils.clamp(0, 1, (progress - 0.08) / 0.4);
+        gsap.set(cards[2], { opacity: 0.2 + p3 * 0.8, x: surfaceRevealX * (1 - p3) });
       }
       if (cards[3]) {
-        var p4 = gsap.utils.clamp(0, 1, (progress - 0.42) / 0.45);
-        gsap.set(cards[3], { opacity: 0.2 + p4 * 0.8, x: 72 * (1 - p4) });
+        var p4 = gsap.utils.clamp(0, 1, (progress - 0.38) / 0.4);
+        gsap.set(cards[3], { opacity: 0.2 + p4 * 0.8, x: surfaceRevealX * (1 - p4) });
       }
     }
 
@@ -403,13 +406,13 @@
 
       surfacePinTrigger = ScrollTrigger.create({
         trigger: cards[0],
-        start: 'bottom bottom',
+        start: 'bottom bottom-=' + surfacePinGap,
         end: '+=' + distance,
         scrub: true,
         pin: viewport,
         pinSpacing: true,
         anticipatePin: 0,
-        invalidateOnRefresh: false,
+        invalidateOnRefresh: true,
         onUpdate: function (self) {
           updateSurfaceCards(self.progress, distance);
         },
@@ -420,8 +423,8 @@
         },
         onLeaveBack: function () {
           gsap.set(track, { x: 0 });
-          if (cards[2]) gsap.set(cards[2], { opacity: 0.2, x: 72 });
-          if (cards[3]) gsap.set(cards[3], { opacity: 0.2, x: 72 });
+          if (cards[2]) gsap.set(cards[2], { opacity: 0.2, x: surfaceRevealX });
+          if (cards[3]) gsap.set(cards[3], { opacity: 0.2, x: surfaceRevealX });
         }
       });
     }

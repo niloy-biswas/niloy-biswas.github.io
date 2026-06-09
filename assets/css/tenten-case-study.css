@@ -532,6 +532,7 @@
 .tenten-challenges-section .tenten-section__lead,
 .tenten-surfaces-section .tenten-section__lead {
   max-width: none;
+  margin-bottom: 20px;
 }
 
 .tenten-work-journey {
@@ -832,7 +833,7 @@
   --tenten-surface-gap: clamp(16px, 3vw, 24px);
   overflow: hidden;
   width: 100%;
-  padding: 14px 4px 12px;
+  padding: 0 0 8px;
 }
 
 .tenten-surfaces-grid {
