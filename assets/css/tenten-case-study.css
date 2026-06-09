@@ -828,12 +828,51 @@
   color: var(--text-secondary);
 }
 
+.tenten-surfaces-section {
+  --tenten-nav-offset: 88px;
+  margin-bottom: clamp(16px, 2.5vw, 28px);
+}
+
+.tenten-surfaces-section + .tenten-section {
+  margin-top: 0;
+}
+
 .tenten-surfaces-viewport {
   container-type: inline-size;
   --tenten-surface-gap: clamp(16px, 3vw, 24px);
   overflow: hidden;
   width: 100%;
-  padding: 0 0 8px;
+  padding: 10px 0 8px;
+}
+
+/* Mobile / narrow: native swipe strip (no GSAP pin — avoids blank pinned viewport) */
+.tenten-surfaces-viewport--strip {
+  container-type: normal;
+  overflow-x: auto;
+  overflow-y: visible;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 4px;
+  scrollbar-width: none;
+}
+
+.tenten-surfaces-viewport--strip::-webkit-scrollbar {
+  display: none;
+}
+
+.tenten-surfaces-viewport--strip .tenten-surfaces-grid {
+  transform: none !important;
+  will-change: auto;
+}
+
+.tenten-surfaces-viewport--strip .tenten-surface-card {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Override GSAP pin top so cards stay below the floating nav on every viewport */
+.tenten-surfaces-viewport.is-surface-pinned {
+  top: var(--tenten-nav-offset) !important;
 }
 
 .tenten-surfaces-grid {
@@ -848,8 +887,8 @@
 .tenten-surface-card {
   display: flex;
   flex-direction: column;
-  flex: 0 0 calc((100cqw - var(--tenten-surface-gap)) / 2);
-  width: calc((100cqw - var(--tenten-surface-gap)) / 2);
+  flex: 0 0 var(--tenten-surface-card-basis, calc((100cqw - var(--tenten-surface-gap)) / 2));
+  width: var(--tenten-surface-card-basis, calc((100cqw - var(--tenten-surface-gap)) / 2));
   min-width: 0;
   padding: clamp(18px, 3vw, 24px);
   background: var(--glass-fill);
@@ -863,6 +902,11 @@
   box-shadow: var(--shadow-glass-hover);
   position: relative;
   z-index: 1;
+}
+
+/* Viewport clips overflow — skip glass-card lift so border/shadow aren't cropped */
+.tenten-surfaces-viewport .tenten-surface-card.glass-card:hover {
+  transform: none;
 }
 
 .tenten-surface-card__kicker {
@@ -1111,11 +1155,6 @@
 
   .tenten-voices {
     grid-template-columns: 1fr;
-  }
-
-  .tenten-surface-card {
-    flex-basis: calc(100cqw - 8px);
-    width: calc(100cqw - 8px);
   }
 
   .tenten-work-journey {

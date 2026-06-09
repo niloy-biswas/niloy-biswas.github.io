@@ -338,50 +338,72 @@
     if (!viewport || !track || cards.length < 2) return;
 
     var surfaceRevealX = 28;
-    var surfacePinGap = 100;
+    var surfacesSection = root.querySelector('.tenten-surfaces-section');
 
-    function trackShift() {
-      return Math.max(0, track.scrollWidth - viewport.clientWidth);
+    var navClearance = 16;
+
+    function getPinTop() {
+      var header = document.getElementById('mh-header');
+      if (!header) return 88 + navClearance;
+
+      var hadStrict = header.classList.contains('nav-strict');
+      if (!hadStrict) header.classList.add('nav-strict');
+      var pinTop = Math.ceil(header.getBoundingClientRect().bottom) + navClearance;
+      if (!hadStrict) header.classList.remove('nav-strict');
+      return Math.max(72, pinTop);
     }
 
-    if (prefersReduced) {
-      gsap.set(track, { x: 0 });
-      gsap.set(cards, { opacity: 1 });
-      return;
+    function getSurfaceGap() {
+      return parseFloat(getComputedStyle(viewport).getPropertyValue('--tenten-surface-gap')) || 20;
     }
 
-    gsap.set(cards[0], { opacity: 0, y: 16 });
-    gsap.set(cards[1], { opacity: 0.35, x: 20 });
-    if (cards[2]) gsap.set(cards[2], { opacity: 0.2, x: surfaceRevealX });
-    if (cards[3]) gsap.set(cards[3], { opacity: 0.2, x: surfaceRevealX });
+    function getSurfaceViewportWidth() {
+      var w = viewport.clientWidth;
+      if (w > 0) return w;
+      if (surfacesSection && surfacesSection.clientWidth > 0) return surfacesSection.clientWidth;
+      return Math.min(window.innerWidth - 32, 1080);
+    }
 
-    ScrollTrigger.create({
-      trigger: viewport,
-      start: 'top 82%',
-      once: true,
-      onEnter: function () {
-        gsap.to(cards[0], {
-          opacity: 1,
-          y: 0,
-          duration: 0.7,
-          ease: easePremium,
-          clearProps: 'transform'
-        });
-        gsap.to(cards[1], {
-          opacity: 1,
-          x: 0,
-          duration: 0.75,
-          ease: easePremium,
-          delay: 0.08,
-          clearProps: 'transform'
-        });
+    function isSingleCardLayout() {
+      var vw = getSurfaceViewportWidth();
+      if (vw < 768) return true;
+      return (vw - getSurfaceGap()) / 2 < 260;
+    }
+
+    function syncNavOffset() {
+      if (!surfacesSection || isSingleCardLayout()) return;
+      surfacesSection.style.setProperty('--tenten-nav-offset', getPinTop() + 'px');
+    }
+
+    function syncSurfaceLayout() {
+      var vw = getSurfaceViewportWidth();
+      if (!vw) return;
+
+      syncNavOffset();
+      var singleCard = isSingleCardLayout();
+      var basis = singleCard ? Math.max(0, vw - 16) : Math.max(0, (vw - getSurfaceGap()) / 2);
+      viewport.style.setProperty('--tenten-surface-card-basis', basis + 'px');
+    }
+
+    function setStripMode(enabled) {
+      viewport.classList.toggle('tenten-surfaces-viewport--strip', enabled);
+    }
+
+    function showAllSurfaceCards() {
+      gsap.set(cards, { opacity: 1, x: 0, y: 0 });
+    }
+
+    function setPeekCards(progress) {
+      if (isSingleCardLayout()) {
+        showAllSurfaceCards();
+        return;
       }
-    });
 
-    var surfacePinTrigger = null;
-
-    function updateSurfaceCards(progress, distance) {
-      gsap.set(track, { x: -(distance * progress) });
+      if (progress == null) {
+        if (cards[2]) gsap.set(cards[2], { opacity: 0.2, x: surfaceRevealX });
+        if (cards[3]) gsap.set(cards[3], { opacity: 0.2, x: surfaceRevealX });
+        return;
+      }
 
       if (cards[2]) {
         var p3 = gsap.utils.clamp(0, 1, (progress - 0.08) / 0.4);
@@ -393,65 +415,220 @@
       }
     }
 
-    function buildSurfacePin() {
-      if (surfacePinTrigger) {
-        surfacePinTrigger.kill();
-        surfacePinTrigger = null;
+    function applySurfaceCardInitialState() {
+      if (isSingleCardLayout()) {
+        showAllSurfaceCards();
+        return;
       }
 
-      gsap.set(viewport, { clearProps: 'transform' });
+      gsap.set(cards[0], { opacity: 0, y: 16 });
+      gsap.set(cards[1], { opacity: 0.35, x: 20 });
+      setPeekCards(null);
+    }
 
-      var distance = trackShift();
-      if (!distance) return;
+    function trackShift() {
+      return Math.max(0, track.scrollWidth - viewport.clientWidth);
+    }
 
-      surfacePinTrigger = ScrollTrigger.create({
-        trigger: cards[0],
-        start: 'bottom bottom-=' + surfacePinGap,
-        end: '+=' + distance,
-        scrub: true,
-        pin: viewport,
-        pinSpacing: true,
-        anticipatePin: 0,
-        invalidateOnRefresh: true,
-        onUpdate: function (self) {
-          updateSurfaceCards(self.progress, distance);
-        },
-        onLeave: function () {
-          updateSurfaceCards(1, distance);
-          if (cards[2]) gsap.set(cards[2], { opacity: 1, x: 0 });
-          if (cards[3]) gsap.set(cards[3], { opacity: 1, x: 0 });
-        },
-        onLeaveBack: function () {
-          gsap.set(track, { x: 0 });
-          if (cards[2]) gsap.set(cards[2], { opacity: 0.2, x: surfaceRevealX });
-          if (cards[3]) gsap.set(cards[3], { opacity: 0.2, x: surfaceRevealX });
+    function applyStaticSurfaceLayout() {
+      syncSurfaceLayout();
+      setStripMode(isSingleCardLayout());
+    }
+
+    if (prefersReduced) {
+      gsap.set(track, { x: 0 });
+      showAllSurfaceCards();
+      applyStaticSurfaceLayout();
+
+      var reducedResizeTimer;
+      window.addEventListener('resize', function () {
+        clearTimeout(reducedResizeTimer);
+        reducedResizeTimer = setTimeout(applyStaticSurfaceLayout, 150);
+      });
+
+      return applyStaticSurfaceLayout;
+    }
+
+    applySurfaceCardInitialState();
+
+    if (!isSingleCardLayout()) {
+      ScrollTrigger.create({
+        trigger: viewport,
+        start: 'top 82%',
+        once: true,
+        onEnter: function () {
+          gsap.to(cards[0], {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            ease: easePremium,
+            clearProps: 'transform'
+          });
+          gsap.to(cards[1], {
+            opacity: 1,
+            x: 0,
+            duration: 0.75,
+            ease: easePremium,
+            delay: 0.08,
+            clearProps: 'transform'
+          });
         }
       });
     }
 
-    buildSurfacePin();
+    var surfaceScrollTween = null;
 
-    var rebuildSurfacePin = function () {
-      if (window.ScrollTrigger) ScrollTrigger.refresh();
-      buildSurfacePin();
-    };
+    function resetSurfaceScroll() {
+      gsap.set(track, { x: 0 });
+      setPeekCards(null);
+    }
+
+    function releaseSurfacePin(hard) {
+      viewport.classList.remove('is-surface-pinned');
+      if (hard) {
+        gsap.set(viewport, { clearProps: 'top,left,width,maxWidth,maxHeight,transform' });
+      }
+    }
+
+    function collapseSurfacePinSpacer(st) {
+      var spacer = (st && st.pinSpacer) || viewport.parentElement;
+      if (!spacer || !spacer.classList.contains('pin-spacer')) return;
+      spacer.style.paddingBottom = '0';
+      spacer.style.minHeight = '';
+    }
+
+    function finishSurfaceScroll(st) {
+      releaseSurfacePin(false);
+      collapseSurfacePinSpacer(st);
+      syncSurfaceLayout();
+      gsap.set(track, { x: 0 });
+      showAllSurfaceCards();
+    }
+
+    function reconcileSurfacePinState() {
+      var st = surfaceScrollTween && surfaceScrollTween.scrollTrigger;
+      if (!st || !st.isActive) {
+        if (!st) {
+          releaseSurfacePin(true);
+          return;
+        }
+
+        releaseSurfacePin(false);
+        if (window.scrollY >= st.end) {
+          finishSurfaceScroll(st);
+        } else if (window.scrollY <= st.start) {
+          resetSurfaceScroll();
+        }
+        return;
+      }
+
+      syncSurfaceLayout();
+      showAllSurfaceCards();
+      viewport.classList.add('is-surface-pinned');
+      setPeekCards(st.progress);
+    }
+
+    function buildSurfaceScroll() {
+      if (surfaceScrollTween) {
+        surfaceScrollTween.kill();
+        surfaceScrollTween = null;
+      }
+
+      releaseSurfacePin(true);
+      syncSurfaceLayout();
+      showAllSurfaceCards();
+      gsap.set(track, { clearProps: 'transform' });
+
+      if (isSingleCardLayout()) {
+        setStripMode(true);
+        return;
+      }
+
+      setStripMode(false);
+
+      if (!trackShift()) return;
+
+      surfaceScrollTween = gsap.to(track, {
+        x: function () {
+          return -trackShift();
+        },
+        ease: 'none',
+        scrollTrigger: {
+          trigger: viewport,
+          start: function () {
+            syncSurfaceLayout();
+            return 'top ' + getPinTop() + 'px';
+          },
+          end: function () {
+            return '+=' + trackShift();
+          },
+          scrub: true,
+          pin: viewport,
+          pinSpacing: true,
+          anticipatePin: 0,
+          invalidateOnRefresh: true,
+          onRefresh: function (self) {
+            syncSurfaceLayout();
+            if (!self.isActive) viewport.classList.remove('is-surface-pinned');
+          },
+          onToggle: function (self) {
+            if (self.isActive) {
+              syncSurfaceLayout();
+              showAllSurfaceCards();
+              viewport.classList.add('is-surface-pinned');
+            } else {
+              releaseSurfacePin(false);
+            }
+          },
+          onUpdate: function (self) {
+            setPeekCards(self.progress);
+          },
+          onLeave: function (self) {
+            finishSurfaceScroll(self);
+            requestAnimationFrame(function () {
+              if (window.ScrollTrigger) ScrollTrigger.refresh();
+            });
+          },
+          onLeaveBack: function () {
+            releaseSurfacePin(false);
+            resetSurfaceScroll();
+          }
+        }
+      });
+    }
+
+    function rebuildSurfaceScroll() {
+      buildSurfaceScroll();
+      if (!window.ScrollTrigger) return;
+      ScrollTrigger.refresh();
+      if (!isSingleCardLayout()) {
+        ScrollTrigger.update();
+        reconcileSurfacePinState();
+      }
+    }
+
+    rebuildSurfaceScroll();
+    requestAnimationFrame(rebuildSurfaceScroll);
 
     var resizeTimer;
-    window.addEventListener('load', rebuildSurfacePin);
+    window.addEventListener('load', rebuildSurfaceScroll);
+    window.addEventListener('pageshow', function (event) {
+      if (event.persisted) rebuildSurfaceScroll();
+    });
     window.addEventListener('resize', function () {
       clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(rebuildSurfacePin, 150);
+      resizeTimer = setTimeout(rebuildSurfaceScroll, 150);
     });
 
-    return rebuildSurfacePin;
+    return rebuildSurfaceScroll;
   }
 
   initBackLink();
   initHeroMascot();
   initMascotCrests();
   initMascotPeeks();
-  var rebuildSurfacePin = initSurfaceScrollReveals();
-  initSurfaceVideos(rebuildSurfacePin);
+  var rebuildSurfaceScroll = initSurfaceScrollReveals();
+  initSurfaceVideos(rebuildSurfaceScroll);
   initScrollReveals();
   initStatCounters();
 })();
