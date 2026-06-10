@@ -299,7 +299,8 @@
 }
 
 .tenten-problem .tenten-callout__body,
-.tenten-solution .tenten-callout__body {
+.tenten-solution .tenten-callout__body,
+.tenten-reach .tenten-callout__body {
   max-width: none;
   margin-left: 0;
   margin-right: 0;
@@ -985,9 +986,13 @@
   color: var(--text-secondary);
 }
 
-.tenten-reach .tenten-callout__body {
-  max-width: 52ch;
-  margin: 0 auto;
+.tenten-reach__reason {
+  margin: 0 0 clamp(14px, 2.5vw, 20px);
+  max-width: none;
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text-primary);
 }
 
 /* Four learning surfaces — horizontal card strip */
