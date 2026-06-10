@@ -238,7 +238,8 @@
 
 /* Problem / solution — crest stages + callout panels */
 .tenten-problem-stage,
-.tenten-solution-stage {
+.tenten-solution-stage,
+.tenten-usage-chart-stage {
   position: relative;
   margin-bottom: clamp(28px, 4vw, 40px);
   overflow: visible;
@@ -525,8 +526,9 @@
 
 .tenten-work-journey__figure img {
   display: block;
-  width: 100%;
-  height: auto;
+  width: auto;
+  max-width: 100%;
+  max-height: clamp(180px, 22vw, 270px);
   aspect-ratio: 2820 / 1664;
   object-fit: contain;
 }
@@ -535,6 +537,19 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: clamp(14px, 2.5vw, 20px);
+}
+
+.tenten-work-card-stage {
+  position: relative;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+}
+
+.tenten-work-card-stage > article {
+  flex: 1;
+  position: relative;
+  z-index: 1;
 }
 
 .tenten-work-card {

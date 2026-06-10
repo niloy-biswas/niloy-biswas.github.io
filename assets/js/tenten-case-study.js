@@ -147,7 +147,7 @@
 
       revealLottieScroll(
         crest,
-        crest.closest('.tenten-problem-stage, .tenten-solution-stage') || crest,
+        crest.closest('.tenten-problem-stage, .tenten-solution-stage, .tenten-work-card-stage, .tenten-usage-chart-stage') || crest,
         Object.assign({ opacity: 0, scale: 0.82, x: fromX, y: -36 }, crestPose),
         crestPose
       );

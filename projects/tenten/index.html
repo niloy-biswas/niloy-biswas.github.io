@@ -219,20 +219,25 @@
                     </div>
 
                     <div class="tenten-work-grid">
-                        <article class="tenten-work-card glass-card tenten-work-card--rd">
-                            <div class="tenten-work-card__visual tenten-work-card__visual--workflow">
-                                <img src="assets/ui/tenten-n8n-workflow.png" alt="Early TenTen n8n prototype workflow" loading="lazy" width="1972" height="1174">
+                        <div class="tenten-work-card-stage">
+                            <div class="tenten-mascot-crest tenten-mascot-crest--rd" data-lottie="assets/lottie/blink-with-smile.json" aria-hidden="true">
+                                <img class="tenten-mascot-crest__fallback" src="assets/mascot/tenten.png" alt="" width="128" height="128">
                             </div>
-                            <span class="tenten-work-card__icon">R&amp;D</span>
-                            <h3>Prototype to production orchestration</h3>
-                            <p class="tenten-work-card__lead">~10 months of retrieval and prompt experiments in Colab, n8n, and Dify before production wiring.</p>
-                            <ul class="list-dash">
-                                <li>Migrated orchestration to <strong>LangGraph</strong> for agent flows, state, and production control.</li>
-                            </ul>
-                            <div class="tenten-work-card__tags" aria-label="Tools used">
-                                <span>Colab</span><span>n8n</span><span>Dify</span><span>LangGraph</span>
-                            </div>
-                        </article>
+                            <article class="tenten-work-card glass-card tenten-work-card--rd">
+                                <div class="tenten-work-card__visual tenten-work-card__visual--workflow">
+                                    <img src="assets/ui/tenten-n8n-workflow.png" alt="Early TenTen n8n prototype workflow" loading="lazy" width="1972" height="1174">
+                                </div>
+                                <span class="tenten-work-card__icon">R&amp;D</span>
+                                <h3>Prototype to production orchestration</h3>
+                                <p class="tenten-work-card__lead">~10 months of retrieval and prompt experiments in Colab, n8n, and Dify before production wiring.</p>
+                                <ul class="list-dash">
+                                    <li>Migrated orchestration to <strong>LangGraph</strong> for agent flows, state, and production control.</li>
+                                </ul>
+                                <div class="tenten-work-card__tags" aria-label="Tools used">
+                                    <span>Colab</span><span>n8n</span><span>Dify</span><span>LangGraph</span>
+                                </div>
+                            </article>
+                        </div>
                         <article class="tenten-work-card glass-card tenten-work-card--rag">
                             <div class="tenten-work-card__visual tenten-work-card__visual--svg">
                                 <object class="tenten-work-card__svg" type="image/svg+xml" data="assets/ui/rag-flow-animated.svg" width="1600" height="900" aria-label="Curriculum-grounded RAG workflow — semantic chunking, hybrid search, reranking, and eval loops">Curriculum-grounded RAG workflow</object>
@@ -404,7 +409,11 @@
                     </div>
                 </section>
 
-                <section class="tenten-callout tenten-usage-chart" data-tenten-reveal aria-labelledby="tenten-usage-title">
+                <div class="tenten-usage-chart-stage" data-tenten-reveal>
+                    <div class="tenten-mascot-crest tenten-mascot-crest--solution" data-lottie="assets/lottie/blink-with-smile.json" aria-hidden="true">
+                        <img class="tenten-mascot-crest__fallback" src="assets/mascot/tenten.png" alt="" width="128" height="128">
+                    </div>
+                    <section class="tenten-callout tenten-usage-chart" aria-labelledby="tenten-usage-title">
                     <header class="tenten-solution__header">
                         <p class="tenten-solution__kicker">Student usage</p>
                         <p class="tenten-solution__tagline">Math leads &mdash; but practice, theory, and exam prep are close behind</p>
@@ -466,7 +475,8 @@
                         </div>
                         <figcaption class="tenten-usage-chart__xlabel">% of Students</figcaption>
                     </figure>
-                </section>
+                    </section>
+                </div>
 
                 <section class="tenten-callout tenten-reach" data-tenten-reveal aria-labelledby="tenten-reach-title">
                     <header class="tenten-solution__header">
