@@ -224,23 +224,24 @@
 
   function initStatCounters() {
     if (!window.gsap || !window.ScrollTrigger) return;
-    var stats = root.querySelectorAll('.tenten-stat__value[data-count]');
+    var stats = root.querySelectorAll('[data-count]');
     if (!stats.length) return;
 
     stats.forEach(function (el) {
       var target = parseFloat(el.getAttribute('data-count'));
       var suffix = el.getAttribute('data-suffix') || '';
       var prefix = el.getAttribute('data-prefix') || '';
+      var decimals = parseInt(el.getAttribute('data-decimals'), 10);
       if (isNaN(target)) return;
 
       var obj = { val: 0 };
       ScrollTrigger.create({
-        trigger: el.closest('.tenten-stats') || el,
+        trigger: el.closest('.tenten-impact, .tenten-callout') || el,
         start: 'top 80%',
         once: true,
         onEnter: function () {
           if (prefersReduced) {
-            el.textContent = prefix + formatStat(target) + suffix;
+            el.textContent = prefix + formatStat(target, decimals) + suffix;
             return;
           }
           gsap.to(obj, {
@@ -248,7 +249,7 @@
             duration: 1.4,
             ease: 'power2.out',
             onUpdate: function () {
-              el.textContent = prefix + formatStat(obj.val) + suffix;
+              el.textContent = prefix + formatStat(obj.val, decimals) + suffix;
             }
           });
         }
@@ -256,7 +257,10 @@
     });
   }
 
-  function formatStat(n) {
+  function formatStat(n, decimals) {
+    if (typeof decimals === 'number' && !isNaN(decimals) && decimals > 0) {
+      return n.toFixed(decimals).replace(/\.0+$/, '');
+    }
     if (n >= 1000) {
       var k = n / 1000;
       if (k >= 100) return Math.round(k) + 'K';

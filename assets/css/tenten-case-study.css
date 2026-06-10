@@ -767,56 +767,140 @@
   color: var(--text-muted);
 }
 
-/* Stats */
-.tenten-stats {
-  margin-bottom: 20px;
+/* Impact — staggered editorial rails */
+.tenten-impact .tenten-section__lead {
+  margin-bottom: clamp(32px, 5vw, 48px);
 }
 
-.tenten-stats__label {
-  margin: 0 0 14px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-
-.tenten-stats__grid {
+.tenten-impact__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(32px, 5vw, 56px) clamp(20px, 3vw, 40px);
 }
 
-.tenten-stats__grid--secondary .tenten-stat {
-  padding: 14px 16px;
+.tenten-impact__item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0 16px;
+  align-items: start;
+  min-width: 0;
 }
 
-.tenten-stats__grid--secondary .tenten-stat__value {
-  font-size: clamp(1.25rem, 3vw, 1.6rem);
+.tenten-impact__item:nth-child(1),
+.tenten-impact__item:nth-child(3) {
+  padding-top: 0;
 }
 
-.tenten-stat {
-  padding: 20px 18px;
-  text-align: center;
-  background: var(--glass-fill-card);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-lg);
+.tenten-impact__item:nth-child(2) {
+  padding-top: clamp(40px, 7vw, 88px);
 }
 
-.tenten-stat__value {
+.tenten-impact__rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20px;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+.tenten-impact__gem {
   display: block;
-  margin-bottom: 4px;
+  width: 10px;
+  height: 10px;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, #f97316 0%, #e11d48 55%, #a855f7 100%);
+  border-radius: 2px;
+  transform: rotate(45deg);
+  box-shadow: 0 0 14px rgba(249, 115, 22, 0.45);
+  flex-shrink: 0;
+}
+
+.tenten-impact__line {
+  display: block;
+  width: 1px;
+  flex: 1;
+  min-height: 48px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(255, 255, 255, 0.08) 72%,
+    transparent 100%
+  );
+}
+
+.tenten-impact__body {
+  min-width: 0;
+  padding-bottom: 4px;
+}
+
+.tenten-impact__value,
+.tenten-callout__highlight-value {
+  display: block;
   font-family: "Fraunces", serif;
-  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-size: clamp(2rem, 4.5vw, 2.75rem);
   font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.03em;
   color: var(--text-primary);
   font-variant-numeric: tabular-nums;
 }
 
-.tenten-stat__label {
-  font-size: 0.8rem;
+.tenten-impact__value {
+  margin: 0 0 8px;
+}
+
+.tenten-impact__reason {
+  margin: 0;
+  font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+  font-weight: 600;
   line-height: 1.35;
+  color: var(--text-secondary);
+}
+
+.tenten-impact__desc {
+  margin: 10px 0 0;
+  max-width: 34ch;
+  font-size: 0.88rem;
+  line-height: 1.55;
   color: var(--text-muted);
+}
+
+.tenten-impact__sales {
+  margin-top: clamp(40px, 6vw, 64px);
+}
+
+.tenten-impact__sales-heading {
+  margin-bottom: 16px;
+}
+
+.tenten-impact__sales-text {
+  margin: 0;
+  max-width: 58ch;
+  font-family: "Fraunces", serif;
+  font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+.tenten-impact__sales-text strong {
+  font-weight: 700;
+}
+
+.tenten-callout__highlight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 20px;
+}
+
+.tenten-callout__highlight-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-secondary);
 }
 
 /* Four learning surfaces — horizontal card strip */
@@ -1106,6 +1190,18 @@
     grid-template-columns: 1fr;
   }
 
+  .tenten-impact__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tenten-impact__item:nth-child(2) {
+    padding-top: clamp(24px, 4vw, 48px);
+  }
+
+  .tenten-impact__item:nth-child(3) {
+    padding-top: 0;
+  }
+
 }
 
 @media (max-width: 767px) {
@@ -1130,6 +1226,21 @@
     top: -55px;
     left: -2px;
     transform: rotate(-11deg);
+  }
+
+  .tenten-impact__grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .tenten-impact__item:nth-child(1),
+  .tenten-impact__item:nth-child(2),
+  .tenten-impact__item:nth-child(3) {
+    padding-top: 0;
+  }
+
+  .tenten-impact__item:nth-child(even) {
+    padding-left: clamp(8px, 3vw, 20px);
   }
 
   .tenten-mascot-crest--solution {
