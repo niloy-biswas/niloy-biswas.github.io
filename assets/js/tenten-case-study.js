@@ -63,11 +63,9 @@
   var easePremium = cubicBezier(0.16, 1, 0.3, 1);
 
   function lottieMount(el) {
-    var mountClass = el.classList.contains('tenten-mascot-peek')
-      ? 'tenten-mascot-peek__lottie'
-      : el.classList.contains('tenten-mascot-crest')
-        ? 'tenten-mascot-crest__lottie'
-        : null;
+    var mountClass = el.classList.contains('tenten-mascot-crest')
+      ? 'tenten-mascot-crest__lottie'
+      : null;
     var container = mountClass ? el.querySelector('.' + mountClass) : null;
     if (!container) {
       container = document.createElement('div');
@@ -82,11 +80,9 @@
   function initLottie(el, path, loop) {
     if (!window.lottie || prefersReduced) return null;
     var fallback = el.querySelector(
-      el.classList.contains('tenten-mascot-peek')
-        ? '.tenten-mascot-peek__fallback'
-        : el.classList.contains('tenten-mascot-crest')
-          ? '.tenten-mascot-crest__fallback'
-          : '.tenten-hero__mascot-fallback'
+      el.classList.contains('tenten-mascot-crest')
+        ? '.tenten-mascot-crest__fallback'
+        : '.tenten-hero__mascot-fallback'
     );
     if (fallback) fallback.hidden = true;
     return window.lottie.loadAnimation({
@@ -104,10 +100,6 @@
     var json = hero.getAttribute('data-lottie');
     if (!json) return;
     initLottie(hero, json, true);
-  }
-
-  function peekOffset(corner) {
-    return corner === 'bl' ? { x: -40, y: 40 } : { x: 40, y: 40 };
   }
 
   function revealLottieScroll(el, trigger, fromVars, toVars) {
@@ -158,21 +150,6 @@
         crest.closest('.tenten-problem-stage, .tenten-solution-stage') || crest,
         Object.assign({ opacity: 0, scale: 0.82, x: fromX, y: -36 }, crestPose),
         crestPose
-      );
-    });
-  }
-
-  function initMascotPeeks() {
-    var peeks = root.querySelectorAll('.tenten-mascot-peek[data-lottie]');
-    if (!peeks.length) return;
-
-    peeks.forEach(function (peek) {
-      var corner = peek.classList.contains('tenten-mascot-peek--bl') ? 'bl' : 'br';
-      var off = peekOffset(corner);
-      revealLottieScroll(
-        peek,
-        peek.closest('.tenten-callout') || peek,
-        { opacity: 0, scale: 0.75, x: off.x, y: off.y }
       );
     });
   }
@@ -255,6 +232,72 @@
         }
       });
     });
+  }
+
+  var USAGE_CHART_MAX = 70;
+
+  function initUsageChart() {
+    var section = root.querySelector('.tenten-usage-chart');
+    if (!section) return;
+
+    var bars = section.querySelectorAll('.tenten-usage-chart__bar');
+    var values = section.querySelectorAll('.tenten-usage-chart__value');
+    if (!bars.length) return;
+
+    function barWidth(pct) {
+      return (pct / USAGE_CHART_MAX) * 100 + '%';
+    }
+
+    function setFinalState() {
+      bars.forEach(function (bar) {
+        bar.style.width = barWidth(parseFloat(bar.getAttribute('data-pct')));
+      });
+      section.classList.add('is-chart-ready');
+    }
+
+    if (prefersReduced || !window.gsap || !window.ScrollTrigger) {
+      setFinalState();
+      return;
+    }
+
+    gsap.set(values, { opacity: 0 });
+
+    var played = false;
+
+    function playUsageChart() {
+      if (played) return;
+      played = true;
+      bars.forEach(function (bar, index) {
+        var pct = parseFloat(bar.getAttribute('data-pct'));
+        gsap.to(bar, {
+          width: barWidth(pct),
+          duration: 1.1,
+          delay: index * 0.07,
+          ease: 'power2.out'
+        });
+      });
+      gsap.to(values, {
+        opacity: 1,
+        duration: 0.5,
+        delay: 0.35,
+        stagger: 0.05,
+        onComplete: function () {
+          section.classList.add('is-chart-ready');
+        }
+      });
+    }
+
+    ScrollTrigger.create({
+      trigger: section,
+      start: 'top 78%',
+      once: true,
+      onEnter: playUsageChart
+    });
+
+    ScrollTrigger.refresh();
+    if (ScrollTrigger.isInViewport(section, 0.22)) {
+      playUsageChart();
+    }
   }
 
   function formatStat(n, decimals) {
@@ -630,9 +673,9 @@
   initBackLink();
   initHeroMascot();
   initMascotCrests();
-  initMascotPeeks();
   var rebuildSurfaceScroll = initSurfaceScrollReveals();
   initSurfaceVideos(rebuildSurfaceScroll);
   initScrollReveals();
   initStatCounters();
+  initUsageChart();
 })();
