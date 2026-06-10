@@ -13,9 +13,15 @@
     #38bdf8 100%
   );
   --tenten-panel-bg: rgba(10, 15, 30, 0.72);
+  --text-primary: #fff;
+  --text-secondary: rgba(255, 255, 255, 0.72);
   padding-top: 100px;
   padding-bottom: clamp(56px, 10vw, 96px);
   min-height: 100vh;
+}
+
+.tenten-case-study p {
+  opacity: 1;
 }
 
 .tenten-case-study__inner {
@@ -81,7 +87,6 @@
 
 .tenten-hero__mascot-name {
   margin: 0;
-  font-family: "Inter", sans-serif;
   font-size: clamp(2.35rem, 6.2vw, 3.35rem);
   font-weight: 800;
   font-style: italic;
@@ -119,7 +124,6 @@
 .tenten-hero__title {
   margin: 0 0 clamp(16px, 2.5vw, 24px);
   max-width: min(900px, 92vw);
-  font-family: "Inter", sans-serif;
   font-size: clamp(1.85rem, 4.8vw, 3.15rem);
   font-weight: 700;
   line-height: 1.12;
@@ -133,11 +137,10 @@
 .tenten-hero__lead {
   margin: 0;
   max-width: min(640px, 92vw);
-  font-family: "Inter", sans-serif;
   font-size: clamp(0.95rem, 1.8vw, 1.1rem);
   font-weight: 400;
   line-height: 1.65;
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
 .tenten-hero__lead strong {
@@ -170,7 +173,6 @@
 .tenten-hero__meta-label {
   display: block;
   margin: 0 0 8px;
-  font-family: "Inter", sans-serif;
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -180,7 +182,6 @@
 
 .tenten-hero__meta-value {
   margin: 0;
-  font-family: "Inter", sans-serif;
   font-size: clamp(0.82rem, 1.5vw, 0.95rem);
   font-weight: 500;
   line-height: 1.45;
@@ -202,7 +203,6 @@
 
 .tenten-section__heading {
   margin: 0 0 24px;
-  font-family: "Fraunces", serif;
   font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 500;
   color: var(--text-primary);
@@ -233,7 +233,7 @@
   max-width: 58ch;
   font-size: 1rem;
   line-height: 1.65;
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
 /* Problem / solution — crest stages + callout panels */
@@ -275,7 +275,6 @@
 .tenten-case-study .tenten-work-journey__kicker {
   display: block;
   margin: 0 0 10px;
-  font-family: "Inter", sans-serif;
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.2em;
@@ -290,7 +289,6 @@
 .tenten-problem__title,
 .tenten-solution__title {
   margin: 0 0 clamp(18px, 2.5vw, 24px);
-  font-family: "Inter", sans-serif;
   font-size: clamp(1.55rem, 3.4vw, 2.2rem);
   font-weight: 700;
   line-height: 1.2;
@@ -333,7 +331,7 @@
   max-width: none;
   font-size: clamp(0.95rem, 1.6vw, 1.05rem);
   line-height: 1.65;
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
 .tenten-problem__notes {
@@ -349,15 +347,13 @@
 .tenten-problem__note {
   margin: 0;
   padding: clamp(18px, 2.5vw, 22px) clamp(16px, 2vw, 20px);
-  font-family: "Inter", sans-serif;
   font-size: clamp(0.88rem, 1.4vw, 0.95rem);
   font-weight: 500;
   line-height: 1.55;
   letter-spacing: 0;
-  color: var(--text-secondary);
+  color: var(--text-primary);
   text-align: left;
   border-radius: var(--radius-lg);
-  transform-origin: center center;
   transition: transform var(--transition-base);
 }
 
@@ -409,7 +405,7 @@
   margin: 0 0 14px;
   font-size: 1rem;
   line-height: 1.65;
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
 .tenten-problem__closing p:last-child,
@@ -429,11 +425,10 @@
 .tenten-case-study .tenten-solution__tagline {
   display: block;
   margin: 0 0 12px;
-  font-family: "Inter", sans-serif;
   font-size: 0.78rem;
   font-weight: 500;
   letter-spacing: 0.06em;
-  color: var(--text-muted);
+  color: var(--text-secondary);
 }
 
 .tenten-mascot-crest--solution {
@@ -458,7 +453,6 @@
 .tenten-solution__pillar h3,
 .tenten-challenge h3 {
   margin: 0 0 10px;
-  font-family: "Inter", sans-serif;
   font-size: clamp(0.95rem, 1.6vw, 1.05rem);
   font-weight: 600;
   line-height: 1.3;
@@ -469,7 +463,7 @@
   margin: 0;
   font-size: 0.88rem;
   line-height: 1.55;
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
 .tenten-solution__pillar--1 {
@@ -506,7 +500,6 @@
 
 .tenten-work-journey__title {
   margin: 0 0 clamp(14px, 2.5vw, 18px);
-  font-family: "Fraunces", serif;
   font-size: clamp(1.35rem, 2.6vw, 1.85rem);
   font-weight: 500;
   line-height: 1.2;
@@ -515,10 +508,9 @@
 
 .tenten-work-journey__body p {
   margin: 0 0 12px;
-  font-family: "Inter", sans-serif;
   font-size: clamp(0.9rem, 1.5vw, 0.98rem);
   line-height: 1.65;
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
 .tenten-work-journey__body p:last-child {
@@ -622,7 +614,6 @@
 
 .tenten-work-card h3 {
   margin: 0 0 10px;
-  font-family: "Inter", sans-serif;
   font-size: clamp(1rem, 1.8vw, 1.1rem);
   font-weight: 600;
   line-height: 1.3;
@@ -633,11 +624,11 @@
   margin: 0 0 12px;
   font-size: 0.88rem;
   line-height: 1.55;
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
 .tenten-work-card .list-dash {
-  --list-dash-text: var(--text-secondary);
+  --list-dash-text: var(--text-primary);
   margin: 0;
 }
 
@@ -709,7 +700,7 @@
   margin: 0 0 10px;
   font-size: 0.88rem;
   line-height: 1.55;
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
 .tenten-challenge p:last-child {
@@ -721,7 +712,7 @@
   border-top: 1px solid var(--glass-border);
   font-size: 0.8rem;
   font-style: italic;
-  color: var(--text-muted);
+  color: var(--text-secondary);
 }
 
 /* Impact — staggered editorial rails */
@@ -812,7 +803,7 @@
   font-size: clamp(0.95rem, 1.8vw, 1.05rem);
   font-weight: 600;
   line-height: 1.35;
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
 .tenten-impact__desc {
@@ -820,7 +811,7 @@
   max-width: 34ch;
   font-size: 0.88rem;
   line-height: 1.55;
-  color: var(--text-muted);
+  color: var(--text-secondary);
 }
 
 .tenten-impact__sales {
@@ -953,7 +944,7 @@
   justify-content: space-between;
   font-size: 0.68rem;
   font-variant-numeric: tabular-nums;
-  color: var(--text-muted);
+  color: var(--text-secondary);
 }
 
 .tenten-usage-chart__xlabel {
@@ -962,7 +953,7 @@
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.06em;
-  color: var(--text-muted);
+  color: var(--text-secondary);
 }
 
 /* Reach — rural stat */
@@ -1097,7 +1088,6 @@
 
 .tenten-surface-card__title {
   margin: 0 0 6px;
-  font-family: "Fraunces", serif;
   font-size: clamp(1.05rem, 2vw, 1.2rem);
   color: var(--text-primary);
 }
@@ -1137,7 +1127,6 @@
 .tenten-cta__title {
   margin: 0 auto;
   max-width: 28ch;
-  font-family: "Inter", sans-serif;
   font-size: clamp(1.45rem, 3.2vw, 2rem);
   font-weight: 700;
   line-height: 1.2;
@@ -1157,7 +1146,7 @@
   max-width: 52ch;
   font-size: clamp(0.95rem, 1.8vw, 1.05rem);
   line-height: 1.65;
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
 .tenten-cta__btn {
@@ -1169,7 +1158,6 @@
   justify-content: center;
   min-width: 152px;
   padding: 14px 30px;
-  font-family: "Inter", sans-serif;
   font-size: clamp(1rem, 2vw, 1.12rem);
   font-weight: 700;
   line-height: 1;
@@ -1236,7 +1224,7 @@
   border-top: 1px solid var(--glass-border);
   font-size: 0.85rem;
   line-height: 1.6;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   text-align: center;
 }
 

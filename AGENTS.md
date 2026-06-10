@@ -115,6 +115,12 @@ node scripts/build-portfolio.mjs
 
 **Source / archive only** (not linked from the live page): `projects/tenten/TenTen icons and lottie/`, `TenTen.pdf`. Do not deploy `demo html/`.
 
+#### `tenten-case-study.css` — CSS architecture rules
+
+- **Do not redeclare `font-family` on h1–h4 elements or body-inheriting elements.** `typography.css` already sets `h1–h4 = "Fraunces"` and `body = "Inter"`. Only two exceptions exist: `span.tenten-impact__value` and `p.tenten-impact__sales-text` (non-heading elements that need Fraunces explicitly).
+- **Color tokens are scoped at the top of `.tenten-case-study {}`:** `--text-primary: #fff` (true white) and `--text-secondary: rgba(255,255,255,0.72)`. These override the global glass-theme values for this page only. Do not hardcode hex/rgba colors on individual rules — use the tokens.
+- **`p { opacity: 1 }` is reset inside `.tenten-case-study p {}`.** `styles.css` sets a global `p { opacity: 0.9 }` that bleeds in and makes paragraph text look muted. The reset lives at the top of `tenten-case-study.css`.
+
 ### Case study content
 
 - Reference images as `src="images/..."` in `content.html`.
