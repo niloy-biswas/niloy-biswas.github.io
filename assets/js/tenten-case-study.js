@@ -1,5 +1,5 @@
 /**
- * TenTen case study — GSAP reveals, Lottie corner mascots, surface flow videos
+ * TenTen case study: GSAP reveals, Lottie corner mascots, surface flow videos
  * Scoped to .tenten-case-study (projects/tenten/)
  */
 (function () {
@@ -62,16 +62,13 @@
 
   var easePremium = cubicBezier(0.16, 1, 0.3, 1);
 
-  function lottieMount(el) {
-    var mountClass = el.classList.contains('tenten-mascot-crest')
-      ? 'tenten-mascot-crest__lottie'
-      : null;
-    var container = mountClass ? el.querySelector('.' + mountClass) : null;
+  function lottieMount(el, containerClass) {
+    var container = containerClass ? el.querySelector('.' + containerClass) : null;
     if (!container) {
       container = document.createElement('div');
       container.style.width = '100%';
       container.style.height = '100%';
-      if (mountClass) container.className = mountClass;
+      if (containerClass) container.className = containerClass;
       el.insertBefore(container, el.firstChild);
     }
     return container;
@@ -79,14 +76,11 @@
 
   function initLottie(el, path, loop) {
     if (!window.lottie || prefersReduced) return null;
-    var fallback = el.querySelector(
-      el.classList.contains('tenten-mascot-crest')
-        ? '.tenten-mascot-crest__fallback'
-        : '.tenten-hero__mascot-fallback'
-    );
+    var fallback = el.querySelector('.tenten-mascot-crest__fallback, .tenten-hero__mascot-fallback');
     if (fallback) fallback.hidden = true;
+    var containerClass = el.classList.contains('tenten-mascot-crest') ? 'tenten-mascot-crest__lottie' : null;
     return window.lottie.loadAnimation({
-      container: lottieMount(el),
+      container: lottieMount(el, containerClass),
       renderer: 'svg',
       loop: loop !== false,
       autoplay: true,
@@ -100,13 +94,32 @@
     var json = hero.getAttribute('data-lottie');
     if (!json) return;
     initLottie(hero, json, true);
+
+    if (prefersReduced || !window.gsap) {
+      hero.style.opacity = '';
+      return;
+    }
+
+    gsap.set(hero, { x: 280, y: 0 });
+
+    // X + fade: slide in from right
+    gsap.to(hero, { x: 0, opacity: 1, duration: 1.0, ease: easePremium, delay: 0.15 });
+
+    // Y: independent arc, rises slightly mid-flight then settles, creating the curve
+    gsap.to(hero, {
+      delay: 0.15,
+      keyframes: [
+        { y: -32, duration: 0.38, ease: 'sine.out' },
+        { y: 0, duration: 0.62, ease: 'sine.in' }
+      ]
+    });
   }
 
-  function revealLottieScroll(el, trigger, fromVars, toVars) {
+  function revealLottieScroll(el, trigger, fromVars, toVars, duration) {
     if (prefersReduced) return;
     var json = el.getAttribute('data-lottie');
     var anim = json ? initLottie(el, json, true) : null;
-    var endVars = Object.assign({ opacity: 1, scale: 1, x: 0, y: 0 }, toVars || {});
+    var endVars = Object.assign({ opacity: 1, x: 0, y: 0 }, toVars || {});
 
     if (window.gsap) {
       gsap.set(el, fromVars);
@@ -124,7 +137,7 @@
       once: true,
       onEnter: function () {
         gsap.to(el, Object.assign({
-          duration: 0.75,
+          duration: duration || 0.75,
           ease: easePremium,
           onStart: function () {
             if (anim) anim.play();
@@ -148,8 +161,9 @@
       revealLottieScroll(
         crest,
         crest.closest('.tenten-problem-stage, .tenten-solution-stage, .tenten-work-card-stage, .tenten-usage-chart-stage') || crest,
-        Object.assign({ opacity: 0, scale: 0.82, x: fromX, y: -36 }, crestPose),
-        crestPose
+        Object.assign({ opacity: 0, x: fromX, y: 90 }, crestPose),
+        crestPose,
+        1.1
       );
     });
   }
@@ -197,6 +211,20 @@
         }
       );
     }
+  }
+
+  function formatStat(n, decimals) {
+    if (typeof decimals === 'number' && !isNaN(decimals) && decimals > 0) {
+      return n.toFixed(decimals).replace(/\.0+$/, '');
+    }
+    if (n >= 1000) {
+      var k = n / 1000;
+      if (k >= 100) return Math.round(k) + 'K';
+      if (k === Math.floor(k)) return Math.floor(k) + 'K';
+      return k.toFixed(1).replace(/\.0$/, '') + 'K';
+    }
+    if (n === Math.floor(n)) return String(Math.floor(n));
+    return String(Math.round(n));
   }
 
   function initStatCounters() {
@@ -298,20 +326,6 @@
     if (ScrollTrigger.isInViewport(section, 0.22)) {
       playUsageChart();
     }
-  }
-
-  function formatStat(n, decimals) {
-    if (typeof decimals === 'number' && !isNaN(decimals) && decimals > 0) {
-      return n.toFixed(decimals).replace(/\.0+$/, '');
-    }
-    if (n >= 1000) {
-      var k = n / 1000;
-      if (k >= 100) return Math.round(k) + 'K';
-      if (k === Math.floor(k)) return Math.floor(k) + 'K';
-      return k.toFixed(1).replace(/\.0$/, '') + 'K';
-    }
-    if (n === Math.floor(n)) return String(Math.floor(n));
-    return String(Math.round(n));
   }
 
   function initBackLink() {
