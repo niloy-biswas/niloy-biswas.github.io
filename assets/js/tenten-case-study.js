@@ -174,22 +174,20 @@
     var reveals = root.querySelectorAll('[data-tenten-reveal]');
     if (!reveals.length) return;
 
+    gsap.set(reveals, { opacity: 0, y: 28 });
+
     ScrollTrigger.batch(reveals, {
       start: 'top 82%',
       once: true,
       onEnter: function (batch) {
-        gsap.fromTo(
-          batch,
-          { opacity: 0, y: 28 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.7,
-            ease: easePremium,
-            stagger: 0.08,
-            clearProps: 'transform'
-          }
-        );
+        gsap.to(batch, {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          ease: easePremium,
+          stagger: 0.08,
+          clearProps: 'transform'
+        });
       }
     });
 
