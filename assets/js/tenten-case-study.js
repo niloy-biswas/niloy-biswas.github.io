@@ -433,8 +433,46 @@
       viewport.style.setProperty('--tenten-surface-card-basis', basis + 'px');
     }
 
+    var dotsEl = null;
+
+    function syncDots() {
+      if (!dotsEl) return;
+      var cardWidth = cards[0] ? cards[0].offsetWidth : 0;
+      var gap = getSurfaceGap();
+      var idx = Math.round(viewport.scrollLeft / (cardWidth + gap));
+      dotsEl.querySelectorAll('.tenten-surface-dot').forEach(function (dot, i) {
+        dot.classList.toggle('is-active', i === idx);
+      });
+    }
+
+    function ensureDots() {
+      if (dotsEl) return;
+      dotsEl = document.createElement('div');
+      dotsEl.className = 'tenten-surface-dots';
+      cards.forEach(function (_, i) {
+        var dot = document.createElement('button');
+        dot.className = 'tenten-surface-dot' + (i === 0 ? ' is-active' : '');
+        dot.setAttribute('aria-label', 'Go to card ' + (i + 1));
+        dot.addEventListener('click', function () {
+          var cardWidth = cards[i] ? cards[i].offsetWidth : 0;
+          viewport.scrollTo({ left: i * (cardWidth + getSurfaceGap()), behavior: 'smooth' });
+        });
+        dotsEl.appendChild(dot);
+      });
+      viewport.insertAdjacentElement('afterend', dotsEl);
+      viewport.addEventListener('scroll', syncDots, { passive: true });
+    }
+
+    function removeDots() {
+      if (!dotsEl) return;
+      viewport.removeEventListener('scroll', syncDots);
+      if (dotsEl.parentElement) dotsEl.parentElement.removeChild(dotsEl);
+      dotsEl = null;
+    }
+
     function setStripMode(enabled) {
       viewport.classList.toggle('tenten-surfaces-viewport--strip', enabled);
+      if (enabled) ensureDots(); else removeDots();
     }
 
     function showAllSurfaceCards() {

@@ -1057,6 +1057,7 @@
 .tenten-surfaces-section {
   --tenten-nav-offset: 88px;
   margin-bottom: clamp(16px, 2.5vw, 28px);
+  overflow-x: clip; /* prevent grid from ever expanding the page width */
 }
 
 .tenten-surfaces-section + .tenten-section {
@@ -1071,34 +1072,45 @@
   padding: 10px 0 8px;
 }
 
-/* Mobile / narrow: native swipe strip (no GSAP pin — avoids blank pinned viewport) */
-.tenten-surfaces-viewport--strip {
-  container-type: normal;
-  overflow-x: auto;
-  overflow-y: visible;
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x mandatory;
-  scroll-padding-inline: 4px;
-  scrollbar-width: none;
-}
-
-.tenten-surfaces-viewport--strip::-webkit-scrollbar {
-  display: none;
-}
-
-.tenten-surfaces-viewport--strip .tenten-surfaces-grid {
-  transform: none !important;
-  will-change: auto;
-}
-
-.tenten-surfaces-viewport--strip .tenten-surface-card {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-}
-
 /* Override GSAP pin top so cards stay below the floating nav on every viewport */
 .tenten-surfaces-viewport.is-surface-pinned {
   top: var(--tenten-nav-offset) !important;
+}
+
+/* Dot pagination — JS-injected, only present in strip (mobile) mode */
+.tenten-surface-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  margin-top: 16px;
+}
+
+.tenten-surface-dot {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tenten-surface-dot::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  transition: width var(--transition-base), border-radius var(--transition-base), background var(--transition-base);
+}
+
+.tenten-surface-dot.is-active::before {
+  width: 20px;
+  border-radius: 3px;
+  background: var(--accent, #0bceaf);
 }
 
 .tenten-surfaces-grid {
@@ -1409,12 +1421,41 @@
   .tenten-work-card:hover {
     transform: none;
   }
+
+  /* Surfaces section: native swipe strip on mobile, no GSAP pin */
+  .tenten-surfaces-viewport {
+    container-type: normal;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 4px;
+    scrollbar-width: none;
+  }
+
+  .tenten-surfaces-viewport::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tenten-surfaces-grid {
+    transform: none !important;
+    will-change: auto;
+  }
+
+  .tenten-surface-card {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    /* Narrower than the inner container so the gap reveals the next card (~16px peek) */
+    flex: 0 0 calc(100vw - 64px);
+    width: calc(100vw - 64px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .tenten-work-card,
   .tenten-surface-card,
-  .tilt-card {
+  .tilt-card,
+  .tenten-surface-dot::before {
     transition: none;
   }
 
