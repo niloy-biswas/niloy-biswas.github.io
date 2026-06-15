@@ -1,5 +1,5 @@
 /*
- * TenTen case study — modular page styles (projects/tenten/)
+ * TenTen case study: modular page styles (projects/tenten/)
  * Uses site tokens from glass-theme.css; scoped under .tenten-case-study
  */
 
@@ -24,7 +24,7 @@
   opacity: 1;
 }
 
-/* Shared tilt card — problem notes and solution pillars both use this */
+/* Shared tilt card: problem notes and solution pillars both use this */
 .tilt-card {
   transform: rotate(var(--card-tilt, 0deg)) translateY(var(--card-tilt-y, 0px));
   transition: transform var(--transition-base);
@@ -86,7 +86,7 @@
   text-decoration: none;
 }
 
-/* Hero — centered Diponkar-style */
+/* Hero: centered Diponkar-style */
 .tenten-hero {
   display: flex;
   flex-direction: column;
@@ -250,7 +250,7 @@
   font-weight: inherit;
 }
 
-/* Callout cards — corner mascot peek */
+/* Callout cards: corner mascot peek */
 .tenten-callout {
   position: relative;
   margin-bottom: clamp(28px, 4vw, 40px);
@@ -274,7 +274,7 @@
   color: var(--text-primary);
 }
 
-/* Problem / solution — crest stages + callout panels */
+/* Problem / solution: crest stages + callout panels */
 .tenten-problem-stage,
 .tenten-solution-stage,
 .tenten-usage-chart-stage {
@@ -747,7 +747,7 @@
   color: var(--text-secondary);
 }
 
-/* Impact — staggered editorial rails */
+/* Impact: staggered editorial rails */
 .tenten-impact .tenten-section__lead {
   margin-bottom: clamp(32px, 5vw, 48px);
 }
@@ -991,7 +991,7 @@
   color: var(--text-secondary);
 }
 
-/* Reach — rural stat */
+/* Reach: rural stat */
 .tenten-reach__highlight {
   display: flex;
   flex-direction: column;
@@ -1045,7 +1045,7 @@
   color: var(--text-secondary);
 }
 
-/* Four learning surfaces — horizontal card strip */
+/* Four learning surfaces: horizontal card strip */
 .tenten-section__lead {
   margin: -12px 0 28px;
   max-width: 52ch;
@@ -1077,7 +1077,7 @@
   top: var(--tenten-nav-offset) !important;
 }
 
-/* Dot pagination — JS-injected, only present in strip (mobile) mode */
+/* Dot pagination: JS-injected, only present in strip (mobile) mode */
 .tenten-surface-dots {
   display: flex;
   justify-content: center;
@@ -1142,7 +1142,7 @@
   z-index: 1;
 }
 
-/* Viewport clips overflow — skip glass-card lift so border/shadow aren't cropped */
+/* Viewport clips overflow: skip glass-card lift so border/shadow aren't cropped */
 .tenten-surfaces-viewport .tenten-surface-card.glass-card:hover {
   transform: none;
 }
@@ -1188,7 +1188,7 @@
   background: rgba(0, 0, 0, 0.35);
 }
 
-/* Closing CTA — open section, tilted glass button */
+/* Closing CTA: open section, tilted glass button */
 .tenten-cta {
   margin: clamp(48px, 8vw, 80px) 0 0;
   padding: 0 clamp(20px, 4vw, 36px) clamp(40px, 6vw, 56px);
@@ -1303,7 +1303,7 @@
   color: var(--accent);
 }
 
-/* Buttons — align with site */
+/* Buttons: align with site */
 .tenten-case-study .btn.btn-fill {
   border-radius: var(--radius-pill);
 }
@@ -1352,7 +1352,7 @@
   .tenten-mascot-crest {
     width: 76px;
     height: 76px;
-    top: -55px;
+    top: -45px;
     left: -2px;
     transform: rotate(-11deg);
   }
