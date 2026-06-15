@@ -412,6 +412,7 @@
     }
 
     function isSingleCardLayout() {
+      if (window.innerWidth < 768) return true;
       var vw = getSurfaceViewportWidth();
       if (vw < 768) return true;
       return (vw - getSurfaceGap()) / 2 < 260;
@@ -587,6 +588,7 @@
       gsap.set(track, { clearProps: 'transform' });
 
       if (isSingleCardLayout()) {
+        collapseSurfacePinSpacer(null);
         setStripMode(true);
         return;
       }
