@@ -45,14 +45,13 @@
 
     <style><![CDATA[
       text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
-      .panel { fill: rgba(10, 20, 36, 0.72); stroke: rgba(80, 130, 170, 0.28); }
-      .boxCyan { fill: rgba(12, 23, 36, 0.42); stroke: #12e8dd; stroke-width: 2.2; }
-      .boxBlue { fill: rgba(12, 23, 38, 0.38); stroke: #8db2ff; stroke-width: 2; }
-      .boxOrange { fill: rgba(24, 20, 30, 0.34); stroke: #ff876a; stroke-width: 2.2; }
-      .boxPurple { fill: rgba(20, 21, 44, 0.32); stroke: #9f96ff; stroke-width: 2.1; }
+      .panel { fill: rgba(10, 20, 36, 0.38); stroke: rgba(80, 130, 170, 0.38); }
+      .boxCyan { fill: none; stroke: #12e8dd; stroke-width: 2.6; }
+      .boxBlue { fill: none; stroke: #8db2ff; stroke-width: 2.4; }
+      .boxOrange { fill: none; stroke: #ff876a; stroke-width: 2.6; }
+      .boxPurple { fill: none; stroke: #9f96ff; stroke-width: 2.5; }
       .title { fill: #f5fbff; font-size: 26px; font-weight: 600; letter-spacing: 0.01em; }
       .subtitle { fill: rgba(232, 242, 255, 0.94); font-size: 17px; font-weight: 400; }
-      .body { fill: #f2f8ff; font-size: 18px; font-weight: 400; }
       .muted { fill: rgba(220, 233, 247, 0.9); font-size: 16px; font-weight: 400; }
       .small { fill: rgba(240, 247, 255, 0.96); font-size: 15px; font-weight: 500; }
       .badgeText { fill: #061018; font-size: 16px; font-weight: 600; }
@@ -88,7 +87,7 @@
       .slowBreath { animation: breathe 5.5s ease-in-out infinite; }
       .interactive { cursor: pointer; }
       .interactive .hoverBox, .interactive .hoverLabel, .interactive .hoverSub, .interactive .hoverDot, .interactive .hoverStroke { transition: all .22s ease; }
-      .interactive:hover .hoverBox { stroke: #33fff4; stroke-width: 3.4; fill-opacity: 0.98; filter: url(#softGlow); }
+      .interactive:hover .hoverBox { stroke: #33fff4; stroke-width: 3.4; filter: url(#softGlow); }
       .interactive:hover .hoverLabel { fill: #ffffff; }
       .interactive:hover .hoverSub { fill: rgba(232,243,255,0.98); }
       .interactive:hover .hoverDot { fill: #4afbf2; filter: url(#softGlow); }
@@ -272,13 +271,4 @@
     <text x="1088" y="712" text-anchor="middle" class="badgeText">5</text>
   </g>
 
-  <!-- notes -->
-  <g opacity="0.95">
-    <text x="118" y="838" class="muted" style="font-size:17px;">Sequence:</text>
-    <text x="220" y="838" class="small" style="font-size:15px;">1. Detect intent</text>
-    <text x="410" y="838" class="small" style="font-size:15px;">2. Route academic / general / both</text>
-    <text x="720" y="838" class="small" style="font-size:15px;">3. Retrieve FAQ, product info, routine</text>
-    <text x="1060" y="838" class="small" style="font-size:15px;">4. Pull subject memory when needed</text>
-    <text x="1500" y="838" text-anchor="end" class="small" style="font-size:15px;">5. Merge and answer</text>
-  </g>
 </svg>

@@ -45,13 +45,12 @@
 
     <style><![CDATA[
       text { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
-      .panel { fill: rgba(10, 20, 36, 0.72); stroke: rgba(80, 130, 170, 0.28); }
-      .boxCyan { fill: rgba(15, 29, 44, 0.68); stroke: #11d9d3; stroke-width: 2.2; }
-      .boxBlue { fill: rgba(15, 29, 44, 0.68); stroke: #84a7ff; stroke-width: 2; }
-      .boxOrange { fill: rgba(17, 20, 36, 0.64); stroke: #ef765b; stroke-width: 2.2; }
+      .panel { fill: rgba(10, 20, 36, 0.38); stroke: rgba(80, 130, 170, 0.38); }
+      .boxCyan { fill: none; stroke: #11d9d3; stroke-width: 2.6; }
+      .boxBlue { fill: none; stroke: #84a7ff; stroke-width: 2.4; }
+      .boxOrange { fill: none; stroke: #ef765b; stroke-width: 2.6; }
       .title { fill: #d6ecff; font-size: 20px; font-weight: 650; letter-spacing: 0.2px; }
       .subtitle { fill: rgba(207, 224, 246, 0.7); font-size: 13px; }
-      .body { fill: #e8f3ff; font-size: 15px; }
       .muted { fill: rgba(202, 216, 235, 0.62); font-size: 13px; }
       .small { fill: rgba(225, 240, 255, 0.84); font-size: 12px; }
       .badgeText { fill: #061018; font-size: 15px; font-weight: 700; }
@@ -346,13 +345,4 @@
     <text x="842" y="740" text-anchor="middle" class="badgeText">5</text>
   </g>
 
-  <!-- Legend / sequence labels -->
-  <g opacity="0.92">
-    <text x="118" y="840" class="muted">Sequence:</text>
-    <text x="204" y="840" class="body">1. Student asks</text>
-    <text x="362" y="840" class="body">2. TenTen queries PGVector</text>
-    <text x="628" y="840" class="body">3. Retrieve + rerank</text>
-    <text x="851" y="840" class="body">4. Augment context</text>
-    <text x="1058" y="840" class="body">5. LLM answers students</text>
-  </g>
 </svg>

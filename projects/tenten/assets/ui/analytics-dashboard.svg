@@ -28,11 +28,11 @@
 
     <style><![CDATA[
       text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
-      .panel { fill: rgba(10, 20, 36, 0.74); stroke: rgba(84, 138, 176, 0.28); }
-      .card { fill: rgba(14, 25, 40, 0.42); stroke: #12e8dd; stroke-width: 2.1; }
-      .cardBlue { fill: rgba(12, 23, 38, 0.40); stroke: #80abff; stroke-width: 2; }
-      .cardOrange { fill: rgba(24, 20, 30, 0.34); stroke: #ff8b6c; stroke-width: 2; }
-      .cardPurple { fill: rgba(20, 20, 42, 0.34); stroke: #a18fff; stroke-width: 2; }
+      .panel { fill: rgba(10, 20, 36, 0.38); stroke: rgba(84, 138, 176, 0.38); }
+      .card { fill: none; stroke: #12e8dd; stroke-width: 2.5; }
+      .cardBlue { fill: none; stroke: #80abff; stroke-width: 2.4; }
+      .cardOrange { fill: none; stroke: #ff8b6c; stroke-width: 2.4; }
+      .cardPurple { fill: none; stroke: #a18fff; stroke-width: 2.4; }
       .miniCard { fill: rgba(10, 19, 30, 0.80); stroke: rgba(255,255,255,0.08); stroke-width: 1.4; }
       .chip { fill: rgba(9, 21, 35, 0.96); stroke: #15ddd6; stroke-width: 2; }
       .chipText { fill: #f0fdff; font-size: 14px; font-weight: 600; letter-spacing: 0.04em; }
@@ -63,7 +63,7 @@
       .legendDotPurple { fill: #ad8fff; }
       .interactive { cursor: pointer; }
       .interactive .hoverBox, .interactive .hoverLabel, .interactive .hoverSub, .interactive .hoverStroke, .interactive .hoverFill, .interactive .hoverTip { transition: all .22s ease; }
-      .interactive:hover .hoverBox { stroke: #33fff4; stroke-width: 3.2; fill-opacity: 0.98; filter: url(#softGlow); }
+      .interactive:hover .hoverBox { stroke: #33fff4; stroke-width: 3.2; filter: url(#softGlow); }
       .interactive:hover .hoverLabel { fill: #ffffff; }
       .interactive:hover .hoverSub { fill: rgba(245,250,255,1); }
       .interactive:hover .hoverStroke { stroke-width: 4.6; filter: url(#softGlow); }
