@@ -18,31 +18,31 @@
         })(window, document, "clarity", "script", "jf2n0138eg");
     </script>
 
-    <title>TenTen — AI Study Partner | Niloy Biswas</title>
+    <title>TenTen: AI Study Partner for Bangladesh | Niloy Biswas</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description"
-        content="Case study: R&amp;D and AI engineering on TenTen, 10 Minute School's integrated Bangla study partner — RAG, intent routing, and product analytics.">
+        content="How I built TenTen, 10 Minute School's AI study partner for Bangladesh. RAG over curriculum content, Bangla LLM behaviour, intent routing, and post-launch product analytics.">
     <meta name="robots" content="index, follow">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/x-icon" href="../../favicon.ico">
     <link rel="canonical" href="https://niloy.tech/projects/tenten/">
 
-    <meta property="og:title" content="TenTen — AI Study Partner | Niloy Biswas">
+    <meta property="og:title" content="TenTen: AI Study Partner for Bangladesh | Niloy Biswas">
     <meta property="og:description"
-        content="Case study: R&amp;D and AI engineering on TenTen — RAG over curriculum content, Bangla LLM behaviour, and product analytics at 10 Minute School.">
+        content="How I built TenTen from Colab experiments to production RAG, Bangla LLM behaviour, and product analytics at 10 Minute School.">
     <meta property="og:url" content="https://niloy.tech/projects/tenten/">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="niloy.tech">
     <meta property="og:image" content="https://niloy.tech/projects/tenten/assets/ui/og-tenten.jpg">
-    <meta property="og:image:alt" content="TenTen — integrated AI study partner at 10 Minute School">
+    <meta property="og:image:alt" content="TenTen: integrated AI study partner at 10 Minute School">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="TenTen — AI Study Partner | Niloy Biswas">
+    <meta name="twitter:title" content="TenTen: AI Study Partner for Bangladesh | Niloy Biswas">
     <meta name="twitter:description"
-        content="Case study: R&amp;D and AI engineering on TenTen — RAG, Bangla LLM, and product analytics at 10 Minute School.">
+        content="How I built TenTen for Bangladesh's students, from Colab experiments to production RAG, Bangla LLM, and product analytics at 10 Minute School.">
     <meta name="twitter:image" content="https://niloy.tech/projects/tenten/assets/ui/og-tenten.jpg">
-    <meta name="twitter:image:alt" content="TenTen — integrated AI study partner at 10 Minute School">
+    <meta name="twitter:image:alt" content="TenTen: integrated AI study partner at 10 Minute School">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -112,7 +112,7 @@
 
                     <h1 class="tenten-hero__title">Bangladesh's First Integrated <br> AI Learning Ecosystem</h1>
 
-                    <p class="tenten-hero__lead">Building an AI study partner (TenTen) inside the <strong>10 Minute School</strong> app — from early R&amp;D in Google Colab to production RAG, Bangla LLM behaviour, intent routing, and product analytics after limited release in Nov '25.</p>
+                    <p class="tenten-hero__lead">A 10-month journey building TenTen inside the <strong>10 Minute School</strong> app: from early R&amp;D in Google Colab to production RAG, Bangla LLM behaviour, intent routing, and product analytics after a limited release in Nov '25.</p>
 
                     <hr class="tenten-hero__rule" aria-hidden="true">
 
@@ -123,7 +123,7 @@
                         </div>
                         <div class="tenten-hero__meta-item">
                             <dt class="tenten-hero__meta-label">My role</dt>
-                            <dd class="tenten-hero__meta-value">BI Analyst &amp; AI/LLM Engineer</dd>
+                            <dd class="tenten-hero__meta-value">AI/LLM Engineer &amp; Data Analyst</dd>
                         </div>
                         <div class="tenten-hero__meta-item">
                             <dt class="tenten-hero__meta-label">Platform</dt>
@@ -149,20 +149,20 @@
                             <p class="tenten-problem__kicker">The problem</p>
                             <h2 class="tenten-problem__title" id="tenten-problem-title">When learning paused, students had nowhere to turn</h2>
                         </header>
-                        <p class="tenten-callout__body">10 Minute School reaches millions of learners across Bangladesh — many without access to private tutoring. Students on the platform could learn, but they could not always recover when they got confused.</p>
+                        <p class="tenten-callout__body">10 Minute School reaches millions of learners across Bangladesh, many of them without access to private tutoring. Students on the platform could learn, but they had no way to recover when they got confused.</p>
 
                         <p class="tenten-problem__lead">Four issues kept showing up:</p>
 
                         <ul class="tenten-problem__notes" aria-label="Common student pain points">
                             <li class="tenten-problem__note glass-card tenten-problem__note--1 tilt-card tilt-card--1">Stuck watching a recorded class. No teacher available to ask for clarification.</li>
                             <li class="tenten-problem__note glass-card tenten-problem__note--2 tilt-card tilt-card--2">Stuck after reading an exam explanation that still didn&rsquo;t make sense. Stuck with no one to ask.</li>
-                            <li class="tenten-problem__note glass-card tenten-problem__note--3 tilt-card tilt-card--3">Stuck with solving questions and understanding theories in general.</li>
-                            <li class="tenten-problem__note glass-card tenten-problem__note--4 tilt-card tilt-card--4">Stuck during live class &mdash; doubts pile up, and platform help stays buried in FAQ pages.</li>
+                            <li class="tenten-problem__note glass-card tenten-problem__note--3 tilt-card tilt-card--3">Stuck on a theory question with nowhere useful to look for a real explanation.</li>
+                            <li class="tenten-problem__note glass-card tenten-problem__note--4 tilt-card tilt-card--4">Stuck during live class, with doubts piling up and platform help buried in FAQ pages nobody reads.</li>
                         </ul>
 
                         <div class="tenten-problem__closing">
-                            <p>That meant the product supported content consumption, but not the moment after confusion. And in education, that moment matters a lot &mdash; it is where many students pause, skip, guess, or quietly give up.</p>
-                            <p><strong>Before TenTen,</strong> support meant FAQ pages and external chatbots with zero curriculum context. Learning broke at the exact moments students needed help most &mdash; and nothing inside 10MS could stitch it back together.</p>
+                            <p>That meant the product was good at delivering content but had no answer for the moment after confusion. And in education, that moment matters more than almost anything else. It is where students pause, skip, guess, or quietly give up.</p>
+                            <p><strong>Before TenTen,</strong> support meant FAQ pages and external chatbots with zero curriculum context. Learning broke at the exact moments students needed help most, and nothing inside 10MS could stitch it back together.</p>
                         </div>
                     </section>
                 </div>
@@ -177,12 +177,12 @@
                             <p class="tenten-solution__tagline">Not a regular chatbot</p>
                             <h2 class="tenten-solution__title" id="tenten-solution-title">Solving academic challenges inside the learning journey</h2>
                         </header>
-                        <p class="tenten-callout__body">TenTen lives where learning actually breaks &mdash; general chat, recorded lessons, exam review, and live class. It is built into 10 Minute School, not pasted on as a separate chat window, so help arrives with class, grade, and curriculum context already in place.</p>
+                        <p class="tenten-callout__body">TenTen lives exactly where learning breaks: inside general chat, recorded lessons, exam review, and live class. It is built into 10 Minute School, not bolted on as a separate chat window, so help arrives with the student's class, grade, and curriculum context already in place.</p>
 
                         <div class="tenten-solution__grid">
                             <article class="tenten-solution__pillar glass-card tenten-solution__pillar--1 tilt-card tilt-card--1">
                                 <h3>Solve problems on demand</h3>
-                                <p>Study partner, not teacher. TenTen doesn&rsquo;t lecture. It helps students work through confusion the way a smart classmate would &mdash; step by step, in Bangla when they need it.</p>
+                                <p>Study partner, not teacher. TenTen does not lecture. It helps students work through confusion the way a smart classmate would: step by step, in Bangla when they need it.</p>
                             </article>
                             <article class="tenten-solution__pillar glass-card tenten-solution__pillar--2 tilt-card tilt-card--2">
                                 <h3>Ground answers in what they&rsquo;re learning</h3>
@@ -190,31 +190,31 @@
                             </article>
                             <article class="tenten-solution__pillar glass-card tenten-solution__pillar--3 tilt-card tilt-card--3">
                                 <h3>Grow alongside the learner</h3>
-                                <p>As students use TenTen across surfaces, it stays aware of their progress &mdash; what they watched, what they got wrong, what to revise next &mdash; so guidance deepens instead of resetting every session.</p>
+                                <p>As students use TenTen across surfaces, it stays aware of their progress: what they watched, what they got wrong, what to revise next. Guidance deepens instead of resetting every session.</p>
                             </article>
                         </div>
 
                         <div class="tenten-solution__closing">
-                            <p><strong>With TenTen,</strong> the product finally supports the moment after confusion &mdash; not just content consumption. A study partner embedded in the journey, not another chatbot students have to leave the app to find.</p>
+                            <p><strong>With TenTen,</strong> the product finally supports the moment after confusion, not just content consumption. A study partner embedded in the learning journey, not another chatbot students have to leave the app to find.</p>
                         </div>
                     </section>
                 </div>
 
                 <section class="tenten-section tenten-work-section" data-tenten-reveal aria-labelledby="tenten-work-title">
                     <h2 class="tenten-section__heading" id="tenten-work-title">What I <span class="text-gradient-accent">built</span></h2>
-                    <p class="tenten-section__lead">Four systems shipped across a ten-month build &mdash; retrieval, routing, orchestration, and analytics.</p>
+                    <p class="tenten-section__lead">Four systems shipped across a ten-month build: retrieval, routing, orchestration, and analytics.</p>
 
                     <div class="tenten-work-journey" aria-labelledby="tenten-work-journey-title">
                         <div class="tenten-work-journey__copy">
                             <p class="tenten-work-journey__kicker">From pilot to product</p>
-                            <h3 class="tenten-work-journey__title" id="tenten-work-journey-title">Where the engineering work sat in TenTen</h3>
+                            <h3 class="tenten-work-journey__title" id="tenten-work-journey-title">Where the engineering work fit in TenTen's story</h3>
                             <div class="tenten-work-journey__body">
-                                <p>I owned the data and AI layer &mdash; retrieval, routing, and orchestration that turned early Colab, n8n, and Dify experiments into production systems the product could trust.</p>
+                                <p>The work covered the data and AI layer: retrieval, routing, and orchestration that turned early Colab, n8n, and Dify experiments into production systems the product could actually trust.</p>
                                 <p>Eight phases from research through limited release. The cards below are the four pillars that shipped across that arc.</p>
                             </div>
                         </div>
                         <figure class="tenten-work-journey__figure">
-                            <img src="assets/ui/timeline.png" alt="TenTen development timeline — research and R&amp;D, workflow and architecture, design, usability testing, development, user testing, first rollout, and launch" loading="lazy" width="2820" height="1664">
+                            <img src="assets/ui/timeline.png" alt="TenTen development timeline: research and R&amp;D, workflow and architecture, design, usability testing, development, user testing, first rollout, and launch" loading="lazy" width="2820" height="1664">
                         </figure>
                     </div>
 
@@ -240,7 +240,7 @@
                         </div>
                         <article class="tenten-work-card glass-card tenten-work-card--rag">
                             <div class="tenten-work-card__visual tenten-work-card__visual--svg">
-                                <object class="tenten-work-card__svg" type="image/svg+xml" data="assets/ui/rag-flow-animated.svg" width="1600" height="900" aria-label="Curriculum-grounded RAG workflow — semantic chunking, hybrid search, reranking, and eval loops">Curriculum-grounded RAG workflow</object>
+                                <object class="tenten-work-card__svg" type="image/svg+xml" data="assets/ui/rag-flow-animated.svg" width="1600" height="900" aria-label="Curriculum-grounded RAG workflow: semantic chunking, hybrid search, reranking, and eval loops">Curriculum-grounded RAG workflow</object>
                             </div>
                             <span class="tenten-work-card__icon">RAG</span>
                             <h3>Curriculum-grounded retrieval</h3>
@@ -254,7 +254,7 @@
                         </article>
                         <article class="tenten-work-card glass-card tenten-work-card--routing">
                             <div class="tenten-work-card__visual tenten-work-card__visual--svg">
-                                <object class="tenten-work-card__svg" type="image/svg+xml" data="assets/ui/agent-routing-flow.svg" width="1600" height="900" aria-label="Mixed-intent agent routing — academic and general agents, 10MS MCP server, and subject-wise user memory">Mixed-intent agent routing</object>
+                                <object class="tenten-work-card__svg" type="image/svg+xml" data="assets/ui/agent-routing-flow.svg" width="1600" height="900" aria-label="Mixed-intent agent routing: academic and general agents, 10MS MCP server, and subject-wise user memory">Mixed-intent agent routing</object>
                             </div>
                             <span class="tenten-work-card__icon">Routing</span>
                             <h3>Mixed-intent handling</h3>
@@ -268,7 +268,7 @@
                         </article>
                         <article class="tenten-work-card glass-card tenten-work-card--analytics">
                             <div class="tenten-work-card__visual tenten-work-card__visual--svg">
-                                <object class="tenten-work-card__svg" type="image/svg+xml" data="assets/ui/analytics-dashboard.svg" width="1600" height="980" aria-label="Post-launch analytics dashboard — usage, retention, session depth, and answer helpfulness">Post-launch analytics dashboard</object>
+                                <object class="tenten-work-card__svg" type="image/svg+xml" data="assets/ui/analytics-dashboard.svg" width="1600" height="980" aria-label="Post-launch analytics dashboard: usage, retention, session depth, and answer helpfulness">Post-launch analytics dashboard</object>
                             </div>
                             <span class="tenten-work-card__icon">Analytics</span>
                             <h3>Post-launch measurement</h3>
@@ -285,7 +285,7 @@
 
                 <section class="tenten-section tenten-challenges-section" data-tenten-reveal aria-labelledby="tenten-challenges-title">
                     <h2 class="tenten-section__heading" id="tenten-challenges-title">Engineering <span class="text-gradient-accent">challenges</span></h2>
-                    <p class="tenten-section__lead">Why those systems were necessary &mdash; the constraints and failure modes, not the implementation checklist.</p>
+                    <p class="tenten-section__lead">Why those systems were necessary: the constraints and failure modes that shaped every decision, not just an implementation checklist.</p>
                     <div class="tenten-challenges">
                         <article class="tenten-challenge glass-card tenten-challenge--1 tilt-card tilt-card--1">
                             <span class="tenten-challenge__glyph" aria-hidden="true">অ</span>
@@ -302,7 +302,7 @@
                         <article class="tenten-challenge glass-card tenten-challenge--3 tilt-card tilt-card--3">
                             <span class="tenten-challenge__glyph" aria-hidden="true">◎</span>
                             <h3>One chat, many jobs</h3>
-                            <p>The same input handles physics steps, class timing, pricing, and platform help. Routing errors send academic answers to logistics questions &mdash; or vice versa.</p>
+                            <p>The same input handles physics steps, class timing, pricing, and platform help. Routing errors send academic answers to logistics questions, or flip it the other way around.</p>
                             <p class="tenten-challenge__stakes">Wrong intent is worse than no answer when students are already stuck.</p>
                         </article>
                     </div>
@@ -310,16 +310,16 @@
 
                 <section class="tenten-section tenten-surfaces-section" data-tenten-reveal aria-labelledby="tenten-surfaces-title">
                     <h2 class="tenten-section__heading" id="tenten-surfaces-title">How TenTen shows up for <span class="text-gradient-accent">students</span></h2>
-                    <p class="tenten-section__lead">Four learning surfaces — one integrated study partner across the moments that matter, not four separate chatbots.</p>
+                    <p class="tenten-section__lead">Four learning surfaces, one integrated study partner across the moments that matter most. Not four separate chatbots.</p>
 
                     <div class="tenten-surfaces-viewport">
                         <div class="tenten-surfaces-grid">
                             <article class="tenten-surface-card glass-card" data-tenten-surface-card>
                                 <span class="tenten-surface-card__kicker">General chat</span>
                                 <h3 class="tenten-surface-card__title">24/7 doubt solving</h3>
-                                <p class="tenten-surface-card__desc">Ask any academic question, anytime — step-by-step help across subjects.</p>
+                                <p class="tenten-surface-card__desc">Ask any academic question, anytime. Step-by-step help across every subject.</p>
                                 <div class="tenten-surface-card__frame">
-                                    <video class="tenten-surface-card__video" autoplay muted loop playsinline preload="metadata" width="320" height="778" aria-label="TenTen general chat — step-by-step doubt solving in the app">
+                                    <video class="tenten-surface-card__video" autoplay muted loop playsinline preload="metadata" width="320" height="778" aria-label="TenTen general chat: step-by-step doubt solving in the app">
                                         <source src="assets/videos/general-flow.webm" type="video/webm">
                                     </video>
                                 </div>
@@ -328,9 +328,9 @@
                             <article class="tenten-surface-card glass-card" data-tenten-surface-card>
                                 <span class="tenten-surface-card__kicker">Live class</span>
                                 <h3 class="tenten-surface-card__title">Doubts during and after class</h3>
-                                <p class="tenten-surface-card__desc">Learning support inside live sessions — ask without breaking the flow.</p>
+                                <p class="tenten-surface-card__desc">Learning support inside live sessions. Ask a question without breaking the flow.</p>
                                 <div class="tenten-surface-card__frame">
-                                    <video class="tenten-surface-card__video" autoplay muted loop playsinline preload="metadata" width="320" height="778" aria-label="TenTen live class — in-session learning support">
+                                    <video class="tenten-surface-card__video" autoplay muted loop playsinline preload="metadata" width="320" height="778" aria-label="TenTen live class: in-session learning support">
                                         <source src="assets/videos/liveclass-flow.webm" type="video/webm">
                                     </video>
                                 </div>
@@ -339,9 +339,9 @@
                             <article class="tenten-surface-card glass-card" data-tenten-surface-card>
                                 <span class="tenten-surface-card__kicker">Recorded class</span>
                                 <h3 class="tenten-surface-card__title">Help without leaving the video</h3>
-                                <p class="tenten-surface-card__desc">Ask about a specific moment in a recorded lesson — context travels with the question.</p>
+                                <p class="tenten-surface-card__desc">Ask about a specific moment in a recorded lesson. Context travels with the question.</p>
                                 <div class="tenten-surface-card__frame">
-                                    <video class="tenten-surface-card__video" autoplay muted loop playsinline preload="metadata" width="320" height="778" aria-label="TenTen in recorded class — contextual help during video lessons">
+                                    <video class="tenten-surface-card__video" autoplay muted loop playsinline preload="metadata" width="320" height="778" aria-label="TenTen in recorded class: contextual help during video lessons">
                                         <source src="assets/videos/recorded-flow.webm" type="video/webm">
                                     </video>
                                 </div>
@@ -350,9 +350,9 @@
                             <article class="tenten-surface-card glass-card" data-tenten-surface-card>
                                 <span class="tenten-surface-card__kicker">Exam solution</span>
                                 <h3 class="tenten-surface-card__title">Understand why an answer was wrong</h3>
-                                <p class="tenten-surface-card__desc">Instant explanations after exams — follow-up questions on MCQ solutions.</p>
+                                <p class="tenten-surface-card__desc">Instant explanations after exams. Follow up on any MCQ you got wrong and actually understand why.</p>
                                 <div class="tenten-surface-card__frame">
-                                    <video class="tenten-surface-card__video" autoplay muted loop playsinline preload="metadata" width="320" height="778" aria-label="TenTen exam solution — reviewing mistakes after a test">
+                                    <video class="tenten-surface-card__video" autoplay muted loop playsinline preload="metadata" width="320" height="778" aria-label="TenTen exam solution: reviewing mistakes after a test">
                                         <source src="assets/videos/exam-flow.webm" type="video/webm">
                                     </video>
                                 </div>
@@ -363,7 +363,7 @@
 
                 <section class="tenten-section tenten-impact" data-tenten-reveal aria-labelledby="tenten-impact-title">
                     <h2 class="tenten-section__heading" id="tenten-impact-title">Impact in <span class="text-gradient-accent">numbers</span></h2>
-                    <p class="tenten-section__lead">Strong adoption and daily usage.</p>
+                    <p class="tenten-section__lead">Numbers that came back stronger than expected after just months of rollout.</p>
 
                     <div class="tenten-impact__grid">
                         <article class="tenten-impact__item">
@@ -416,7 +416,7 @@
                     <section class="tenten-callout tenten-usage-chart" aria-labelledby="tenten-usage-title">
                     <header class="tenten-solution__header">
                         <p class="tenten-solution__kicker">Student usage</p>
-                        <p class="tenten-solution__tagline">Math leads &mdash; but practice, theory, and exam prep are close behind</p>
+                        <p class="tenten-solution__tagline">Math leads, but practice, theory, and exam prep are close behind</p>
                         <h2 class="tenten-solution__title" id="tenten-usage-title">How Students Use TenTen</h2>
                     </header>
 
@@ -493,20 +493,20 @@
 
                 <div class="tenten-reach-conclusion" data-tenten-reveal>
                     <p class="tenten-reach-conclusion__kicker">What this means</p>
-                    <p class="tenten-reach__reason">Solving academic challenges and building sustainable study habits</p>
-                    <p class="tenten-reach__body">Solving the basics is only the starting point. As the largest edTech platform in Bangladesh, we have the responsibility to introduce bold innovations that reshape how students learn. This means reaching every division &mdash; rural classrooms and city prep centers alike &mdash; with AI that grows with how students actually study.</p>
+                    <p class="tenten-reach__reason">More than a tool. Part of how a generation learns.</p>
+                    <p class="tenten-reach__body">Solving the basics is only the starting point. As the largest edTech platform in Bangladesh, there is a responsibility to bring bold innovations that actually reshape how students learn. That means reaching every division, from rural classrooms to city prep centers, with AI that grows alongside how students study.</p>
                 </div>
 
                 <section class="tenten-cta" data-tenten-reveal aria-labelledby="tenten-cta-title">
                     <h2 class="tenten-cta__title" id="tenten-cta-title">Need help building an AI system that&rsquo;s <span class="text-gradient-accent">actually helpful?</span></h2>
                     <div class="tenten-cta__action">
                         <a href="../../index.html#mh-contact" class="tenten-cta__btn">Let&rsquo;s talk</a>
-                        <p class="tenten-cta__lead">From RAG and intent routing to launch analytics &mdash; I help teams ship AI students trust inside real products, not one-off demos.</p>
+                        <p class="tenten-cta__lead">From RAG and intent routing to launch analytics, happy to help teams ship AI that students actually trust inside real products, not just one-off demos.</p>
                     </div>
                 </section>
 
                 <footer class="tenten-credits">
-                    <p>Product design and UI explorations by <a href="https://diponkar.com/casestudy/tenten" target="_blank" rel="noopener noreferrer">Diponkar</a>. Case study focuses on data &amp; AI engineering — R&amp;D, retrieval, routing, and analytics.</p>
+                    <p>Product design and UI explorations by <a href="https://diponkar.com/casestudy/tenten" target="_blank" rel="noopener noreferrer">Diponkar</a>. This case study covers the data and AI engineering side: R&amp;D, retrieval, routing, and analytics.</p>
                 </footer>
             </div>
         </main>
