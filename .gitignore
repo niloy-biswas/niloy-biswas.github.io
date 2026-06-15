@@ -1,3 +1,5 @@
 .DS_Store
 .vscode/
 projects/tenten/TenTen icons and lottie/
+.agents/
+skills-lock.json
