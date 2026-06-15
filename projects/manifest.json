@@ -1,8 +1,42 @@
 {
   "projects": [
     {
-      "id": "chicago-taxi",
+      "id": "tenten",
       "order": 1,
+      "slug": "tenten",
+      "category": "ml",
+      "showOnHome": true,
+      "title": "TenTen — AI Study Partner",
+      "badge": {
+        "label": "AI / RAG",
+        "variant": "ml"
+      },
+      "card": {
+        "thumbnail": "projects/tenten/assets/ui/tenten-card.png",
+        "thumbnailAlt": "TenTen AI study partner at 10 Minute School",
+        "tags": [
+          "RAG",
+          "LLM",
+          "Bangla"
+        ],
+        "summary": "Integrated AI study partner — early R&D, retrieval over curriculum content, and product analytics for 10 Minute School."
+      },
+      "links": {
+        "caseStudy": "/projects/tenten/",
+        "primary": "https://10minuteschool.com/tenten/",
+        "primaryLabel": "View product",
+        "footerAction": "Read case study",
+        "footerMeta": "10 Minute School"
+      },
+      "page": {
+        "title": "TenTen — AI Study Partner | Niloy Biswas",
+        "description": "Case study: R&D and AI engineering on TenTen, 10 Minute School's integrated Bangla study partner — RAG, routing, and product analytics.",
+        "useTemplate": false
+      }
+    },
+    {
+      "id": "chicago-taxi",
+      "order": 2,
       "slug": "chicago-taxi",
       "category": "analytics",
       "showOnHome": true,
@@ -34,7 +68,7 @@
     },
     {
       "id": "heart-disease",
-      "order": 2,
+      "order": 3,
       "slug": "heart-disease",
       "category": "ml",
       "showOnHome": true,
@@ -66,10 +100,10 @@
     },
     {
       "id": "linkedin-network",
-      "order": 3,
+      "order": 99,
       "slug": "linkedin-network",
       "category": "analytics",
-      "showOnHome": true,
+      "showOnHome": false,
       "title": "LinkedIn Network Visualization",
       "badge": {
         "label": "Network viz",

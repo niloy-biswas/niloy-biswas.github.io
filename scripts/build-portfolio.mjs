@@ -141,11 +141,11 @@ function buildSitemap(projects) {
     { loc: `${SITE_ORIGIN}/`, changefreq: 'weekly', priority: '1.0' },
     { loc: `${SITE_ORIGIN}/blog/`, changefreq: 'weekly', priority: '0.8' },
     ...projects
-      .filter((p) => p.page?.useTemplate !== false)
+      .filter((p) => p.links?.caseStudy)
       .map((p) => ({
         loc: `${SITE_ORIGIN}${p.links.caseStudy}`,
         changefreq: 'monthly',
-        priority: '0.7',
+        priority: p.page?.useTemplate === false ? '0.8' : '0.7',
       })),
   ];
 

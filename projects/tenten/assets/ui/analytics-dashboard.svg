@@ -1,0 +1,241 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1600" height="980" viewBox="48 44 1510 860" role="img" aria-labelledby="title desc">
+  <title id="title">Animated analytics dashboard outline</title>
+  <desc id="desc">A dark neon analytics dashboard showing post-launch measurement after a limited November 2025 release, with metric cards, filters, animated charts and hover tooltips.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#08111e"/>
+      <stop offset="55%" stop-color="#07162a"/>
+      <stop offset="100%" stop-color="#040916"/>
+    </linearGradient>
+
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0.85  0 0 1 0 0.95  0 0 0 0.8 0"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="orangeGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0.98  0 1 0 0 0.52  0 0 1 0 0.38  0 0 0 0.8 0"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <style><![CDATA[
+      text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+      .panel { fill: rgba(10, 20, 36, 0.38); stroke: rgba(84, 138, 176, 0.38); }
+      .card { fill: none; stroke: #12e8dd; stroke-width: 2.5; }
+      .cardBlue { fill: none; stroke: #80abff; stroke-width: 2.4; }
+      .cardOrange { fill: none; stroke: #ff8b6c; stroke-width: 2.4; }
+      .cardPurple { fill: none; stroke: #a18fff; stroke-width: 2.4; }
+      .miniCard { fill: rgba(10, 19, 30, 0.80); stroke: rgba(255,255,255,0.08); stroke-width: 1.4; }
+      .chip { fill: rgba(9, 21, 35, 0.96); stroke: #15ddd6; stroke-width: 2; }
+      .chipText { fill: #f0fdff; font-size: 14px; font-weight: 600; letter-spacing: 0.04em; }
+      .title { fill: #f4fbff; font-size: 20px; font-weight: 600; }
+      .subtitle { fill: rgba(232, 242, 255, 0.92); font-size: 15px; font-weight: 400; }
+      .muted { fill: rgba(213, 228, 245, 0.86); font-size: 14px; font-weight: 400; }
+      .small { fill: rgba(240,247,255,0.94); font-size: 14px; font-weight: 400; }
+      .filterLabel { fill: rgba(213, 228, 245, 0.82); font-size: 12px; font-weight: 500; }
+      .filterValue { fill: rgba(245, 250, 255, 0.96); font-size: 14px; font-weight: 500; }
+      .metricLabel { fill: rgba(223,236,247,0.86); font-size: 14px; font-weight: 500; }
+      .metricValue { fill: #ffffff; font-size: 26px; font-weight: 600; }
+      .metricDeltaPos { fill: #69e08d; font-size: 13px; font-weight: 600; }
+      .metricDeltaNeg { fill: #ff7f7f; font-size: 13px; font-weight: 600; }
+      .axis { stroke: rgba(150, 182, 214, 0.28); stroke-width: 1.2; }
+      .grid { stroke: rgba(150, 182, 214, 0.12); stroke-width: 1; }
+      .lineCyan { fill: none; stroke: #14e6de; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .lineOrange { fill: none; stroke: #ff876a; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .lineBlue { fill: none; stroke: #61a8ff; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+      .linePurple { fill: none; stroke: #ad8fff; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+      .areaCyan { fill: rgba(20,230,222,0.12); }
+      .barTeal { fill: rgba(30, 222, 194, 0.70); }
+      .barBlue { fill: rgba(96, 160, 255, 0.72); }
+      .barOrange { fill: rgba(255, 135, 106, 0.74); }
+      .legendDotCyan { fill: #14e6de; }
+      .legendDotGreen { fill: #6fe08d; }
+      .legendDotOrange { fill: #ff876a; }
+      .legendDotBlue { fill: #61a8ff; }
+      .legendDotPurple { fill: #ad8fff; }
+      .interactive { cursor: pointer; }
+      .interactive .hoverBox, .interactive .hoverLabel, .interactive .hoverSub, .interactive .hoverStroke, .interactive .hoverFill, .interactive .hoverTip { transition: all .22s ease; }
+      .interactive:hover .hoverBox { stroke: #33fff4; stroke-width: 3.2; filter: url(#softGlow); }
+      .interactive:hover .hoverLabel { fill: #ffffff; }
+      .interactive:hover .hoverSub { fill: rgba(245,250,255,1); }
+      .interactive:hover .hoverStroke { stroke-width: 4.6; filter: url(#softGlow); }
+      .interactive:hover .hoverFill { fill-opacity: 0.95; }
+      .interactive:hover .hoverTip { opacity: 1; }
+      .hoverTip { opacity: 0; }
+      .pulse { animation: pulse 4s ease-in-out infinite; }
+      .pulse2 { animation: pulse 5s ease-in-out infinite; }
+      .floaty { animation: floaty 5.2s ease-in-out infinite; }
+      .draw1 { stroke-dasharray: 880; stroke-dashoffset: 880; animation: draw 3.6s ease forwards, breathe 5s ease-in-out 3.6s infinite; }
+      .draw2 { stroke-dasharray: 680; stroke-dashoffset: 680; animation: draw 3.2s ease .5s forwards, breathe 5.8s ease-in-out 3.7s infinite; }
+      .draw3 { stroke-dasharray: 540; stroke-dashoffset: 540; animation: draw 3s ease .8s forwards, breathe 5s ease-in-out 3.8s infinite; }
+      .growBars rect { transform-box: fill-box; transform-origin: bottom; animation: growBars 1.6s ease forwards; }
+      .growBars rect:nth-child(1) { animation-delay: .1s; }
+      .growBars rect:nth-child(2) { animation-delay: .25s; }
+      .growBars rect:nth-child(3) { animation-delay: .4s; }
+      .growBars rect:nth-child(4) { animation-delay: .55s; }
+      .growBars rect:nth-child(5) { animation-delay: .7s; }
+      .growBars rect:nth-child(6) { animation-delay: .85s; }
+      .shine { animation: shine 3.6s linear infinite; }
+      @keyframes pulse { 0%,100%{opacity:.82;} 50%{opacity:1;} }
+      @keyframes floaty { 0%,100%{ transform: translateY(0px);} 50%{ transform: translateY(-4px);} }
+      @keyframes breathe { 0%,100%{ opacity: .84;} 50%{ opacity: 1;} }
+      @keyframes draw { to { stroke-dashoffset: 0; } }
+      @keyframes growBars { from { transform: scaleY(0.05); } to { transform: scaleY(1); } }
+      @keyframes shine { 0% { opacity: .25; } 50% { opacity: .65; } 100% { opacity: .25; } }
+    ]]></style>
+  </defs>
+
+  <rect width="1600" height="980" fill="url(#bg)"/>
+  <circle cx="240" cy="150" r="180" fill="#0db2d2" opacity="0.06" filter="url(#softGlow)"/>
+  <circle cx="1390" cy="180" r="170" fill="#ea6b60" opacity="0.05" filter="url(#orangeGlow)"/>
+  <circle cx="1120" cy="820" r="220" fill="#11d9d3" opacity="0.05" filter="url(#softGlow)"/>
+
+  <rect x="28" y="28" width="1544" height="924" rx="28" class="panel"/>
+
+  <!-- header -->
+  <g class="interactive">
+    <rect x="56" y="56" width="1488" height="120" rx="26" class="card hoverBox" opacity="0.85"/>
+    <text x="78" y="108" class="title hoverLabel" style="font-size:34px;">Post-launch measurement</text>
+    <text x="80" y="136" class="subtitle hoverSub" style="font-size:15px;">data-led iteration after limited release in Nov ’25</text>
+
+    <rect x="1005" y="78" width="164" height="64" rx="18" class="miniCard hoverBox"/>
+    <text x="1087" y="103" text-anchor="middle" class="metricLabel hoverSub">Release window</text>
+    <text x="1087" y="127" text-anchor="middle" class="title hoverLabel" style="font-size:20px;">Nov ’25 → Now</text>
+
+    <rect x="1184" y="78" width="150" height="64" rx="18" class="miniCard hoverBox"/>
+    <text x="1259" y="103" text-anchor="middle" class="metricLabel hoverSub">Feedback loop</text>
+    <text x="1259" y="127" text-anchor="middle" class="title hoverLabel" style="font-size:20px;">Product + Model</text>
+
+    <rect x="1348" y="78" width="168" height="64" rx="18" class="miniCard hoverBox"/>
+    <text x="1432" y="103" text-anchor="middle" class="metricLabel hoverSub">Core signals</text>
+    <text x="1432" y="127" text-anchor="middle" class="title hoverLabel" style="font-size:20px;">Usage • Retention</text>
+  </g>
+
+  <!-- filters row -->
+  <g>
+    <g class="interactive"><rect x="62" y="200" width="178" height="66" rx="16" class="cardBlue hoverBox"/><text x="151" y="224" text-anchor="middle" class="filterLabel hoverSub">Date range</text><text x="151" y="248" text-anchor="middle" class="filterValue hoverSub">6 months ▾</text></g>
+    <g class="interactive"><rect x="248" y="200" width="148" height="66" rx="16" class="cardBlue hoverBox"/><text x="322" y="224" text-anchor="middle" class="filterLabel hoverSub">Platform</text><text x="322" y="248" text-anchor="middle" class="filterValue hoverSub">All ▾</text></g>
+    <g class="interactive"><rect x="404" y="200" width="148" height="66" rx="16" class="cardBlue hoverBox"/><text x="478" y="224" text-anchor="middle" class="filterLabel hoverSub">Product</text><text x="478" y="248" text-anchor="middle" class="filterValue hoverSub">TenTen ▾</text></g>
+    <g class="interactive"><rect x="560" y="200" width="172" height="66" rx="16" class="cardBlue hoverBox"/><text x="646" y="224" text-anchor="middle" class="filterLabel hoverSub">Release phase</text><text x="646" y="248" text-anchor="middle" class="filterValue hoverSub">Limited ▾</text></g>
+    <g class="interactive"><rect x="740" y="200" width="158" height="66" rx="16" class="cardBlue hoverBox"/><text x="819" y="224" text-anchor="middle" class="filterLabel hoverSub">Subject</text><text x="819" y="248" text-anchor="middle" class="filterValue hoverSub">All ▾</text></g>
+    <g class="interactive"><rect x="906" y="200" width="158" height="66" rx="16" class="cardBlue hoverBox"/><text x="985" y="224" text-anchor="middle" class="filterLabel hoverSub">User type</text><text x="985" y="248" text-anchor="middle" class="filterValue hoverSub">All ▾</text></g>
+    <g class="interactive"><rect x="1072" y="200" width="168" height="66" rx="16" class="cardBlue hoverBox"/><text x="1156" y="224" text-anchor="middle" class="filterLabel hoverSub">Helpfulness</text><text x="1156" y="248" text-anchor="middle" class="filterValue hoverSub">All ▾</text></g>
+    <g class="interactive"><rect x="1248" y="200" width="290" height="66" rx="16" class="cardOrange hoverBox"/><text x="1393" y="224" text-anchor="middle" class="filterLabel hoverSub">Iteration focus</text><text x="1393" y="248" text-anchor="middle" class="filterValue hoverSub">Prod + Model ▾</text></g>
+  </g>
+
+  <!-- metric cards -->
+  <g>
+    <g class="interactive pulse"><rect x="62" y="282" width="177" height="104" rx="22" class="card hoverBox" filter="url(#softGlow)"/><text x="84" y="312" class="metricLabel hoverSub">Active Users</text><text x="84" y="350" class="metricValue hoverLabel">14.2K</text><text x="84" y="373" class="metricDeltaPos">▲ +12.4%</text><g class="hoverTip"><rect x="65" y="246" width="132" height="28" rx="10" class="miniCard"/><text x="131" y="265" text-anchor="middle" class="small">daily active users</text></g></g>
+    <g class="interactive pulse2"><rect x="251" y="282" width="177" height="104" rx="22" class="card hoverBox" filter="url(#softGlow)"/><text x="273" y="312" class="metricLabel hoverSub">Retention</text><text x="273" y="350" class="metricValue hoverLabel">52%</text><text x="273" y="373" class="metricDeltaPos">▲ +4.8 pts</text><g class="hoverTip"><rect x="253" y="246" width="164" height="28" rx="10" class="miniCard"/><text x="335" y="265" text-anchor="middle" class="small">7-day retained users</text></g></g>
+    <g class="interactive pulse"><rect x="440" y="282" width="177" height="104" rx="22" class="card hoverBox" filter="url(#softGlow)"/><text x="462" y="312" class="metricLabel hoverSub">Session Depth</text><text x="462" y="350" class="metricValue hoverLabel">3.8</text><text x="462" y="373" class="metricDeltaPos">▲ +9.1%</text><g class="hoverTip"><rect x="444" y="246" width="160" height="28" rx="10" class="miniCard"/><text x="524" y="265" text-anchor="middle" class="small">avg. turns per session</text></g></g>
+    <g class="interactive pulse2"><rect x="629" y="282" width="177" height="104" rx="22" class="card hoverBox" filter="url(#softGlow)"/><text x="651" y="312" class="metricLabel hoverSub">Helpfulness</text><text x="651" y="350" class="metricValue hoverLabel">81%</text><text x="651" y="373" class="metricDeltaPos">▲ +6.2 pts</text><g class="hoverTip"><rect x="635" y="246" width="158" height="28" rx="10" class="miniCard"/><text x="714" y="265" text-anchor="middle" class="small">positive answer rating</text></g></g>
+    <g class="interactive pulse"><rect x="818" y="282" width="177" height="104" rx="22" class="cardBlue hoverBox" filter="url(#softGlow)"/><text x="840" y="312" class="metricLabel hoverSub">Response time</text><text x="840" y="350" class="metricValue hoverLabel">9.5s</text><text x="840" y="373" class="metricDeltaNeg">▼ -5.0%</text><g class="hoverTip"><rect x="835" y="246" width="154" height="28" rx="10" class="miniCard"/><text x="912" y="265" text-anchor="middle" class="small">median response latency</text></g></g>
+    <g class="interactive pulse2"><rect x="1007" y="282" width="177" height="104" rx="22" class="cardBlue hoverBox" filter="url(#softGlow)"/><text x="1029" y="312" class="metricLabel hoverSub">Repeat Sessions</text><text x="1029" y="350" class="metricValue hoverLabel">6.1K</text><text x="1029" y="373" class="metricDeltaPos">▲ +10.7%</text><g class="hoverTip"><rect x="1015" y="246" width="168" height="28" rx="10" class="miniCard"/><text x="1099" y="265" text-anchor="middle" class="small">users with 2+ sessions</text></g></g>
+    <g class="interactive pulse"><rect x="1196" y="282" width="177" height="104" rx="22" class="cardPurple hoverBox" filter="url(#softGlow)"/><text x="1218" y="312" class="metricLabel hoverSub">Product Issues</text><text x="1218" y="350" class="metricValue hoverLabel">24</text><text x="1218" y="373" class="metricDeltaNeg">▼ -18%</text><g class="hoverTip"><rect x="1212" y="246" width="150" height="28" rx="10" class="miniCard"/><text x="1287" y="265" text-anchor="middle" class="small">reported blockers</text></g></g>
+    <g class="interactive pulse2"><rect x="1375" y="282" width="163" height="104" rx="22" class="cardOrange hoverBox" filter="url(#orangeGlow)"/><text x="1390" y="312" class="metricLabel hoverSub">Model updates</text><text x="1390" y="350" class="metricValue hoverLabel">8</text><text x="1390" y="373" class="metricDeltaPos">▲ +2</text><g class="hoverTip"><rect x="1388" y="246" width="132" height="28" rx="10" class="miniCard"/><text x="1454" y="265" text-anchor="middle" class="small">iteration count</text></g></g>
+  </g>
+
+  <!-- mini insight strip -->
+  <g>
+    <g class="interactive"><rect x="62" y="404" width="482" height="102" rx="22" class="cardBlue hoverBox"/><text x="84" y="434" class="title hoverLabel" style="font-size:18px;">Iteration insight</text><text x="84" y="460" class="subtitle hoverSub" style="font-size:14px;">Usage and helpfulness improving after limited rollout.</text><text x="84" y="484" class="muted hoverSub" style="font-size:13px;">Signals feed prompts, routing, UI fixes, and model tuning.</text></g>
+    <g class="interactive"><rect x="560" y="404" width="458" height="102" rx="22" class="card hoverBox"/><text x="582" y="434" class="title hoverLabel" style="font-size:18px;">What is measured</text><text x="582" y="460" class="subtitle hoverSub" style="font-size:14px;">Usage · Retention · Session depth · Helpfulness</text><text x="582" y="484" class="muted hoverSub" style="font-size:13px;">Plus response time, repeat sessions, and issue rates.</text></g>
+    <g class="interactive"><rect x="1034" y="404" width="504" height="102" rx="22" class="cardOrange hoverBox"/><text x="1056" y="434" class="title hoverLabel" style="font-size:18px;">Where improvements go</text><text x="1056" y="460" class="subtitle hoverSub" style="font-size:14px;">Product changes, model updates, onboarding</text><text x="1056" y="484" class="muted hoverSub" style="font-size:13px;">Hover cards and charts reveal live dashboard values.</text></g>
+  </g>
+
+  <!-- big charts row -->
+  <g>
+    <!-- usage / retention line chart -->
+    <g class="interactive">
+      <rect x="62" y="524" width="616" height="364" rx="28" class="card hoverBox" filter="url(#softGlow)"/>
+      <text x="86" y="558" class="title hoverLabel">Usage &amp; Retention Trend</text>
+      <text x="86" y="580" class="subtitle hoverSub">Post-launch growth after Nov ’25 limited release</text>
+      <circle cx="422" cy="549" r="5" class="legendDotCyan"/><text x="435" y="554" class="small">Usage</text>
+      <circle cx="504" cy="549" r="5" class="legendDotOrange"/><text x="517" y="554" class="small">Retention</text>
+      <line x1="96" y1="824" x2="642" y2="824" class="axis"/>
+      <line x1="96" y1="760" x2="642" y2="760" class="grid"/>
+      <line x1="96" y1="696" x2="642" y2="696" class="grid"/>
+      <line x1="96" y1="632" x2="642" y2="632" class="grid"/>
+      <line x1="96" y1="568" x2="642" y2="568" class="grid"/>
+      <text x="94" y="829" text-anchor="end" class="muted">Nov</text>
+      <text x="206" y="829" text-anchor="middle" class="muted">Dec</text>
+      <text x="318" y="829" text-anchor="middle" class="muted">Jan</text>
+      <text x="430" y="829" text-anchor="middle" class="muted">Feb</text>
+      <text x="542" y="829" text-anchor="middle" class="muted">Mar</text>
+      <text x="642" y="829" text-anchor="middle" class="muted">Apr</text>
+      <path d="M 110 790 L 198 748 L 286 720 L 374 676 L 462 628 L 620 590 L 620 824 L 110 824 Z" class="areaCyan hoverFill"/>
+      <path d="M 110 790 L 198 748 L 286 720 L 374 676 L 462 628 L 620 590" class="lineCyan draw1 hoverStroke"/>
+      <path d="M 110 772 L 198 756 L 286 748 L 374 734 L 462 706 L 620 690" class="lineOrange draw2 hoverStroke"/>
+      <g class="floaty">
+        <circle cx="374" cy="676" r="10" fill="#08111e" stroke="#14e6de" stroke-width="4"/>
+        <circle cx="462" cy="706" r="9" fill="#08111e" stroke="#ff876a" stroke-width="4"/>
+      </g>
+      <g class="hoverTip">
+        <rect x="408" y="610" width="156" height="70" rx="14" class="miniCard"/>
+        <text x="486" y="636" text-anchor="middle" class="small">Feb snapshot</text>
+        <text x="486" y="656" text-anchor="middle" class="small">Usage: 11.8K</text>
+        <text x="486" y="674" text-anchor="middle" class="small">Retention: 49%</text>
+      </g>
+    </g>
+
+    <!-- session depth bars -->
+    <g class="interactive">
+      <rect x="700" y="524" width="410" height="364" rx="28" class="cardBlue hoverBox" filter="url(#softGlow)"/>
+      <text x="724" y="558" class="title hoverLabel">Session Depth</text>
+      <text x="724" y="580" class="subtitle hoverSub">Average turns per session by cohort</text>
+      <line x1="736" y1="824" x2="1072" y2="824" class="axis"/>
+      <line x1="736" y1="760" x2="1072" y2="760" class="grid"/>
+      <line x1="736" y1="696" x2="1072" y2="696" class="grid"/>
+      <line x1="736" y1="632" x2="1072" y2="632" class="grid"/>
+      <line x1="736" y1="568" x2="1072" y2="568" class="grid"/>
+      <g class="growBars">
+        <rect x="764" y="724" width="34" height="100" rx="8" class="barOrange"/>
+        <rect x="820" y="676" width="34" height="148" rx="8" class="barTeal"/>
+        <rect x="876" y="702" width="34" height="122" rx="8" class="barBlue"/>
+        <rect x="932" y="650" width="34" height="174" rx="8" class="barTeal"/>
+        <rect x="988" y="690" width="34" height="134" rx="8" class="barBlue"/>
+      </g>
+      <text x="781" y="846" text-anchor="middle" class="muted">New</text>
+      <text x="837" y="846" text-anchor="middle" class="muted">Week 1</text>
+      <text x="893" y="846" text-anchor="middle" class="muted">Week 2</text>
+      <text x="949" y="846" text-anchor="middle" class="muted">Week 3</text>
+      <text x="1005" y="846" text-anchor="middle" class="muted">Power</text>
+      <g class="hoverTip">
+        <rect x="891" y="594" width="136" height="64" rx="14" class="miniCard"/>
+        <text x="959" y="620" text-anchor="middle" class="small">Week 3 cohort</text>
+        <text x="959" y="639" text-anchor="middle" class="small">Avg. depth: 4.2</text>
+      </g>
+    </g>
+
+    <!-- helpfulness gauge / stacked bars -->
+    <g class="interactive">
+      <rect x="1126" y="524" width="412" height="364" rx="28" class="cardOrange hoverBox" filter="url(#orangeGlow)"/>
+      <text x="1150" y="558" class="title hoverLabel">Answer Helpfulness</text>
+      <text x="1150" y="580" class="subtitle hoverSub">Positive vs negative feedback across channels</text>
+      <circle cx="1250" cy="670" r="72" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="18"/>
+      <circle cx="1250" cy="670" r="72" fill="none" stroke="#14e6de" stroke-width="18" stroke-linecap="round" stroke-dasharray="350 120" transform="rotate(-90 1250 670)" class="shine"/>
+      <text x="1250" y="663" text-anchor="middle" class="metricValue hoverLabel" style="font-size:32px;">81%</text>
+      <text x="1250" y="690" text-anchor="middle" class="small hoverSub">helpful</text>
+      <rect x="1342" y="624" width="130" height="28" rx="10" fill="rgba(20,230,222,0.22)" stroke="#14e6de" stroke-width="1.4"/>
+      <rect x="1342" y="672" width="130" height="28" rx="10" fill="rgba(255,135,106,0.20)" stroke="#ff876a" stroke-width="1.4"/>
+      <text x="1407" y="643" text-anchor="middle" class="small">Positive 4.0K</text>
+      <text x="1407" y="691" text-anchor="middle" class="small">Needs work 0.9K</text>
+      <text x="1160" y="776" class="small hoverSub" style="font-size:13px;">Helpfulness trend improves after product changes.</text>
+      <rect x="1160" y="790" width="310" height="16" rx="8" fill="rgba(255,255,255,0.08)"/>
+      <rect x="1160" y="790" width="252" height="16" rx="8" fill="rgba(20,230,222,0.70)" class="shine"/>
+      <g class="hoverTip">
+        <rect x="1186" y="610" width="124" height="52" rx="12" class="miniCard"/>
+        <text x="1248" y="630" text-anchor="middle" class="small">Helpful answers</text>
+        <text x="1248" y="649" text-anchor="middle" class="small">81% positive</text>
+      </g>
+    </g>
+  </g>
+
+</svg>
