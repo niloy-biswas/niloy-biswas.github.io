@@ -395,6 +395,11 @@
   border-radius: var(--radius-lg);
 }
 
+.tenten-case-study .tenten-problem__note.glass-card,
+.tenten-case-study .tenten-solution__pillar.glass-card {
+  background: rgba(77, 146, 129, 0.292);
+}
+
 .tenten-problem__note--1 {
   border-top: 2px solid rgba(249, 115, 22, 0.45);
 }
@@ -631,7 +636,7 @@
   max-width: none;
   height: auto;
   border-radius: 10px;
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 .tenten-work-card__icon {
