@@ -70,7 +70,11 @@
 
 @media (max-width: 767px) {
   .case-study-page {
-    padding-top: 88px;
+    padding-top: 32px;
+  }
+
+  .case-study__back {
+    display: none;
   }
 
   .case-study__shell {
