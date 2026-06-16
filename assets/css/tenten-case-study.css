@@ -639,6 +639,15 @@
   pointer-events: auto;
 }
 
+.tenten-work-card--rag .tenten-work-card__svg,
+.tenten-work-card--routing .tenten-work-card__svg {
+  aspect-ratio: 1600 / 900;
+}
+
+.tenten-work-card--analytics .tenten-work-card__svg {
+  aspect-ratio: 1600 / 980;
+}
+
 .tenten-work-card__icon {
   display: inline-flex;
   margin-bottom: 12px;
@@ -1347,7 +1356,11 @@
 
 @media (max-width: 767px) {
   .tenten-case-study {
-    padding-top: 88px;
+    padding-top: 32px;
+  }
+
+  .tenten-case-study__back {
+    display: none;
   }
 
   .tenten-hero__meta {
