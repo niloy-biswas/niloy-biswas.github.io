@@ -1,0 +1,173 @@
+{
+  "basePath": "../assets/images/photography/gallery",
+  "images": [
+    {
+      "file": "waterfall-forest.jpg",
+      "column": 1,
+      "row": 1,
+      "alt": "Waterfall cascading through a lush green forest"
+    },
+    {
+      "file": "lake-boats-sunset.jpg",
+      "column": 2,
+      "row": 1,
+      "alt": "Traditional boats on a lake at golden hour"
+    },
+    {
+      "file": "road-aerial-self-portrait.jpg",
+      "column": 3,
+      "row": 1,
+      "alt": "Drone self-portrait lying on a road through tropical forest"
+    },
+    {
+      "file": "fishtail-sunset-peaks.jpg",
+      "column": 1,
+      "row": 2,
+      "alt": "Fishtail peak lit gold above a sea of clouds at sunset",
+      "span": "wide"
+    },
+    {
+      "file": "hills-above-clouds.jpg",
+      "column": 2,
+      "row": 2,
+      "alt": "Green hills rising above a sea of clouds",
+      "span": "wide"
+    },
+    {
+      "file": "rural-path-aerial.jpg",
+      "column": 3,
+      "row": 2,
+      "alt": "Aerial view of a winding path through green fields"
+    },
+    {
+      "file": "sitting-on-river-rocks.jpg",
+      "column": 1,
+      "row": 3,
+      "alt": "Person sitting on river rocks beside white-water rapids in a green forest",
+      "span": "wide"
+    },
+    {
+      "file": "moon-bamboo-mist-valley.jpg",
+      "column": 2,
+      "row": 3,
+      "alt": "Moonlit misty valley viewed from a bamboo hut balcony"
+    },
+    {
+      "file": "misty-beach-solitude.jpg",
+      "column": 3,
+      "row": 3,
+      "alt": "Lone figure on a misty beach at blue hour",
+      "span": "wide"
+    },
+    {
+      "file": "abstract-aerial-shore.jpg",
+      "column": 1,
+      "row": 4,
+      "alt": "Abstract aerial, lone figure and shadow on turquoise shoreline"
+    },
+    {
+      "file": "lake-golden-hour.jpg",
+      "column": 2,
+      "row": 4,
+      "alt": "Boats on a lake framed by trees in golden hour light"
+    },
+    {
+      "file": "river-stones-mountains.jpg",
+      "column": 3,
+      "row": 4,
+      "alt": "Smooth river stones with mountains in the background"
+    },
+    {
+      "file": "river-boat-reflection.jpg",
+      "column": 1,
+      "row": 5,
+      "alt": "Wooden boat on a still forest river with symmetrical reflections"
+    },
+    {
+      "file": "bridge-aerial-green.jpg",
+      "column": 2,
+      "row": 5,
+      "alt": "Aerial view of a bridge crossing lush green countryside"
+    },
+    {
+      "file": "colorful-boats-aerial.jpg",
+      "column": 3,
+      "row": 5,
+      "alt": "Colorful boats moored along a riverbank, aerial view"
+    },
+    {
+      "file": "rainbow-mountains.jpg",
+      "column": 1,
+      "row": 6,
+      "alt": "Rainbow arching over misty green mountains"
+    },
+    {
+      "file": "abstract-rainbow-sky.jpg",
+      "column": 2,
+      "row": 6,
+      "alt": "Abstract sky, rainbow arc through golden sunset clouds"
+    },
+    {
+      "file": "abstract-macro-seeds.jpg",
+      "column": 3,
+      "row": 6,
+      "alt": "Abstract macro, feathery seed heads against a soft green field"
+    },
+    {
+      "file": "dhaka-intersection-night.jpg",
+      "column": 1,
+      "row": 7,
+      "alt": "Aerial night view of a Dhaka intersection with alpana street art",
+      "span": "hero"
+    },
+    {
+      "file": "light-trails-interchange.jpg",
+      "column": 2,
+      "row": 7,
+      "alt": "Aerial long exposure of highway light trails at night"
+    },
+    {
+      "file": "highway-moon-long-exposure.jpg",
+      "column": 3,
+      "row": 7,
+      "alt": "Long exposure of highway light trails under a blood moon"
+    },
+    {
+      "file": "moon-streetlamp.jpg",
+      "column": 1,
+      "row": 8,
+      "alt": "Full moon beside a glowing street lamp at night"
+    },
+    {
+      "file": "city-lake-sunset-rays.jpg",
+      "column": 2,
+      "row": 8,
+      "alt": "Aerial view of a city in mist with crepuscular rays at sunset",
+      "span": "wide"
+    },
+    {
+      "file": "milky-way-shooting-star.jpg",
+      "column": 3,
+      "row": 8,
+      "alt": "Milky Way galaxy with a shooting star over palm trees"
+    },
+    {
+      "file": "star-trails-silhouette.jpg",
+      "column": 1,
+      "row": 9,
+      "alt": "Star trails over a silhouetted figure watching the night sky"
+    },
+    {
+      "file": "star-trails-fireflies.jpg",
+      "column": 2,
+      "row": 9,
+      "alt": "Star trails and fireflies over silhouetted trees"
+    },
+    {
+      "file": "fireflies-tree.jpg",
+      "column": 3,
+      "row": 9,
+      "alt": "Long exposure of fireflies swirling around a tree at night"
+    }
+  ]
+}
