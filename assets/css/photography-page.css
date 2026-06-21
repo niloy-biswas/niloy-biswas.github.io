@@ -1,6 +1,7 @@
 /*
  * Photography page — modular dark glass layout.
- * Pair with assets/js/photography-page.js and photography/gallery.json
+ * Pair with assets/js/photography-page.js and photography/gallery.json.
+ * Gallery JPEGs live in gallery/; WebP variants in gallery/webp/ (see optimize script).
  *
  * Layout model:
  * - Mobile/tablet (<992px): hero stacks above gallery in normal document flow.
@@ -230,6 +231,10 @@
   width: 100%;
   height: auto;
   transition: transform var(--transition-base);
+}
+
+.photography-masonry__item picture {
+  display: block;
 }
 
 .photography-page__error {
