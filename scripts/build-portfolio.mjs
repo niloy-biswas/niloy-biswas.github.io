@@ -140,6 +140,7 @@ function buildSitemap(projects) {
   const urls = [
     { loc: `${SITE_ORIGIN}/`, changefreq: 'weekly', priority: '1.0' },
     { loc: `${SITE_ORIGIN}/blog/`, changefreq: 'weekly', priority: '0.8' },
+    { loc: `${SITE_ORIGIN}/photography/`, changefreq: 'monthly', priority: '0.7' },
     ...projects
       .filter((p) => p.links?.caseStudy)
       .map((p) => ({

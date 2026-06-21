@@ -5,67 +5,73 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
    <url>
       <loc>https://niloy.tech/</loc>
-      <lastmod>2026-06-06</lastmod>
+      <lastmod>2026-06-21</lastmod>
       <changefreq>weekly</changefreq>
       <priority>1.0</priority>
    </url>
    <url>
       <loc>https://niloy.tech/blog/</loc>
-      <lastmod>2026-06-06</lastmod>
+      <lastmod>2026-06-21</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
+      <loc>https://niloy.tech/photography/</loc>
+      <lastmod>2026-06-21</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   <url>
       <loc>https://niloy.tech/projects/tenten/</loc>
-      <lastmod>2026-06-06</lastmod>
+      <lastmod>2026-06-21</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
       <loc>https://niloy.tech/projects/chicago-taxi/</loc>
-      <lastmod>2026-06-06</lastmod>
+      <lastmod>2026-06-21</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
    <url>
       <loc>https://niloy.tech/projects/heart-disease/</loc>
-      <lastmod>2026-06-06</lastmod>
+      <lastmod>2026-06-21</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
    <url>
       <loc>https://niloy.tech/projects/linkedin-network/</loc>
-      <lastmod>2026-06-06</lastmod>
+      <lastmod>2026-06-21</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
    <url>
       <loc>https://niloy.tech/projects/bigquery-cost-monitoring/</loc>
-      <lastmod>2026-06-06</lastmod>
+      <lastmod>2026-06-21</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
    <url>
       <loc>https://niloy.tech/projects/population-density-maps/</loc>
-      <lastmod>2026-06-06</lastmod>
+      <lastmod>2026-06-21</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
    <url>
       <loc>https://niloy.tech/projects/us-superstore/</loc>
-      <lastmod>2026-06-06</lastmod>
+      <lastmod>2026-06-21</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
    <url>
       <loc>https://niloy.tech/projects/crm-sales/</loc>
-      <lastmod>2026-06-06</lastmod>
+      <lastmod>2026-06-21</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
    <url>
       <loc>https://niloy.tech/projects/air-quality/</loc>
-      <lastmod>2026-06-06</lastmod>
+      <lastmod>2026-06-21</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
