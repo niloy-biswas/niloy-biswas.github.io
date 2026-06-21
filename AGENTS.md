@@ -12,9 +12,9 @@ Reference for AI agents editing this repo. **Static GitHub Pages** (no npm/CI bu
 | Hero | `#mh-home` | `index.html` | `styles.css` | `animations.js` |
 | About | `#mh-about` | `index.html` | `styles.css` | — |
 | Quote / stats | `.mh-quote-stats` | `index.html` | `styles.css` | `animations.js` |
-| How I can help | `#mh-services` | `index.html` | `services-showcase.css` | — |
-| Skills | `#mh-skills` | `index.html` | `styles.css` | — |
-| Experience | `#mh-experience` | `index.html` | `styles.css` | — |
+| How I can help | `#mh-services` | `index.html` | `services-showcase.css` | `service-showcase.js` (SVG draw), WOW in `custom-scripts.js` |
+| Skills | `#mh-skills` | `index.html` | `styles.css` | `animations.js` |
+| Experience | `#mh-experience` | `index.html` | `styles.css` | WOW in `custom-scripts.js` |
 | **Case studies** | `#mh-portfolio` | **manifest + build** (below) | `styles.css` (grid), `glass-theme.css` (cards), `external-link-icon.css` | `custom-scripts.js` (`initPortfolioFilter`), `external-link-icon.js` |
 | Photography / Beyond data | `#mh-photography` / `.beyond-data` (before contact) | `index.html` | `styles.css` | `beyond-data-icons.js` |
 | Photography page | `/photography/` | `photography/index.html` | `photography-page.css`, `closing-cta.css` | `photography-page.js`, Fancybox (exhibitions) |
@@ -190,14 +190,18 @@ assets/css/photography-page.css      ← layout, masonry, platform + exhibition 
 assets/js/photography-page.js      ← fetch manifest, render grid, scroll reveal
 scripts/photography-gallery-layout/  ← drag-and-drop layout tool (dev only, noindex)
 scripts/import-photography-gallery.mjs ← copy uploads into gallery/
-assets/images/photography/gallery/   ← curated photos
+scripts/optimize-photography-gallery.mjs ← resize JPEG (1400px q85) + WebP (q82) in gallery/webp/
+assets/images/photography/gallery/   ← curated photos (optimized JPEG)
+assets/images/photography/gallery/webp/ ← WebP variants (served first via `<picture>`)
 assets/images/photography/profiles/  ← platform thumbnails
 ```
 
-**Add/reorder gallery images:** edit `gallery.json` (`column` + `row` per image) + drop files in `gallery/`. Or open `photography/layout.html` locally, drag to swap, export JSON.
+**Add/reorder gallery images:** edit `gallery.json` (`column` + `row` per image) + drop files in `gallery/`. Or open `photography/layout.html` locally, drag to swap, export JSON. After import or new originals, run `node scripts/optimize-photography-gallery.mjs` (requires `cwebp`: `brew install webp`).
 
 ### Animations
-- **`animations.js`** — GSAP scroll/counters on homepage (loads after GSAP in `index.html`).
+- **`animations.js`** — GSAP: hero entrance, stat counters, skills pills, section-title underlines (loads after GSAP in `index.html`).
+- **`custom-scripts.js`** — WOW.js `fadeInUp` on scroll for section cards (services, experience, achievements, etc.).
+- **`service-showcase.js`** — Service card SVG chart draw on scroll (GSAP ScrollTrigger).
 
 ---
 
@@ -208,6 +212,7 @@ assets/images/photography/profiles/  ← platform thumbnails
 | Copy user photos with `scripts/import-photography-gallery.mjs` | **`rm -rf` or delete `photography/` / uploads without explicit user approval** |
 | Use DotLottie `.lottie` sources for beyond-data icons | Extract/commit JSON/PNG from lottie archives |
 | Put gallery images in `assets/images/photography/gallery/` | Put gallery images in `assets/images/photography/` root |
+| Run `optimize-photography-gallery.mjs` after new gallery JPEGs | Commit unoptimized multi-MB originals to `gallery/` |
 | Edit `content.html` + manifest; run build | Hand-edit `projects/*/index.html` or grid markers |
 | Put project images in `projects/{slug}/images/` | Put case study images in `assets/images/certificates/` |
 | Use `case-study.css` for case study layout | Re-add Fancybox popups for portfolio cards |
@@ -222,6 +227,8 @@ assets/images/photography/profiles/  ← platform thumbnails
 node scripts/build-portfolio.mjs   # grid, project pages, sitemap.xml
 node --check scripts/build-portfolio.mjs
 node scripts/import-photography-gallery.mjs  # copy from photography/upload/
+node scripts/optimize-photography-gallery.mjs  # resize + WebP (run after import)
+node --check scripts/optimize-photography-gallery.mjs
 # Gallery layout tool (local): photography/layout.html or scripts/photography-gallery-layout/layout.html
 ```
 

@@ -68,10 +68,15 @@
   }
 
   function prepareImages(images, basePath, colCount) {
+    var normalizedBase = basePath.replace(/\/$/, "");
     return images.map(function (image, manifestIndex) {
       var item = Object.assign({}, image);
       if (!item.src && item.file) {
-        item.src = basePath + "/" + item.file;
+        item.src = normalizedBase + "/" + item.file;
+      }
+      if (!item.webpSrc && item.file) {
+        item.webpSrc =
+          normalizedBase + "/webp/" + item.file.replace(/\.jpe?g$/i, ".webp");
       }
       item._manifestIndex = manifestIndex;
       item._sourceColumn = parseInt(item.column, 10);
@@ -95,6 +100,11 @@
     figure.dataset.row = String(row);
     figure.style.setProperty("--reveal-delay", (row - 1) * CONFIG.revealStaggerMs + "ms");
 
+    var picture = document.createElement("picture");
+    var source = document.createElement("source");
+    source.type = "image/webp";
+    source.srcset = image.webpSrc;
+
     var img = document.createElement("img");
     img.src = image.src;
     img.alt = image.alt || "";
@@ -113,7 +123,9 @@
       figure.classList.add("is-loaded");
     }
 
-    figure.appendChild(img);
+    picture.appendChild(source);
+    picture.appendChild(img);
+    figure.appendChild(picture);
     return figure;
   }
 

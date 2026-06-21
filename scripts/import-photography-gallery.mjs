@@ -15,6 +15,7 @@ const REPO = path.join(ROOT, '..');
 const UPLOAD = path.join(REPO, 'photography', 'upload');
 const STAGING = path.join(REPO, 'photography');
 const GALLERY = path.join(REPO, 'assets', 'images', 'photography', 'gallery');
+const WEBP_DIR = path.join(GALLERY, 'webp');
 const MANIFEST = path.join(REPO, 'photography', 'gallery.json');
 
 /** source filename → destination basename in gallery/ */
@@ -62,6 +63,10 @@ function main() {
   const manifest = JSON.parse(fs.readFileSync(MANIFEST, 'utf8'));
   const expected = manifest.images.map((i) => i.file);
   const missing = expected.filter((f) => !fs.existsSync(path.join(GALLERY, f)));
+  const missingWebp = expected.filter((f) => {
+    const webp = f.replace(/\.jpe?g$/i, '.webp');
+    return !fs.existsSync(path.join(WEBP_DIR, webp));
+  });
 
   if (missing.length) {
     console.warn(`\nGallery still missing ${missing.length} file(s):`);
@@ -70,12 +75,19 @@ function main() {
     console.log(`\nAll ${expected.length} gallery images present.`);
   }
 
+  if (missingWebp.length) {
+    console.warn(`\nMissing WebP for ${missingWebp.length} file(s) — run optimize script.`);
+  }
+
   if (notFound.length) {
     console.warn('\nMissing sources (check photography/upload/):');
     notFound.forEach((f) => console.warn(`  ${f}`));
   }
 
   console.log(`\nImported ${copied} file(s) this run. Upload folder left untouched.`);
+  if (copied > 0 || missingWebp.length) {
+    console.log('Run: node scripts/optimize-photography-gallery.mjs');
+  }
 }
 
 main();
