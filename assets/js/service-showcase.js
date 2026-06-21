@@ -286,8 +286,7 @@
       onEnter: function (batch) {
         batch.forEach(function (card, i) {
           if (card.dataset.vizDrawn === "1") return;
-          global.gsap.delayedCall(i * 0.12, function () {
-            resetViz(card, true);
+          global.gsap.delayedCall(0.45 + i * 0.12, function () {
             playViz(card, { ease: scrollEase, isHover: false });
           });
         });

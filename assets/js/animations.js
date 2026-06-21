@@ -1,6 +1,8 @@
 /**
- * Premium motion system: GSAP + ScrollTrigger (static site).
- * Respects prefers-reduced-motion and disables hover motion on touch devices.
+ * Homepage motion (GSAP + ScrollTrigger).
+ * WOW.js fadeInUp on section cards is handled in custom-scripts.js — do not duplicate here.
+ * This file: hero entrance, stat counters, skills pills, section-title underlines;
+ * service-showcase.js handles service card SVG draw on scroll.
  */
 (function () {
   "use strict";
@@ -203,69 +205,6 @@
     });
   }
 
-  function batchReveal(selector, options) {
-    var els = document.querySelectorAll(selector);
-    if (!els.length) return;
-
-    ScrollTrigger.batch(els, {
-      start: options.start || "top 70%",
-      once: true,
-      onEnter: function (batch) {
-        gsap.fromTo(
-          batch,
-          { opacity: 0, x: options.fromX || 0, y: options.fromY || 0 },
-          {
-            opacity: 1,
-            x: 0,
-            y: 0,
-            duration: options.duration || 0.7,
-            ease: options.ease || easePremium,
-            stagger: options.stagger || 0.1,
-            clearProps: "transform"
-          }
-        );
-      }
-    });
-  }
-
-  function initServicesShowcaseEntrance(distanceX, distanceY) {
-    var cards = Array.prototype.slice.call(
-      document.querySelectorAll("#mh-services .services-showcase__card")
-    );
-    if (!cards.length) return;
-
-    var fromStates = [
-      { opacity: 0, x: -distanceX, y: 0 },
-      { opacity: 0, x: 0, y: distanceY },
-      { opacity: 0, x: distanceX, y: 0 }
-    ];
-
-    ScrollTrigger.batch(cards, {
-      start: "top 70%",
-      once: true,
-      onEnter: function () {
-        cards.forEach(function (card, i) {
-          var from = fromStates[i] || fromStates[0];
-          gsap.fromTo(
-            card,
-            from,
-            {
-              opacity: 1,
-              x: 0,
-              y: 0,
-              duration: 0.8,
-              ease: easePremium,
-              delay: i * 0.1,
-              onComplete: function () {
-                gsap.set(card, { clearProps: "all" });
-              }
-            }
-          );
-        });
-      }
-    });
-  }
-
   function initSkillsCascade() {
     var section = document.querySelector("#mh-skills");
     if (!section) return;
@@ -317,16 +256,6 @@
     });
   }
 
-  function initExperienceReveal(distanceX) {
-    batchReveal("#mh-experience .mh-education-item, #mh-achievements .mh-education-item", {
-      fromX: -distanceX,
-      duration: 0.75,
-      stagger: 0.1,
-      ease: easePremium,
-      start: "top 70%"
-    });
-  }
-
   mm.add(
     {
       // Mobile-ish: keep entrances but reduce distances.
@@ -340,11 +269,6 @@
 
       heroEntrance(isMobile ? 12 : 28);
       initStatCounters();
-      initExperienceReveal(isMobile ? 12 : 24);
-      initServicesShowcaseEntrance(
-        isMobile ? 12 : 28,
-        isMobile ? 10 : 20
-      );
       if (window.ServiceShowcase) {
         window.ServiceShowcase.init({
           ease: easePremium,
