@@ -16,7 +16,8 @@ Reference for AI agents editing this repo. **Static GitHub Pages** (no npm/CI bu
 | Skills | `#mh-skills` | `index.html` | `styles.css` | — |
 | Experience | `#mh-experience` | `index.html` | `styles.css` | — |
 | **Case studies** | `#mh-portfolio` | **manifest + build** (below) | `styles.css` (grid), `glass-theme.css` (cards), `external-link-icon.css` | `custom-scripts.js` (`initPortfolioFilter`), `external-link-icon.js` |
-| Photography | `#mh-photography` | `index.html` | `styles.css` (`.portfolioContainer`) | Fancybox |
+| Photography / Beyond data | `#mh-photography` / `.beyond-data` (before contact) | `index.html` | `styles.css` | `beyond-data-icons.js` |
+| Photography page | `/photography/` | `photography/index.html` | `photography-page.css`, `closing-cta.css` | `photography-page.js`, Fancybox (exhibitions) |
 | Achievements | `#mh-achievements` | `index.html` | `styles.css` | — |
 | Certificates | `#mh-certificates` | `index.html` | `styles.css` (`.cert-marquee`) | — |
 | Reviewer certs | inside experience | `index.html` | `.portfolioContainer` | Fancybox `data-fancybox="reviewer"` |
@@ -24,7 +25,7 @@ Reference for AI agents editing this repo. **Static GitHub Pages** (no npm/CI bu
 | Blog | `blog/index.html` | `blog/` | `medium-style.css`, `styles.css` | `medium-on-website.js` |
 | Case study pages | `/projects/{slug}/` | `projects/{slug}/content.html` or custom `index.html` | `case-study.css` or `tenten-case-study.css` (+ `list-dash.css` for TenTen) | `case-study.js` or `tenten-case-study.js` |
 
-**Shared everywhere:** `glass-theme.css` (tokens, `.glass-card`, `.text-gradient-accent`), `typography.css`, `responsive.css`, Bootstrap, jQuery.
+**Shared everywhere:** `glass-theme.css` (tokens, `.glass-card`, `.text-gradient-accent`), `typography.css`, `responsive.css`, `closing-cta.css` (closing CTA + `.page-credits`), Bootstrap, jQuery.
 
 ---
 
@@ -32,10 +33,10 @@ Reference for AI agents editing this repo. **Static GitHub Pages** (no npm/CI bu
 
 - **Card hover / glass:** use `.glass-card` from `glass-theme.css` — do not duplicate hover on section-specific selectors.
 - **Accent gradient text:** `.text-gradient-accent` (also aliased as `.contact-section__highlight`).
-- **Fancybox:** still used for certificates, photography, reviewer gallery — **not** for portfolio case studies.
+- **Fancybox:** still used for certificates, reviewer gallery, and **photography exhibitions** (`/photography/`) — **not** for portfolio case studies or masonry gallery.
 - **Two gallery patterns — do not mix:**
   - **New portfolio grid:** `.portfolio-showcase` + `.portfolio-showcase__card` (`#mh-portfolio`)
-  - **Legacy tiles:** `.portfolioContainer` + `.grid-item` (photography, reviewer, old galleries)
+  - **Legacy tiles:** `.portfolioContainer` + `.grid-item` (reviewer gallery, old homepage galleries)
 - **Images:** project screenshots → `projects/{slug}/images/`. Homepage assets → `assets/images/` (see layout below).
 
 ### `assets/images/` layout
@@ -48,7 +49,8 @@ Reference for AI agents editing this repo. **Static GitHub Pages** (no npm/CI bu
 | `experience/10ms/` | 10 Minute School ceremony & award photos |
 | `reviewer/` | Elsevier reviewer certificate scans (Fancybox in experience) |
 | `certificates/` | Certificate marquee (`#mh-certificates`) |
-| `photography/` | Photography section profile tiles |
+| `photography/profiles/` | Platform link thumbnails (Unsplash, 500px, Instagram) |
+| `photography/gallery/` | Masonry gallery on `/photography/` (see `photography/gallery.json`) |
 | `exhibitions/` | Exhibition / award photo gallery |
 | `achievements/` | Images linked from achievements list |
 ---
@@ -61,6 +63,7 @@ Reference for AI agents editing this repo. **Static GitHub Pages** (no npm/CI bu
 |------|---------|--------|
 | Homepage | `index.html` `<head>` | `assets/images/site/og-image.png` (2256×1278) |
 | Blog | `blog/index.html` `<head>` | same default OG image |
+| Photography | `photography/index.html` `<head>` | `assets/images/photography/gallery/dhaka-intersection-night.jpg` |
 | Case studies | `scripts/templates/project-page.html` + `manifest.json` `page.title` / `page.description` → run build | project thumbnail |
 
 Keep `meta description`, `og:description`, and `twitter:description` in sync per page. JSON-LD `Person.image` stays the profile photo (`niloy-profile5.jpg`), not the OG screenshot.
@@ -147,8 +150,23 @@ Add `projects/{slug}/project.css` / `project.js` + wire via manifest + template 
 - Large inline sections in `index.html`; styles in **`styles.css`**.
 - Experience includes publications, reviewer gallery (`.portfolioContainer` + Fancybox).
 
-### `#mh-photography`
-- External links (Unsplash, 500px, etc.); `.portfolioContainer .grid-item` markup.
+### `#mh-photography` / `.beyond-data`
+
+Homepage cross-links before contact (`.beyond-data` in **`styles.css`** + `beyond-data-icons.js`):
+
+| Asset | Role |
+|-------|------|
+| `assets/lottie/beyond-data/Camera.lottie` | Photography icon (DotLottie) |
+| `assets/lottie/beyond-data/pen-writing.lottie` | Blog icon (DotLottie) |
+| `assets/images/beyond-data/flask.svg` | Labs icon (inline SVG) |
+
+Use the **`.lottie` sources only** — do not add extracted JSON/PNG archives. Icons are tinted via CSS filters in `styles.css` (`.beyond-data`, `var(--accent-rgb)`).
+
+Full gallery lives on `/photography/` (see below).
+
+**Removed from homepage (pre–`/photography/`):** two legacy subsections before Achievements — **Photography** (Unsplash / 500px / Instagram profile tiles) and **Exhibitions** (Daily Star, Ekushey, 35 Awards). They used `.portfolioContainer .grid-item` + Fancybox — **no dedicated CSS** in `styles.css` (shared legacy gallery block only). That HTML is gone; content and images moved to `/photography/` (`profiles/`, `exhibitions/`, gallery). Do not re-add those homepage grids.
+
+**`styles.css` `.portfolioContainer` block stays** — still used by the Elsevier **reviewer certificate** gallery inside `#mh-experience` (not photography/exhibitions).
 
 ### `#mh-achievements` / `#mh-certificates`
 - Achievements: list in `index.html`.
@@ -162,6 +180,22 @@ Add `projects/{slug}/project.css` / `project.js` + wire via manifest + template 
 - Separate page; paths use `../assets/...`.
 - Medium embed: `medium-on-website.js`, `medium-style.css`.
 
+### Photography page (`/photography/`)
+
+```
+photography/gallery.json           ← grid slots (file, column, row, alt)
+photography/index.html             ← page shell (hero, explore, exhibitions)
+photography/layout.html            ← shortcut to layout tool (noindex)
+assets/css/photography-page.css      ← layout, masonry, platform + exhibition card grids
+assets/js/photography-page.js      ← fetch manifest, render grid, scroll reveal
+scripts/photography-gallery-layout/  ← drag-and-drop layout tool (dev only, noindex)
+scripts/import-photography-gallery.mjs ← copy uploads into gallery/
+assets/images/photography/gallery/   ← curated photos
+assets/images/photography/profiles/  ← platform thumbnails
+```
+
+**Add/reorder gallery images:** edit `gallery.json` (`column` + `row` per image) + drop files in `gallery/`. Or open `photography/layout.html` locally, drag to swap, export JSON.
+
 ### Animations
 - **`animations.js`** — GSAP scroll/counters on homepage (loads after GSAP in `index.html`).
 
@@ -171,8 +205,11 @@ Add `projects/{slug}/project.css` / `project.js` + wire via manifest + template 
 
 | Do | Don't |
 |----|--------|
+| Copy user photos with `scripts/import-photography-gallery.mjs` | **`rm -rf` or delete `photography/` / uploads without explicit user approval** |
+| Use DotLottie `.lottie` sources for beyond-data icons | Extract/commit JSON/PNG from lottie archives |
+| Put gallery images in `assets/images/photography/gallery/` | Put gallery images in `assets/images/photography/` root |
 | Edit `content.html` + manifest; run build | Hand-edit `projects/*/index.html` or grid markers |
-| Put project images in `projects/{slug}/images/` | Put case study images in `projects/{slug}/images/` (not `assets/images/certificates/`) |
+| Put project images in `projects/{slug}/images/` | Put case study images in `assets/images/certificates/` |
 | Use `case-study.css` for case study layout | Re-add Fancybox popups for portfolio cards |
 | Use `glass-card` for interactive cards | Duplicate card hover rules |
 | Use `list-dash` for teal dash bullets (experience + TenTen work cards) | Custom `li::before` dot markers |
@@ -184,6 +221,8 @@ Add `projects/{slug}/project.css` / `project.js` + wire via manifest + template 
 ```bash
 node scripts/build-portfolio.mjs   # grid, project pages, sitemap.xml
 node --check scripts/build-portfolio.mjs
+node scripts/import-photography-gallery.mjs  # copy from photography/upload/
+# Gallery layout tool (local): photography/layout.html or scripts/photography-gallery-layout/layout.html
 ```
 
 When unsure about portfolio work: **`projects/manifest.json`** + **`content.html`** + build script.

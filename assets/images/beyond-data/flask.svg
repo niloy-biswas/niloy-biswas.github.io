@@ -1,0 +1,107 @@
+<svg width="32" height="32" viewBox="-2 -5 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+  <defs>
+    <!-- Clip path ensures the liquid surface lines don't bleed outside the flask walls -->
+    <clipPath id="flask-clip">
+      <path d="M 10 3 v 6.5 a 6.5 6.5 0 1 0 4 0 V 3 Z" />
+    </clipPath>
+  </defs>
+
+  <style>
+    /* Continuous seamless wave surface animations */
+    .fancy-wave-back { animation: wave-left 2s linear infinite; }
+    .fancy-wave-front { animation: wave-right 2.5s linear infinite; }
+    
+    /* Rising transparent bubbles inside the fluid */
+    .fancy-bubble { animation: fancy-rise 2.5s ease-in-out infinite; }
+    .fb1 { animation-delay: 0.2s; animation-duration: 2.2s; }
+    .fb2 { animation-delay: 0.7s; animation-duration: 1.8s; }
+    .fb3 { animation-delay: 1.4s; animation-duration: 2.5s; }
+
+    /* Escaping vapor bubbles disappearing into the air */
+    .vapor-bubble {
+      stroke: #6ef0dc;
+      fill: none;
+      stroke-width: 1.2px;
+      transform-box: fill-box;
+      transform-origin: center;
+      opacity: 0;
+    }
+    .vb1 { animation: vapor-1 2.5s ease-in infinite; animation-delay: 0s; }
+    .vb2 { animation: vapor-2 2.2s ease-in infinite; animation-delay: 0.8s; }
+    .vb3 { animation: vapor-3 2.8s ease-in infinite; animation-delay: 1.5s; }
+
+    /* Gentle floating effect for the whole flask */
+    .fancy-flask { animation: flask-hover 3s ease-in-out infinite; }
+
+    /* Fluid wave keyframes */
+    @keyframes wave-right {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(20px); }
+    }
+    @keyframes wave-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-20px); }
+    }
+    
+    /* Internal bubble keyframes */
+    @keyframes fancy-rise {
+      0% { transform: translateY(0) scale(0.5); opacity: 0; }
+      20% { opacity: 0.7; }
+      80% { opacity: 0.7; }
+      100% { transform: translateY(-8px) scale(1.2); opacity: 0; }
+    }
+
+    /* Escaping vapor keyframes (drifting outwards, scaling up, and fading) */
+    @keyframes vapor-1 {
+      0% { transform: translate(0, 0) scale(0.2); opacity: 0; }
+      20% { opacity: 0.8; }
+      100% { transform: translate(-4px, -10px) scale(1.8); opacity: 0; }
+    }
+    @keyframes vapor-2 {
+      0% { transform: translate(0, 0) scale(0.2); opacity: 0; }
+      20% { opacity: 0.6; }
+      100% { transform: translate(2px, -12px) scale(1.4); opacity: 0; }
+    }
+    @keyframes vapor-3 {
+      0% { transform: translate(0, 0) scale(0.2); opacity: 0; }
+      20% { opacity: 0.7; }
+      100% { transform: translate(5px, -9px) scale(1.6); opacity: 0; }
+    }
+    
+    /* Flask hover keyframes */
+    @keyframes flask-hover {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-1.5px); }
+    }
+  </style>
+
+  <g class="fancy-flask">
+    
+    <!-- Transparent Liquid Waves & Bubbles -->
+    <g clip-path="url(#flask-clip)">
+      <!-- Back Wave Line (Moving Left) -->
+      <path class="fancy-wave-back" d="M -20 13.5 q 5 2 10 0 t 10 0 q 5 2 10 0 t 10 0 q 5 2 10 0 t 10 0" stroke="#0bceaf" stroke-width="1.5" fill="none" opacity="0.45" />
+      
+      <!-- Front Wave Line (Moving Right) -->
+      <path class="fancy-wave-front" d="M -20 14.5 q 5 -2 10 0 t 10 0 q 5 -2 10 0 t 10 0 q 5 -2 10 0 t 10 0" stroke="#6ef0dc" stroke-width="1.5" fill="none" opacity="0.75" />
+
+      <!-- Inner Bubbles (Transparent, stroke only) -->
+      <circle class="fancy-bubble fb1" cx="12" cy="22" r="1.5" stroke="#a7f3d0" stroke-width="1.5" fill="none" />
+      <circle class="fancy-bubble fb2" cx="9.5" cy="21" r="1" stroke="#6ee7b7" stroke-width="1" fill="none" />
+      <circle class="fancy-bubble fb3" cx="14.5" cy="22.5" r="1.2" stroke="#34d399" stroke-width="1.2" fill="none" />
+    </g>
+
+    <!-- 3D Glass Reflections -->
+    <path d="M 6.5 16 A 5.5 5.5 0 0 0 10 21" stroke="#2dd4bf" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.35" />
+    <line x1="11" y1="5" x2="11" y2="8" stroke="#6ef0dc" stroke-width="1.5" stroke-linecap="round" opacity="0.4" />
+
+    <!-- Escaping Vapor Bubbles (Placed here so they look like they emerge from behind the front rim) -->
+    <circle class="vapor-bubble vb1" cx="11" cy="3" r="1.2" />
+    <circle class="vapor-bubble vb2" cx="12.5" cy="2.5" r="0.9" />
+    <circle class="vapor-bubble vb3" cx="13.5" cy="3.5" r="1.4" />
+
+    <!-- Main Flask Stroke (Drawn last for crisp borders over the bubbles) -->
+    <path d="M 8.5 3 h 7" stroke="currentColor" stroke-width="2" />
+    <path d="M 10 3 v 6.5 a 6.5 6.5 0 1 0 4 0 V 3 Z" stroke="currentColor" stroke-width="2" fill="none" />
+  </g>
+</svg>

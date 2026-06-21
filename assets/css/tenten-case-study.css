@@ -1202,80 +1202,6 @@
   background: rgba(0, 0, 0, 0.35);
 }
 
-/* Closing CTA: open section, tilted glass button */
-.tenten-cta {
-  margin: clamp(48px, 8vw, 80px) 0 0;
-  padding: 0 clamp(20px, 4vw, 36px) clamp(40px, 6vw, 56px);
-  text-align: center;
-}
-
-.tenten-cta__title {
-  margin: 0 auto;
-  max-width: 28ch;
-  font-size: clamp(1.45rem, 3.2vw, 2rem);
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.03em;
-  color: var(--text-primary);
-}
-
-.tenten-cta__action {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.tenten-cta__lead {
-  margin: clamp(16px, 2.5vw, 24px) 0 0;
-  max-width: 52ch;
-  font-size: clamp(0.95rem, 1.8vw, 1.05rem);
-  line-height: 1.65;
-  color: var(--text-primary);
-}
-
-.tenten-cta__btn {
-  position: relative;
-  z-index: 2;
-  margin-top: clamp(-8px, -1.2vw, -4px);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 152px;
-  padding: 14px 30px;
-  font-size: clamp(1rem, 2vw, 1.12rem);
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  color: #fff;
-  text-decoration: none;
-  background: rgba(8, 12, 24, 0.58);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-top-color: rgba(255, 255, 255, 0.22);
-  border-radius: 14px;
-  box-shadow:
-    0 10px 28px rgba(0, 0, 0, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  transform: rotate(-11deg);
-  transition:
-    transform var(--transition-base),
-    background var(--transition-base),
-    box-shadow var(--transition-base);
-}
-
-.tenten-cta__btn:hover,
-.tenten-cta__btn:focus-visible {
-  color: #fff;
-  text-decoration: none;
-  background: rgba(12, 18, 32, 0.78);
-  transform: rotate(-7deg) translateY(-2px);
-  box-shadow:
-    0 14px 36px rgba(0, 0, 0, 0.34),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
-}
-
 /* Insight row */
 .tenten-insights {
   display: grid;
@@ -1301,21 +1227,6 @@
   color: var(--text-primary);
 }
 
-
-/* Credits */
-.tenten-credits {
-  margin-top: clamp(40px, 6vw, 64px);
-  padding-top: 24px;
-  border-top: 1px solid var(--glass-border);
-  font-size: 0.85rem;
-  line-height: 1.6;
-  color: var(--text-secondary);
-  text-align: center;
-}
-
-.tenten-credits a {
-  color: var(--accent);
-}
 
 /* Buttons: align with site */
 .tenten-case-study .btn.btn-fill {
@@ -1479,12 +1390,6 @@
 
   .tilt-card,
   .tilt-card:hover {
-    transform: none;
-  }
-
-  .tenten-cta__btn,
-  .tenten-cta__btn:hover,
-  .tenten-cta__btn:focus-visible {
     transform: none;
   }
 }

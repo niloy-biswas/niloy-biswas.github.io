@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="robots" content="noindex, nofollow">
+	<title>Gallery layout tool | Photography</title>
+	<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,100..900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../../assets/css/glass-theme.css">
+	<link rel="stylesheet" href="../../assets/css/typography.css">
+	<link rel="stylesheet" href="layout-tool.css">
+</head>
+<body class="dark-vertion black-bg photography-layout-tool">
+	<div class="ambient-bg" aria-hidden="true">
+		<div class="ambient-bg__wash"></div>
+		<div class="ambient-bg__grid"></div>
+	</div>
+
+	<header class="layout-tool__header">
+		<div class="layout-tool__header-inner">
+			<div class="layout-tool__intro">
+				<h1 class="layout-tool__title">Gallery layout tool</h1>
+				<p class="layout-tool__hint">Drag any image onto another to swap positions. Export when happy, then replace photography/gallery.json.</p>
+			</div>
+			<div class="layout-tool__actions">
+				<a class="layout-tool__btn layout-tool__btn--ghost" id="layout-live-link" href="../../photography/">View live page</a>
+				<button type="button" class="layout-tool__btn layout-tool__btn--ghost" id="layout-reset">Reset</button>
+				<button type="button" class="layout-tool__btn layout-tool__btn--ghost" id="layout-preview">Preview draft</button>
+				<button type="button" class="layout-tool__btn" id="layout-copy">Copy JSON</button>
+				<button type="button" class="layout-tool__btn layout-tool__btn--accent" id="layout-download">Download gallery.json</button>
+			</div>
+		</div>
+		<p class="layout-tool__status" id="layout-status" role="status" aria-live="polite"></p>
+	</header>
+
+	<main class="layout-tool__main">
+		<div class="layout-tool__grid-wrap">
+			<div
+				id="layout-grid"
+				class="layout-tool__grid"
+				aria-label="Draggable gallery grid"
+				data-gallery="../../photography/gallery.json"
+				data-base-path="../../assets/images/photography/gallery"
+				data-preview-url="../../photography/?preview=draft"
+				data-live-url="../../photography/"></div>
+		</div>
+	</main>
+
+	<script src="layout-tool.js"></script>
+</body>
+</html>
