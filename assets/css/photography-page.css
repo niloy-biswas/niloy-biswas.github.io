@@ -1,0 +1,370 @@
+/*
+ * Photography page — modular dark glass layout.
+ * Pair with assets/js/photography-page.js and photography/gallery.json
+ *
+ * Layout model:
+ * - Mobile/tablet (<992px): hero stacks above gallery in normal document flow.
+ * - Desktop (≥992px): hero and gallery share one grid row; gallery overlaps hero.
+ */
+
+.photography-page {
+  --photography-nav-offset: clamp(72px, 10vh, 96px);
+  --photography-col-stagger-1: clamp(4rem, 9vw, 6.5rem);
+  --photography-col-stagger-2: clamp(1.75rem, 4vw, 3rem);
+  --photography-col-stagger-3: 0;
+  --photography-reveal-rise: clamp(3rem, 10vh, 5rem);
+  --photography-reveal-duration: 0.85s;
+  --photography-headline-lift-serenity: 0.18em;
+  --photography-headline-lift-by: 0.36em;
+  --photography-headline-lift-niloy: 0.72em;
+  --photography-headline-shift: clamp(12px, 1.4vw, 18px);
+  --photography-headline-niloy-extra: 10px;
+  color: var(--text-primary);
+  overflow-x: clip;
+}
+
+.photography-page .site-shell {
+  overflow: visible;
+}
+
+/* ---- Stage ---- */
+
+.photography-page__stage {
+  position: relative;
+  overflow: visible;
+  padding: calc(var(--photography-nav-offset) + var(--space-md)) var(--space-sm) 0;
+}
+
+.photography-page__stage-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Mobile/tablet: natural stack — hero, then gallery */
+.photography-page__hero {
+  position: relative;
+  z-index: 1;
+}
+
+.photography-page__gallery {
+  position: relative;
+  z-index: 2;
+  margin-top: var(--space-sm);
+}
+
+/* Staircase title: Serenity (low) → by (mid) → Niloy (high) */
+.photography-page__headline {
+  display: inline-flex;
+  align-items: flex-end;
+  flex-wrap: nowrap;
+  gap: 0.18em;
+  margin: 0;
+  padding: 0.1em 0 0.14em;
+  font-size: clamp(2.75rem, 7.8vw, 5.75rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  pointer-events: none;
+  user-select: none;
+}
+
+.photography-page__headline-word {
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.photography-page__headline-word--serenity {
+  margin-bottom: var(--photography-headline-lift-serenity);
+}
+
+.photography-page__headline-word--by {
+  margin-bottom: var(--photography-headline-lift-by);
+}
+
+.photography-page__headline-word--niloy {
+  margin-bottom: var(--photography-headline-lift-niloy);
+}
+
+.photography-page__subtitle {
+  margin: 0;
+  max-width: 100%;
+  font-family: "Fraunces", serif;
+  font-size: clamp(1.25rem, 2.35vw, 1.875rem);
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.photography-page__narrative {
+  position: relative;
+  z-index: 3;
+  padding: var(--space-lg) var(--space-sm) var(--space-md);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.photography-page__subtitle--lead {
+  margin: var(--space-lg) 0 var(--space-md);
+}
+
+.photography-card-grid + .photography-page__subtitle--lead {
+  margin-top: var(--space-xl);
+}
+
+/* ---- Platform + exhibition card grids (.cert-card pattern) ---- */
+
+.photography-card-grid {
+  --photography-card-max-width: 320px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.photography-card-grid .cert-card {
+  width: 100%;
+}
+
+.photography-card-grid .cert-card img {
+  height: clamp(140px, 18vw, 180px);
+  object-fit: cover;
+  transition: transform var(--transition-base);
+}
+
+.photography-card-grid .cert-card-info span {
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.photography-card-grid .cert-card:hover,
+.photography-card-grid .cert-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: rgba(var(--accent-rgb), 0.35);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(var(--accent-rgb), 0.22),
+    0 0 20px rgba(var(--accent-rgb), 0.12);
+}
+
+.photography-card-grid .cert-card:hover img,
+.photography-card-grid .cert-card:focus-visible img {
+  transform: scale(1.04);
+}
+
+/* ---- Masonry gallery ---- */
+
+.photography-masonry {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+}
+
+.photography-masonry__col {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.photography-masonry--parallax .photography-masonry__col {
+  will-change: transform;
+}
+
+.photography-masonry__item {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: default;
+  transition:
+    box-shadow var(--transition-base),
+    border-color var(--transition-base),
+    background var(--transition-base);
+}
+
+.photography-masonry__item.photography-reveal:not(.is-visible) {
+  opacity: 0;
+  transform: translate3d(0, var(--photography-reveal-rise), 0);
+}
+
+.photography-masonry__item.photography-reveal {
+  transition:
+    opacity var(--photography-reveal-duration) cubic-bezier(0.22, 1, 0.36, 1),
+    transform var(--photography-reveal-duration) cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base),
+    background var(--transition-base);
+  transition-delay: var(--reveal-delay, 0ms), var(--reveal-delay, 0ms), 0ms, 0ms, 0ms;
+  will-change: transform, opacity;
+}
+
+.photography-masonry__item.photography-reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.photography-masonry__item.is-loaded {
+  border-color: var(--glass-border);
+  background: var(--glass-fill-card);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 8px 32px rgba(0, 0, 0, 0.28);
+}
+
+.photography-masonry__item.is-loaded:hover {
+  border-color: rgba(var(--accent-rgb), 0.28);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(var(--accent-rgb), 0.18),
+    0 0 20px rgba(var(--accent-rgb), 0.12);
+}
+
+.photography-masonry__item.is-loaded:hover img {
+  transform: scale(1.01);
+}
+
+.photography-masonry__item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform var(--transition-base);
+}
+
+.photography-page__error {
+  font-family: "Inter", sans-serif;
+  font-size: var(--text-base);
+  color: var(--text-muted);
+  text-align: center;
+  padding: var(--space-lg);
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 767px) {
+  .photography-card-grid {
+    grid-template-columns: minmax(0, var(--photography-card-max-width));
+    justify-content: center;
+    justify-items: center;
+    margin-inline: auto;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .photography-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-items: center;
+  }
+
+  .photography-card-grid .cert-card {
+    width: 100%;
+    max-width: var(--photography-card-max-width);
+  }
+
+  .photography-card-grid .cert-card:last-child {
+    grid-column: 1 / -1;
+    max-width: var(--photography-card-max-width);
+    justify-self: center;
+  }
+}
+
+@media (max-width: 575px) {
+  .photography-page {
+    --photography-headline-lift-by: 0.42em;
+    --photography-headline-lift-niloy: 0.68em;
+  }
+
+  .photography-page__stage {
+    padding-top: var(--photography-nav-offset);
+    padding-bottom: 0;
+  }
+
+  .photography-page__headline {
+    flex-wrap: wrap;
+    max-width: 100%;
+  }
+
+  .photography-page__gallery {
+    margin-top: var(--space-sm);
+  }
+}
+
+/* Desktop overlap: hero + gallery share one grid row */
+@media (min-width: 992px) {
+  .photography-page__stage-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    isolation: isolate;
+  }
+
+  .photography-page__hero {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: start;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .photography-page__headline {
+    min-height: calc(1.12em + var(--photography-headline-lift-niloy));
+    transform: translateY(var(--photography-headline-shift));
+  }
+
+  .photography-page__headline-word--niloy {
+    transform: translateY(var(--photography-headline-niloy-extra));
+  }
+
+  .photography-page__gallery {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: start;
+    margin-top: clamp(3.5rem, 8vw, 5.5rem);
+  }
+
+  .photography-masonry__col:nth-child(1) {
+    margin-top: var(--photography-col-stagger-1);
+  }
+
+  .photography-masonry__col:nth-child(2) {
+    margin-top: var(--photography-col-stagger-2);
+  }
+
+  .photography-masonry__col:nth-child(3) {
+    margin-top: var(--photography-col-stagger-3);
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .photography-page {
+    --photography-col-stagger-1: clamp(3rem, 8vw, 5rem);
+    --photography-col-stagger-2: clamp(0.75rem, 2vw, 1.25rem);
+  }
+}
+
+/* ---- Reduced motion ---- */
+
+@media (prefers-reduced-motion: reduce) {
+  .photography-masonry--parallax .photography-masonry__col {
+    transform: none !important;
+    will-change: auto;
+  }
+
+  .photography-masonry__item.photography-reveal {
+    opacity: 1;
+    transform: none;
+    transition:
+      border-color var(--transition-fast),
+      box-shadow var(--transition-fast),
+      background var(--transition-fast);
+    will-change: auto;
+  }
+
+  .photography-masonry__item {
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .photography-masonry__item.is-loaded:hover img {
+    transform: none;
+  }
+}
