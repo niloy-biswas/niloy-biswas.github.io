@@ -2560,7 +2560,7 @@ body.dark-vertion.fancybox-active .fancybox-bg {
 /*
 ====================
    LEGACY GRID GALLERY
-   (portfolioContainer + grid-item — certificates, photography)
+   (portfolioContainer + grid-item — reviewer gallery in experience)
 ====================
 */
 .portfolioContainer .grid-item {
@@ -3449,6 +3449,268 @@ body.dark-vertion.fancybox-active .fancybox-bg {
 
 
 /* ---- end Certificate Marquee ---- */
+
+/*
+====================
+   BEYOND DATA (#mh-photography)
+   Pair with assets/js/beyond-data-icons.js
+====================
+*/
+.beyond-data {
+  --beyond-teal-highlight: #6ef0dc;
+  padding: var(--space-lg) var(--space-sm);
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.beyond-data__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.beyond-data__label {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+.beyond-data__links {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: var(--space-md);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.beyond-data__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+  padding: var(--space-sm) var(--space-xs);
+  text-align: center;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  transition:
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    background var(--transition-fast);
+}
+
+.beyond-data__item:hover,
+.beyond-data__item:focus-visible {
+  text-decoration: none;
+  border-color: rgba(var(--accent-rgb), 0.22);
+  background: rgba(var(--accent-rgb), 0.04);
+}
+
+.beyond-data__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.beyond-data__title {
+  font-family: "Fraunces", serif;
+  font-size: clamp(1.125rem, 2.4vw, 1.45rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  transition: color var(--transition-fast);
+}
+
+.beyond-data__desc {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(0.8rem, 1.6vw, 0.875rem);
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--text-muted);
+  max-width: 22ch;
+  margin: 0 auto;
+  transition: color var(--transition-fast);
+}
+
+.beyond-data__item:hover .beyond-data__title,
+.beyond-data__item:focus-visible .beyond-data__title {
+  color: var(--accent);
+}
+
+.beyond-data__item:hover .beyond-data__desc,
+.beyond-data__item:focus-visible .beyond-data__desc {
+  color: var(--text-secondary);
+}
+
+.beyond-data__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 5.25rem;
+  height: 5.25rem;
+  flex-shrink: 0;
+  line-height: 0;
+  overflow: visible;
+  transition: transform var(--transition-fast);
+}
+
+.beyond-data__dotlottie,
+.beyond-data__svg {
+  display: block;
+  flex-shrink: 0;
+}
+
+.beyond-data__dotlottie {
+  pointer-events: none;
+}
+
+.beyond-data__svg svg {
+  display: block;
+  width: 4rem;
+  height: 4rem;
+}
+
+.beyond-data__icon--camera .beyond-data__dotlottie {
+  width: 6rem;
+  height: 6rem;
+  filter:
+    brightness(2.35)
+    contrast(1.28)
+    saturate(1.55)
+    hue-rotate(132deg)
+    drop-shadow(0 0 0.5px rgba(var(--accent-rgb), 0.95))
+    drop-shadow(0 0 0.5px color-mix(in srgb, var(--beyond-teal-highlight) 85%, transparent))
+    drop-shadow(0 0 1px rgba(var(--accent-rgb), 0.4));
+}
+
+.beyond-data__icon--pen .beyond-data__dotlottie {
+  width: 4.25rem;
+  height: 4.25rem;
+  filter:
+    brightness(1.2)
+    contrast(1.35)
+    saturate(1.45)
+    hue-rotate(28deg)
+    drop-shadow(0 0 0.4px rgba(255, 255, 255, 0.85))
+    drop-shadow(0 0 0.5px rgba(var(--accent-rgb), 0.9))
+    drop-shadow(0 0 0.85px color-mix(in srgb, var(--beyond-teal-highlight) 70%, transparent));
+}
+
+.beyond-data__icon--flask {
+  color: var(--accent);
+}
+
+.beyond-data__item:hover .beyond-data__icon,
+.beyond-data__item:focus-visible .beyond-data__icon {
+  transform: translateY(-2px);
+}
+
+.beyond-data__item:hover .beyond-data__icon--camera .beyond-data__dotlottie,
+.beyond-data__item:focus-visible .beyond-data__icon--camera .beyond-data__dotlottie {
+  filter:
+    brightness(2.55)
+    contrast(1.32)
+    saturate(1.65)
+    hue-rotate(132deg)
+    drop-shadow(0 0 0.55px rgba(var(--accent-rgb), 1))
+    drop-shadow(0 0 0.55px color-mix(in srgb, var(--beyond-teal-highlight) 95%, transparent))
+    drop-shadow(0 0 1.2px rgba(var(--accent-rgb), 0.55));
+}
+
+.beyond-data__item:hover .beyond-data__icon--pen .beyond-data__dotlottie,
+.beyond-data__item:focus-visible .beyond-data__icon--pen .beyond-data__dotlottie {
+  filter:
+    brightness(1.26)
+    contrast(1.4)
+    saturate(1.5)
+    hue-rotate(28deg)
+    drop-shadow(0 0 0.45px rgba(255, 255, 255, 0.9))
+    drop-shadow(0 0 0.55px rgba(var(--accent-rgb), 0.95))
+    drop-shadow(0 0 1px color-mix(in srgb, var(--beyond-teal-highlight) 85%, transparent));
+}
+
+.beyond-data__item:hover .beyond-data__icon--flask,
+.beyond-data__item:focus-visible .beyond-data__icon--flask {
+  color: var(--beyond-teal-highlight);
+}
+
+@media (max-width: 767px) {
+  .beyond-data {
+    padding-inline: var(--space-sm) var(--space-md);
+  }
+
+  .beyond-data__inner {
+    align-items: stretch;
+  }
+
+  .beyond-data__label {
+    align-self: center;
+    text-align: center;
+  }
+
+  .beyond-data__links {
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+    gap: 0.5rem;
+  }
+
+  .beyond-data__item {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: 0.75rem;
+    padding: 0.375rem 0;
+  }
+
+  .beyond-data__icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    align-self: center;
+  }
+
+  .beyond-data__icon--camera .beyond-data__dotlottie {
+    width: 4.25rem;
+    height: 4.25rem;
+  }
+
+  .beyond-data__icon--pen .beyond-data__dotlottie {
+    width: 3.25rem;
+    height: 3.25rem;
+  }
+
+  .beyond-data__svg svg {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .beyond-data__copy {
+    align-items: flex-start;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .beyond-data__desc {
+    max-width: none;
+    margin: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .beyond-data__svg svg * {
+    animation: none !important;
+  }
+}
+
+/* ---- end Beyond data ---- */
 
 /* Services subtle CTA */
 .services-cta {
