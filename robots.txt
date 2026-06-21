@@ -1,4 +1,6 @@
 User-agent: *
 Disallow: /.vscode/
 Disallow: /cgi-bin/
+Disallow: /photography/layout.html
+Disallow: /scripts/photography-gallery-layout/
 Sitemap: https://niloy.tech/sitemap.xml
