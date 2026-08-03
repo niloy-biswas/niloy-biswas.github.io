@@ -89,7 +89,9 @@
     |================
     */
  
-      $("[data-fancybox]").fancybox({});
+      if ($.fn.fancybox) {
+        $("[data-fancybox]").fancybox({});
+      }
       
       
     /*
