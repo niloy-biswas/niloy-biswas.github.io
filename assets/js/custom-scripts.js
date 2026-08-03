@@ -435,6 +435,15 @@
   var sigPath = document.getElementById('niloy-sig-path');
   var brand   = document.querySelector('.navbar-signature');
 
+  // sigDraw's animationend must not bubble to the ancestor header's WOW.js
+  // listener: WOW assumes event.target.className is a string, but an SVG
+  // <path>'s className is an SVGAnimatedString, throwing on `.replace`.
+  if (sigPath) {
+    ['animationend', 'oanimationend', 'webkitAnimationEnd', 'MSAnimationEnd'].forEach(function(evt) {
+      sigPath.addEventListener(evt, function(e) { e.stopPropagation(); });
+    });
+  }
+
   function triggerSigAnimation() {
     if (!sigPath) return;
     sigPath.classList.remove('sig-animate');
