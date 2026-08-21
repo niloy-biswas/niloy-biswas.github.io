@@ -65,6 +65,15 @@
           CONFIG.successMessage +
           '</span>'
       );
+      if (typeof gtag === 'function') {
+        var ft = window.niloyFirstTouch || {};
+        gtag('event', 'generate_lead', {
+          form_id: 'contactForm',
+          first_source: ft.first_source,
+          first_medium: ft.first_medium,
+          first_campaign: ft.first_campaign
+        });
+      }
     }
 
     function showError() {
@@ -72,6 +81,7 @@
         'error',
         '<span class="contact-section__form-status-copy">' + CONFIG.errorMessage + '</span>'
       );
+      if (typeof gtag === 'function') gtag('event', 'form_error', { form_id: 'contactForm' });
     }
 
     form.addEventListener('submit', function (ev) {

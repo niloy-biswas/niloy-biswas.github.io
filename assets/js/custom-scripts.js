@@ -479,3 +479,64 @@ function copyCitation(btn) {
     setTimeout(function() { btn.innerHTML = '<i class="fa fa-copy"></i>'; }, 1500);
   });
 }
+
+// GA4 event tracking: scroll depth, outbound links, project card clicks
+(function() {
+  function track(name, params) {
+    if (typeof gtag === 'function') gtag('event', name, params);
+  }
+
+  // Scroll depth
+  var thresholds = [25, 50, 75, 100];
+  var fired = {};
+  function checkScrollDepth() {
+    var doc = document.documentElement;
+    var scrollable = doc.scrollHeight - doc.clientHeight;
+    if (scrollable <= 0) return;
+    var pct = Math.round(((doc.scrollTop || window.pageYOffset) / scrollable) * 100);
+    thresholds.forEach(function(t) {
+      if (pct >= t && !fired[t]) {
+        fired[t] = true;
+        track('scroll_depth', { percent_scrolled: t });
+      }
+    });
+  }
+  var scrollTicking = false;
+  window.addEventListener('scroll', function() {
+    if (scrollTicking) return;
+    scrollTicking = true;
+    requestAnimationFrame(function() {
+      checkScrollDepth();
+      scrollTicking = false;
+    });
+  }, { passive: true });
+
+  // Outbound links + project card clicks (delegated, works for markup added later)
+  document.addEventListener('click', function(ev) {
+    var link = ev.target.closest('a[href]');
+    if (!link) return;
+
+    var projectLink = link.closest('.portfolio-showcase__link');
+    if (projectLink) {
+      var card = projectLink.closest('[data-category]');
+      var titleEl = projectLink.querySelector('h3');
+      track('project_card_click', {
+        project_name: titleEl ? titleEl.textContent.trim() : '',
+        project_slug: (projectLink.getAttribute('href') || '').replace(/^\/|\/$/g, ''),
+        project_category: card ? card.getAttribute('data-category') : ''
+      });
+      return;
+    }
+
+    var href = link.getAttribute('href') || '';
+    if (!/^https?:\/\//i.test(href)) return;
+    var linkHost;
+    try { linkHost = new URL(href, window.location.href).hostname; } catch (e) { return; }
+    if (linkHost === window.location.hostname) return;
+    track('outbound_link_click', {
+      link_url: href,
+      link_domain: linkHost,
+      link_text: (link.textContent || '').trim().slice(0, 100)
+    });
+  });
+})();
