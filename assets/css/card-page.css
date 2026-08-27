@@ -1,0 +1,301 @@
+/*
+================================================================================
+  DIGITAL CONTACT CARD — /card/ and /card/scan/
+  Standalone orphan pages (no site nav). Uses tokens + .glass-chip from
+  glass-theme.css; everything else here is scoped to .card-page-wrap so
+  it never leaks into the rest of the site.
+================================================================================
+*/
+
+html:has(body.card-page) {
+  background-color: var(--bg-base);
+  min-height: 100%;
+}
+
+body.card-page {
+  background-color: var(--bg-base);
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(20px, 6vw, 48px) 16px 16px;
+}
+
+.card-page-wrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 6vw, 36px);
+}
+
+/* ---------------------------------------------------------------- */
+/* Hero panel — photo + name + title + tagline                      */
+/* ---------------------------------------------------------------- */
+
+.card-hero {
+  position: relative;
+}
+
+.card-hero__photo-frame {
+  position: relative;
+  margin: 0 0 0 auto;
+  height: clamp(340px, 88vw, 420px);
+  width: fit-content;
+}
+
+.card-hero__photo {
+  display: block;
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 36px rgba(0, 0, 0, 0.5));
+}
+
+.card-hero__photo-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(3, 7, 18, 0.85) 0%, rgba(3, 7, 18, 0.4) 28%, transparent 55%);
+  pointer-events: none;
+}
+
+.card-hero__content {
+  position: relative;
+  z-index: 2;
+  margin-top: clamp(-110px, -24vw, -90px);
+}
+
+.card-hero__name {
+  margin: 0 0 4px;
+  font-size: clamp(1.9rem, 8vw, 2.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  text-shadow: 0 2px 16px rgba(3, 7, 18, 0.8);
+}
+
+.card-hero__role {
+  margin: 0 0 2px;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  text-shadow: 0 2px 12px rgba(3, 7, 18, 0.8);
+}
+
+.card-hero__org {
+  margin: 0 0 12px;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+  text-shadow: 0 2px 12px rgba(3, 7, 18, 0.8);
+}
+
+.card-hero__tagline {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  text-shadow: 0 2px 12px rgba(3, 7, 18, 0.8);
+}
+
+/* ---------------------------------------------------------------- */
+/* Section label (shared by tags + connect blocks)                  */
+/* ---------------------------------------------------------------- */
+
+.card-section-label {
+  display: block;
+  margin-bottom: 14px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+/* ---------------------------------------------------------------- */
+/* Focus area tags                                                  */
+/* ---------------------------------------------------------------- */
+
+.card-tags__row {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 6px;
+}
+
+.card-tag {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem 0.5rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  color: var(--text-secondary);
+}
+
+.card-tag--ai {
+  color: #a5b4fc;
+  background: rgba(129, 140, 248, 0.14);
+  border-color: rgba(129, 140, 248, 0.35);
+}
+
+.card-tag--data {
+  color: var(--accent);
+  background: rgba(var(--accent-rgb), 0.14);
+  border-color: rgba(var(--accent-rgb), 0.35);
+}
+
+/* ---------------------------------------------------------------- */
+/* Connect list — icon + value, uniform rows                        */
+/* ---------------------------------------------------------------- */
+
+.card-connect__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card-connect__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 14px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: background var(--transition-base), border-color var(--transition-base),
+    transform var(--transition-base);
+}
+
+.card-connect__item:hover,
+.card-connect__item:focus-visible {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(var(--accent-rgb), 0.2);
+  transform: translateX(4px);
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.card-connect__item .card-connect__icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: var(--radius-sm);
+  background: rgba(var(--accent-rgb), 0.1);
+  color: var(--accent);
+  font-size: 11px;
+  transition: background var(--transition-base), color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.card-connect__item:hover .card-connect__icon {
+  background: var(--accent);
+  color: #0d1117;
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.card-connect__value {
+  font-size: 14px;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ---------------------------------------------------------------- */
+/* Save Contact button (Page A)                                     */
+/* ---------------------------------------------------------------- */
+
+.card-save-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 16px 24px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--accent-gradient);
+  color: #0d1117;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 12px 30px var(--accent-glow);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.card-save-btn:hover,
+.card-save-btn:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px var(--glow-primary-strong);
+}
+
+.card-save-btn:active {
+  transform: translateY(0);
+}
+
+.card-save-btn.is-saved {
+  background: var(--glass-fill-active);
+  color: var(--accent);
+  box-shadow: var(--glass-edge-glow);
+}
+
+/* ---------------------------------------------------------------- */
+/* QR panel (Page B)                                                */
+/* ---------------------------------------------------------------- */
+
+.card-qr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+}
+
+.card-qr__panel {
+  display: inline-flex;
+  padding: 16px;
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-glass);
+  line-height: 0;
+}
+
+.card-qr__image {
+  display: block;
+  width: 200px;
+  height: 200px;
+}
+
+.card-qr__label {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--text-secondary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-save-btn,
+  .card-connect__item {
+    transition: none;
+  }
+}
