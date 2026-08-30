@@ -42,7 +42,7 @@ body.card-page {
 .card-hero__photo-frame {
   position: relative;
   margin: 0 0 0 auto;
-  height: clamp(340px, 88vw, 420px);
+  height: clamp(300px, 78vw, 370px);
   width: fit-content;
 }
 
@@ -65,7 +65,7 @@ body.card-page {
 .card-hero__content {
   position: relative;
   z-index: 2;
-  margin-top: clamp(-110px, -24vw, -90px);
+  margin-top: clamp(-140px, -30vw, -115px);
 }
 
 .card-hero__name {
