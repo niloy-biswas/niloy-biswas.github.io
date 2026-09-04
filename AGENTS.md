@@ -24,6 +24,7 @@ Reference for AI agents editing this repo. **Static GitHub Pages** (no npm/CI bu
 | Contact | `#mh-contact` | `index.html` | `contact-section.css` | `contact-section.js` |
 | Blog | `blog/index.html` | `blog/` | `medium-style.css`, `styles.css` | `medium-on-website.js` |
 | Case study pages | `/projects/{slug}/` | `projects/{slug}/content.html` or custom `index.html` | `case-study.css` or `tenten-case-study.css` (+ `list-dash.css` for TenTen) | `case-study.js` or `tenten-case-study.js` |
+| Résumé page | `/resume/` | `resume/index.html` | `resume/style.css` (standalone, not shared) | — |
 
 **Shared everywhere:** `glass-theme.css` (tokens, `.glass-card`, `.text-gradient-accent`), `typography.css`, `responsive.css`, `closing-cta.css` (closing CTA + `.page-credits`), Bootstrap, jQuery.
 
@@ -197,6 +198,38 @@ assets/images/photography/profiles/  ← platform thumbnails
 ```
 
 **Add/reorder gallery images:** edit `gallery.json` (`column` + `row` per image) + drop files in `gallery/`. Or open `photography/layout.html` locally, drag to swap, export JSON. After import or new originals, run `node scripts/optimize-photography-gallery.mjs` (requires `cwebp`: `brew install webp`).
+
+### Résumé page (`/resume/`)
+
+```
+resume/index.html   ← content (edit this for wording/experience/links)
+resume/style.css    ← styling (standalone — not wired into glass-theme/typography.css/Bootstrap)
+```
+
+Self-contained on purpose: it must render identically for on-screen viewing and for `Cmd/Ctrl+P → Save as PDF`, so it deliberately doesn't share the site's CSS/JS stack. Fixed light theme (no dark mode) — this becomes a printed PDF and must stay white-background regardless of viewer theme. `.page` is capped at `706px` outer width (2rem padding each side → 642px actual content width) to match A4 minus 20mm margins — screen and print render the same line breaks.
+
+**Download PDF button:** links to a Google Drive direct-download URL (`https://drive.google.com/uc?export=download&id=<FILE_ID>`), not to a file in this repo — Niloy manually re-uploads a new PDF to that same Drive file whenever the résumé changes, replacing its contents in place (link stays constant). If a fresh `<FILE_ID>` is ever given, update it in `resume/index.html`'s toolbar link.
+
+**Regenerate the PDF** (after any content/style change — always verify page count, this must stay 2 pages):
+
+```bash
+# from repo root:
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+  --headless --disable-gpu --no-pdf-header-footer --virtual-time-budget=8000 \
+  --print-to-pdf="$PWD/resume/Niloy_Biswas_Resume.pdf" \
+  "file://$PWD/resume/index.html"
+
+# verify page count (macOS mdls can cache stale results — count page objects directly):
+python3 -c "
+import re
+data = open('resume/Niloy_Biswas_Resume.pdf','rb').read()
+print('Pages:', len(re.findall(rb'/Type\s*/Page[^s]', data)))
+"
+```
+
+`--no-pdf-header-footer` and headless print-to-PDF honor the page's own `@page { size: A4; margin: 20mm; }` — no browser dialog, no injected date/title/URL/page-number chrome (that chrome is a `window.print()`-dialog-only artifact and does not appear in headless output). Then upload the resulting PDF to the Drive file above. Do **not** commit the PDF into `resume/` (gitignored).
+
+`/resume/` is included in `sitemap.xml` via `scripts/build-portfolio.mjs` (static URL list). Re-run the build after adding peer static pages.
 
 ### Animations
 - **`animations.js`** — GSAP: hero entrance, stat counters, skills pills, section-title underlines (loads after GSAP in `index.html`).

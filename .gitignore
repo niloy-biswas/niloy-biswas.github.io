@@ -5,3 +5,5 @@ projects/tenten/TenTen icons and lottie/
 .agents/
 skills-lock.json
 .cursor/
+resume/*.pdf
+resume/_preview*.png
