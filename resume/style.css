@@ -1,0 +1,235 @@
+:root {
+  --surface: #fcfcfb;
+  --ink: #1b2330;
+  --ink-soft: #4c5768;
+  --ink-faint: #7c8798;
+  --line: #dde2e9;
+  --accent: #1e3a5f;
+  --accent-contrast: #ffffff;
+  --shadow: 0 1px 2px rgba(27,35,48,.04), 0 8px 24px rgba(27,35,48,.05);
+}
+
+/* Fixed light palette on purpose: this page's output is a printed job-application
+   PDF, which reads as broken if it ever renders dark. No theme switching. */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: 'Source Sans 3', -apple-system, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  max-width: 706px;
+  margin: 0 auto;
+  padding: 1.75rem 2rem 2.75rem;
+}
+
+.toolbar {
+  position: fixed;
+  top: 1.1rem;
+  right: 1.1rem;
+  z-index: 10;
+}
+.print-btn {
+  display: inline-block;
+  font: 600 .8rem/1 'Source Sans 3', sans-serif;
+  letter-spacing: .02em;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  border: none;
+  border-radius: 6px;
+  padding: .65rem 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+.print-btn:hover { filter: brightness(1.08); }
+.print-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ---------- Header ---------- */
+header.identity {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  padding-bottom: .75rem;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: .85rem;
+}
+h1.name {
+  font-family: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+  font-weight: 600;
+  font-size: 1.7rem;
+  letter-spacing: -.01em;
+  text-wrap: balance;
+  color: var(--ink);
+  margin: 0;
+}
+.tagline {
+  color: var(--ink-soft);
+  font-size: .84rem;
+}
+.summary {
+  color: var(--ink);
+  font-size: .86rem;
+  line-height: 1.45;
+  max-width: 66ch;
+}
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25rem 1.1rem;
+  margin-top: .2rem;
+}
+.contact-row a, .contact-row span {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: .79rem;
+}
+.contact-row a:hover { color: var(--accent); }
+.contact-row svg { width: 14px; height: 14px; flex: none; stroke: currentColor; }
+
+/* ---------- Sections ---------- */
+section { margin-bottom: .85rem; }
+h2.section-title {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding-bottom: .22rem;
+  border-bottom: 1px solid var(--line);
+  margin: 0 0 .5rem;
+  break-after: avoid-page;
+}
+
+.employer-group { margin-bottom: .55rem; }
+.employer-group:last-child { margin-bottom: 0; }
+.employer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.employer-name {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 600;
+  font-size: .96rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+.employer-name:hover, .edu-school a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+
+.inline-link {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+.inline-link:hover { border-bottom-color: var(--accent); }
+.employer-loc {
+  font-size: .78rem;
+  color: var(--ink-faint);
+}
+
+.role { margin-top: .35rem; break-inside: avoid; }
+.role + .role { margin-top: .45rem; }
+.role-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.role-title { font-weight: 600; color: var(--ink); font-size: .85rem; }
+.role-type { color: var(--ink-faint); font-weight: 400; }
+.role-dates {
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-faint);
+  font-size: .76rem;
+  white-space: nowrap;
+}
+
+ul.bullets {
+  margin: .25rem 0 0;
+  padding-left: 1.05rem;
+}
+ul.bullets li {
+  line-height: 1.34;
+  font-size: .78rem;
+  color: var(--ink);
+  margin-bottom: .16rem;
+}
+ul.bullets li:last-child { margin-bottom: 0; }
+ul.bullets li::marker {
+  color: var(--accent);
+  font-size: .55em;
+}
+ul.bullets b { font-weight: 600; }
+
+/* Education / Teaching */
+.edu-block, .teach-block { break-inside: avoid; }
+.edu-block + .edu-block, .teach-block + .teach-block { margin-top: .5rem; }
+.edu-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+.edu-meta { text-align: right; }
+.edu-loc { font-size: .78rem; color: var(--ink-faint); }
+.edu-school { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: .92rem; }
+.edu-school a { color: inherit; text-decoration: none; }
+.edu-degree { color: var(--ink-soft); font-size: .8rem; margin-top: .1rem; }
+.edu-dates { font-variant-numeric: tabular-nums; color: var(--ink-faint); font-size: .76rem; }
+
+/* Skills */
+.skill-row { display: grid; grid-template-columns: 190px 1fr; gap: .3rem 1rem; margin-bottom: .26rem; align-items: baseline; }
+.skill-row:last-child { margin-bottom: 0; }
+.skill-label { font-size: .74rem; font-weight: 600; color: var(--ink-soft); letter-spacing: .01em; }
+.skill-list { font-size: .8rem; color: var(--ink); line-height: 1.4; }
+@media (max-width: 620px) { .skill-row { grid-template-columns: 1fr; } }
+
+/* Certificates / Publications / Achievements */
+.cert-row {
+  display: flex;
+  align-items: baseline;
+  gap: .6rem;
+  font-size: .8rem;
+  padding: .22rem 0;
+  border-bottom: 1px solid var(--line);
+  break-inside: avoid;
+}
+.cert-row:last-child { border-bottom: none; }
+.cert-date { flex: none; width: 76px; color: var(--ink-faint); font-variant-numeric: tabular-nums; font-size: .76rem; }
+.cert-name { color: var(--ink); font-weight: 500; }
+.cert-issuer { color: var(--ink-faint); font-size: .76rem; }
+
+.pub { font-size: .8rem; line-height: 1.38; margin-bottom: .35rem; break-inside: avoid; }
+.pub:last-child { margin-bottom: 0; }
+
+ul.achievements { margin: 0; padding-left: 1.05rem; }
+ul.achievements li { font-size: .8rem; line-height: 1.4; margin-bottom: .2rem; }
+ul.achievements li:last-child { margin-bottom: 0; }
+ul.achievements li::marker {
+  color: var(--accent);
+  font-size: .55em;
+}
+
+.grid-2 section:last-child { margin-bottom: 1.1rem; }
+
+/* ---------- Print ---------- */
+@media print {
+  @page { size: A4; margin: 20mm; }
+  body { background: #fff; }
+  .toolbar { display: none; }
+  .page { max-width: none; padding: 0; margin: 0; }
+  a { color: inherit; text-decoration: none; }
+  .inline-link { border-bottom: none; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .print-btn { transition: filter .12s ease; }
+}
