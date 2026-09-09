@@ -299,3 +299,77 @@ body.card-page {
     transition: none;
   }
 }
+
+/* ---------------------------------------------------------------- */
+/* Desktop split layout — photo column left, content column right   */
+/* Mobile rules above stay untouched below this breakpoint.         */
+/* ---------------------------------------------------------------- */
+
+@media (min-width: 860px) {
+  body.card-page {
+    align-items: center;
+    padding: clamp(32px, 5vw, 64px) 24px;
+  }
+
+  .card-page-wrap {
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: minmax(300px, 380px) 1fr;
+    column-gap: 64px;
+    align-items: start;
+    gap: 0;
+  }
+
+  .card-hero {
+    display: contents;
+  }
+
+  .card-hero__photo-frame {
+    grid-column: 1;
+    grid-row: 1 / span 4;
+    position: sticky;
+    top: 64px;
+    width: 100%;
+    height: clamp(380px, 32vw, 480px);
+    margin: 0;
+    align-self: start;
+  }
+
+  .card-hero__photo-frame::after {
+    content: none;
+  }
+
+  .card-hero__content {
+    grid-column: 2;
+    grid-row: 1;
+    margin-top: 0;
+  }
+
+  .card-hero__name {
+    font-size: clamp(2.4rem, 3.2vw, 3rem);
+  }
+
+  .card-tags {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .card-connect,
+  .card-qr {
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  .card-qr {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .card-save-btn {
+    grid-column: 2;
+    grid-row: 4;
+    width: auto;
+    align-self: flex-start;
+    padding: 16px 32px;
+  }
+}
