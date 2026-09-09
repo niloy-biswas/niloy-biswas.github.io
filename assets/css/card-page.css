@@ -2,23 +2,38 @@
 ================================================================================
   DIGITAL CONTACT CARD — /card/ and /card/scan/
   Standalone orphan pages (no site nav). Uses tokens + .glass-chip from
-  glass-theme.css; everything else here is scoped to .card-page-wrap so
+  glass-theme.css; everything else here is scoped to .card-page so
   it never leaks into the rest of the site.
+
+  Mobile: full-bleed photo card with text overlaid at bottom.
+  Desktop (≥860px): full-bleed photo left, content panel right.
 ================================================================================
 */
 
 html:has(body.card-page) {
   background-color: var(--bg-base);
   min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body.card-page {
+  box-sizing: border-box;
+  margin: 0;
   background-color: var(--bg-base);
   min-height: 100vh;
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: clamp(20px, 6vw, 48px) 16px 16px;
+  padding: 20px 18px 28px;
+  font-family: "Inter", sans-serif;
+  color: var(--text-primary);
+}
+
+body.card-page *,
+body.card-page *::before,
+body.card-page *::after {
+  box-sizing: border-box;
 }
 
 .card-page-wrap {
@@ -28,114 +43,182 @@ body.card-page {
   max-width: 420px;
   display: flex;
   flex-direction: column;
-  gap: clamp(28px, 6vw, 36px);
+  gap: 28px;
 }
 
 /* ---------------------------------------------------------------- */
-/* Hero panel — photo + name + title + tagline                      */
+/* Mobile top card — full-bleed photo, text overlaid at bottom      */
 /* ---------------------------------------------------------------- */
 
-.card-hero {
+.card-top {
   position: relative;
+  height: clamp(380px, 92vw, 460px);
+  border-radius: var(--radius-lg);
+  background: var(--bg-elevated);
+  overflow: hidden;
+}
+
+.card-hero {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 }
 
 .card-hero__photo-frame {
-  position: relative;
-  margin: 0 0 0 auto;
-  height: clamp(300px, 78vw, 370px);
-  width: fit-content;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  overflow: hidden;
 }
 
 .card-hero__photo {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
   display: block;
   height: 100%;
   width: auto;
+  max-width: none;
   object-fit: contain;
-  filter: drop-shadow(0 20px 36px rgba(0, 0, 0, 0.5));
+  object-position: center bottom;
+}
+
+.card-hero__photo-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(
+    120% 90% at 0% 0%,
+    rgba(3, 7, 18, 0.85) 0%,
+    rgba(3, 7, 18, 0.45) 28%,
+    rgba(3, 7, 18, 0.12) 52%,
+    transparent 72%
+  );
+  pointer-events: none;
 }
 
 .card-hero__photo-frame::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(3, 7, 18, 0.85) 0%, rgba(3, 7, 18, 0.4) 28%, transparent 55%);
+  z-index: 1;
+  background: linear-gradient(
+    to top,
+    rgba(3, 7, 18, 0.96) 0%,
+    rgba(3, 7, 18, 0.78) 22%,
+    rgba(3, 7, 18, 0.35) 48%,
+    transparent 72%
+  );
   pointer-events: none;
 }
 
-.card-hero__content {
-  position: relative;
+.card-identity {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 2;
-  margin-top: clamp(-140px, -30vw, -115px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 10px;
+  width: 100%;
+  min-height: 0;
+  padding: 24px 18px 20px;
 }
 
 .card-hero__name {
-  margin: 0 0 4px;
-  font-size: clamp(1.9rem, 8vw, 2.4rem);
-  line-height: 1.1;
+  margin: 0;
+  font-family: "Fraunces", "Inter", serif;
+  font-size: clamp(1.85rem, 7.5vw, 2.35rem);
+  font-weight: 700;
+  line-height: 1.05;
   letter-spacing: -0.02em;
   color: var(--text-primary);
-  text-shadow: 0 2px 16px rgba(3, 7, 18, 0.8);
+  text-wrap: balance;
+}
+
+.card-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
 .card-hero__role {
-  margin: 0 0 2px;
-  font-size: var(--text-sm);
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(0.9rem, 3.6vw, 1.05rem);
   font-weight: 600;
-  letter-spacing: 0.02em;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
   color: var(--accent);
-  text-shadow: 0 2px 12px rgba(3, 7, 18, 0.8);
+  white-space: nowrap;
+}
+
+.card-hero__role-break {
+  display: none;
 }
 
 .card-hero__org {
-  margin: 0 0 12px;
-  font-size: var(--text-sm);
+  margin: 14px 0 0;
+  font-size: 0.85rem;
   font-weight: 500;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
+  text-transform: none;
   color: var(--text-muted);
-  text-shadow: 0 2px 12px rgba(3, 7, 18, 0.8);
 }
 
 .card-hero__tagline {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.5;
-  color: var(--text-secondary);
-  text-shadow: 0 2px 12px rgba(3, 7, 18, 0.8);
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  font-weight: 400;
+  color: var(--text-primary);
+  text-wrap: pretty;
 }
 
 /* ---------------------------------------------------------------- */
-/* Section label (shared by tags + connect blocks)                  */
+/* Content below hero card                                          */
 /* ---------------------------------------------------------------- */
+
+.card-panel {
+  --card-stack-gap: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.card-tags {
+  margin-bottom: var(--card-stack-gap);
+}
 
 .card-section-label {
   display: block;
-  margin-bottom: 14px;
-  font-size: 0.7rem;
+  margin-bottom: 12px;
+  font-size: 0.68rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  color: var(--accent);
 }
-
-/* ---------------------------------------------------------------- */
-/* Focus area tags                                                  */
-/* ---------------------------------------------------------------- */
 
 .card-tags__row {
   display: flex;
-  flex-wrap: nowrap;
-  gap: 6px;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .card-tag {
-  flex: 1;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.4rem 0.5rem;
+  padding: 0.45rem 0.85rem;
   font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   white-space: nowrap;
   color: var(--text-secondary);
 }
@@ -153,8 +236,14 @@ body.card-page {
 }
 
 /* ---------------------------------------------------------------- */
-/* Connect list — icon + value, uniform rows                        */
+/* Connect — pill rows with circular icons                          */
 /* ---------------------------------------------------------------- */
+
+.card-connect {
+  margin-bottom: var(--card-stack-gap);
+  padding-top: var(--card-stack-gap);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
 
 .card-connect__list {
   display: flex;
@@ -169,10 +258,11 @@ body.card-page {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 9px 14px;
-  border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.03);
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   text-decoration: none;
   color: var(--text-primary);
   transition: background var(--transition-base), border-color var(--transition-base),
@@ -181,8 +271,8 @@ body.card-page {
 
 .card-connect__item:hover,
 .card-connect__item:focus-visible {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(var(--accent-rgb), 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(var(--accent-rgb), 0.25);
   transform: translateX(4px);
   color: var(--text-primary);
   text-decoration: none;
@@ -193,12 +283,12 @@ body.card-page {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 22px;
-  height: 22px;
-  border-radius: var(--radius-sm);
-  background: rgba(var(--accent-rgb), 0.1);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(var(--accent-rgb), 0.12);
   color: var(--accent);
-  font-size: 11px;
+  font-size: 12px;
   transition: background var(--transition-base), color var(--transition-base),
     box-shadow var(--transition-base);
 }
@@ -210,7 +300,9 @@ body.card-page {
 }
 
 .card-connect__value {
-  font-size: 14px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
   color: var(--text-primary);
   overflow: hidden;
   text-overflow: ellipsis;
@@ -218,7 +310,7 @@ body.card-page {
 }
 
 /* ---------------------------------------------------------------- */
-/* Save Contact button (Page A)                                     */
+/* Save Contact button                                              */
 /* ---------------------------------------------------------------- */
 
 .card-save-btn {
@@ -233,9 +325,9 @@ body.card-page {
   background: var(--accent-gradient);
   color: #0d1117;
   font-family: "Inter", sans-serif;
-  font-size: 15px;
+  font-size: 0.9rem;
   font-weight: 700;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   cursor: pointer;
   box-shadow: 0 12px 30px var(--accent-glow);
@@ -249,7 +341,7 @@ body.card-page {
 }
 
 .card-save-btn:active {
-  transform: translateY(0);
+  transform: scale(0.96);
 }
 
 .card-save-btn.is-saved {
@@ -267,6 +359,9 @@ body.card-page {
   flex-direction: column;
   align-items: center;
   gap: 14px;
+  margin-bottom: var(--card-stack-gap);
+  padding-top: var(--card-stack-gap);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
   text-align: center;
 }
 
@@ -297,5 +392,179 @@ body.card-page {
   .card-save-btn,
   .card-connect__item {
     transition: none;
+  }
+
+  .card-save-btn:active {
+    transform: none;
+  }
+}
+
+/* ---------------------------------------------------------------- */
+/* Desktop split — photo left, content panel right                  */
+/* ---------------------------------------------------------------- */
+
+@media (min-width: 860px) {
+  html:has(body.card-page) {
+    height: 100%;
+  }
+
+  body.card-page {
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    padding: 0;
+    align-items: stretch;
+    justify-content: stretch;
+  }
+
+  body.card-page .site-shell {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+  }
+
+  .card-page-wrap {
+    max-width: none;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: minmax(340px, 42%) minmax(0, 1fr);
+    grid-template-rows: 1fr auto auto 1fr;
+    column-gap: 0;
+    row-gap: 0;
+  }
+
+  .card-top,
+  .card-identity {
+    display: contents;
+  }
+
+  .card-hero {
+    position: relative;
+    grid-column: 1;
+    grid-row: 1 / -1;
+    min-height: 0;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: auto;
+  }
+
+  .card-hero__photo-frame {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(120% 90% at 50% 100%, rgba(var(--accent-rgb), 0.22), var(--bg-elevated) 72%);
+  }
+
+  .card-hero__photo {
+    left: 50%;
+    right: auto;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 92%;
+    max-height: 100%;
+    filter: drop-shadow(0 20px 36px rgba(0, 0, 0, 0.5));
+  }
+
+  .card-hero__photo-frame::before {
+    content: none;
+  }
+
+  .card-hero__photo-frame::after {
+    background: linear-gradient(
+      to top,
+      rgba(3, 7, 18, 1) 0%,
+      rgba(3, 7, 18, 0.88) 18%,
+      rgba(3, 7, 18, 0.5) 42%,
+      transparent 70%
+    );
+  }
+
+  .card-hero__name {
+    position: relative;
+    grid-column: 1;
+    grid-row: 1 / -1;
+    align-self: end;
+    justify-self: start;
+    z-index: 3;
+    margin: 0 0 clamp(20px, 3vw, 36px) clamp(28px, 4vw, 56px);
+    font-family: "Inter", sans-serif;
+    font-size: clamp(3.25rem, 5.8vw, 5.25rem);
+    font-weight: 800;
+    line-height: 0.86;
+    letter-spacing: -0.04em;
+    text-shadow: 0 2px 24px rgba(3, 7, 18, 0.9), 0 1px 4px rgba(3, 7, 18, 0.8);
+  }
+
+  .card-hero__name-last {
+    display: block;
+    color: rgba(var(--accent-rgb), 0.92);
+  }
+
+  .card-intro {
+    grid-column: 2;
+    grid-row: 2;
+    width: 100%;
+    max-width: 620px;
+    margin: 0;
+    padding: 0 clamp(40px, 6vw, 80px);
+    gap: 8px;
+  }
+
+  .card-panel {
+    --card-stack-gap: clamp(22px, 3.2vh, 32px);
+    grid-column: 2;
+    grid-row: 3;
+    width: 100%;
+    max-width: 620px;
+    height: auto;
+    margin: 0;
+    padding: clamp(22px, 3.2vh, 32px) clamp(40px, 6vw, 80px) 0;
+    overflow: visible;
+  }
+
+  .card-hero__role {
+    font-size: clamp(2.35rem, 3.6vw, 3.25rem);
+    font-weight: 800;
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    color: var(--text-primary);
+    white-space: normal;
+  }
+
+  .card-hero__role-break {
+    display: revert;
+  }
+
+  .card-hero__org {
+    margin-top: 18px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+  }
+
+  .card-hero__tagline {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+  }
+
+  .card-connect__value {
+    font-size: 0.95rem;
+  }
+
+  .card-qr {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .card-save-btn {
+    width: auto;
+    align-self: flex-start;
+    margin-top: 0;
+    padding: 15px 34px;
   }
 }
