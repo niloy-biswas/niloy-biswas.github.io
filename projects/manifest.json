@@ -35,8 +35,40 @@
       }
     },
     {
-      "id": "chicago-taxi",
+      "id": "hsep",
       "order": 2,
+      "slug": "hsep",
+      "category": "analytics",
+      "showOnHome": true,
+      "title": "USAID HSEP: Teacher Training Analytics",
+      "badge": {
+        "label": "USAID / BI",
+        "variant": "analytics"
+      },
+      "card": {
+        "thumbnail": "projects/hsep/images/hsep-card.jpg",
+        "thumbnailAlt": "Chart of HSEP pilot teachers doing graded work each month, dropping to zero after the January 2025 aid freeze",
+        "tags": [
+          "BigQuery",
+          "Looker Studio",
+          "M&E"
+        ],
+        "summary": "Learning analytics for the pilot of USAID's Higher Secondary Education Project in Bangladesh: 479 teachers, one shared dashboard for four partners, and a data trail that ends at the January 2025 aid freeze."
+      },
+      "links": {
+        "caseStudy": "/projects/hsep/",
+        "footerAction": "Read case study",
+        "footerMeta": "USAID · Higher Secondary Education Project"
+      },
+      "page": {
+        "title": "USAID HSEP: Teacher Training Analytics | Niloy Biswas",
+        "description": "Learning analytics for USAID's HSEP teacher training pilot in Bangladesh: 479 teachers, BigQuery, Looker Studio, and the data trail of the 2025 aid freeze.",
+        "useTemplate": false
+      }
+    },
+    {
+      "id": "chicago-taxi",
+      "order": 3,
       "slug": "chicago-taxi",
       "category": "analytics",
       "showOnHome": true,
@@ -68,7 +100,7 @@
     },
     {
       "id": "heart-disease",
-      "order": 3,
+      "order": 4,
       "slug": "heart-disease",
       "category": "ml",
       "showOnHome": true,
@@ -132,7 +164,7 @@
     },
     {
       "id": "bigquery-cost-monitoring",
-      "order": 4,
+      "order": 5,
       "slug": "bigquery-cost-monitoring",
       "category": "analytics",
       "showOnHome": true,
@@ -164,7 +196,7 @@
     },
     {
       "id": "population-density-maps",
-      "order": 5,
+      "order": 6,
       "slug": "population-density-maps",
       "category": "analytics",
       "showOnHome": true,
@@ -196,10 +228,10 @@
     },
     {
       "id": "us-superstore",
-      "order": 6,
+      "order": 7,
       "slug": "us-superstore",
       "category": "analytics",
-      "showOnHome": true,
+      "showOnHome": false,
       "title": "US Superstore — Sales Summary",
       "badge": {
         "label": "Retail BI",
@@ -228,7 +260,7 @@
     },
     {
       "id": "crm-sales",
-      "order": 7,
+      "order": 8,
       "slug": "crm-sales",
       "category": "analytics",
       "showOnHome": true,
@@ -260,7 +292,7 @@
     },
     {
       "id": "air-quality",
-      "order": 8,
+      "order": 9,
       "slug": "air-quality",
       "category": "analytics",
       "showOnHome": true,

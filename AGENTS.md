@@ -23,7 +23,7 @@ Reference for AI agents editing this repo. **Static GitHub Pages** (no npm/CI bu
 | Reviewer certs | inside experience | `index.html` | `.portfolioContainer` | Fancybox `data-fancybox="reviewer"` |
 | Contact | `#mh-contact` | `index.html` | `contact-section.css` | `contact-section.js` |
 | Blog | `blog/index.html` | `blog/` | `medium-style.css`, `styles.css` | `medium-on-website.js` |
-| Case study pages | `/projects/{slug}/` | `projects/{slug}/content.html` or custom `index.html` | `case-study.css` or `tenten-case-study.css` (+ `list-dash.css` for TenTen) | `case-study.js` or `tenten-case-study.js` |
+| Case study pages | `/projects/{slug}/` | `projects/{slug}/content.html` or custom `index.html` | `case-study.css`, `tenten-case-study.css` (+ `list-dash.css`), or `hsep-case-study.css` | `case-study.js`, `tenten-case-study.js`, or `hsep-case-study.js` |
 | Résumé page | `/resume/` | `resume/index.html` | `resume/style.css` (standalone, not shared) | — |
 
 **Shared everywhere:** `glass-theme.css` (tokens, `.glass-card`, `.text-gradient-accent`), `typography.css`, `responsive.css`, `closing-cta.css` (closing CTA + `.page-credits`), Bootstrap, jQuery.
@@ -106,7 +106,7 @@ node scripts/build-portfolio.mjs
 | `page.title`, `page.description` | SEO |
 | `page.useTemplate: false` | Skip generated `index.html` (hand-built page) |
 
-**Current slugs:** `tenten` (custom page, portfolio #1), `chicago-taxi`, `heart-disease`, `linkedin-network` (off homepage), `bigquery-cost-monitoring`, `population-density-maps`, `us-superstore`, `crm-sales`, `air-quality`
+**Current slugs:** `tenten` (custom page, portfolio #1), `hsep` (custom page, portfolio #2), `chicago-taxi`, `heart-disease`, `linkedin-network` (off homepage), `bigquery-cost-monitoring`, `population-density-maps`, `us-superstore` (off homepage), `crm-sales`, `air-quality`
 
 **Custom showcase (`tenten`):** `page.useTemplate: false` — hand-built [`projects/tenten/index.html`](projects/tenten/index.html), styles in [`assets/css/tenten-case-study.css`](assets/css/tenten-case-study.css) + shared [`assets/css/list-dash.css`](assets/css/list-dash.css) (work-card bullets), motion in [`assets/js/tenten-case-study.js`](assets/js/tenten-case-study.js). **Deployed assets only** under `projects/tenten/assets/`:
 
@@ -124,6 +124,8 @@ node scripts/build-portfolio.mjs
 - **Do not redeclare `font-family` on h1–h4 elements or body-inheriting elements.** `typography.css` already sets `h1–h4 = "Fraunces"` and `body = "Inter"`. Only two exceptions exist: `span.tenten-impact__value` and `p.tenten-impact__sales-text` (non-heading elements that need Fraunces explicitly).
 - **Color tokens are scoped at the top of `.tenten-case-study {}`:** `--text-primary: #fff` (true white) and `--text-secondary: rgba(255,255,255,0.72)`. These override the global glass-theme values for this page only. Do not hardcode hex/rgba colors on individual rules — use the tokens.
 - **`p { opacity: 1 }` is reset inside `.tenten-case-study p {}`.** `styles.css` sets a global `p { opacity: 0.9 }` that bleeds in and makes paragraph text look muted. The reset lives at the top of `tenten-case-study.css`.
+
+**Custom showcase (`hsep`):** `page.useTemplate: false`, hand-built [`projects/hsep/index.html`](projects/hsep/index.html). Styles in [`assets/css/hsep-case-study.css`](assets/css/hsep-case-study.css), motion (scroll reveals, counters, chart draw-ins) in [`assets/js/hsep-case-study.js`](assets/js/hsep-case-study.js), images in `projects/hsep/images/` (`hsep-hero.jpg` page hero, `hsep-card.jpg` homepage card at ~2.2:1 so the card crop and badge stay clear, `hsep-thumbnail.jpg` 1200×630 for og/twitter/JSON-LD). No inline `style=` attributes; add modifier classes in the CSS instead. `projects/hsep/case-study-draft.md` is a local working draft (gitignored, not deployed).
 
 ### Case study content
 
