@@ -10,6 +10,7 @@
   --hsep-status-serious: #ec835a;    /* status color, flagged low-scoring items only, always with a label */
   --hsep-panel-bg: rgba(255, 255, 255, 0.035);
   --hsep-panel-border: rgba(255, 255, 255, 0.09);
+  --hsep-track: rgba(255, 255, 255, 0.06);
   padding-top: 100px;
   padding-bottom: clamp(56px, 10vw, 96px);
   min-height: 100vh;
@@ -67,7 +68,6 @@
 }
 
 .hsep-hero__lead {
-  max-width: 62ch;
   font-size: clamp(1.02rem, 1.6vw, 1.15rem);
   line-height: 1.6;
   color: var(--text-secondary);
@@ -140,7 +140,6 @@
 .hsep-callout__body {
   color: var(--text-secondary);
   line-height: 1.65;
-  max-width: 68ch;
 }
 
 .hsep-callout__body + .hsep-callout__body {
@@ -148,6 +147,21 @@
 }
 
 .hsep-callout__body strong {
+  color: var(--text-primary);
+}
+
+.hsep-callout__body a,
+.hsep-timeline__text a,
+.hsep-sources__list a {
+  color: var(--hsep-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.hsep-callout__body a:hover,
+.hsep-timeline__text a:hover,
+.hsep-sources__list a:hover {
   color: var(--text-primary);
 }
 
@@ -183,7 +197,7 @@
 /* ---------- Cliff chart (hero column chart) ---------- */
 
 .hsep-cliff {
-  margin-top: 20px;
+  margin: 20px 0 24px;
   padding: clamp(20px, 3vw, 28px);
   background: var(--hsep-panel-bg);
   border: 1px solid var(--hsep-panel-border);
@@ -199,6 +213,9 @@
 }
 
 .hsep-cliff__rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -212,14 +229,16 @@
 }
 
 .hsep-cliff__row-label {
+  white-space: nowrap;
   font-size: 0.82rem;
   color: var(--text-secondary);
 }
 
 .hsep-cliff__row-track {
   position: relative;
+  display: block;
   height: 22px;
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--hsep-track);
   border-radius: 5px;
   overflow: hidden;
 }
@@ -354,7 +373,7 @@
 
 .hsep-barchart__row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 120px;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 40%);
   align-items: center;
   gap: 12px;
 }
@@ -367,13 +386,16 @@
 
 .hsep-barchart__track {
   position: relative;
+  flex: 1 1 auto;
+  min-width: 60px;
   height: 10px;
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--hsep-track);
   border-radius: 6px;
   overflow: hidden;
 }
 
 .hsep-barchart__fill {
+  display: block;
   height: 100%;
   width: 0;
   background: var(--hsep-accent);
@@ -410,106 +432,171 @@
   font-weight: 700;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--hsep-surface);
   background: var(--hsep-status-serious);
   border-radius: 999px;
 }
 
-/* ---------- Peer review stat card ---------- */
+/* ---------- Chart figure ---------- */
 
-.hsep-peer-stat {
-  display: flex;
-  flex-wrap: wrap;
-  gap: clamp(24px, 4vw, 48px);
-  align-items: center;
-  padding: clamp(20px, 3vw, 28px);
+.hsep-chart {
+  margin: 24px 0 0;
+}
+
+.hsep-photo--hero {
+  margin: clamp(24px, 4vw, 36px) 0 0;
+}
+
+.hsep-callout__body--spaced {
+  margin-top: 20px;
+}
+
+/* ---------- Partner table ---------- */
+
+.hsep-table-wrap {
+  margin-top: 20px;
+  overflow-x: auto;
   background: var(--hsep-panel-bg);
   border: 1px solid var(--hsep-panel-border);
   border-radius: var(--radius-lg, 16px);
 }
 
-.hsep-peer-stat__ring {
-  position: relative;
-  width: 116px;
-  height: 116px;
-  flex-shrink: 0;
-}
-
-.hsep-peer-stat__ring svg {
+.hsep-table {
   width: 100%;
-  height: 100%;
-  transform: rotate(-90deg);
+  min-width: 520px;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
 }
 
-.hsep-peer-stat__ring-value {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Fraunces", serif;
-  font-size: 1.35rem;
+.hsep-table__caption {
+  caption-side: top;
+  padding: 16px 18px 4px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--hsep-accent);
+}
+
+.hsep-table th,
+.hsep-table td {
+  padding: 12px 18px;
+  text-align: left;
+  vertical-align: top;
+  border-top: 1px solid var(--hsep-panel-border);
+}
+
+.hsep-table thead th {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.hsep-table tbody th {
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+/* ---------- Pipeline flow ---------- */
+
+.hsep-flow {
+  list-style: none;
+  margin: 20px 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  counter-reset: hsep-flow;
+}
+
+.hsep-flow__step {
+  position: relative;
+  padding: 14px 16px;
+  background: var(--hsep-panel-bg);
+  border: 1px solid var(--hsep-panel-border);
+  border-radius: var(--radius-md, 12px);
+  counter-increment: hsep-flow;
+}
+
+.hsep-flow__step::before {
+  content: counter(hsep-flow, decimal-leading-zero);
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--hsep-accent);
+}
+
+.hsep-flow__name {
+  display: block;
   font-weight: 600;
   color: var(--text-primary);
 }
 
-.hsep-peer-stat__body {
-  flex: 1;
-  min-width: 220px;
-}
-
-.hsep-peer-stat__body p {
-  margin: 0;
+.hsep-flow__detail {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.8rem;
+  line-height: 1.45;
   color: var(--text-secondary);
-  line-height: 1.6;
 }
 
-.hsep-peer-stat__body strong {
-  color: var(--text-primary);
+/* ---------- Shutdown timeline ---------- */
+
+.hsep-timeline {
+  list-style: none;
+  margin: 20px 0 24px;
+  padding: 0 0 0 20px;
+  border-left: 2px solid var(--hsep-panel-border);
 }
 
-/* ---------- Verification badge list ---------- */
-
-.hsep-verify {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.hsep-verify__row {
+.hsep-timeline__item {
+  position: relative;
   display: grid;
-  grid-template-columns: 28px 1fr;
-  gap: 10px;
-  align-items: start;
-  font-size: 0.88rem;
-  line-height: 1.55;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 12px;
+  padding: 8px 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.hsep-timeline__item::before {
+  content: "";
+  position: absolute;
+  left: -26px;
+  top: 15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--hsep-accent);
+  box-shadow: 0 0 0 3px var(--hsep-surface);
+}
+
+.hsep-timeline__item--alert::before {
+  background: var(--hsep-status-serious);
+}
+
+.hsep-timeline__date {
+  font-weight: 700;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.hsep-timeline__text {
   color: var(--text-secondary);
 }
 
-.hsep-verify__icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  font-size: 0.75rem;
-  font-weight: 700;
-  margin-top: 1px;
-}
+/* ---------- Sources ---------- */
 
-.hsep-verify__row--kept .hsep-verify__icon {
-  background: rgba(11, 206, 175, 0.16);
-  color: var(--hsep-accent);
-}
-
-.hsep-verify__row--dropped .hsep-verify__icon {
-  background: rgba(236, 131, 90, 0.16);
-  color: var(--hsep-status-serious);
-}
-
-.hsep-verify__row strong {
-  color: var(--text-primary);
+.hsep-sources__list {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
 }
 
 /* ---------- Footer credit ---------- */
@@ -533,13 +620,48 @@
     justify-content: flex-start;
   }
 
-  .hsep-peer-stat {
-    flex-direction: column;
-    align-items: flex-start;
+  .hsep-cliff__row {
+    grid-template-columns: 52px minmax(0, 1fr) 36px;
   }
 
-  .hsep-cliff__row {
-    grid-template-columns: 44px minmax(0, 1fr) 36px;
+  .hsep-flow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hsep-timeline__item {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  /* Stack partner table rows as cards */
+  .hsep-table {
+    min-width: 0;
+  }
+
+  .hsep-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .hsep-table tr,
+  .hsep-table th,
+  .hsep-table td {
+    display: block;
+  }
+
+  .hsep-table tbody tr {
+    padding: 12px 0;
+    border-top: 1px solid var(--hsep-panel-border);
+  }
+
+  .hsep-table tbody th,
+  .hsep-table td {
+    padding: 2px 18px;
+    border-top: none;
+    white-space: normal;
   }
 }
 

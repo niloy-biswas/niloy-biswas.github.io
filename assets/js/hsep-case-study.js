@@ -86,12 +86,15 @@
     });
   }
 
+  // Final values ship in the HTML so the page reads correctly without JS; counters only replay them.
   function initStatCounters() {
+    if (prefersReduced) return;
     var stats = root.querySelectorAll('[data-count]');
 
     stats.forEach(function (el) {
       var target = parseFloat(el.getAttribute('data-count'));
       if (isNaN(target)) return;
+      el.textContent = '0';
 
       onceInView(el, function () {
         animate(1100, function (p) {
@@ -106,6 +109,11 @@
     if (!chart) return;
     var rows = chart.querySelectorAll('.hsep-cliff__row');
     var max = parseFloat(chart.getAttribute('data-max')) || 1;
+
+    rows.forEach(function (row) {
+      var valueEl = row.querySelector('.hsep-cliff__row-value');
+      if (valueEl && !prefersReduced) valueEl.textContent = '0';
+    });
 
     onceInView(chart, function () {
       rows.forEach(function (row, i) {
@@ -172,22 +180,6 @@
     });
   }
 
-  function initPeerRing() {
-    var ring = root.querySelector('.hsep-peer-stat__ring svg circle.hsep-peer-stat__ring-fg');
-    if (!ring) return;
-    var pct = parseFloat(ring.getAttribute('data-pct')) || 0;
-    var r = parseFloat(ring.getAttribute('r'));
-    var circumference = 2 * Math.PI * r;
-    ring.style.strokeDasharray = circumference;
-    ring.style.strokeDashoffset = circumference;
-
-    onceInView(ring, function () {
-      animate(1100, function (p) {
-        ring.style.strokeDashoffset = circumference * (1 - (pct / 100) * p);
-      });
-    });
-  }
-
   function initBackLink() {
     var back = root.querySelector('[data-case-study-back]');
     if (!back) return;
@@ -215,5 +207,4 @@
   initCliffChart();
   initLineChart();
   initBarChart();
-  initPeerRing();
 })();

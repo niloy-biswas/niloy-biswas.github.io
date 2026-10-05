@@ -1,35 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="/assets/js/analytics-init.js"></script>
 
-    <title>HSEP: Measuring a National Teacher Training Platform | Niloy Biswas</title>
-    <meta charset="utf-8">
+    <title>USAID HSEP: Teacher Training Analytics | Niloy Biswas</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description"
-        content="Case study: data architecture, dashboard, and pre-training diagnostic for USAID's Higher Secondary Education Project, a national teacher-training LMS for Bangladesh, discontinued when USAID was dismantled in 2025.">
+        content="Learning analytics for USAID's HSEP teacher training pilot in Bangladesh: 479 teachers, BigQuery, Looker Studio, and the data trail of the 2025 aid freeze.">
     <meta name="robots" content="index, follow">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Niloy Biswas">
     <link rel="icon" type="image/x-icon" href="../../favicon.ico">
     <link rel="canonical" href="https://niloy.tech/projects/hsep/">
 
-    <meta property="og:title" content="HSEP: Measuring a National Teacher Training Platform | Niloy Biswas">
+    <meta property="og:title" content="USAID HSEP: Teacher Training Analytics | Niloy Biswas">
     <meta property="og:description"
-        content="Case study: data architecture, dashboard, and pre-training diagnostic for USAID's Higher Secondary Education Project, a national teacher-training LMS for Bangladesh, discontinued when USAID was dismantled in 2025.">
+        content="Learning analytics for USAID's HSEP teacher training pilot in Bangladesh: 479 teachers, BigQuery, Looker Studio, and the data trail of the 2025 aid freeze.">
     <meta property="og:url" content="https://niloy.tech/projects/hsep/">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="niloy.tech">
-    <meta property="og:image" content="https://niloy.tech/projects/hsep/images/hsep3.jpeg">
-    <meta property="og:image:alt" content="HSEP program workshop, Dhaka">
+    <meta property="og:image" content="https://niloy.tech/projects/hsep/images/hsep-thumbnail.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="USAID HSEP case study card: bar chart of teachers doing graded work each month, 461 in November 2024 falling to 0 in February 2025 after the January 24 stop-work order">
+    <meta property="article:author" content="https://niloy.tech/">
+    <meta property="article:published_time" content="2026-10-06">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="HSEP: Measuring a National Teacher Training Platform | Niloy Biswas">
+    <meta name="twitter:title" content="USAID HSEP: Teacher Training Analytics | Niloy Biswas">
     <meta name="twitter:description"
-        content="Case study: data architecture, dashboard, and pre-training diagnostic for USAID's Higher Secondary Education Project, a national teacher-training LMS for Bangladesh, discontinued when USAID was dismantled in 2025.">
-    <meta name="twitter:image" content="https://niloy.tech/projects/hsep/images/hsep3.jpeg">
-    <meta name="twitter:image:alt" content="HSEP program workshop, Dhaka">
+        content="Learning analytics for USAID's HSEP teacher training pilot in Bangladesh: 479 teachers, BigQuery, Looker Studio, and the data trail of the 2025 aid freeze.">
+    <meta name="twitter:image" content="https://niloy.tech/projects/hsep/images/hsep-thumbnail.jpg">
+    <meta name="twitter:image:alt" content="USAID HSEP case study card: bar chart of teachers doing graded work each month, 461 in November 2024 falling to 0 in February 2025 after the January 24 stop-work order">
+
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Article",
+              "@id": "https://niloy.tech/projects/hsep/#article",
+              "headline": "Measuring USAID's teacher training pilot in Bangladesh until the aid freeze stopped it",
+              "description": "Learning analytics for USAID's HSEP teacher training pilot in Bangladesh: 479 teachers, BigQuery, Looker Studio, and the data trail of the 2025 aid freeze.",
+              "image": "https://niloy.tech/projects/hsep/images/hsep-thumbnail.jpg",
+              "datePublished": "2026-10-06",
+              "dateModified": "2026-10-06",
+              "mainEntityOfPage": "https://niloy.tech/projects/hsep/",
+              "inLanguage": "en",
+              "keywords": "USAID, HSEP, Higher Secondary Education Project, Bangladesh, teacher training, learning analytics, monitoring and evaluation, BigQuery, Looker Studio, LMS",
+              "author": {
+                "@type": "Person",
+                "name": "Niloy Biswas",
+                "url": "https://niloy.tech/",
+                "jobTitle": "Data Analyst"
+              },
+              "about": {
+                "@type": "Thing",
+                "name": "USAID Higher Secondary Education Project (HSEP), Bangladesh"
+              },
+              "mentions": [
+                { "@type": "Organization", "name": "10 Minute School", "url": "https://10minuteschool.com/" },
+                { "@type": "Organization", "name": "Chemonics International" },
+                { "@type": "Organization", "name": "Florida State University" },
+                { "@type": "Person", "name": "Moshiur Hridoy", "url": "https://www.moshiurhridoy.com/hsep" }
+              ]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://niloy.tech/" },
+                { "@type": "ListItem", "position": 2, "name": "Case studies", "item": "https://niloy.tech/#mh-portfolio" },
+                { "@type": "ListItem", "position": 3, "name": "USAID HSEP", "item": "https://niloy.tech/projects/hsep/" }
+              ]
+            }
+          ]
+        }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,8 +89,7 @@
     <link rel="stylesheet" href="../../assets/css/closing-cta.css">
     <link rel="stylesheet" href="../../assets/css/styles.css">
     <link rel="stylesheet" href="../../assets/css/list-dash.css">
-    <link rel="stylesheet" href="../../assets/css/hsep-case-study.css?v=4">
-    <link rel="stylesheet" href="../../assets/css/external-link-icon.css">
+    <link rel="stylesheet" href="../../assets/css/hsep-case-study.css?v=5">
     <link rel="stylesheet" href="../../assets/css/responsive.css">
     <link rel="stylesheet" href="../../assets/css/colors/theme-colors.css">
     <link rel="stylesheet" href="../../assets/css/typography.css">
@@ -88,127 +135,254 @@
                 <a class="hsep-case-study__back" href="../../index.html#mh-portfolio" data-case-study-back>← Back to Case Studies &amp; Projects</a>
 
                 <header class="hsep-hero" data-hsep-reveal>
-                    <p class="hsep-hero__kicker">Data &amp; Analytics Case Study</p>
-                    <h1 class="hsep-hero__title">Measuring a National Teacher Training Platform Before It Was Shut Down</h1>
-                    <p class="hsep-hero__lead">Designed the data architecture, dashboard, and pre-training diagnostic behind a national LMS built for USAID's Higher Secondary Education Project (HSEP), in partnership with Florida State University and Chemonics International, before the program was discontinued when USAID was dismantled in 2025.</p>
+                    <p class="hsep-hero__kicker">Learning analytics case study &middot; USAID HSEP &middot; Bangladesh</p>
+                    <h1 class="hsep-hero__title">Measuring USAID's teacher training pilot in Bangladesh until the aid freeze stopped it</h1>
+                    <p class="hsep-hero__lead">In late 2024, 479 college teachers and education leaders from 57 districts took the first online cohort of USAID's Higher Secondary Education Project (HSEP) in Bangladesh. I led the data side on the 10 Minute School team. The pilot's last module closed on January 19, 2025. Five days later a US stop-work order froze foreign aid, and the next cohort never started.</p>
+
+                    <figure class="hsep-photo hsep-photo--hero">
+                        <img src="images/hsep-hero.jpg" alt="Group photo of teachers, trainers and partner staff at HSEP's annual work-planning workshop in Dhaka, under a USAID Higher Secondary Education Project banner" width="1760" height="755" fetchpriority="high">
+                        <figcaption>HSEP's annual work-planning workshop in Dhaka, with partners, trainers and education officials.</figcaption>
+                    </figure>
 
                     <hr class="hsep-hero__rule" aria-hidden="true">
 
                     <ul class="hsep-hero__stats">
                         <li class="hsep-stat">
-                            <span class="hsep-stat__value"><span data-count="479">0</span></span>
-                            <span class="hsep-stat__label">Teachers tracked (382 TPD + 97 ELPD)</span>
+                            <span class="hsep-stat__value"><span data-count="479">479</span></span>
+                            <span class="hsep-stat__label">Pilot participants (382 TPD, 97 ELPD)</span>
                         </li>
                         <li class="hsep-stat">
-                            <span class="hsep-stat__value"><span data-count="3000">0</span></span>
-                            <span class="hsep-stat__label">Colleges scoped nationally (99% of Bangladesh)</span>
+                            <span class="hsep-stat__value"><span data-count="111693">111,693</span></span>
+                            <span class="hsep-stat__label">Learning events logged during the pilot</span>
                         </li>
                         <li class="hsep-stat">
-                            <span class="hsep-stat__value">$3M</span>
-                            <span class="hsep-stat__label">USAID grant, secured via competitive tender</span>
+                            <span class="hsep-stat__value"><span data-count="407">407</span></span>
+                            <span class="hsep-stat__label">Colleges and institutes represented</span>
                         </li>
                         <li class="hsep-stat">
-                            <span class="hsep-stat__value">Feb 2025</span>
-                            <span class="hsep-stat__label">Discontinued (USAID dismantled)</span>
+                            <span class="hsep-stat__value">Jan 24</span>
+                            <span class="hsep-stat__label">2025 stop-work order on US foreign aid</span>
                         </li>
                     </ul>
                 </header>
 
-                <section class="hsep-callout" data-hsep-reveal aria-labelledby="hsep-owned-title">
-                    <p class="hsep-callout__kicker">What I actually owned</p>
-                    <h2 class="hsep-callout__title" id="hsep-owned-title">The measurement problem, not the interface problem</h2>
-                    <p class="hsep-callout__body">Four organizations with different definitions of success, USAID (development outcomes), Florida State University (research validity), Chemonics International (implementation feasibility), and Bangladesh's Education Ministry (teacher adoption), needed one shared source of truth. Shazzad Hossain Mukit ran the program as PM; I owned the data side end to end.</p>
-                    <ul class="list-dash">
-                        <li>Designed the dashboard's entire metric architecture: enrollment, activation, completion, assessment performance, engagement time, comments, peer review, and live-class attendance, tracked separately for TPD (Teachers Professional Development, 8 modules) and ELPD (Educational Leadership Professional Development, 7 modules)</li>
-                        <li>Defined the operational logic stakeholders actually used: a learner counts as "activated" if they touch one content item on a given day, "completed" only at 80%+ of that day's assigned content</li>
-                        <li>Designed and scored a 36-item pre-training diagnostic (Knowledge, Skills, Attitudes) administered across 3 districts before rollout</li>
-                        <li>Built the BigQuery pipeline underneath it all, and re-verified every headline claim in this case study directly against it before publishing</li>
+                <section class="hsep-callout" data-hsep-reveal aria-labelledby="hsep-program-title">
+                    <p class="hsep-callout__kicker">The program</p>
+                    <h2 class="hsep-callout__title" id="hsep-program-title">A five-year, $40M plan to retrain Bangladesh's college teachers</h2>
+                    <p class="hsep-callout__body">Higher secondary education (grades 11 and 12) is <a href="https://web.archive.org/web/20241210052834/https://chemonics.com/projects/improving-the-quality-of-teaching-for-higher-secondary-students-in-bangladesh/" target="_blank" rel="noopener noreferrer">often overlooked by international donors</a>. HSEP, officially "USAID's Higher Secondary Education Activity", was the exception: a five-year program implemented by <strong>Chemonics International</strong> under Bangladesh's Directorate of Secondary and Higher Education (DSHE). <strong>Florida State University</strong> certified the training, and <strong>10 Minute School</strong> held a $2.93M subaward to deploy and customize the learning management system (LMS) it ran on.</p>
+                    <ul class="hsep-hero__stats hsep-hero__stats--inset">
+                        <li class="hsep-stat">
+                            <span class="hsep-stat__value">$40M</span>
+                            <span class="hsep-stat__label">USAID plan, Aug 2023 to Aug 2028</span>
+                        </li>
+                        <li class="hsep-stat">
+                            <span class="hsep-stat__value">12,000</span>
+                            <span class="hsep-stat__label">Trainees targeted by Sept 2025</span>
+                        </li>
+                        <li class="hsep-stat">
+                            <span class="hsep-stat__value">~60,000</span>
+                            <span class="hsep-stat__label">Trainees targeted by Aug 2028</span>
+                        </li>
+                        <li class="hsep-stat">
+                            <span class="hsep-stat__value">Nov 10</span>
+                            <span class="hsep-stat__label">2024 pilot launch in Bogura</span>
+                        </li>
                     </ul>
+                    <p class="hsep-callout__body hsep-callout__body--spaced">About 500 participants started in person at three venues (Bogura, Cumilla and Khulna), then moved online into two programs: <strong>TPD</strong> (Teachers Professional Development, 8 modules) and <strong>ELPD</strong> (Educational Leadership Professional Development, 7 modules). Going from 479 people to 12,000 in under a year meant every pilot decision would be copied about 25 times. The pilot data had to show which decisions were worth copying.</p>
                 </section>
 
                 <figure class="hsep-photo" data-hsep-reveal>
-                    <img src="images/hsep1.jpeg" alt="A facilitator leading a session during an HSEP program workshop" loading="lazy" width="2048" height="1365">
-                    <figcaption>A facilitation session during the HSEP program.</figcaption>
+                    <img src="images/hsep1.jpeg" alt="A facilitator leading a face-to-face session for teachers during the HSEP program" loading="lazy" width="2048" height="1365">
+                    <figcaption>A face-to-face session during the HSEP program. The online modules picked up where these sessions ended.</figcaption>
                 </figure>
 
-                <section class="hsep-callout" data-hsep-reveal aria-labelledby="hsep-problem-title">
-                    <p class="hsep-callout__kicker">The problem</p>
-                    <h2 class="hsep-callout__title" id="hsep-problem-title">The platform was live, but nobody had a shared way to tell if it was working</h2>
-                    <p class="hsep-callout__body">Bangladesh has 140,000+ high school teachers who need ongoing professional development, and no physical training pipeline that could reach them in under 50 years. HSEP's LMS was the digital alternative, but a live platform with no shared measurement layer just produces four different opinions about whether it's succeeding.</p>
+                <section class="hsep-callout" data-hsep-reveal aria-labelledby="hsep-role-title">
+                    <p class="hsep-callout__kicker">My role and the team</p>
+                    <h2 class="hsep-callout__title" id="hsep-role-title">Where the data work sat</h2>
+                    <p class="hsep-callout__body">I was a Senior BI Analyst at 10 Minute School and the data lead on HSEP. <a href="https://bd.linkedin.com/in/shazzad-hossain-mukit" target="_blank" rel="noopener noreferrer">Shazzad Hossain Mukit</a> and Shihab managed the product. Shad Iqbal led design, with product designers Moshiur Hridoy and Diponkar shaping the learning flows, peer review and discussion features. Moshiur has written up the design story, including the 21-day prototype sprint and field testing with teachers, in <a href="https://www.moshiurhridoy.com/hsep" target="_blank" rel="noopener noreferrer">his own HSEP case study</a>. This page is the other half: what the platform data said.</p>
+                    <ul class="list-dash">
+                        <li>Modeled the LMS data in BigQuery and set the filter that kept only real pilot participants</li>
+                        <li>Defined the activation, completion and peer review metrics, and built the Looker Studio dashboard all four partner organizations used</li>
+                        <li>Built the data pipeline and scoring behind the 36-item pre-training diagnostic run at the three training sites</li>
+                        <li>Re-ran every number on this page against the raw tables before publishing it</li>
+                    </ul>
                 </section>
 
-                <section class="hsep-callout" data-hsep-reveal aria-labelledby="hsep-solution-title">
+                <section class="hsep-callout" data-hsep-reveal aria-labelledby="hsep-partners-title">
+                    <p class="hsep-callout__kicker">The measurement problem</p>
+                    <h2 class="hsep-callout__title" id="hsep-partners-title">Four partners, four definitions of a good pilot</h2>
+                    <p class="hsep-callout__body">Each organization opened the dashboard with a different question. If each one had picked its own favorite number, the pilot would have looked like four different projects. So the dashboard kept every metric on the same footing (enrolled teachers as the denominator, filters for batch, program, module and day) and let each partner start from the view that answered them.</p>
+                    <div class="hsep-table-wrap">
+                        <table class="hsep-table">
+                            <caption class="hsep-table__caption">What each partner needed from the pilot data</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Partner</th>
+                                    <th scope="col">Their question</th>
+                                    <th scope="col">Where the dashboard answered it</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">USAID</th>
+                                    <td>Is the money reaching teachers in a way that can scale?</td>
+                                    <td>Enrollment and activation by batch and district</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Florida State University</th>
+                                    <td>Are teachers learning what the curriculum teaches?</td>
+                                    <td>Exam attempts and scores, the pre-training diagnostic</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Chemonics International</th>
+                                    <td>Is the rollout on schedule?</td>
+                                    <td>Completion by each module's end date, peer review throughput</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">DSHE (Ministry of Education)</th>
+                                    <td>Are college teachers taking it up?</td>
+                                    <td>Activity by district and institution type, learning time</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="hsep-callout" data-hsep-reveal aria-labelledby="hsep-model-title">
+                    <p class="hsep-callout__kicker">The data model</p>
+                    <h2 class="hsep-callout__title" id="hsep-model-title">One row for every teacher and every piece of content</h2>
+                    <p class="hsep-callout__body">The LMS wrote to several services: reading and video logs, exam sessions, peer review, and the live-class schedule. Those synced into BigQuery, and the reporting model joined them into a grid with one row for each enrolled teacher and each content item in their batch, 109,180 rows in all. An empty timestamp means the teacher never opened that item. That made "who hasn't started Module 3" as easy to ask as "who finished it", which a plain event log can't answer without extra work.</p>
+                    <ol class="hsep-flow" aria-label="Data pipeline">
+                        <li class="hsep-flow__step"><span class="hsep-flow__name">LMS services</span><span class="hsep-flow__detail">Logs, exams, peer review, live classes</span></li>
+                        <li class="hsep-flow__step"><span class="hsep-flow__name">BigQuery</span><span class="hsep-flow__detail">Raw tables from each service</span></li>
+                        <li class="hsep-flow__step"><span class="hsep-flow__name">Teacher &times; content model</span><span class="hsep-flow__detail">Real participants only, matched to the official pilot list</span></li>
+                        <li class="hsep-flow__step"><span class="hsep-flow__name">Looker Studio</span><span class="hsep-flow__detail">Filters for batch, program, module and day</span></li>
+                    </ol>
+                    <ul class="list-dash">
+                        <li><strong>Activated:</strong> opened at least one content item from that module-day.</li>
+                        <li><strong>Completed:</strong> finished 80% or more of that module-day's content.</li>
+                        <li>Both rates divide by enrolled teachers, so a teacher who goes quiet pulls the rate down instead of dropping out of it.</li>
+                        <li>Timestamps are stored in UTC. Anything about time of day is converted to Bangladesh time (UTC+6) first.</li>
+                    </ul>
+                </section>
+
+                <section class="hsep-callout" data-hsep-reveal aria-labelledby="hsep-findings-title">
                     <p class="hsep-callout__kicker">What the data showed</p>
-                    <h2 class="hsep-callout__title" id="hsep-solution-title">Teachers kept showing up. They finished less of each module as it went on</h2>
-                    <p class="hsep-callout__body">Every TPD module is built from 5 chapters, labeled Day 1 through Day 5. Averaged across all 8 modules, activation held steady in the 93-97% range through every chapter. Completion (the 80% threshold) started close behind at 94%, then eroded chapter by chapter to 78% by Day 5, the same pattern inside every module.</p>
+                    <h2 class="hsep-callout__title" id="hsep-findings-title">Teachers kept showing up. They finished a little less as each module went on</h2>
+                    <p class="hsep-callout__body">Every TPD module runs five days. Averaged over all 8 modules, the share of teachers who opened something each day never fell below 92.7%. Completion at the 80% bar started at 94.2% on Day 1 and ended at 77.9% on Day 5. Day 4 is the exception in the chart: it holds a single task or live session, so anyone who opened it also completed it.</p>
+                    <p class="hsep-callout__body">The same slow slide shows up across modules. In TPD, completion went from 93% in Module 1 to 84% in Module 8. Counting only work finished before each module's deadline, 70% to 82% of TPD teachers completed on time.</p>
 
-                    <div class="hsep-linechart" data-hsep-reveal>
-                        <svg viewBox="0 0 600 220" class="hsep-linechart__svg" role="img" aria-label="Activation and completion percent by chapter day within a module, averaged across 8 TPD modules. Activation stays flat 93 to 97 percent. Completion falls from 94.2 percent on Day 1 to 77.9 percent on Day 5.">
-                            <line class="hsep-linechart__grid" x1="60" y1="20" x2="560" y2="20"></line>
-                            <line class="hsep-linechart__grid" x1="60" y1="73.3" x2="560" y2="73.3"></line>
-                            <line class="hsep-linechart__grid" x1="60" y1="126.7" x2="560" y2="126.7"></line>
-                            <line class="hsep-linechart__grid" x1="60" y1="180" x2="560" y2="180"></line>
+                    <figure class="hsep-chart">
+                        <div class="hsep-linechart">
+                            <svg viewBox="0 0 600 220" class="hsep-linechart__svg" role="img" aria-label="Activation and completion by day of module, averaged across 8 TPD modules. Activation: 97, 95.6, 94.6, 92.7 and 94 percent for Days 1 to 5. Completion: 94.2, 90.8, 82.4, 91.3 and 77.9 percent. Day 4 is a single-item day.">
+                                <line class="hsep-linechart__grid" x1="60" y1="20" x2="560" y2="20"></line>
+                                <line class="hsep-linechart__grid" x1="60" y1="73.3" x2="560" y2="73.3"></line>
+                                <line class="hsep-linechart__grid" x1="60" y1="126.7" x2="560" y2="126.7"></line>
+                                <line class="hsep-linechart__grid" x1="60" y1="180" x2="560" y2="180"></line>
 
-                            <text class="hsep-linechart__axis-label" x="50" y="24" text-anchor="end">100%</text>
-                            <text class="hsep-linechart__axis-label" x="50" y="77.3" text-anchor="end">90%</text>
-                            <text class="hsep-linechart__axis-label" x="50" y="130.7" text-anchor="end">80%</text>
-                            <text class="hsep-linechart__axis-label" x="50" y="184" text-anchor="end">70%</text>
+                                <text class="hsep-linechart__axis-label" x="50" y="24" text-anchor="end">100%</text>
+                                <text class="hsep-linechart__axis-label" x="50" y="77.3" text-anchor="end">90%</text>
+                                <text class="hsep-linechart__axis-label" x="50" y="130.7" text-anchor="end">80%</text>
+                                <text class="hsep-linechart__axis-label" x="50" y="184" text-anchor="end">70%</text>
 
-                            <path class="hsep-linechart__line hsep-linechart__line--activation" d="M60,36.0 L185,43.5 L310,48.8 L435,58.9 L560,52.0"></path>
-                            <path class="hsep-linechart__line hsep-linechart__line--completion" d="M60,50.9 L185,69.1 L310,113.9 L435,66.4 L560,137.9"></path>
+                                <path class="hsep-linechart__line hsep-linechart__line--activation" d="M60,36.0 L185,43.5 L310,48.8 L435,58.9 L560,52.0"></path>
+                                <path class="hsep-linechart__line hsep-linechart__line--completion" d="M60,50.9 L185,69.1 L310,113.9 L435,66.4 L560,137.9"></path>
 
-                            <circle class="hsep-linechart__dot hsep-linechart__dot--activation" cx="60" cy="36.0" r="5"><title>Day 1 activation: 97%</title></circle>
-                            <circle class="hsep-linechart__dot hsep-linechart__dot--activation" cx="185" cy="43.5" r="5"><title>Day 2 activation: 95.6%</title></circle>
-                            <circle class="hsep-linechart__dot hsep-linechart__dot--activation" cx="310" cy="48.8" r="5"><title>Day 3 activation: 94.6%</title></circle>
-                            <circle class="hsep-linechart__dot hsep-linechart__dot--activation" cx="435" cy="58.9" r="5"><title>Day 4 activation: 92.7%</title></circle>
-                            <circle class="hsep-linechart__dot hsep-linechart__dot--activation" cx="560" cy="52.0" r="5"><title>Day 5 activation: 94%</title></circle>
+                                <circle class="hsep-linechart__dot hsep-linechart__dot--activation" cx="60" cy="36.0" r="5"></circle>
+                                <circle class="hsep-linechart__dot hsep-linechart__dot--activation" cx="185" cy="43.5" r="5"></circle>
+                                <circle class="hsep-linechart__dot hsep-linechart__dot--activation" cx="310" cy="48.8" r="5"></circle>
+                                <circle class="hsep-linechart__dot hsep-linechart__dot--activation" cx="435" cy="58.9" r="5"></circle>
+                                <circle class="hsep-linechart__dot hsep-linechart__dot--activation" cx="560" cy="52.0" r="5"></circle>
 
-                            <circle class="hsep-linechart__dot hsep-linechart__dot--completion" cx="60" cy="50.9" r="5"><title>Day 1 completion: 94.2%</title></circle>
-                            <circle class="hsep-linechart__dot hsep-linechart__dot--completion" cx="185" cy="69.1" r="5"><title>Day 2 completion: 90.8%</title></circle>
-                            <circle class="hsep-linechart__dot hsep-linechart__dot--completion" cx="310" cy="113.9" r="5"><title>Day 3 completion: 82.4%</title></circle>
-                            <circle class="hsep-linechart__dot hsep-linechart__dot--completion" cx="435" cy="66.4" r="5"><title>Day 4 completion: 91.3%</title></circle>
-                            <circle class="hsep-linechart__dot hsep-linechart__dot--completion" cx="560" cy="137.9" r="5"><title>Day 5 completion: 77.9%</title></circle>
+                                <circle class="hsep-linechart__dot hsep-linechart__dot--completion" cx="60" cy="50.9" r="5"></circle>
+                                <circle class="hsep-linechart__dot hsep-linechart__dot--completion" cx="185" cy="69.1" r="5"></circle>
+                                <circle class="hsep-linechart__dot hsep-linechart__dot--completion" cx="310" cy="113.9" r="5"></circle>
+                                <circle class="hsep-linechart__dot hsep-linechart__dot--completion" cx="435" cy="66.4" r="5"></circle>
+                                <circle class="hsep-linechart__dot hsep-linechart__dot--completion" cx="560" cy="137.9" r="5"></circle>
 
-                            <text class="hsep-linechart__value-label" x="60" y="24" text-anchor="start">97%</text>
-                            <text class="hsep-linechart__value-label" x="560" y="42" text-anchor="end">94%</text>
-                            <text class="hsep-linechart__value-label" x="60" y="66" text-anchor="start">94.2%</text>
-                            <text class="hsep-linechart__value-label" x="560" y="155" text-anchor="end">77.9%</text>
+                                <text class="hsep-linechart__value-label" x="60" y="24" text-anchor="start">97%</text>
+                                <text class="hsep-linechart__value-label" x="560" y="42" text-anchor="end">94%</text>
+                                <text class="hsep-linechart__value-label" x="60" y="66" text-anchor="start">94.2%</text>
+                                <text class="hsep-linechart__value-label" x="560" y="155" text-anchor="end">77.9%</text>
 
-                            <text class="hsep-linechart__axis-label" x="60" y="200" text-anchor="middle">Day 1</text>
-                            <text class="hsep-linechart__axis-label" x="185" y="200" text-anchor="middle">Day 2</text>
-                            <text class="hsep-linechart__axis-label" x="310" y="200" text-anchor="middle">Day 3</text>
-                            <text class="hsep-linechart__axis-label" x="435" y="200" text-anchor="middle">Day 4</text>
-                            <text class="hsep-linechart__axis-label" x="560" y="200" text-anchor="middle">Day 5</text>
-                        </svg>
-                    </div>
-                    <div class="hsep-legend">
-                        <span class="hsep-legend__item"><span class="hsep-legend__swatch hsep-legend__swatch--activation"></span> Activation % (touched at least one item)</span>
-                        <span class="hsep-legend__item"><span class="hsep-legend__swatch hsep-legend__swatch--completion"></span> Completion % (80%+ threshold)</span>
-                    </div>
+                                <text class="hsep-linechart__axis-label" x="60" y="200" text-anchor="middle">Day 1</text>
+                                <text class="hsep-linechart__axis-label" x="185" y="200" text-anchor="middle">Day 2</text>
+                                <text class="hsep-linechart__axis-label" x="310" y="200" text-anchor="middle">Day 3</text>
+                                <text class="hsep-linechart__axis-label" x="435" y="200" text-anchor="middle">Day 4 (task)</text>
+                                <text class="hsep-linechart__axis-label" x="560" y="200" text-anchor="middle">Day 5</text>
+                            </svg>
+                        </div>
+                        <div class="hsep-legend">
+                            <span class="hsep-legend__item"><span class="hsep-legend__swatch hsep-legend__swatch--activation"></span> Activation (opened at least one item)</span>
+                            <span class="hsep-legend__item"><span class="hsep-legend__swatch hsep-legend__swatch--completion"></span> Completion (80% or more of the day)</span>
+                        </div>
+                    </figure>
                 </section>
 
                 <section class="hsep-callout" data-hsep-reveal aria-labelledby="hsep-peer-title">
-                    <h3 class="hsep-callout__title hsep-callout__title--sub" id="hsep-peer-title">Peer review, not submission, was the real bottleneck</h3>
-                    <p class="hsep-callout__body">81-95% of enrolled teachers submitted at least one task, so submission was never the problem. The gap was downstream: against a designed 3-reviewer model, TPD submissions received only 36.6% of the intended review coverage, and 7.5% of submissions (191 of 2,556) got zero review at all.</p>
-                    <div class="hsep-peer-stat" data-hsep-reveal>
-                        <div class="hsep-peer-stat__ring">
-                            <svg viewBox="0 0 116 116">
-                                <circle cx="58" cy="58" r="50" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="10"></circle>
-                                <circle class="hsep-peer-stat__ring-fg" cx="58" cy="58" r="50" fill="none" stroke="var(--hsep-status-serious)" stroke-width="10" stroke-linecap="round" data-pct="36.6"></circle>
-                            </svg>
-                            <span class="hsep-peer-stat__ring-value">36.6%</span>
+                    <h3 class="hsep-callout__title hsep-callout__title--sub" id="hsep-peer-title">Peer review held up at one reviewer and strained at two</h3>
+                    <p class="hsep-callout__body">Submitting work was never the weak point: 95% of TPD teachers handed in at least one task, and 84% were still submitting in Module 8. The strain was on the reviewing side. Every submission went to classmates for review, and each task set a minimum. Where one review was enough, 92% of submissions got it. Where the task asked for two, only 55% reached the bar, even though 89% got at least one. The second reviewer was the one who often never came.</p>
+                    <div class="hsep-barchart">
+                        <div class="hsep-barchart__row">
+                            <span class="hsep-barchart__label">Tasks needing 1 review (2,051 TPD submissions)</span>
+                            <div class="hsep-barchart__meta">
+                                <div class="hsep-barchart__track"><span class="hsep-barchart__fill" data-pct="91.9"></span></div>
+                                <span class="hsep-barchart__pct">92%</span>
+                            </div>
                         </div>
-                        <div class="hsep-peer-stat__body">
-                            <p><strong>2,556</strong> TPD task submissions, averaging <strong>1.1</strong> peer reviews each against an intended <strong>3</strong>. Only 36.6% of designed review capacity was actually delivered.</p>
+                        <div class="hsep-barchart__row hsep-barchart__row--flag">
+                            <span class="hsep-barchart__label">Tasks needing 2 reviews (647 TPD submissions)</span>
+                            <div class="hsep-barchart__meta">
+                                <span class="hsep-flag">Gap</span>
+                                <div class="hsep-barchart__track"><span class="hsep-barchart__fill" data-pct="55.0"></span></div>
+                                <span class="hsep-barchart__pct">55%</span>
+                            </div>
                         </div>
                     </div>
+                    <p class="hsep-callout__body hsep-callout__body--note">Share of submissions that reached the task's review minimum, from the peer review service's own task settings.</p>
+                </section>
+
+                <section class="hsep-callout" data-hsep-reveal aria-labelledby="hsep-who-title">
+                    <h3 class="hsep-callout__title hsep-callout__title--sub" id="hsep-who-title">Who finished, and when they studied</h3>
+                    <p class="hsep-callout__body">Teachers studied after college hours. Activity was heaviest between 6 PM and 11 PM Bangladesh time and peaked at 8 PM. The typical TPD teacher logged about 10.5 hours of reading and video, and that excludes time spent in exams and live classes, which the logs don't record. In exams, TPD teachers made 8,778 attempts across 13 exams, about 1.9 tries per exam, and averaged 77%. ELPD averaged 84%.</p>
+                    <p class="hsep-callout__body">Completion also varied by type of institution. Women were only 51 of the 479 teachers, but their module completion rate matched the men's at 88%.</p>
+                    <div class="hsep-barchart">
+                        <div class="hsep-barchart__row">
+                            <span class="hsep-barchart__label">MPO colleges (105 teachers)</span>
+                            <div class="hsep-barchart__meta">
+                                <div class="hsep-barchart__track"><span class="hsep-barchart__fill" data-pct="94.8"></span></div>
+                                <span class="hsep-barchart__pct">95%</span>
+                            </div>
+                        </div>
+                        <div class="hsep-barchart__row">
+                            <span class="hsep-barchart__label">Government colleges (268)</span>
+                            <div class="hsep-barchart__meta">
+                                <div class="hsep-barchart__track"><span class="hsep-barchart__fill" data-pct="88.9"></span></div>
+                                <span class="hsep-barchart__pct">89%</span>
+                            </div>
+                        </div>
+                        <div class="hsep-barchart__row">
+                            <span class="hsep-barchart__label">Non-MPO colleges (58)</span>
+                            <div class="hsep-barchart__meta">
+                                <div class="hsep-barchart__track"><span class="hsep-barchart__fill" data-pct="82.5"></span></div>
+                                <span class="hsep-barchart__pct">83%</span>
+                            </div>
+                        </div>
+                        <div class="hsep-barchart__row">
+                            <span class="hsep-barchart__label">Higher Secondary Teachers' Training Institutes (31)</span>
+                            <div class="hsep-barchart__meta">
+                                <div class="hsep-barchart__track"><span class="hsep-barchart__fill" data-pct="76.8"></span></div>
+                                <span class="hsep-barchart__pct">77%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="hsep-callout__body hsep-callout__body--note">Module completion rate (80% bar) by institution type. MPO colleges are non-government colleges that receive government salary support.</p>
                 </section>
 
                 <section class="hsep-callout" data-hsep-reveal aria-labelledby="hsep-diagnostic-title">
-                    <h3 class="hsep-callout__title hsep-callout__title--sub" id="hsep-diagnostic-title">The pre-training diagnostic found a specific, teachable misconception</h3>
-                    <p class="hsep-callout__body">Across all three districts, teachers scored weakest on items testing whether instruction should stay uniform for every student, the exact belief differentiated-instruction training was meant to correct. Knowledge was the weakest category overall (68-71% correct), well behind Skills and Attitudes (79-86%).</p>
-
-                    <div class="hsep-barchart" data-hsep-reveal>
+                    <h3 class="hsep-callout__title hsep-callout__title--sub" id="hsep-diagnostic-title">The pre-training diagnostic pointed at two beliefs</h3>
+                    <p class="hsep-callout__body">Before the online modules, teachers at all three training sites answered a 36-item diagnostic on Knowledge, Skills and Attitudes. Knowledge was the weakest area at 68% to 71% correct, against 79% to 86% for the other two. The lowest items clustered around two ideas: that action research is only about end-of-term grading, and that every student should get the same instruction regardless of age, gender or ability. Changing that second belief was the point of the differentiated-instruction content.</p>
+                    <div class="hsep-barchart">
                         <div class="hsep-barchart__row hsep-barchart__row--flag">
                             <span class="hsep-barchart__label">"Action research involves only summative assessment" (should disagree)</span>
                             <div class="hsep-barchart__meta">
@@ -248,128 +422,93 @@
                             </div>
                         </div>
                     </div>
-                    <p class="hsep-callout__body hsep-callout__body--note">Average correct % across Cumilla, Khulna, and Bogura. Items below 50% flagged as priority gaps for the next training phase.</p>
+                    <p class="hsep-callout__body hsep-callout__body--note">Average share answering correctly across Cumilla, Khulna and Bogura. Items under 50% were flagged as priorities for the next training phase.</p>
                 </section>
 
-                <section class="hsep-callout" data-hsep-reveal>
-                    <p class="hsep-callout__body">Live-class attendance was consistently low per session, roughly <strong>7%</strong> average turnout across 129 sessions, but the pattern held across programs, a scheduling and redundancy problem, not a single bad batch.</p>
-                </section>
+                <section class="hsep-callout" data-hsep-reveal aria-labelledby="hsep-shutdown-title">
+                    <p class="hsep-callout__kicker">The shutdown</p>
+                    <h2 class="hsep-callout__title" id="hsep-shutdown-title">The pilot finished. The next cohort never started</h2>
+                    <p class="hsep-callout__body">The pilot launched five days after the 2024 US presidential election, and its last module closed the day before the new administration took office. What followed moved fast.</p>
+                    <ol class="hsep-timeline">
+                        <li class="hsep-timeline__item"><span class="hsep-timeline__date">Nov 10, 2024</span><span class="hsep-timeline__text">Pilot launches in Bogura, with Cumilla and Khulna linked in.</span></li>
+                        <li class="hsep-timeline__item"><span class="hsep-timeline__date">Nov 17, 2024</span><span class="hsep-timeline__text">First online module unlocks on the platform.</span></li>
+                        <li class="hsep-timeline__item"><span class="hsep-timeline__date">Jan 19, 2025</span><span class="hsep-timeline__text">Last pilot module closes.</span></li>
+                        <li class="hsep-timeline__item hsep-timeline__item--alert"><span class="hsep-timeline__date">Jan 20, 2025</span><span class="hsep-timeline__text">An <a href="https://www.whitehouse.gov/presidential-actions/2025/01/reevaluating-and-realigning-united-states-foreign-aid/" target="_blank" rel="noopener noreferrer">executive order</a> pauses new US foreign aid spending for a 90-day review.</span></li>
+                        <li class="hsep-timeline__item hsep-timeline__item--alert"><span class="hsep-timeline__date">Jan 24, 2025</span><span class="hsep-timeline__text">The State Department issues a <a href="https://www.reuters.com/world/us/trump-pause-applies-all-foreign-aid-israel-egypt-get-waiver-says-state-dept-memo-2025-01-24/" target="_blank" rel="noopener noreferrer">stop-work order</a> on existing aid grants and contracts.</span></li>
+                        <li class="hsep-timeline__item hsep-timeline__item--alert"><span class="hsep-timeline__date">Jan 26, 2025</span><span class="hsep-timeline__text">USAID tells all its partners in Bangladesh to <a href="https://thefinancialexpress.com.bd/home/usaid-suspends-all-assistance-programmes-in-bangladesh" target="_blank" rel="noopener noreferrer">suspend spending</a> until further notice.</span></li>
+                        <li class="hsep-timeline__item"><span class="hsep-timeline__date">Feb 2025</span><span class="hsep-timeline__text">Three pilot teachers log 10 events between them, all month.</span></li>
+                        <li class="hsep-timeline__item"><span class="hsep-timeline__date">Mar 10, 2025</span><span class="hsep-timeline__text">The Secretary of State announces that 83% of USAID programs are cancelled.</span></li>
+                        <li class="hsep-timeline__item"><span class="hsep-timeline__date">Jul 1, 2025</span><span class="hsep-timeline__text">USAID closes and the State Department takes over foreign assistance.</span></li>
+                    </ol>
 
-                <section class="hsep-callout" data-hsep-reveal aria-labelledby="hsep-reading-title">
-                    <p class="hsep-callout__kicker">Reading the data coming back</p>
-                    <h2 class="hsep-callout__title" id="hsep-reading-title">The clearest signal came from comparing metrics, not from any one of them</h2>
-                    <p class="hsep-callout__body">Steady activation next to eroding completion. Strong submission next to weak review throughput. Each gap points at a different fix, and none of them are visible from enrollment numbers alone.</p>
-                </section>
-
-                <figure class="hsep-photo" data-hsep-reveal>
-                    <img src="images/hsep3.jpeg" alt="Large group photo at an HSEP program workshop in Dhaka, USAID banner visible" loading="lazy" width="2048" height="1153">
-                    <figcaption>An HSEP program workshop, Dhaka.</figcaption>
-                </figure>
-
-                <section class="hsep-callout" data-hsep-reveal aria-labelledby="hsep-outcomes-title">
-                    <p class="hsep-callout__kicker">The outcomes</p>
-                    <h2 class="hsep-callout__title" id="hsep-outcomes-title">What shipped before the shutdown</h2>
-                    <ul class="hsep-hero__stats hsep-hero__stats--inset">
-                        <li class="hsep-stat">
-                            <span class="hsep-stat__value"><span data-count="479">0</span></span>
-                            <span class="hsep-stat__label">Teachers instrumented end to end</span>
-                        </li>
-                        <li class="hsep-stat">
-                            <span class="hsep-stat__value">8 + 7</span>
-                            <span class="hsep-stat__label">TPD + ELPD modules delivered in full</span>
-                        </li>
-                        <li class="hsep-stat">
-                            <span class="hsep-stat__value"><span data-count="36">0</span></span>
-                            <span class="hsep-stat__label">Item diagnostic across 3 districts</span>
-                        </li>
-                        <li class="hsep-stat">
-                            <span class="hsep-stat__value">Nov-Jan</span>
-                            <span class="hsep-stat__label">Full rollout independently verified</span>
-                        </li>
-                    </ul>
-                </section>
-
-                <section class="hsep-callout" data-hsep-reveal aria-labelledby="hsep-discontinuation-title">
-                    <p class="hsep-callout__kicker">The discontinuation</p>
-                    <h2 class="hsep-callout__title" id="hsep-discontinuation-title">The shutdown shows up clearly in the data itself</h2>
-                    <p class="hsep-callout__body">A <a href="https://www.reuters.com/world/us/trump-pause-applies-all-foreign-aid-israel-egypt-get-waiver-says-state-dept-memo-2025-01-24/" target="_blank" rel="noopener noreferrer">broad freeze on US foreign aid</a> hit USAID-funded projects worldwide in late January 2025, and HSEP was formally discontinued by February. Restricted to the two most trustworthy activity signals in the log, real exam attempts and real task submissions, the platform goes from hundreds of active teachers every month to exactly zero.</p>
-
-                    <figure class="hsep-photo" data-hsep-reveal>
-                        <img src="images/reuters-freeze-headline.png" alt="Reuters headline: US issues broad freeze on foreign aid after Trump orders review, by Humeyra Pamuk and Daphne Psaledakis, January 25, 2025" loading="lazy" width="752" height="652">
-                        <figcaption>Reuters, Jan 25, 2025.</figcaption>
+                    <figure class="hsep-photo">
+                        <img src="images/reuters-freeze-headline.png" alt="Reuters headline: US issues broad freeze on foreign aid after Trump orders review, by Humeyra Pamuk and Daphne Psaledakis, January 25, 2025" loading="lazy" width="746" height="453">
+                        <figcaption>Reuters, January 25, 2025.</figcaption>
                     </figure>
 
-                    <div class="hsep-cliff" data-hsep-reveal>
-                        <p class="hsep-cliff__title">Active teachers doing real graded work per month</p>
-                        <div class="hsep-cliff__rows" data-max="466">
-                            <div class="hsep-cliff__row" data-value="461">
+                    <p class="hsep-callout__body">The edge in the data is clean. 99% of all pilot activity happened on or before January 25. Teachers doing graded work (exam attempts or task submissions) went from more than 420 a month to none.</p>
+
+                    <div class="hsep-cliff">
+                        <p class="hsep-cliff__title" id="hsep-cliff-title">Teachers doing graded work each month</p>
+                        <ul class="hsep-cliff__rows" data-max="466" aria-labelledby="hsep-cliff-title">
+                            <li class="hsep-cliff__row" data-value="461">
                                 <span class="hsep-cliff__row-label">Nov '24</span>
-                                <div class="hsep-cliff__row-track"><span class="hsep-cliff__row-fill"></span></div>
-                                <span class="hsep-cliff__row-value">0</span>
-                            </div>
-                            <div class="hsep-cliff__row" data-value="466">
+                                <span class="hsep-cliff__row-track" aria-hidden="true"><span class="hsep-cliff__row-fill"></span></span>
+                                <span class="hsep-cliff__row-value">461</span>
+                            </li>
+                            <li class="hsep-cliff__row" data-value="466">
                                 <span class="hsep-cliff__row-label">Dec '24</span>
-                                <div class="hsep-cliff__row-track"><span class="hsep-cliff__row-fill"></span></div>
-                                <span class="hsep-cliff__row-value">0</span>
-                            </div>
-                            <div class="hsep-cliff__row" data-value="422">
+                                <span class="hsep-cliff__row-track" aria-hidden="true"><span class="hsep-cliff__row-fill"></span></span>
+                                <span class="hsep-cliff__row-value">466</span>
+                            </li>
+                            <li class="hsep-cliff__row" data-value="422">
                                 <span class="hsep-cliff__row-label">Jan '25</span>
-                                <div class="hsep-cliff__row-track"><span class="hsep-cliff__row-fill"></span></div>
-                                <span class="hsep-cliff__row-value">0</span>
-                            </div>
-                            <div class="hsep-cliff__row hsep-cliff__row--zero" data-value="0">
+                                <span class="hsep-cliff__row-track" aria-hidden="true"><span class="hsep-cliff__row-fill"></span></span>
+                                <span class="hsep-cliff__row-value">422</span>
+                            </li>
+                            <li class="hsep-cliff__row hsep-cliff__row--zero" data-value="0">
                                 <span class="hsep-cliff__row-label">Feb '25</span>
-                                <div class="hsep-cliff__row-track"><span class="hsep-cliff__row-fill"></span></div>
+                                <span class="hsep-cliff__row-track" aria-hidden="true"><span class="hsep-cliff__row-fill"></span></span>
                                 <span class="hsep-cliff__row-value">0</span>
-                            </div>
-                        </div>
-                        <p class="hsep-cliff__annotation">Out of 479 teachers tracked overall. <strong>The freeze hit in late January 2025.</strong></p>
+                            </li>
+                        </ul>
+                        <p class="hsep-cliff__annotation">Out of 479 pilot teachers. Pilot modules ran Nov 17 to Jan 19. <strong>Stop-work order: January 24, 2025.</strong></p>
                     </div>
+
+                    <p class="hsep-callout__body">Reaching 12,000 trainees by September 2025 depended on the cohorts that were supposed to follow the pilot, and none of them launched. HSEP was not alone. The Daily Star reported that <a href="https://www.thedailystar.net/news/bangladesh/news/bangladesh-lost-700m-aid-usaid-halted-most-projects-3904526" target="_blank" rel="noopener noreferrer">55 of the 59 USAID projects in Bangladesh were shut down</a>, costing the country about $700M in aid. Public records don't list a termination date for HSEP itself. The logs show the work stopped when the stop-work order arrived.</p>
                 </section>
 
                 <section class="hsep-callout" data-hsep-reveal aria-labelledby="hsep-learned-title">
-                    <p class="hsep-callout__kicker">What I learned</p>
-                    <h2 class="hsep-callout__title" id="hsep-learned-title">Three things this project taught me</h2>
+                    <p class="hsep-callout__kicker">What I took from it</p>
+                    <h2 class="hsep-callout__title" id="hsep-learned-title">Lessons I still use</h2>
                     <ul class="list-dash">
-                        <li><strong>Measurement has to be agreed on before it's trusted.</strong> With four organizations that would each read the same dashboard differently if they could, the job was picking metrics that couldn't be misread in isolation, activation next to completion, submission next to review throughput.</li>
-                        <li><strong>A diagnostic before training beats a survey after it.</strong> Running the Knowledge/Skills/Attitudes assessment pre-training meant the misconception finding was something the next phase could act on, not just a retrospective grade.</li>
-                        <li><strong>Don't trust a metric until you've traced it to a row you understand.</strong> Several early findings didn't survive checking the raw table. The habit that caught them, re-deriving from source before publishing, is the actual lesson, more than any single number.</li>
+                        <li><strong>Pick the denominator before anyone sees a chart.</strong> Dividing every rate by enrolled teachers made the dashboard hard to flatter, and it meant four organizations with different goals were reading the same number.</li>
+                        <li><strong>Measure against what the system asked for.</strong> The design notes imagined three peer reviewers per submission. The platform asked for one or two. Which bar you pick decides whether peer review looks like it worked.</li>
+                        <li><strong>The dataset outlives the program.</strong> When funding stopped overnight, the BigQuery tables were what remained. Every number here was re-run from them more than a year and a half later.</li>
                     </ul>
                 </section>
 
-                <section class="hsep-callout" data-hsep-reveal aria-labelledby="hsep-verify-title">
-                    <p class="hsep-callout__kicker">Data verification notes</p>
-                    <h2 class="hsep-callout__title" id="hsep-verify-title">Every claim above was re-run against the raw table before publishing</h2>
-                    <div class="hsep-verify">
-                        <div class="hsep-verify__row hsep-verify__row--kept">
-                            <span class="hsep-verify__icon">&check;</span>
-                            <span><strong>Kept:</strong> exam attempt/score data, closely reproduces the dashboard's own numbers</span>
-                        </div>
-                        <div class="hsep-verify__row hsep-verify__row--kept">
-                            <span class="hsep-verify__icon">&check;</span>
-                            <span><strong>Kept:</strong> the peer-review gap, real variation in a review-count field, not an assignment artifact</span>
-                        </div>
-                        <div class="hsep-verify__row hsep-verify__row--kept">
-                            <span class="hsep-verify__icon">&check;</span>
-                            <span><strong>Kept:</strong> the Nov-Feb activity cliff, restricted to exam attempts and task submissions specifically</span>
-                        </div>
-                        <div class="hsep-verify__row hsep-verify__row--dropped">
-                            <span class="hsep-verify__icon">&times;</span>
-                            <span><strong>Dropped:</strong> "task submission is the bottleneck," reversed on raw data (81-95% actually submitted), was drawn from a partially paginated dashboard table</span>
-                        </div>
-                        <div class="hsep-verify__row hsep-verify__row--dropped">
-                            <span class="hsep-verify__icon">&times;</span>
-                            <span><strong>Dropped:</strong> a claimed 10-11 PM engagement peak, real hourly data shows one clean afternoon peak instead; a midnight spike traced back to timestamp-truncated rows, not real usage</span>
-                        </div>
-                        <div class="hsep-verify__row hsep-verify__row--dropped">
-                            <span class="hsep-verify__icon">&times;</span>
-                            <span><strong>Dropped:</strong> "67% ever attended a live class," raw query returns 100%, consistent with assignment-mapping rows rather than confirmed attendance</span>
-                        </div>
+                <section class="hsep-callout hsep-sources" aria-labelledby="hsep-sources-title">
+                    <h2 class="hsep-callout__title hsep-callout__title--sub" id="hsep-sources-title">Sources</h2>
+                    <ul class="list-dash hsep-sources__list">
+                        <li>Award and subaward records: <a href="https://www.usaspending.gov/award/ASST_NON_72038823CA00007_072" target="_blank" rel="noopener noreferrer">USAspending.gov, cooperative agreement 72038823CA00007</a></li>
+                        <li>Program scope: <a href="https://web.archive.org/web/20241210052834/https://chemonics.com/projects/improving-the-quality-of-teaching-for-higher-secondary-students-in-bangladesh/" target="_blank" rel="noopener noreferrer">Chemonics project page (archived December 2024)</a></li>
+                        <li>Program targets and pilot launch: <a href="https://www.newagebd.net/post/country/249881/training-on-usaid-higher-secondary-education-project-launched" target="_blank" rel="noopener noreferrer">New Age, November 10, 2024</a></li>
+                        <li>Bangladesh project shutdowns: <a href="https://www.thedailystar.net/news/bangladesh/news/bangladesh-lost-700m-aid-usaid-halted-most-projects-3904526" target="_blank" rel="noopener noreferrer">The Daily Star, May 2025</a></li>
+                        <li>Platform metrics: HSEP BigQuery project, re-queried October 2026. Raw data is not public because it contains participant information.</li>
+                    </ul>
+                </section>
+
+                <section class="closing-cta" data-hsep-reveal aria-labelledby="hsep-cta-title">
+                    <h2 class="closing-cta__title" id="hsep-cta-title">Running a program that needs <span class="text-gradient-accent">numbers every partner trusts?</span></h2>
+                    <div class="closing-cta__action">
+                        <a href="../../index.html#mh-contact" class="closing-cta__btn">Let&rsquo;s talk</a>
+                        <p class="closing-cta__lead">From data models in BigQuery to dashboards that funders, researchers and government teams can read the same way, happy to help programs measure what they are doing while it is still running.</p>
                     </div>
                 </section>
 
                 <footer class="page-credits">
-                    <p>Platform UX and product design by Shad Iqbal's team (Moshiur, Dipankar). This case study covers the data architecture, dashboard, and analytics side.</p>
+                    <p>Product design by Shad Iqbal (lead), <a href="https://www.moshiurhridoy.com/hsep" target="_blank" rel="noopener noreferrer">Moshiur Hridoy</a> and <a href="https://diponkar.com/" target="_blank" rel="noopener noreferrer">Diponkar</a>. Product management by <a href="https://bd.linkedin.com/in/shazzad-hossain-mukit" target="_blank" rel="noopener noreferrer">Shazzad Hossain Mukit</a> and Shihab. This case study covers the data model, dashboard and analysis.</p>
                 </footer>
             </div>
         </main>
@@ -379,10 +518,9 @@
     <script src="../../assets/plugins/js/popper.min.js"></script>
     <script src="../../assets/plugins/js/bootstrap.min.js"></script>
     <script src="../../assets/js/custom-scripts.js"></script>
-    <script src="../../assets/js/external-link-icon.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-    <script src="../../assets/js/hsep-case-study.js?v=4"></script>
+    <script src="../../assets/js/hsep-case-study.js?v=5"></script>
 </body>
 
 </html>
