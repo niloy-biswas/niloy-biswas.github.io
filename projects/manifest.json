@@ -231,7 +231,7 @@
       "order": 7,
       "slug": "us-superstore",
       "category": "analytics",
-      "showOnHome": true,
+      "showOnHome": false,
       "title": "US Superstore — Sales Summary",
       "badge": {
         "label": "Retail BI",
