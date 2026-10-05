@@ -125,7 +125,7 @@ node scripts/build-portfolio.mjs
 - **Color tokens are scoped at the top of `.tenten-case-study {}`:** `--text-primary: #fff` (true white) and `--text-secondary: rgba(255,255,255,0.72)`. These override the global glass-theme values for this page only. Do not hardcode hex/rgba colors on individual rules — use the tokens.
 - **`p { opacity: 1 }` is reset inside `.tenten-case-study p {}`.** `styles.css` sets a global `p { opacity: 0.9 }` that bleeds in and makes paragraph text look muted. The reset lives at the top of `tenten-case-study.css`.
 
-**Custom showcase (`hsep`):** `page.useTemplate: false`, hand-built [`projects/hsep/index.html`](projects/hsep/index.html). Styles in [`assets/css/hsep-case-study.css`](assets/css/hsep-case-study.css), motion (scroll reveals, counters, chart draw-ins) in [`assets/js/hsep-case-study.js`](assets/js/hsep-case-study.js), images in `projects/hsep/images/`. No inline `style=` attributes; add modifier classes in the CSS instead. `projects/hsep/case-study-draft.md` is a local working draft (gitignored, not deployed).
+**Custom showcase (`hsep`):** `page.useTemplate: false`, hand-built [`projects/hsep/index.html`](projects/hsep/index.html). Styles in [`assets/css/hsep-case-study.css`](assets/css/hsep-case-study.css), motion (scroll reveals, counters, chart draw-ins) in [`assets/js/hsep-case-study.js`](assets/js/hsep-case-study.js), images in `projects/hsep/images/` (`hsep-hero.jpg` page hero, `hsep-card.jpg` homepage card at ~2.2:1 so the card crop and badge stay clear, `hsep-thumbnail.jpg` 1200×630 for og/twitter/JSON-LD). No inline `style=` attributes; add modifier classes in the CSS instead. `projects/hsep/case-study-draft.md` is a local working draft (gitignored, not deployed).
 
 ### Case study content
 
