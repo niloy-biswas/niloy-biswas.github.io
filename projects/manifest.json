@@ -40,20 +40,20 @@
       "slug": "hsep",
       "category": "analytics",
       "showOnHome": true,
-      "title": "HSEP: National Teacher Training Platform",
+      "title": "USAID HSEP: Teacher Training Analytics",
       "badge": {
         "label": "USAID / BI",
         "variant": "analytics"
       },
       "card": {
-        "thumbnail": "projects/hsep/images/hsep3.jpeg",
-        "thumbnailAlt": "HSEP program workshop, Dhaka",
+        "thumbnail": "projects/hsep/images/hsep-card.jpg",
+        "thumbnailAlt": "Chart of HSEP pilot teachers doing graded work each month, dropping to zero after the January 2025 aid freeze",
         "tags": [
           "BigQuery",
-          "Dashboard",
+          "Looker Studio",
           "M&E"
         ],
-        "summary": "Data architecture, dashboard, and pre-training diagnostic for a national teacher-training LMS, USAID's Higher Secondary Education Project, discontinued when USAID was dismantled in 2025."
+        "summary": "Learning analytics for the pilot of USAID's Higher Secondary Education Project in Bangladesh: 479 teachers, one shared dashboard for four partners, and a data trail that ends at the January 2025 aid freeze."
       },
       "links": {
         "caseStudy": "/projects/hsep/",
@@ -61,8 +61,8 @@
         "footerMeta": "USAID · Higher Secondary Education Project"
       },
       "page": {
-        "title": "HSEP: Measuring a National Teacher Training Platform | Niloy Biswas",
-        "description": "Case study: data architecture, dashboard, and pre-training diagnostic for USAID's Higher Secondary Education Project, a national teacher-training LMS for Bangladesh, discontinued when USAID was dismantled in 2025.",
+        "title": "USAID HSEP: Teacher Training Analytics | Niloy Biswas",
+        "description": "Learning analytics for USAID's HSEP teacher training pilot in Bangladesh: 479 teachers, BigQuery, Looker Studio, and the data trail of the 2025 aid freeze.",
         "useTemplate": false
       }
     },
