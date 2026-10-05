@@ -106,7 +106,7 @@ node scripts/build-portfolio.mjs
 | `page.title`, `page.description` | SEO |
 | `page.useTemplate: false` | Skip generated `index.html` (hand-built page) |
 
-**Current slugs:** `tenten` (custom page, portfolio #1), `hsep` (custom page, portfolio #2), `chicago-taxi`, `heart-disease`, `linkedin-network` (off homepage), `bigquery-cost-monitoring`, `population-density-maps`, `us-superstore`, `crm-sales`, `air-quality`
+**Current slugs:** `tenten` (custom page, portfolio #1), `hsep` (custom page, portfolio #2), `chicago-taxi`, `heart-disease`, `linkedin-network` (off homepage), `bigquery-cost-monitoring`, `population-density-maps`, `us-superstore` (off homepage), `crm-sales`, `air-quality`
 
 **Custom showcase (`tenten`):** `page.useTemplate: false` — hand-built [`projects/tenten/index.html`](projects/tenten/index.html), styles in [`assets/css/tenten-case-study.css`](assets/css/tenten-case-study.css) + shared [`assets/css/list-dash.css`](assets/css/list-dash.css) (work-card bullets), motion in [`assets/js/tenten-case-study.js`](assets/js/tenten-case-study.js). **Deployed assets only** under `projects/tenten/assets/`:
 
