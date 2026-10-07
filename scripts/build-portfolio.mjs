@@ -5,6 +5,7 @@
  */
 
 import fs from 'fs';
+import { execFileSync } from 'child_process';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -135,27 +136,53 @@ function buildProjectPage(project, navHtml, pageTemplate) {
   console.log(`Built ${outPath}`);
 }
 
+/** Latest git commit date (YYYY-MM-DD) across the given repo-relative paths; today if none are committed. */
+function gitLastmod(paths) {
+  const dates = paths
+    .map((p) => {
+      try {
+        return execFileSync('git', ['log', '-1', '--format=%cs', '--', p], {
+          cwd: ROOT,
+          encoding: 'utf8',
+          stdio: ['ignore', 'pipe', 'ignore'],
+        }).trim();
+      } catch {
+        return '';
+      }
+    })
+    .filter(Boolean);
+  return dates.length ? dates.sort().at(-1) : new Date().toISOString().slice(0, 10);
+}
+
 function buildSitemap(projects) {
-  const lastmod = new Date().toISOString().slice(0, 10);
   const urls = [
-    { loc: `${SITE_ORIGIN}/`, changefreq: 'weekly', priority: '1.0' },
-    { loc: `${SITE_ORIGIN}/blog/`, changefreq: 'weekly', priority: '0.8' },
-    { loc: `${SITE_ORIGIN}/photography/`, changefreq: 'monthly', priority: '0.7' },
-    { loc: `${SITE_ORIGIN}/resume/`, changefreq: 'monthly', priority: '0.6' },
+    { loc: `${SITE_ORIGIN}/`, changefreq: 'weekly', priority: '1.0', src: ['index.html'] },
+    { loc: `${SITE_ORIGIN}/blog/`, changefreq: 'weekly', priority: '0.8', src: ['blog/index.html'] },
+    {
+      loc: `${SITE_ORIGIN}/photography/`,
+      changefreq: 'monthly',
+      priority: '0.7',
+      src: ['photography/index.html', 'photography/gallery.json'],
+    },
+    { loc: `${SITE_ORIGIN}/resume/`, changefreq: 'monthly', priority: '0.6', src: ['resume/index.html'] },
     ...projects
-      .filter((p) => p.links?.caseStudy)
-      .map((p) => ({
-        loc: `${SITE_ORIGIN}${p.links.caseStudy}`,
-        changefreq: 'monthly',
-        priority: p.page?.useTemplate === false ? '0.8' : '0.7',
-      })),
+      .filter((p) => p.links?.caseStudy && p.showOnHome !== false)
+      .map((p) => {
+        const custom = p.page?.useTemplate === false;
+        return {
+          loc: `${SITE_ORIGIN}${p.links.caseStudy}`,
+          changefreq: 'monthly',
+          priority: custom ? '0.8' : '0.7',
+          src: [`projects/${p.slug}/${custom ? 'index.html' : 'content.html'}`],
+        };
+      }),
   ];
 
   const entries = urls
     .map(
       (u) => `   <url>
       <loc>${u.loc}</loc>
-      <lastmod>${lastmod}</lastmod>
+      <lastmod>${gitLastmod(u.src)}</lastmod>
       <changefreq>${u.changefreq}</changefreq>
       <priority>${u.priority}</priority>
    </url>`

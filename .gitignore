@@ -8,3 +8,7 @@ skills-lock.json
 resume/*.pdf
 resume/_preview*.png
 projects/hsep/case-study-draft.md
+
+# Local SEO audit artifacts (baselines, tracking)
+seo-audit/
+seo-report*.md

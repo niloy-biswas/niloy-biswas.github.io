@@ -70,8 +70,7 @@
       ".mh-home .mh-header-info h1",
       ".mh-home .mh-header-info h4",
       ".mh-home .mh-header-info > ul",
-      ".mh-home .mh-header-info .social-icon",
-      ".mh-home .hero-img"
+      ".mh-home .mh-header-info .social-icon"
     ]
       .map(function (sel) { return document.querySelector(sel); })
       .filter(Boolean);

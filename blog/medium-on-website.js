@@ -196,5 +196,5 @@ fetch(API_URL)
 	})
 	.catch(error => {
 		console.error('There has been a problem fetching the info: ', error);
-		alert('There has been a problem fetching the info.')
+		console.warn('There has been a problem fetching the info.')
 	})
