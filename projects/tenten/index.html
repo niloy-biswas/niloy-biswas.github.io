@@ -8,14 +8,14 @@
     <script defer src="/assets/js/analytics-init.js"></script>
 
     <meta name="description"
-        content="How I built TenTen, 10 Minute School's AI study partner for Bangladesh. RAG over curriculum content, Bangla LLM behaviour, intent routing, and post-launch product analytics.">
+        content="TenTen, 10 Minute School's AI study partner for Bangladesh: RAG over curriculum content, intent routing, and post-launch product analytics.">
     <meta name="robots" content="index, follow">
     <link rel="icon" type="image/x-icon" href="../../favicon.ico">
     <link rel="canonical" href="https://niloy.tech/projects/tenten/">
 
     <meta property="og:title" content="TenTen: AI Study Partner for Bangladesh | Niloy Biswas">
     <meta property="og:description"
-        content="How I built TenTen from Colab experiments to production RAG, Bangla LLM behaviour, and product analytics at 10 Minute School.">
+        content="TenTen, 10 Minute School's AI study partner for Bangladesh: RAG over curriculum content, intent routing, and post-launch product analytics.">
     <meta property="og:url" content="https://niloy.tech/projects/tenten/">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="niloy.tech">
@@ -25,7 +25,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="TenTen: AI Study Partner for Bangladesh | Niloy Biswas">
     <meta name="twitter:description"
-        content="How I built TenTen for Bangladesh's students, from Colab experiments to production RAG, Bangla LLM, and product analytics at 10 Minute School.">
+        content="TenTen, 10 Minute School's AI study partner for Bangladesh: RAG over curriculum content, intent routing, and post-launch product analytics.">
     <meta name="twitter:image" content="https://niloy.tech/projects/tenten/assets/ui/og-tenten.jpg">
     <meta name="twitter:image:alt" content="TenTen: integrated AI study partner at 10 Minute School">
 
@@ -226,7 +226,7 @@
                         </div>
                         <article class="tenten-work-card glass-card tenten-work-card--rag">
                             <div class="tenten-work-card__visual tenten-work-card__visual--svg">
-                                <object class="tenten-work-card__svg" type="image/svg+xml" data="assets/ui/rag-flow-animated.svg" width="1600" height="900" aria-label="Curriculum-grounded RAG workflow: semantic chunking, hybrid search, reranking, and eval loops">Curriculum-grounded RAG workflow</object>
+                                <object class="tenten-work-card__svg" type="image/svg+xml" data="assets/ui/rag-flow-animated.svg" width="1600" height="900" aria-label="Curriculum-grounded RAG workflow: semantic chunking, hybrid search, reranking, and eval loops"><p>Diagram: RAG pipeline for TenTen. Textbooks and 10 Minute School content are split by semantic chunking and indexed in PGVector. A student question goes to the TenTen orchestrator, which retrieves candidates, reranks them, injects the retrieved context into the LLM, and returns a grounded answer, with an eval loop on retrieval quality.</p></object>
                             </div>
                             <span class="tenten-work-card__icon">RAG</span>
                             <h3>Curriculum-grounded retrieval</h3>
@@ -240,7 +240,7 @@
                         </article>
                         <article class="tenten-work-card glass-card tenten-work-card--routing">
                             <div class="tenten-work-card__visual tenten-work-card__visual--svg">
-                                <object class="tenten-work-card__svg" type="image/svg+xml" data="assets/ui/agent-routing-flow.svg" width="1600" height="900" aria-label="Mixed-intent agent routing: academic and general agents, 10MS MCP server, and subject-wise user memory">Mixed-intent agent routing</object>
+                                <object class="tenten-work-card__svg" type="image/svg+xml" data="assets/ui/agent-routing-flow.svg" width="1600" height="900" aria-label="Mixed-intent agent routing: academic and general agents, 10MS MCP server, and subject-wise user memory"><p>Diagram: agent routing for TenTen. A normalizer classifies and splits each student query by intent, routing academic doubts to an Academic Agent (with book context) and platform or logistics questions to a General Agent. Agents use a 10MS MCP server (FAQ, product info, user routine) and subject-wise user memory, and a response composer merges their outputs into one answer.</p></object>
                             </div>
                             <span class="tenten-work-card__icon">Routing</span>
                             <h3>Mixed-intent handling</h3>
@@ -254,7 +254,7 @@
                         </article>
                         <article class="tenten-work-card glass-card tenten-work-card--analytics">
                             <div class="tenten-work-card__visual tenten-work-card__visual--svg">
-                                <object class="tenten-work-card__svg" type="image/svg+xml" data="assets/ui/analytics-dashboard.svg" width="1600" height="980" aria-label="Post-launch analytics dashboard: usage, retention, session depth, and answer helpfulness">Post-launch analytics dashboard</object>
+                                <object class="tenten-work-card__svg" type="image/svg+xml" data="assets/ui/analytics-dashboard.svg" width="1600" height="980" aria-label="Post-launch analytics dashboard: usage, retention, session depth, and answer helpfulness"><p>Diagram: post-launch analytics dashboard for TenTen after the limited release in Nov 2025. It tracks active users, 7-day retention, session depth, answer helpfulness, response time, repeat sessions, product issues, and model updates, and feeds the results into product and model improvements.</p></object>
                             </div>
                             <span class="tenten-work-card__icon">Analytics</span>
                             <h3>Post-launch measurement</h3>
