@@ -44,7 +44,7 @@ Reference for AI agents editing this repo. **Static GitHub Pages** (no npm/CI bu
 
 | Folder | Use |
 |--------|-----|
-| `site/` | Profile, default social preview (`og-image.png`, 2256×1278; a 1200×630 replacement is pending), HUD SVG (`portfolio-hud.svg`) |
+| `site/` | Profile, default social preview (`og-image.jpg`, 1200×630, rendered from `scripts/templates/og-card.html`), HUD SVG (`portfolio-hud.svg`) |
 | `experience/logos/` | Employer/org logos in experience timeline |
 | `experience/education/` | Graduation / education photos |
 | `experience/10ms/` | 10 Minute School ceremony & award photos |
@@ -64,12 +64,14 @@ Reference for AI agents editing this repo. **Static GitHub Pages** (no npm/CI bu
 
 | Page | Edit in | Image |
 |------|---------|--------|
-| Homepage | `index.html` `<head>` | `assets/images/site/og-image.png` (2256×1278) |
-| Blog, Résumé | `blog/index.html`, `resume/index.html` `<head>` | same default OG image |
+| Homepage | `index.html` `<head>` | `assets/images/site/og-image.jpg` (1200×630) |
+| Blog, Résumé, Card | `blog/index.html`, `resume/index.html`, `card/`, `card/scan/` `<head>` | same default OG image |
 | Photography | `photography/index.html` `<head>` | `assets/images/photography/gallery/dhaka-intersection-night.jpg` |
 | Case studies | `scripts/templates/project-page.html` + `manifest.json` `page.title` / `page.description` → run build | project thumbnail |
 
 Keep `meta description`, `og:description`, and `twitter:description` in sync per page. JSON-LD `Person.image` stays the profile photo (`niloy-profile5.jpg`), not the OG screenshot.
+
+**Regenerate the OG image** after editing `scripts/templates/og-card.html` (plain editorial card on the site's dark tokens; no gradients, glows or pills): headless Chrome `--force-device-scale-factor=1 --window-size=1200,630 --virtual-time-budget=6000 --screenshot` of the file, then `sips -s format jpeg -s formatOptions 85` to `assets/images/site/og-image.jpg` (keep under 200 KB).
 
 
 **Positioning string:** `AI/LLM Engineer & Data Analyst`. Use it verbatim in the homepage title, JSON-LD `Person.jobTitle`, footer, `llms.txt`, and off-site profiles. The hero rotator (`I'm a` + Data Analyst / AI Product Engineer / Researcher, in an `h4`) is intentionally left as is.
