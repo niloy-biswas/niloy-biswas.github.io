@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<title>OG card source (render to assets/images/site/og-image.jpg)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #030712;
+    --ink: rgba(255, 255, 255, 0.95);
+    --muted: rgba(255, 255, 255, 0.62);
+    --rule: #1f2937;
+    --accent: #0bceaf;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Inter", sans-serif;
+    padding: 84px 92px 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .name {
+    font-family: "Fraunces", serif;
+    font-weight: 500;
+    font-size: 112px;
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+    font-variation-settings: "opsz" 144;
+  }
+  .role {
+    margin-top: 26px;
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.005em;
+  }
+  .quote {
+    margin-top: 48px;
+    max-width: 860px;
+    text-wrap: balance;
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    font-variation-settings: "opsz" 48;
+  }
+  .note {
+    margin-top: 20px;
+    max-width: 1016px;
+    font-size: 21px;
+    line-height: 1.45;
+    color: var(--muted);
+  }
+  .foot {
+    margin-top: auto;
+    border-top: 1px solid var(--rule);
+    padding: 22px 0 30px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .foot span:last-child { color: var(--muted); font-weight: 400; }
+</style>
+</head>
+<body>
+  <div class="name">Niloy Biswas</div>
+  <div class="role">AI/LLM Engineer &amp; Data Analyst</div>
+  <p class="quote">Turning raw data into decisions, and building the AI systems that make it scale.</p>
+  <p class="note">Open to ambitious projects, complex challenges, and collaborations that create real impact.</p>
+  <div class="foot">
+    <span>niloy.tech</span>
+    <span>Dhaka, Bangladesh</span>
+  </div>
+</body>
+</html>
