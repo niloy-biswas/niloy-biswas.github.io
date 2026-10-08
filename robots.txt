@@ -4,4 +4,26 @@ Disallow: /cgi-bin/
 Disallow: /photography/layout.html
 Disallow: /scripts/
 Disallow: /projects/*/content.html
+
+# AI and search crawlers are allowed on purpose so the site can be cited in AI answers.
+# Named groups override "*", so the Disallow rules are repeated here.
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: CCBot
+User-agent: Bingbot
+Allow: /
+Disallow: /.vscode/
+Disallow: /cgi-bin/
+Disallow: /photography/layout.html
+Disallow: /scripts/
+Disallow: /projects/*/content.html
+
 Sitemap: https://niloy.tech/sitemap.xml
