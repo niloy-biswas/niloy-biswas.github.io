@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
- * Build homepage portfolio grid, project case-study pages, and sitemap.xml from projects/manifest.json.
+ * Build homepage portfolio grid, project case-study pages, sitemap.xml, llms.txt and llms-full.txt
+ * from projects/manifest.json (llms files also use scripts/templates/llms-intro.md).
  * Run: node scripts/build-portfolio.mjs
  */
 
@@ -16,6 +17,15 @@ const INDEX_PATH = path.join(ROOT, 'index.html');
 const SITEMAP_PATH = path.join(ROOT, 'sitemap.xml');
 const TEMPLATE_PATH = path.join(__dirname, 'templates', 'project-page.html');
 const NAV_PATH = path.join(__dirname, 'templates', 'nav-snippet.html');
+const LLMS_INTRO_PATH = path.join(__dirname, 'templates', 'llms-intro.md');
+const LLMS_PATH = path.join(ROOT, 'llms.txt');
+const LLMS_FULL_PATH = path.join(ROOT, 'llms-full.txt');
+
+const PHOTOGRAPHY_PATH = path.join(ROOT, 'photography', 'index.html');
+const GALLERY_JSON_PATH = path.join(ROOT, 'photography', 'gallery.json');
+const GALLERY_IMG_BASE = '/assets/images/photography/gallery';
+const GALLERY_START = '<!-- GALLERY_STATIC_START -->';
+const GALLERY_END = '<!-- GALLERY_STATIC_END -->';
 
 const GRID_START = '<!-- PORTFOLIO_GRID_START -->';
 const GRID_END = '<!-- PORTFOLIO_GRID_END -->';
@@ -101,6 +111,36 @@ function buildGrid(projects) {
   const built = `${before}\n${cards}\n                        ${after}`;
   fs.writeFileSync(INDEX_PATH, built);
   console.log(`Updated portfolio grid (${projects.length} cards) in index.html`);
+}
+
+/**
+ * Crawlable fallback for the JS-rendered photography grid: a <noscript> list of
+ * gallery images (ignored when scripts run) between the GALLERY_STATIC markers.
+ */
+function buildGalleryStatic() {
+  const { images } = JSON.parse(fs.readFileSync(GALLERY_JSON_PATH, 'utf8'));
+  const html = fs.readFileSync(PHOTOGRAPHY_PATH, 'utf8');
+  const startIdx = html.indexOf(GALLERY_START);
+  const endIdx = html.indexOf(GALLERY_END);
+
+  if (startIdx === -1 || endIdx === -1 || endIdx < startIdx) {
+    throw new Error(
+      `Missing ${GALLERY_START} or ${GALLERY_END} in photography/index.html`
+    );
+  }
+
+  const items = images
+    .map(
+      (img) =>
+        `\t\t\t\t\t\t\t<li><img src="${GALLERY_IMG_BASE}/${escapeHtml(img.file)}" alt="${escapeHtml(img.alt || '')}" loading="lazy"></li>`
+    )
+    .join('\n');
+  const block = `<noscript>\n\t\t\t\t\t\t<ul>\n${items}\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</noscript>`;
+
+  const before = html.slice(0, startIdx + GALLERY_START.length);
+  const after = html.slice(endIdx);
+  fs.writeFileSync(PHOTOGRAPHY_PATH, `${before}\n\t\t\t\t\t\t${block}\n\t\t\t\t\t\t${after}`);
+  console.log(`Updated photography gallery noscript (${images.length} images)`);
 }
 
 function buildProjectPage(project, navHtml, pageTemplate) {
@@ -202,6 +242,73 @@ ${entries}
   console.log(`Updated sitemap.xml (${urls.length} URLs)`);
 }
 
+/** Plain text for LLM files: no em dashes. */
+function plainText(str) {
+  return str.replace(/\s*—\s*/g, ' - ');
+}
+
+const ENTITIES = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ', rarr: '->', larr: '<-',
+  rsquo: "'", lsquo: "'", rdquo: '"', ldquo: '"', middot: '\u00b7', hellip: '...', ndash: '-', mdash: ' - ', copy: '(c)', times: 'x',
+};
+
+function decodeEntities(str) {
+  return str
+    .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
+    .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(Number(d)))
+    .replace(/&([a-z]+);/gi, (m, name) => ENTITIES[name.toLowerCase()] ?? m);
+}
+
+/** Strip scripts, styles, comments and tags; keep block-level line breaks; collapse whitespace. */
+function htmlToText(html) {
+  const text = html
+    .replace(/<!--[\s\S]*?-->/g, ' ')
+    .replace(/<(script|style|svg|object|noscript)\b[\s\S]*?<\/\1>/gi, ' ')
+    .replace(/<\/(p|div|section|article|li|ul|ol|h[1-6]|tr|header|footer|figure|figcaption|blockquote)>|<br\s*\/?>/gi, '\n')
+    .replace(/<[^>]+>/g, ' ');
+  return decodeEntities(text)
+    .split('\n')
+    .map((line) => line.replace(/\s+/g, ' ').trim())
+    .filter(Boolean)
+    .join('\n\n');
+}
+
+/** Body HTML for a case study: content.html for templated pages, <main> for hand-built pages. */
+function caseStudyBodyHtml(project) {
+  const dir = path.join(ROOT, 'projects', project.slug);
+  if (project.page?.useTemplate === false) {
+    const html = fs.readFileSync(path.join(dir, 'index.html'), 'utf8');
+    return html.match(/<main\b[\s\S]*?<\/main>/i)?.[0] ?? '';
+  }
+  return fs.readFileSync(path.join(dir, 'content.html'), 'utf8');
+}
+
+function buildLlms(projects) {
+  const listed = projects
+    .filter((p) => p.links?.caseStudy && p.showOnHome !== false)
+    .sort((a, b) => a.order - b.order);
+  const intro = fs.readFileSync(LLMS_INTRO_PATH, 'utf8').trimEnd();
+  if (!intro.includes('{{CASE_STUDIES}}')) {
+    throw new Error('llms-intro.md is missing the {{CASE_STUDIES}} marker');
+  }
+
+  const bullets = listed
+    .map(
+      (p) =>
+        `- [${plainText(p.title)}](${SITE_ORIGIN}${p.links.caseStudy}): ${plainText(p.page.description)}`
+    )
+    .join('\n');
+  fs.writeFileSync(LLMS_PATH, `${intro.replace('{{CASE_STUDIES}}', bullets)}\n`);
+  console.log(`Updated llms.txt (${listed.length} case studies)`);
+
+  const sections = listed.map((p) => {
+    const body = plainText(htmlToText(caseStudyBodyHtml(p)));
+    return `## ${plainText(p.title)}\n\nURL: ${SITE_ORIGIN}${p.links.caseStudy}\n\n${body}`;
+  });
+  const fullIntro = intro.replace('{{CASE_STUDIES}}', 'Full text of each case study follows below.');
+  fs.writeFileSync(LLMS_FULL_PATH, `${fullIntro}\n\n---\n\n${sections.join('\n\n---\n\n')}\n`);
+  console.log(`Updated llms-full.txt (${listed.length} case studies)`);
+}
+
 function main() {
   const manifest = readManifest();
   const pageTemplate = fs.readFileSync(TEMPLATE_PATH, 'utf8');
@@ -209,6 +316,8 @@ function main() {
 
   buildGrid(loadManifest());
   buildSitemap(manifest.projects);
+  buildLlms(manifest.projects);
+  buildGalleryStatic();
 
   for (const project of manifest.projects) {
     if (project.page?.useTemplate === false) {

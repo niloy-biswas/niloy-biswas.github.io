@@ -1,0 +1,939 @@
+# Niloy Biswas
+
+> Niloy Biswas is an AI/LLM engineer and data analyst at 10 Minute School in Dhaka, Bangladesh. He works on TenTen, 10MS's AI study partner (RAG, intent routing, product analytics), and on BigQuery and Looker Studio data systems. His machine-learning research is published in Hindawi's BioMed Research International.
+
+Based in Dhaka, Bangladesh. Open to remote roles and projects. Site: https://niloy.tech
+
+## About
+
+- Positioning: AI/LLM Engineer & Data Analyst
+- 4+ years working in data
+- Stack: Python, SQL, BigQuery, Looker Studio, LangGraph, RAG, vector search
+
+## Case studies
+
+Full text of each case study follows below.
+
+## Writing
+
+- [Blog](https://niloy.tech/blog/): articles and write-ups on this site
+- [Medium](https://medium.com/@niloy.swe): articles by Niloy Biswas on Medium
+
+## Research
+
+- [Machine Learning-Based Model to Predict Heart Disease in Early Stage Employing Different Feature Selection Techniques](https://doi.org/10.1155/2023/6864343): Hindawi, BioMed Research International, 2023
+- [Google Scholar](https://scholar.google.com/citations?user=FGPCQs0AAAAJ): publication profile
+
+## Contact
+
+- Email: niloy.swe@gmail.com
+- [LinkedIn](https://www.linkedin.com/in/niloy--biswas/)
+- [GitHub](https://github.com/niloy-biswas)
+- [Book a call](https://calendar.app.google/iUkEPuo8fcdPuhgy6)
+
+## Optional
+
+- [Resume](https://niloy.tech/resume/)
+- [Photography](https://niloy.tech/photography/)
+
+---
+
+## TenTen - AI Study Partner
+
+URL: https://niloy.tech/projects/tenten/
+
+← Back to Case Studies & Projects
+
+Hello, I'm
+
+TenTen
+
+Bangladesh's First Integrated
+
+AI Learning Ecosystem
+
+A 10-month journey building TenTen inside the 10 Minute School app: from early R&D in Google Colab to production RAG, Bangla LLM behaviour, intent routing, and product analytics after a limited release in Nov '25.
+
+Product area
+
+AI study partner (TenTen)
+
+My role
+
+AI/LLM Engineer & Data Analyst
+
+Platform
+
+10 Minute School app
+
+Timeline
+
+~10 months R&D · Nov '25 launch
+
+View product
+
+The problem
+
+When learning paused, students had nowhere to turn
+
+10 Minute School reaches millions of learners across Bangladesh, many of them without access to private tutoring. Students on the platform could learn, but they had no way to recover when they got confused.
+
+Four issues kept showing up:
+
+Stuck watching a recorded class. No teacher available to ask for clarification.
+
+Stuck after reading an exam explanation that still didn't make sense. Stuck with no one to ask.
+
+Stuck on a theory question with nowhere useful to look for a real explanation.
+
+Stuck during live class, with doubts piling up and platform help buried in FAQ pages nobody reads.
+
+That meant the product was good at delivering content but had no answer for the moment after confusion. And in education, that moment matters more than almost anything else. It is where students pause, skip, guess, or quietly give up.
+
+Before TenTen, support meant FAQ pages and external chatbots with zero curriculum context. Learning broke at the exact moments students needed help most, and nothing inside 10MS could stitch it back together.
+
+The solution
+
+Not a regular chatbot
+
+Solving academic challenges inside the learning journey
+
+TenTen lives exactly where learning breaks: inside general chat, recorded lessons, exam review, and live class. It is built into 10 Minute School, not bolted on as a separate chat window, so help arrives with the student's class, grade, and curriculum context already in place.
+
+Solve problems on demand
+
+Study partner, not teacher. TenTen does not lecture. It helps students work through confusion the way a smart classmate would: step by step, in Bangla when they need it.
+
+Ground answers in what they're learning
+
+Academic doubts pull from textbooks and trusted 10MS content. Platform questions route elsewhere. Students get the right kind of help instead of one generic reply for every intent.
+
+Grow alongside the learner
+
+As students use TenTen across surfaces, it stays aware of their progress: what they watched, what they got wrong, what to revise next. Guidance deepens instead of resetting every session.
+
+With TenTen, the product finally supports the moment after confusion, not just content consumption. A study partner embedded in the learning journey, not another chatbot students have to leave the app to find.
+
+What I built
+
+Four systems shipped across a ten-month build: retrieval, routing, orchestration, and analytics.
+
+From pilot to product
+
+Where the engineering work fit in TenTen's story
+
+The work covered the data and AI layer: retrieval, routing, and orchestration that turned early Colab, n8n, and Dify experiments into production systems the product could actually trust.
+
+Eight phases from research through limited release. The cards below are the four pillars that shipped across that arc.
+
+R&D
+
+Prototype to production orchestration
+
+~10 months of retrieval and prompt experiments in Colab, n8n, and Dify before production wiring.
+
+Migrated orchestration to LangGraph for agent flows, state, and production control.
+
+Colab n8n Dify LangGraph
+
+RAG
+
+Curriculum-grounded retrieval
+
+Evidence from textbooks and trusted 10MS content, with eval loops on retrieval quality.
+
+Semantic chunking , hybrid search (semantic + keyword), and reranking before generation.
+
+Semantic chunking Hybrid search Reranking
+
+Routing
+
+Mixed-intent handling
+
+Separate paths for academic doubts vs platform and logistics questions.
+
+Academic and general agents , a 10MS MCP server , and subject-wise user memory retrieved when needed.
+
+Multi-agent MCP User memory
+
+Analytics
+
+Post-launch measurement
+
+Data-led iteration after limited release in Nov '25.
+
+Usage, retention, session depth, and answer helpfulness fed back into product and model improvements.
+
+Usage Retention Helpfulness
+
+Engineering challenges
+
+Why those systems were necessary: the constraints and failure modes that shaped every decision, not just an implementation checklist.
+
+অ
+
+Bangla in the wild
+
+Students rarely write textbook Bangla. Code-mixed shorthand, typos, and spoken phrasing break assumptions baked into base models and clean training data.
+
+A fluent-sounding wrong answer erodes trust faster than an honest "I'm not sure."
+
+?
+
+Sparse questions, dense books
+
+A six-word doubt has to land in the right NCTB paragraph inside a long chapter. Vector similarity alone often returns plausible-but-wrong passages.
+
+Retrieval mistakes look like knowledge mistakes to a student who can't verify the source.
+
+◎
+
+One chat, many jobs
+
+The same input handles physics steps, class timing, pricing, and platform help. Routing errors send academic answers to logistics questions, or flip it the other way around.
+
+Wrong intent is worse than no answer when students are already stuck.
+
+How TenTen shows up for students
+
+Four learning surfaces, one integrated study partner across the moments that matter most. Not four separate chatbots.
+
+General chat
+
+24/7 doubt solving
+
+Ask any academic question, anytime. Step-by-step help across every subject.
+
+Live class
+
+Doubts during and after class
+
+Learning support inside live sessions. Ask a question without breaking the flow.
+
+Recorded class
+
+Help without leaving the video
+
+Ask about a specific moment in a recorded lesson. Context travels with the question.
+
+Exam solution
+
+Understand why an answer was wrong
+
+Instant explanations after exams. Follow up on any MCQ you got wrong and actually understand why.
+
+Impact in numbers
+
+Numbers that came back stronger than expected after just months of rollout.
+
+0
+
+Adoption rate
+
+After multiple rollout phases, more than half of paid users have used TenTen.
+
+0
+
+Messages answered
+
+Doubts and follow-ups handled across general chat, live class, recorded lessons, and exam review.
+
+0
+
+Daily active learners
+
+On average, 500+ students actively solve doubts with TenTen each day.
+
+Sales impact
+
+After launch, 19.2% of students credited TenTen as a key reason for purchasing, and 50% said it will influence their next purchase too.
+
+Student usage
+
+Math leads, but practice, theory, and exam prep are close behind
+
+How Students Use TenTen
+
+Math Problem Solving
+
+55.6%
+
+MCQ & CQ Practice
+
+50.6%
+
+Theory & Explanations
+
+49.6%
+
+Step-by-Step Solutions
+
+40.5%
+
+Answer Checking
+
+39.4%
+
+Study Routine Planning
+
+26.0%
+
+Exam Prep & Quiz
+
+23.6%
+
+Class Routine Checking
+
+19.2%
+
+0% 10% 20% 30% 40% 50% 60% 70%
+
+% of Students
+
+Reach
+
+4,200+ locations across all eight divisions
+
+AI reaching every corner of Bangladesh
+
+0
+
+Students from rural areas
+
+What this means
+
+More than a tool. Part of how a generation learns.
+
+Solving the basics is only the starting point. As the largest edTech platform in Bangladesh, there is a responsibility to bring bold innovations that actually reshape how students learn. That means reaching every division, from rural classrooms to city prep centers, with AI that grows alongside how students study.
+
+Need help building an AI system that's actually helpful?
+
+Let's talk
+
+From RAG and intent routing to launch analytics, happy to help teams ship AI that students actually trust inside real products, not just one-off demos.
+
+Product design and UI explorations by Diponkar . This case study covers the data and AI engineering side: R&D, retrieval, routing, and analytics.
+
+---
+
+## USAID HSEP: Teacher Training Analytics
+
+URL: https://niloy.tech/projects/hsep/
+
+← Back to Case Studies & Projects
+
+Learning analytics case study · USAID HSEP · Bangladesh
+
+Measuring USAID's teacher training pilot in Bangladesh until the aid freeze stopped it
+
+In late 2024, 479 college teachers and education leaders from 57 districts took the first online cohort of USAID's Higher Secondary Education Project (HSEP) in Bangladesh. I led the data side on the 10 Minute School team. The pilot's last module closed on January 19, 2025. Five days later a US stop-work order froze foreign aid, and the next cohort never started.
+
+HSEP's annual work-planning workshop in Dhaka, with partners, trainers and education officials.
+
+479
+
+Pilot participants (382 TPD, 97 ELPD)
+
+111,693
+
+Learning events logged during the pilot
+
+407
+
+Colleges and institutes represented
+
+Jan 24
+
+2025 stop-work order on US foreign aid
+
+The program
+
+A five-year, $40M plan to retrain Bangladesh's college teachers
+
+Higher secondary education (grades 11 and 12) is often overlooked by international donors . HSEP, officially "USAID's Higher Secondary Education Activity", was the exception: a five-year program implemented by Chemonics International under Bangladesh's Directorate of Secondary and Higher Education (DSHE). Florida State University certified the training, and 10 Minute School held a $2.93M subaward to deploy and customize the learning management system (LMS) it ran on.
+
+$40M
+
+USAID plan, Aug 2023 to Aug 2028
+
+12,000
+
+Trainees targeted by Sept 2025
+
+~60,000
+
+Trainees targeted by Aug 2028
+
+Nov 10
+
+2024 pilot launch in Bogura
+
+About 500 participants started in person at three venues (Bogura, Cumilla and Khulna), then moved online into two programs: TPD (Teachers Professional Development, 8 modules) and ELPD (Educational Leadership Professional Development, 7 modules). Going from 479 people to 12,000 in under a year meant every pilot decision would be copied about 25 times. The pilot data had to show which decisions were worth copying.
+
+A face-to-face session during the HSEP program. The online modules picked up where these sessions ended.
+
+My role and the team
+
+Where the data work sat
+
+I was a Senior BI Analyst at 10 Minute School and the data lead on HSEP. Shazzad Hossain Mukit and Shihab managed the product. Shad Iqbal led design, with product designers Moshiur Hridoy and Diponkar shaping the learning flows, peer review and discussion features. Moshiur has written up the design story, including the 21-day prototype sprint and field testing with teachers, in his own HSEP case study . This page is the other half: what the platform data said.
+
+Modeled the LMS data in BigQuery and set the filter that kept only real pilot participants
+
+Defined the activation, completion and peer review metrics, and built the Looker Studio dashboard all four partner organizations used
+
+Built the data pipeline and scoring behind the 36-item pre-training diagnostic run at the three training sites
+
+Re-ran every number on this page against the raw tables before publishing it
+
+The measurement problem
+
+Four partners, four definitions of a good pilot
+
+Each organization opened the dashboard with a different question. If each one had picked its own favorite number, the pilot would have looked like four different projects. So the dashboard kept every metric on the same footing (enrolled teachers as the denominator, filters for batch, program, module and day) and let each partner start from the view that answered them.
+
+What each partner needed from the pilot data
+
+Partner
+
+Their question
+
+Where the dashboard answered it
+
+USAID
+
+Is the money reaching teachers in a way that can scale?
+
+Enrollment and activation by batch and district
+
+Florida State University
+
+Are teachers learning what the curriculum teaches?
+
+Exam attempts and scores, the pre-training diagnostic
+
+Chemonics International
+
+Is the rollout on schedule?
+
+Completion by each module's end date, peer review throughput
+
+DSHE (Ministry of Education)
+
+Are college teachers taking it up?
+
+Activity by district and institution type, learning time
+
+The data model
+
+One row for every teacher and every piece of content
+
+The LMS wrote to several services: reading and video logs, exam sessions, peer review, and the live-class schedule. Those synced into BigQuery, and the reporting model joined them into a grid with one row for each enrolled teacher and each content item in their batch, 109,180 rows in all. An empty timestamp means the teacher never opened that item. That made "who hasn't started Module 3" as easy to ask as "who finished it", which a plain event log can't answer without extra work.
+
+LMS services Logs, exams, peer review, live classes
+
+BigQuery Raw tables from each service
+
+Teacher x content model Real participants only, matched to the official pilot list
+
+Looker Studio Filters for batch, program, module and day
+
+Activated: opened at least one content item from that module-day.
+
+Completed: finished 80% or more of that module-day's content.
+
+Both rates divide by enrolled teachers, so a teacher who goes quiet pulls the rate down instead of dropping out of it.
+
+Timestamps are stored in UTC. Anything about time of day is converted to Bangladesh time (UTC+6) first.
+
+What the data showed
+
+Teachers kept showing up. They finished a little less as each module went on
+
+Every TPD module runs five days. Averaged over all 8 modules, the share of teachers who opened something each day never fell below 92.7%. Completion at the 80% bar started at 94.2% on Day 1 and ended at 77.9% on Day 5. Day 4 is the exception in the chart: it holds a single task or live session, so anyone who opened it also completed it.
+
+The same slow slide shows up across modules. In TPD, completion went from 93% in Module 1 to 84% in Module 8. Counting only work finished before each module's deadline, 70% to 82% of TPD teachers completed on time.
+
+Activation (opened at least one item)
+
+Completion (80% or more of the day)
+
+Peer review held up at one reviewer and strained at two
+
+Submitting work was never the weak point: 95% of TPD teachers handed in at least one task, and 84% were still submitting in Module 8. The strain was on the reviewing side. Every submission went to classmates for review, and each task set a minimum. Where one review was enough, 92% of submissions got it. Where the task asked for two, only 55% reached the bar, even though 89% got at least one. The second reviewer was the one who often never came.
+
+Tasks needing 1 review (2,051 TPD submissions)
+
+92%
+
+Tasks needing 2 reviews (647 TPD submissions)
+
+Gap
+
+55%
+
+Share of submissions that reached the task's review minimum, from the peer review service's own task settings.
+
+Who finished, and when they studied
+
+Teachers studied after college hours. Activity was heaviest between 6 PM and 11 PM Bangladesh time and peaked at 8 PM. The typical TPD teacher logged about 10.5 hours of reading and video, and that excludes time spent in exams and live classes, which the logs don't record. In exams, TPD teachers made 8,778 attempts across 13 exams, about 1.9 tries per exam, and averaged 77%. ELPD averaged 84%.
+
+Completion also varied by type of institution. Women were only 51 of the 479 teachers, but their module completion rate matched the men's at 88%.
+
+MPO colleges (105 teachers)
+
+95%
+
+Government colleges (268)
+
+89%
+
+Non-MPO colleges (58)
+
+83%
+
+Higher Secondary Teachers' Training Institutes (31)
+
+77%
+
+Module completion rate (80% bar) by institution type. MPO colleges are non-government colleges that receive government salary support.
+
+The pre-training diagnostic pointed at two beliefs
+
+Before the online modules, teachers at all three training sites answered a 36-item diagnostic on Knowledge, Skills and Attitudes. Knowledge was the weakest area at 68% to 71% correct, against 79% to 86% for the other two. The lowest items clustered around two ideas: that action research is only about end-of-term grading, and that every student should get the same instruction regardless of age, gender or ability. Changing that second belief was the point of the differentiated-instruction content.
+
+"Action research involves only summative assessment" (should disagree)
+
+Below 50%
+
+30%
+
+"Same instruction regardless of age, gender, or ability" (should disagree)
+
+Below 50%
+
+37%
+
+"Instruction should stay the same for all students" (should disagree)
+
+Below 50%
+
+39%
+
+"Engaged Learning Pedagogy can't work online" (should disagree)
+
+60%
+
+"Engaged learning only works in small classes" (should disagree)
+
+74%
+
+Average share answering correctly across Cumilla, Khulna and Bogura. Items under 50% were flagged as priorities for the next training phase.
+
+The shutdown
+
+The pilot finished. The next cohort never started
+
+The pilot launched five days after the 2024 US presidential election, and its last module closed the day before the new administration took office. What followed moved fast.
+
+Nov 10, 2024 Pilot launches in Bogura, with Cumilla and Khulna linked in.
+
+Nov 17, 2024 First online module unlocks on the platform.
+
+Jan 19, 2025 Last pilot module closes.
+
+Jan 20, 2025 An executive order pauses new US foreign aid spending for a 90-day review.
+
+Jan 24, 2025 The State Department issues a stop-work order on existing aid grants and contracts.
+
+Jan 26, 2025 USAID tells all its partners in Bangladesh to suspend spending until further notice.
+
+Feb 2025 Three pilot teachers log 10 events between them, all month.
+
+Mar 10, 2025 The Secretary of State announces that 83% of USAID programs are cancelled.
+
+Jul 1, 2025 USAID closes and the State Department takes over foreign assistance.
+
+Reuters, January 25, 2025.
+
+The edge in the data is clean. 99% of all pilot activity happened on or before January 25. Teachers doing graded work (exam attempts or task submissions) went from more than 420 a month to none.
+
+Teachers doing graded work each month
+
+Nov '24
+
+461
+
+Dec '24
+
+466
+
+Jan '25
+
+422
+
+Feb '25
+
+0
+
+Out of 479 pilot teachers. Pilot modules ran Nov 17 to Jan 19. Stop-work order: January 24, 2025.
+
+Reaching 12,000 trainees by September 2025 depended on the cohorts that were supposed to follow the pilot, and none of them launched. HSEP was not alone. The Daily Star reported that 55 of the 59 USAID projects in Bangladesh were shut down , costing the country about $700M in aid. Public records don't list a termination date for HSEP itself. The logs show the work stopped when the stop-work order arrived.
+
+What I took from it
+
+Lessons I still use
+
+Pick the denominator before anyone sees a chart. Dividing every rate by enrolled teachers made the dashboard hard to flatter, and it meant four organizations with different goals were reading the same number.
+
+Measure against what the system asked for. The design notes imagined three peer reviewers per submission. The platform asked for one or two. Which bar you pick decides whether peer review looks like it worked.
+
+The dataset outlives the program. When funding stopped overnight, the BigQuery tables were what remained. Every number here was re-run from them more than a year and a half later.
+
+Sources
+
+Award and subaward records: USAspending.gov, cooperative agreement 72038823CA00007
+
+Program scope: Chemonics project page (archived December 2024)
+
+Program targets and pilot launch: New Age, November 10, 2024
+
+Bangladesh project shutdowns: The Daily Star, May 2025
+
+Platform metrics: HSEP BigQuery project, re-queried October 2026. Raw data is not public because it contains participant information.
+
+Running a program that needs numbers every partner trusts?
+
+Let's talk
+
+From data models in BigQuery to dashboards that funders, researchers and government teams can read the same way, happy to help programs measure what they are doing while it is still running.
+
+Product design by Shad Iqbal (lead), Moshiur Hridoy and Diponkar . Product management by Shazzad Hossain Mukit and Shihab. This case study covers the data model, dashboard and analysis.
+
+---
+
+## Chicago Taxi Trips
+
+URL: https://niloy.tech/projects/chicago-taxi/
+
+Chicago Taxi Trips
+
+The BigQuery dataset titled "Chicago Taxi Trip" comprises a vast collection of data
+
+pertaining to taxi rides taken within the city of Chicago, Illinois.
+
+Encompassing a timeframe of January 1, 2013, to April 23, 2023, this dataset encompasses
+
+over 200 million taxi trips. It encompasses crucial details
+
+including the pickup and drop-off locations, distances traveled, fares, payment methods, and
+
+timestamps.
+
+This dataset is conveniently hosted on Google Cloud's BigQuery platform, empowering users to
+
+efficiently query and analyze extensive datasets using SQL.
+
+It is freely accessible and available for utilization across diverse domains such as
+
+transportation analysis, urban planning, and machine learning applications.
+
+The project involved creating a dashboard using Looker Studio and Google BigQuery to
+
+visualize key summary points and insights from the dataset.
+
+The integration of Looker Studio's data visualization capabilities and Google BigQuery's
+
+querying and analysis functionalities enabled the creation of interactive
+
+visualizations, such as charts, graphs, and maps, to provide a comprehensive view of the
+
+data. This empowered stakeholders to make data-driven decisions, identify trends,
+
+and derive actionable insights. Overall, the project successfully utilized Looker Studio and
+
+Google BigQuery to create a powerful dashboard for efficient data analysis and
+
+visualization.
+
+Google BigQuery
+
+SQL
+
+Looker Studio
+
+Source: Looker Studio
+
+---
+
+## Heart Disease Prediction
+
+URL: https://niloy.tech/projects/heart-disease/
+
+Heart Disease Prediction
+
+Heart disease analysis Using different model and visualize.
+
+In the dataset we have some patient clinical report, We have to predict they have heart
+
+disease or not?
+
+Algorithms
+
+- Logistic Regression
+
+- Decision Tree Classifier
+
+- Random Forest Classifier
+
+- Support Vector Classifier
+
+- Gaussian NB
+
+- K Neighbors Classifier
+
+Python
+
+Matplotlib
+
+Scikit-learn
+
+Source: Github
+
+Published Article
+
+Prediction Results of different algorithms.
+
+---
+
+## BigQuery Cost Monitoring
+
+URL: https://niloy.tech/projects/bigquery-cost-monitoring/
+
+Monitor BigQuery Usage and Costs on GCP with Interactive Visualizations in Looker Studio
+
+Monitoring BigQuery usage and costs is an essential aspect of managing data on Google Cloud
+
+Platform (GCP). BigQuery is a fully-managed, serverless data warehouse that can scale to
+
+petabyte-levels, making it easy to incur significant costs if you’re not careful.
+
+Fortunately, GCP provides several tools and services to help you monitor and optimize your
+
+BigQuery
+
+usage and costs. In this post, we’ll explore how to monitor BigQuery usage and costs using
+
+the Information Schema JOBS table and Visualize the information in Looker Studio for further
+
+Monitoring.
+
+Data Analytics
+
+Google BigQuery
+
+Looker Studio
+
+SQL
+
+GCP
+
+Source: Medium - Step by step procedure
+
+---
+
+## Population Density Map
+
+URL: https://niloy.tech/projects/population-density-maps/
+
+3D Population Density Map using R-Programming and Rayshader Library
+
+Lets embarked on a journey of visual storytelling.
+
+💡 Discoveries on this global exploration:
+
+- Refined skills in R packages for spatial data manipulation and crafting 3D
+
+visualizations.
+
+- Transforming complex demographic data into captivating visual narratives, extending
+
+beyond Bangladesh.
+
+- A comprehensive guide to creating 3D population maps with a focus on South Asian
+
+countries.
+
+Data Analytics
+
+R Programming
+
+Rayshader
+
+3D Plot
+
+Source: Medium - Step by step procedure
+
+Source: Github
+
+Population Density Map - Bangladesh
+
+Bangladesh - With a population exceeding 160 million, the nation pulsates with vitality.
+
+Explore the intricacies of this densely populated haven, each region telling a unique
+
+story through the sheer density of its inhabitants.
+
+Population Density Map - Dhaka Division
+
+Dhaka - As the bustling capital of Bangladesh, with a population of more than 44 million
+
+people, the city exudes life. Immerse yourself in the complexities of this densely
+
+populated metropolis, where each district tells a unique tale due to the sheer density
+
+of its residents.
+
+Population Density Map - Chittagong Division
+
+Chittagong Division - Nestled in the scenic landscapes of Bangladesh, with a population
+
+exceeding 5.5 million, Chittagong Division resonates with diverse energy. Situated near
+
+the breathtaking Cox's Bazar, home to the world's longest sea beach, explore the vibrant
+
+tapestry of this densely populated region.
+
+Population Density Map - India
+
+With a population of over 1.3 billion people, India pulsates with dynamic diversity.
+
+Explore the complexities of this densely inhabited refuge, where each state tells its
+
+own story via the sheer density of its population.
+
+Population Density Map - Sri Lanka
+
+Sri Lanka's with a population over 22 million people, is vividly brought to life in our
+
+3D Population Density Map. The map highlights key areas like Colombo, with its dense
+
+urban population, and contrasts them with the more sparsely populated rural regions,
+
+offering a comprehensive view of demographic distribution across the island.
+
+Population Density Map - Nepal
+
+Nepal's population, exceeding 29 million, is dynamically illustrated in our 3D Population
+
+Density Map. This map accentuates major areas such as Kathmandu, showcasing its densely
+
+populated urban landscape, and juxtaposes it with the less populated, remote mountainous
+
+and rural areas, providing a detailed perspective on the population spread throughout
+
+the country.
+
+Population Density Map - Bhutan
+
+Bhutan, with a population of about 750K, is vividly captured in our 3D Population Density
+
+Map. The map showcases the stark contrast between densely populated regions and the
+
+expansive, sparsely inhabited Himalayan areas, offering a clear and comprehensive view
+
+of how the population is distributed across this tranquil mountain nation.
+
+Population Density Map - Myanmar
+
+Myanmar, with a population exceeding 54 million, is effectively illustrated in our 3D
+
+Population Density Map. This map highlights the dense urban areas contrasted with less
+
+populated rural regions, providing an extensive view of the diverse population
+
+distribution throughout the country.
+
+---
+
+## CRM Sales Performance Dashboard
+
+URL: https://niloy.tech/projects/crm-sales/
+
+CRM Sales Performance Dashboard
+
+Developed an interactive CRM Sales Performance Dashboard in Looker Studio to visualize and
+
+analyze sales trends over time.
+
+The dashboard provided insights into total sales, average sales value, sales orders, and
+
+performance by product, sector,
+
+and sales manager. Key metrics such as average days to close, orders won, and sector-wise
+
+sales distribution were highlighted
+
+to optimize sales strategies and improve decision-making for different product lines and
+
+managers. The dashboard facilitated
+
+tracking sales growth, identifying high-performing sectors, and evaluating manager
+
+efficiency.
+
+Google BigQuery
+
+SQL
+
+Looker Studio
+
+Source: Looker Studio
+
+---
+
+## Air Quality of Dhaka
+
+URL: https://niloy.tech/projects/air-quality/
+
+Air Quality of Dhaka
+
+📊 Explore my latest dashboard for an in-depth analysis of Dhaka's air quality, currently
+
+holding the rank as the most polluted city in the globe 🌏.
+
+Historically recognized as one of the most pollution-burdened cities, Dhaka confronts severe
+
+environmental hurdles. This detailed analysis brings to
+
+light the severity of the circumstances, with a startling peak AQI of 598 in 2023 😷.
+
+Here are some key takeaways from the data:
+
+▶ The dashboard tracks the AQI from 2020 to the present, highlighting times when air quality
+
+reached to 'Very Unhealthy' and 'Hazardous' levels 🔴.
+
+▶ Dhaka endured 133 'Unhealthy' days, a distressing 82 'Very Unhealthy' days, 18 'Hazardous'
+
+days, and notably, not a single 'Good' air quality day 🚫🌿, emphasizing the persistent air
+
+quality crisis.
+
+▶ A seasonal breakdown shows a winter surge in pollutants and a monsoon phase that offers a
+
+brief window of cleaner air🌦️.
+
+▶ The data also sheds light on nighttime pollution peaks, influenced by specific atmospheric
+
+conditions and continuous emissions. 🌃💨.
+
+Comparing Dhaka's AQI on a global scale underscores the critical need for immediate action.
+
+Google BigQuery
+
+SQL
+
+Looker Studio
+
+Source: Looker Studio
