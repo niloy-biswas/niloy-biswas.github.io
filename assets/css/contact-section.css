@@ -488,3 +488,8 @@
     transform: none;
   }
 }
+
+/* Inline X logo (Font Awesome 6.3 has no fa-x-twitter); match FA icon baseline */
+.contact-section__card-footer .social-icon .icon-x {
+  vertical-align: -0.125em;
+}

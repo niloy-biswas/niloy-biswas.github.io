@@ -482,7 +482,7 @@
   }
 
   /* Experience/Education: reserve space for logo next to title only */
-  .mh-experince .mh-education-deatils .mh-education-item h4,
+  .mh-experince .mh-education-deatils .mh-education-item h3,
   .mh-work .mh-experience-deatils .mh-work-item h4 {
     padding-right: 72px;
   }

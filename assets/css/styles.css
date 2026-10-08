@@ -1550,7 +1550,7 @@ html:has(body.dark-vertion.black-bg) {
   text-align: left;
 }
 
-.mh-about .mh-about-inner h1 {
+.mh-about .mh-about-inner h2 {
   margin-bottom: 20px;
   margin-top: 20px;
   font-size: var(--text-2xl, 39px);
@@ -1810,18 +1810,19 @@ html:has(body.dark-vertion.black-bg) {
   margin-bottom: 0;
 }
 
-.mh-experince .mh-education-deatils .mh-education-item h4 {
+.mh-experince .mh-education-deatils .mh-education-item h3 {
   font-size: 12px !important;
   line-height: 1.4;
   font-family: "Inter", sans-serif !important;
   font-weight: 500 !important;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  text-align: inherit;
   color: var(--accent) !important;
-  margin-bottom: 6px;
+  margin: 0 0 6px;
 }
 
-.mh-experince .mh-education-deatils .mh-education-item h5 {
+.mh-experince .mh-education-deatils .mh-education-item h4 {
   font-size: var(--text-lg, 25px) !important;
   font-family: "Fraunces", serif !important;
   font-weight: 600 !important;
@@ -1830,7 +1831,7 @@ html:has(body.dark-vertion.black-bg) {
   margin-bottom: 4px;
 }
 
-.mh-experince .mh-education-deatils .mh-education-item h5 span {
+.mh-experince .mh-education-deatils .mh-education-item h4 span {
   font-size: 12px !important;
   font-family: "Inter", sans-serif !important;
   font-weight: 400 !important;
@@ -1840,10 +1841,20 @@ html:has(body.dark-vertion.black-bg) {
   vertical-align: middle;
 }
 
-.mh-experince .mh-education-deatils .mh-education-item h4 a {
+.mh-experince .mh-education-deatils .mh-education-item h3 a {
   font-style: italic;
   margin-left: 4px;
   color: #0bceaf;
+}
+
+.mh-experince .mh-education-deatils .mh-education-item .pub-source,
+.mh-experince .mh-education-deatils .mh-education-item .pub-label {
+  font-family: "Inter", sans-serif;
+  font-size: var(--text-base, 16px);
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0 0 0.5rem;
+  opacity: 1;
 }
 
 .mh-experince .mh-education-deatils .mh-education-item .mh-eduyear {
@@ -3312,6 +3323,10 @@ body.dark-vertion.fancybox-active .fancybox-bg {
   background: rgba(255, 255, 255, 0.2);
 }
 
+.sk-level::after {
+  content: attr(data-level);
+}
+
 .sk-level {
   font-size: 10px !important;
   font-weight: 400 !important;
@@ -3429,7 +3444,7 @@ body.dark-vertion.fancybox-active .fancybox-bg {
   padding: 10px 14px 12px;
 }
 
-.cert-card-info h5 {
+.cert-card-info h4 {
   font-size: 12px !important;
   font-family: "Inter", sans-serif !important;
   font-weight: 600 !important;
