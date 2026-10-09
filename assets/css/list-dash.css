@@ -43,11 +43,16 @@
 .list-dash a,
 .mh-experince .mh-education-deatils .mh-education-item ul a {
   color: var(--accent);
+  /* !important: global `a { text-decoration: none !important }` in styles.css.
+     Inline links need a non-color cue (WCAG 1.4.1 link-in-text-block). */
+  text-decoration: underline 1px color-mix(in srgb, currentColor 30%, transparent) !important;
+  text-underline-offset: 3px;
 }
 
 .list-dash a:hover,
 .mh-experince .mh-education-deatils .mh-education-item ul a:hover {
   color: var(--accent-hover);
+  text-decoration-color: currentColor !important;
 }
 
 .list-dash b,

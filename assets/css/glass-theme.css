@@ -65,7 +65,7 @@
     /* Text */
     --text-primary: rgba(255, 255, 255, 0.95);
     --text-secondary: rgba(255, 255, 255, 0.75);
-    --text-muted: rgba(255, 255, 255, 0.55);
+    --text-muted: rgba(255, 255, 255, 0.66);
 
     /* Radius */
     --radius-xs: 4px;
