@@ -48,7 +48,8 @@ function readSitemapEntries() {
 
 async function main() {
   const key = findKeyFile();
-  const today = new Date().toISOString().slice(0, 10);
+  // Local date, matching git's %cs lastmod (toISOString is UTC and lags Dhaka by 6h)
+  const today = new Date().toLocaleDateString('en-CA');
   const urlList = readSitemapEntries()
     .filter((e) => e.loc && (submitAll || e.lastmod === today))
     .map((e) => e.loc);
