@@ -31,10 +31,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&display=swap"></noscript>
     <link rel="stylesheet" href="../../assets/plugins/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../assets/plugins/css/animate.css">
     <link rel="stylesheet" href="../../assets/css/glass-theme.css">
     <link rel="stylesheet" href="../../assets/css/closing-cta.css">
     <link rel="stylesheet" href="../../assets/css/styles.css">
@@ -92,7 +91,7 @@
                             <p class="tenten-hero__mascot-name">TenTen</p>
                         </div>
                         <div class="tenten-hero__mascot-lottie" data-tenten-hero-mascot data-lottie="assets/lottie/looking-around.json" style="opacity:0">
-                            <img class="tenten-hero__mascot-fallback" src="assets/mascot/tenten.png" alt="" width="200" height="200">
+                            <picture><source type="image/webp" srcset="assets/mascot/tenten.webp"><img class="tenten-hero__mascot-fallback" src="assets/mascot/tenten.png" alt="" width="200" height="200" decoding="async"></picture>
                         </div>
                     </div>
 
@@ -128,7 +127,7 @@
 
                 <div class="tenten-problem-stage" data-tenten-reveal>
                     <div class="tenten-mascot-crest" data-lottie="assets/lottie/loading.json" aria-hidden="true">
-                        <img class="tenten-mascot-crest__fallback" src="assets/mascot/tenten.png" alt="" width="128" height="128">
+                        <picture><source type="image/webp" srcset="assets/mascot/tenten.webp"><img class="tenten-mascot-crest__fallback" src="assets/mascot/tenten.png" alt="" width="128" height="128" loading="lazy" decoding="async"></picture>
                     </div>
                     <section class="tenten-callout tenten-problem" aria-labelledby="tenten-problem-title">
                         <header class="tenten-problem__header">
@@ -155,7 +154,7 @@
 
                 <div class="tenten-solution-stage" data-tenten-reveal>
                     <div class="tenten-mascot-crest tenten-mascot-crest--solution" data-lottie="assets/lottie/looking-around.json" aria-hidden="true">
-                        <img class="tenten-mascot-crest__fallback" src="assets/mascot/tenten.png" alt="" width="128" height="128">
+                        <picture><source type="image/webp" srcset="assets/mascot/tenten.webp"><img class="tenten-mascot-crest__fallback" src="assets/mascot/tenten.png" alt="" width="128" height="128" loading="lazy" decoding="async"></picture>
                     </div>
                     <section class="tenten-callout tenten-solution" aria-labelledby="tenten-solution-title">
                         <header class="tenten-solution__header">
@@ -200,18 +199,18 @@
                             </div>
                         </div>
                         <figure class="tenten-work-journey__figure">
-                            <img src="assets/ui/timeline.png" alt="TenTen development timeline: research and R&amp;D, workflow and architecture, design, usability testing, development, user testing, first rollout, and launch" loading="lazy" width="2820" height="1664">
+                            <picture><source type="image/webp" srcset="assets/ui/timeline.webp"><img src="assets/ui/timeline.png" alt="TenTen development timeline: research and R&amp;D, workflow and architecture, design, usability testing, development, user testing, first rollout, and launch" loading="lazy" width="2820" height="1664" decoding="async"></picture>
                         </figure>
                     </div>
 
                     <div class="tenten-work-grid">
                         <div class="tenten-work-card-stage">
                             <div class="tenten-mascot-crest tenten-mascot-crest--rd" data-lottie="assets/lottie/blink-with-smile.json" aria-hidden="true">
-                                <img class="tenten-mascot-crest__fallback" src="assets/mascot/tenten.png" alt="" width="128" height="128">
+                                <picture><source type="image/webp" srcset="assets/mascot/tenten.webp"><img class="tenten-mascot-crest__fallback" src="assets/mascot/tenten.png" alt="" width="128" height="128" loading="lazy" decoding="async"></picture>
                             </div>
                             <article class="tenten-work-card glass-card tenten-work-card--rd">
                                 <div class="tenten-work-card__visual tenten-work-card__visual--workflow">
-                                    <img src="assets/ui/tenten-n8n-workflow.png" alt="Early TenTen n8n prototype workflow" loading="lazy" width="1972" height="1174">
+                                    <picture><source type="image/webp" srcset="assets/ui/tenten-n8n-workflow.webp"><img src="assets/ui/tenten-n8n-workflow.png" alt="Early TenTen n8n prototype workflow" loading="lazy" width="1972" height="1174" decoding="async"></picture>
                                 </div>
                                 <span class="tenten-work-card__icon">R&amp;D</span>
                                 <h3>Prototype to production orchestration</h3>
@@ -298,14 +297,14 @@
                     <h2 class="tenten-section__heading" id="tenten-surfaces-title">How TenTen shows up for <span class="text-gradient-accent">students</span></h2>
                     <p class="tenten-section__lead">Four learning surfaces, one integrated study partner across the moments that matter most. Not four separate chatbots.</p>
 
-                    <div class="tenten-surfaces-viewport">
+                    <div class="tenten-surfaces-viewport" role="region" aria-label="TenTen learning surfaces" tabindex="0">
                         <div class="tenten-surfaces-grid">
                             <article class="tenten-surface-card glass-card" data-tenten-surface-card>
                                 <span class="tenten-surface-card__kicker">General chat</span>
                                 <h3 class="tenten-surface-card__title">24/7 doubt solving</h3>
                                 <p class="tenten-surface-card__desc">Ask any academic question, anytime. Step-by-step help across every subject.</p>
                                 <div class="tenten-surface-card__frame">
-                                    <video class="tenten-surface-card__video" autoplay muted loop playsinline preload="metadata" width="320" height="778" aria-label="TenTen general chat: step-by-step doubt solving in the app">
+                                    <video class="tenten-surface-card__video" muted loop playsinline preload="none" poster="assets/ui/posters/general-flow-poster.webp" width="444" height="960" aria-label="TenTen general chat: step-by-step doubt solving in the app">
                                         <source src="assets/videos/general-flow.webm" type="video/webm">
                                     </video>
                                 </div>
@@ -316,7 +315,7 @@
                                 <h3 class="tenten-surface-card__title">Doubts during and after class</h3>
                                 <p class="tenten-surface-card__desc">Learning support inside live sessions. Ask a question without breaking the flow.</p>
                                 <div class="tenten-surface-card__frame">
-                                    <video class="tenten-surface-card__video" autoplay muted loop playsinline preload="metadata" width="320" height="778" aria-label="TenTen live class: in-session learning support">
+                                    <video class="tenten-surface-card__video" muted loop playsinline preload="none" poster="assets/ui/posters/liveclass-flow-poster.webp" width="432" height="924" aria-label="TenTen live class: in-session learning support">
                                         <source src="assets/videos/liveclass-flow.webm" type="video/webm">
                                     </video>
                                 </div>
@@ -327,7 +326,7 @@
                                 <h3 class="tenten-surface-card__title">Help without leaving the video</h3>
                                 <p class="tenten-surface-card__desc">Ask about a specific moment in a recorded lesson. Context travels with the question.</p>
                                 <div class="tenten-surface-card__frame">
-                                    <video class="tenten-surface-card__video" autoplay muted loop playsinline preload="metadata" width="320" height="778" aria-label="TenTen in recorded class: contextual help during video lessons">
+                                    <video class="tenten-surface-card__video" muted loop playsinline preload="none" poster="assets/ui/posters/recorded-flow-poster.webp" width="432" height="927" aria-label="TenTen in recorded class: contextual help during video lessons">
                                         <source src="assets/videos/recorded-flow.webm" type="video/webm">
                                     </video>
                                 </div>
@@ -338,7 +337,7 @@
                                 <h3 class="tenten-surface-card__title">Understand why an answer was wrong</h3>
                                 <p class="tenten-surface-card__desc">Instant explanations after exams. Follow up on any MCQ you got wrong and actually understand why.</p>
                                 <div class="tenten-surface-card__frame">
-                                    <video class="tenten-surface-card__video" autoplay muted loop playsinline preload="metadata" width="320" height="778" aria-label="TenTen exam solution: reviewing mistakes after a test">
+                                    <video class="tenten-surface-card__video" muted loop playsinline preload="none" poster="assets/ui/posters/exam-flow-poster.webp" width="444" height="960" aria-label="TenTen exam solution: reviewing mistakes after a test">
                                         <source src="assets/videos/exam-flow.webm" type="video/webm">
                                     </video>
                                 </div>
@@ -397,7 +396,7 @@
 
                 <div class="tenten-usage-chart-stage" data-tenten-reveal>
                     <div class="tenten-mascot-crest tenten-mascot-crest--solution" data-lottie="assets/lottie/blink-with-smile.json" aria-hidden="true">
-                        <img class="tenten-mascot-crest__fallback" src="assets/mascot/tenten.png" alt="" width="128" height="128">
+                        <picture><source type="image/webp" srcset="assets/mascot/tenten.webp"><img class="tenten-mascot-crest__fallback" src="assets/mascot/tenten.png" alt="" width="128" height="128" loading="lazy" decoding="async"></picture>
                     </div>
                     <section class="tenten-callout tenten-usage-chart" aria-labelledby="tenten-usage-title">
                     <header class="tenten-solution__header">
@@ -498,15 +497,14 @@
         </main>
     </div>
 
-    <script src="../../assets/plugins/js/jquery.min.js"></script>
-    <script src="../../assets/plugins/js/popper.min.js"></script>
-    <script src="../../assets/plugins/js/bootstrap.min.js"></script>
-    <script src="../../assets/js/custom-scripts.js"></script>
-    <script src="../../assets/js/external-link-icon.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lottie-web@5.12.2/build/player/lottie.min.js"></script>
-    <script src="../../assets/js/tenten-case-study.js"></script>
+    <script defer src="../../assets/plugins/js/jquery.min.js"></script>
+    <script defer src="../../assets/plugins/js/bootstrap.min.js"></script>
+    <script defer src="../../assets/js/custom-scripts.js"></script>
+    <script defer src="../../assets/js/external-link-icon.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/lottie-web@5.12.2/build/player/lottie.min.js"></script>
+    <script defer src="../../assets/js/tenten-case-study.js"></script>
 </body>
 
 </html>

@@ -28,10 +28,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,100..900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,100..900&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,100..900&family=Inter:wght@400;500;600&display=swap"></noscript>
     <link rel="stylesheet" href="../../assets/plugins/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../assets/plugins/css/animate.css">
     <link rel="stylesheet" href="../../assets/css/glass-theme.css">
     <link rel="stylesheet" href="../../assets/css/styles.css">
     <link rel="stylesheet" href="../../assets/css/case-study.css">
@@ -130,8 +129,10 @@
                     </div>
                     <div class="col-sm-7">
                         <div class="mh-portfolio-modal-img">
-                            <img src="images/HeartDisease.png" alt="ML project - Heart Disease image"
-                                class="img-fluid" loading="lazy">
+                            <picture>
+                                <source type="image/webp" srcset="images/HeartDisease.webp">
+                                <img src="images/HeartDisease.png" alt="ML project - Heart Disease image" class="img-fluid" width="1200" height="893" decoding="async" fetchpriority="high">
+                            </picture>
                             <p>Prediction Results of different algorithms.</p>
 
                         </div>
@@ -144,11 +145,10 @@
         </main>
     </div>
 
-    <script src="../../assets/plugins/js/jquery.min.js"></script>
-    <script src="../../assets/plugins/js/popper.min.js"></script>
-    <script src="../../assets/plugins/js/bootstrap.min.js"></script>
-    <script src="../../assets/js/custom-scripts.js"></script>
-    <script src="../../assets/js/case-study.js"></script>
+    <script defer src="../../assets/plugins/js/jquery.min.js"></script>
+    <script defer src="../../assets/plugins/js/bootstrap.min.js"></script>
+    <script defer src="../../assets/js/custom-scripts.js"></script>
+    <script defer src="../../assets/js/case-study.js"></script>
 </body>
 
 </html>
