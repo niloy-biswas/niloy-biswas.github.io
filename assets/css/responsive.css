@@ -488,7 +488,9 @@
   }
 
   .mh-experince .mh-education-deatils .mh-education-item>a>img[style*="absolute"],
-  .mh-work .mh-experience-deatils .mh-work-item>a>img[style*="absolute"] {
+  .mh-experince .mh-education-deatils .mh-education-item>a>picture>img[style*="absolute"],
+  .mh-work .mh-experience-deatils .mh-work-item>a>img[style*="absolute"],
+  .mh-work .mh-experience-deatils .mh-work-item>a>picture>img[style*="absolute"] {
     width: 48px !important;
     height: 48px !important;
     max-width: 48px;

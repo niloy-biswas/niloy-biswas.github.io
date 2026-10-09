@@ -1,3 +1,23 @@
+/* WOW.js fadeInUp (replaces animate.css; WOW adds .animated and reads data-wow-duration/delay).
+   Kept at the very top so later rules keep the same precedence animate.css had. */
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+.fadeInUp {
+  animation-name: fadeInUp;
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /*------------- 
 [Table of contents]
 
@@ -1441,10 +1461,13 @@ html:has(body.dark-vertion.black-bg) {
 }
 
 .mh-home .mh-header-info .social-icon li a {
+  display: inline-block;
   font-size: 25px;
   text-align: center;
-  width: 30px;
+  width: auto;
+  min-width: 30px;
   height: 30px;
+  vertical-align: top;
   padding: 0;
   margin-right: 0;
   border-radius: 50%;
@@ -2587,6 +2610,7 @@ body.dark-vertion.fancybox-active .fancybox-bg {
 .portfolioContainer .grid-item figure img {
   position: relative;
   width: 100%;
+  height: auto;
   /* height: 220px; */
   display: block;
 }
@@ -4110,6 +4134,7 @@ BLOG Pagination
 .expanded-images img {
   max-width: 100%;
   max-height: 100%;
+  height: auto;
   margin-bottom: 10px;
 }
 
@@ -4318,6 +4343,7 @@ BLOG Pagination
   left: 50%;
   transform: translateX(-50%);
   width: 320px;
+  height: auto;
   z-index: 1;
   border: none !important;
   border-radius: 0 !important;
