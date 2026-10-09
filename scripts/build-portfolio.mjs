@@ -57,6 +57,42 @@ function loadManifest() {
     .sort((a, b) => a.order - b.order);
 }
 
+/** Pixel size of an image via macOS sips. Returns null when unreadable (missing file, no sips). */
+function readImageSize(absPath) {
+  try {
+    const out = execFileSync('sips', ['-g', 'pixelWidth', '-g', 'pixelHeight', absPath], {
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    });
+    const width = Number(/pixelWidth: (\d+)/.exec(out)?.[1]);
+    const height = Number(/pixelHeight: (\d+)/.exec(out)?.[1]);
+    return width > 0 && height > 0 ? { width, height } : null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Card thumbnail markup. Serves the WebP sibling (made by scripts/optimize-site-images.mjs)
+ * through <picture> when it exists, with width/height read from the served file; otherwise
+ * falls back to a plain <img> of the original.
+ */
+function renderThumbnail(card) {
+  const rel = card.thumbnail.replace(/^\//, '');
+  const webpRel = rel.replace(/\.[^./\\]+$/, '.webp');
+  const webpAbs = path.join(ROOT, webpRel);
+  const hasWebp = webpRel !== rel && fs.existsSync(webpAbs);
+  const size = readImageSize(hasWebp ? webpAbs : path.join(ROOT, rel));
+  const dims = size ? ` width="${size.width}" height="${size.height}"` : '';
+  const img = `<img src="${escapeHtml(card.thumbnail)}"
+                                            alt="${escapeHtml(card.thumbnailAlt)}"${dims} loading="lazy" decoding="async">`;
+  if (!hasWebp) return img;
+  return `<picture>
+                                            <source type="image/webp" srcset="${escapeHtml(encodeURI(card.thumbnail.replace(/\.[^./\\]+$/, '.webp')))}">
+                                            ${img}
+                                        </picture>`;
+}
+
 function renderCard(project) {
   const { slug, category, title, badge, card, links } = project;
   const tags = card.tags
@@ -68,13 +104,12 @@ function renderCard(project) {
 
   return `                            <article
                                 class="portfolio-showcase__card glass-card"
-                                data-category="${escapeHtml(category)}" role="listitem">
+                                data-category="${escapeHtml(category)}">
                                 <a class="portfolio-showcase__link"
                                     href="${escapeHtml(links.caseStudy)}">
                                     <div class="portfolio-showcase__media">
                                         <span class="portfolio-showcase__badge portfolio-showcase__badge--${escapeHtml(badge.variant)}">${escapeHtml(badge.label)}</span>
-                                        <img src="${escapeHtml(card.thumbnail)}"
-                                            alt="${escapeHtml(card.thumbnailAlt)}" loading="lazy">
+                                        ${renderThumbnail(card)}
                                         <div class="portfolio-showcase__media-overlay" aria-hidden="true"></div>
                                     </div>
                                     <div class="portfolio-showcase__body">

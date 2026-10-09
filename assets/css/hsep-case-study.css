@@ -154,8 +154,7 @@
 .hsep-timeline__text a,
 .hsep-sources__list a {
   color: var(--hsep-accent);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
+  text-decoration: underline 1px color-mix(in srgb, currentColor 30%, transparent) !important;
   text-underline-offset: 3px;
 }
 
@@ -163,6 +162,7 @@
 .hsep-timeline__text a:hover,
 .hsep-sources__list a:hover {
   color: var(--text-primary);
+  text-decoration-color: currentColor !important;
 }
 
 .hsep-callout__body--note {
@@ -423,7 +423,9 @@
   text-align: right;
 }
 
-.hsep-flag {
+/* .dark-vertion prefix beats the global `.dark-vertion span { color: #fff }` in styles.css
+   (white on the orange flag is only 2.6:1; surface-dark text is ~6:1). */
+.dark-vertion .hsep-flag {
   display: inline-flex;
   align-items: center;
   gap: 4px;

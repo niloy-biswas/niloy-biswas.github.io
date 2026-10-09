@@ -133,6 +133,16 @@
   transition: transform var(--transition-base);
 }
 
+.photography-card-grid .cert-card-info h3 {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: var(--text-md, 20px);
+  line-height: 1.35;
+  text-align: left;
+  color: #fff;
+  margin: 0 0 8px;
+}
+
 .photography-card-grid .cert-card-info span {
   text-transform: none;
   letter-spacing: 0;

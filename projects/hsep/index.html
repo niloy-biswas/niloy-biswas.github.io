@@ -80,10 +80,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,100..900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,100..900&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,100..900&family=Inter:wght@400;500;600;700&display=swap"></noscript>
     <link rel="stylesheet" href="../../assets/plugins/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../assets/plugins/css/animate.css">
     <link rel="stylesheet" href="../../assets/css/glass-theme.css">
     <link rel="stylesheet" href="../../assets/css/closing-cta.css">
     <link rel="stylesheet" href="../../assets/css/styles.css">
@@ -139,7 +138,7 @@
                     <p class="hsep-hero__lead">In late 2024, 479 college teachers and education leaders from 57 districts took the first online cohort of USAID's Higher Secondary Education Project (HSEP) in Bangladesh. I led the data side on the 10 Minute School team. The pilot's last module closed on January 19, 2025. Five days later a US stop-work order froze foreign aid, and the next cohort never started.</p>
 
                     <figure class="hsep-photo hsep-photo--hero">
-                        <img src="images/hsep-hero.jpg" alt="Group photo of teachers, trainers and partner staff at HSEP's annual work-planning workshop in Dhaka, under a USAID Higher Secondary Education Project banner" width="1760" height="755" fetchpriority="high">
+                        <picture><source type="image/webp" srcset="images/hsep-hero.webp"><img src="images/hsep-hero.jpg" alt="Group photo of teachers, trainers and partner staff at HSEP's annual work-planning workshop in Dhaka, under a USAID Higher Secondary Education Project banner" width="1760" height="755" fetchpriority="high" decoding="async"></picture>
                         <figcaption>HSEP's annual work-planning workshop in Dhaka, with partners, trainers and education officials.</figcaption>
                     </figure>
 
@@ -191,7 +190,7 @@
                 </section>
 
                 <figure class="hsep-photo" data-hsep-reveal>
-                    <img src="images/hsep1.jpeg" alt="A facilitator leading a face-to-face session for teachers during the HSEP program" loading="lazy" width="2048" height="1365">
+                    <picture><source type="image/webp" srcset="images/hsep1.webp"><img src="images/hsep1.jpeg" alt="A facilitator leading a face-to-face session for teachers during the HSEP program" loading="lazy" width="2048" height="1365" decoding="async"></picture>
                     <figcaption>A face-to-face session during the HSEP program. The online modules picked up where these sessions ended.</figcaption>
                 </figure>
 
@@ -441,7 +440,7 @@
                     </ol>
 
                     <figure class="hsep-photo">
-                        <img src="images/reuters-freeze-headline.png" alt="Reuters headline: US issues broad freeze on foreign aid after Trump orders review, by Humeyra Pamuk and Daphne Psaledakis, January 25, 2025" loading="lazy" width="746" height="453">
+                        <picture><source type="image/webp" srcset="images/reuters-freeze-headline.webp"><img src="images/reuters-freeze-headline.png" alt="Reuters headline: US issues broad freeze on foreign aid after Trump orders review, by Humeyra Pamuk and Daphne Psaledakis, January 25, 2025" loading="lazy" width="746" height="453" decoding="async"></picture>
                         <figcaption>Reuters, January 25, 2025.</figcaption>
                     </figure>
 
@@ -513,13 +512,12 @@
         </main>
     </div>
 
-    <script src="../../assets/plugins/js/jquery.min.js"></script>
-    <script src="../../assets/plugins/js/popper.min.js"></script>
-    <script src="../../assets/plugins/js/bootstrap.min.js"></script>
-    <script src="../../assets/js/custom-scripts.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-    <script src="../../assets/js/hsep-case-study.js?v=5"></script>
+    <script defer src="../../assets/plugins/js/jquery.min.js"></script>
+    <script defer src="../../assets/plugins/js/bootstrap.min.js"></script>
+    <script defer src="../../assets/js/custom-scripts.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script defer src="../../assets/js/hsep-case-study.js?v=5"></script>
 </body>
 
 </html>

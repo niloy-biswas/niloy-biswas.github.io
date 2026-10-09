@@ -37,21 +37,16 @@
 		<meta name="twitter:image" content="https://niloy.tech/assets/images/site/og-image.jpg">
 		<meta name="twitter:image:alt" content="Niloy Biswas, AI/LLM Engineer &amp; Data Analyst in Dhaka, Bangladesh">
 
-		<script type="text/javascript" src="./medium-on-website.js"></script>
+		<script defer src="./medium-on-website.js"></script>
 
 		<!-- Preconnect for Google Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<!-- Fonts: Inter + Fraunces (update URL here to change site-wide) -->
-		<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,100..900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-		<!-- Font Awesome v6 -->
-		<link rel="stylesheet" href="../css/all.min.css">
-		<!-- Bootstrap CSS -->
+		<!-- Fonts: Inter + Fraunces (update URL here to change site-wide). Non-blocking (display=swap). -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,100..900&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+		<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,100..900&family=Inter:wght@400;500;600&display=swap"></noscript>
+		<!-- Bootstrap CSS (this page uses no Font Awesome icons and no Fancybox) -->
 		<link rel="stylesheet" href="../assets/plugins/css/bootstrap.min.css">
-		<!-- Animate CSS-->
-		<link rel="stylesheet" href="../assets/plugins/css/animate.css">
-		<!-- Fancybox-->
-		<link rel="stylesheet" href="../assets/plugins/css/jquery.fancybox.min.css">
 		<!-- Glass theme (same as home page) -->
 		<link rel="stylesheet" href="../assets/css/glass-theme.css">
 		<!-- Blog page styles first so main styles win for nav -->
@@ -59,7 +54,7 @@
 		<!-- Custom CSS (must load after medium-style so nav stays same as main page) -->
 		<link rel="stylesheet" href="../assets/css/styles.css">
 		<link rel="stylesheet" href="../assets/css/responsive.css">
-		<!-- Typography: font-family rules — loaded last to override Bootstrap's font stack -->
+		<!-- Typography: font-family rules, loaded last to override Bootstrap's font stack -->
 		<link rel="stylesheet" href="../assets/css/typography.css">
 
 	</head>
@@ -153,11 +148,10 @@
 
 		</div><!-- /.site-shell -->
 
-		<!-- jQuery, Popper, Bootstrap (required for mobile navbar toggle) -->
-		<script src="../assets/plugins/js/jquery.min.js"></script>
-		<script src="../assets/plugins/js/popper.min.js"></script>
-		<script src="../assets/plugins/js/bootstrap.min.js"></script>
-		<script src="../assets/js/custom-scripts.js"></script>
+		<!-- jQuery, Bootstrap (required for mobile navbar toggle); deferred, executed in order -->
+		<script defer src="../assets/plugins/js/jquery.min.js"></script>
+		<script defer src="../assets/plugins/js/bootstrap.min.js"></script>
+		<script defer src="../assets/js/custom-scripts.js"></script>
 
 	</body>
 </html>

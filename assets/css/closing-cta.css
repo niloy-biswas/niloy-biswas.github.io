@@ -98,13 +98,15 @@
 
 .page-credits a {
   color: var(--accent);
-  text-decoration: none;
+  /* !important: global `a { text-decoration: none !important }` in styles.css */
+  text-decoration: underline 1px color-mix(in srgb, currentColor 30%, transparent) !important;
+  text-underline-offset: 3px;
 }
 
 .page-credits a:hover,
 .page-credits a:focus-visible {
   color: var(--accent-hover);
-  text-decoration: underline;
+  text-decoration-color: currentColor !important;
 }
 
 @media (prefers-reduced-motion: reduce) {

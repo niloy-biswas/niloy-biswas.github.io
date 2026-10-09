@@ -347,44 +347,66 @@
     });
   }
 
-  function initSurfaceVideos(onLayoutChange) {
+  function initSurfaceVideos() {
     var videos = root.querySelectorAll('.tenten-surface-card__video');
     if (!videos.length) return;
 
-    var layoutQueued = false;
-    function queueLayoutChange() {
-      if (!onLayoutChange || layoutQueued) return;
-      layoutQueued = true;
-      requestAnimationFrame(function () {
-        layoutQueued = false;
-        onLayoutChange();
+    /* Videos ship with preload="none", a poster and width/height matching the
+       real video ratio, so nothing downloads at page load and loading a video
+       never changes layout. Never rebuild the surface ScrollTrigger from here:
+       a rebuild while the section is pinned corrupts the pin geometry. */
+    var section = root.querySelector('.tenten-surfaces-section');
+    var loaded = false;
+
+    function loadAll() {
+      if (loaded) return;
+      loaded = true;
+      videos.forEach(function (video) {
+        video.preload = 'auto';
+        video.load();
       });
     }
 
+    function play(video) {
+      var p = video.play();
+      if (p && typeof p.catch === 'function') p.catch(function () {});
+    }
+
+    /* Reduced motion: no autoplay in the markup, so the posters just stay. */
+    if (prefersReduced) return;
+
+    if (!('IntersectionObserver' in window)) {
+      loadAll();
+      videos.forEach(play);
+      return;
+    }
+
+    /* Start downloading while the section is still well below the fold, so the
+       files are ready (and no reflow happens) before the horizontal pin starts. */
+    if (section) {
+      var preloader = new IntersectionObserver(
+        function (entries) {
+          if (!entries.some(function (e) { return e.isIntersecting; })) return;
+          preloader.disconnect();
+          loadAll();
+        },
+        { rootMargin: '1500px 0px 1500px 0px' }
+      );
+      preloader.observe(section);
+    }
+
+    /* Play while a card is visible, pause when it scrolls away. */
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) play(entry.target);
+          else entry.target.pause();
+        });
+      },
+      { rootMargin: '200px 200px 200px 200px' }
+    );
     videos.forEach(function (video) {
-      if (prefersReduced) {
-        video.removeAttribute('autoplay');
-        video.pause();
-        return;
-      }
-
-      function play() {
-        var p = video.play();
-        if (p && typeof p.catch === 'function') p.catch(function () {});
-      }
-
-      if (video.readyState >= 2) {
-        play();
-      } else {
-        video.addEventListener(
-          'loadeddata',
-          function () {
-            play();
-            queueLayoutChange();
-          },
-          { once: true }
-        );
-      }
+      observer.observe(video);
     });
   }
 
@@ -628,6 +650,9 @@
 
     function buildSurfaceScroll() {
       if (surfaceScrollTween) {
+        /* Revert the pin before re-measuring: killing it while pinned leaves the
+           viewport position:fixed and full width, which corrupts the new build. */
+        if (surfaceScrollTween.scrollTrigger) surfaceScrollTween.scrollTrigger.kill(true);
         surfaceScrollTween.kill();
         surfaceScrollTween = null;
       }
@@ -718,15 +743,13 @@
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(rebuildSurfaceScroll, 150);
     });
-
-    return rebuildSurfaceScroll;
   }
 
   initBackLink();
   initHeroMascot();
   initMascotCrests();
-  var rebuildSurfaceScroll = initSurfaceScrollReveals();
-  initSurfaceVideos(rebuildSurfaceScroll);
+  initSurfaceScrollReveals();
+  initSurfaceVideos();
   initScrollReveals();
   initStatCounters();
   initUsageChart();
