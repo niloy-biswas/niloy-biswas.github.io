@@ -79,7 +79,7 @@ Keep `meta description`, `og:description`, and `twitter:description` in sync per
 
 **Positioning string:** `AI/LLM Engineer & Data Analyst`. Use it verbatim in the homepage title, JSON-LD `Person.jobTitle`, footer, `llms.txt`, and off-site profiles. The hero rotator (`I'm a` + Data Analyst / AI Product Engineer / Researcher, in an `h4`) is intentionally left as is.
 
-**Homepage JSON-LD:** one `@graph` with `WebSite` (`#website`), `ProfilePage` (`#profilepage`) and `Person` (`#person`). Case studies and posts should reference the author as `{"@id": "https://niloy.tech/#person"}`. Add new profiles to `Person.sameAs`.
+**Homepage JSON-LD:** one `@graph` with `WebSite` (`#website`), `ProfilePage` (`#profilepage`) and `Person` (`#person`). Case studies and posts should reference the author as `{"@id": "https://niloy.tech/#person"}`. Add new profiles to `Person.sameAs`. JSON-LD dates (`dateModified`, `datePublished`) must be full ISO 8601 datetimes with timezone, e.g. `2026-10-10T00:00:00+06:00` (Search Console flags date-only values on ProfilePage); bump the homepage `dateModified` when its content changes.
 
 **Headings:** the hero `h1` is the only `h1`. Sections are `h2`, items `h3`/`h4`; never skip a level. Skill levels (`.sk-level`) render from `data-level` via CSS `::after` so "Proficient"/"Core" do not dominate page text.
 
