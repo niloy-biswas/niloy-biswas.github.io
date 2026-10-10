@@ -1393,3 +1393,9 @@
     transform: none;
   }
 }
+
+.tenten-case-study .page-credits__updated {
+  margin: 8px 0 0;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
