@@ -1,5 +1,6 @@
 /* Full-page project case studies (projects/{slug}/) */
-/* Content markup still uses legacy class names (mh-portfolio-modal-inner) from the old Fancybox modals. */
+/* Editorial layout: one centered column (--cs-column) holds the header, intro, figures and sections,
+   so every element shares the same left and right edges. */
 
 .case-study-page {
   padding-top: 100px;
@@ -30,7 +31,8 @@
   width: 100%;
   max-width: min(1100px, calc(100vw - 32px));
   margin: 0 auto;
-  padding: var(--space-md, 24px);
+  --cs-column: 880px;
+  padding: clamp(20px, 3.5vw, 44px);
   background: var(--glass-fill);
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
@@ -40,32 +42,295 @@
   box-sizing: border-box;
 }
 
-.case-study-page .mh-portfolio-modal-inner {
-  max-height: none;
-  overflow: visible;
-  margin-right: 0;
+/* Shared column: header, intro, figures and sections get identical left and right edges. */
+.case-study__header,
+.case-study__intro,
+.case-study__figure,
+.case-study__section {
+  max-width: var(--cs-column);
+  margin-inline: auto;
 }
 
-.case-study-page .mh-portfolio-modal-inner h2 {
-  margin-top: 10px;
-  margin-bottom: 20px;
+.case-study__header {
+  margin-bottom: clamp(16px, 2.5vw, 24px);
+}
+
+/* Page title (h1) + byline */
+.case-study__title {
+  margin: 10px 0 8px;
+  font-size: clamp(1.75rem, 4.5vw, var(--text-2xl, 39px));
   color: var(--text-primary);
 }
 
-.case-study-page .mh-portfolio-modal-inner p,
-.case-study-page .mh-portfolio-modal-inner li {
+.case-study__byline {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
   color: var(--text-secondary);
-  line-height: 1.65;
 }
 
-.case-study-page .mh-portfolio-modal-img img {
-  margin-bottom: 20px;
-  border-radius: var(--radius-md, 12px);
+.case-study__byline a {
+  color: var(--accent);
+}
+
+.case-study__byline a:hover,
+.case-study__byline a:focus-visible {
+  color: var(--accent-hover);
+}
+
+.case-study__content {
+  width: 100%;
+}
+
+/* Intro: summary, tags, outbound buttons (inside the reading column) */
+.case-study__intro > p,
+.case-study__intro > ul > li {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.case-study__intro > p {
+  margin: 0 0 14px;
+  opacity: 1;
+}
+
+.case-study__intro > ul {
+  margin: 0 0 14px;
+  padding-left: 1.25rem;
+}
+
+.case-study__intro > ul > li {
+  list-style-type: disc;
+  margin-bottom: 8px;
+}
+
+.case-study__intro > ul > li::marker {
+  color: var(--accent);
+}
+
+.case-study__intro .mh-about-tag {
+  margin: 18px 0 6px;
+  word-break: normal;
+}
+
+.case-study__intro .mh-about-tag ul {
+  margin: 0;
+  padding: 0;
+}
+
+.case-study__intro .mh-about-tag ul li {
+  margin: 0 8px 8px 0;
+  padding: 0;
+}
+
+.case-study__intro > .btn {
+  margin: 14px 12px 0 0;
+}
+
+.case-study__intro + .case-study__section {
+  margin-top: clamp(28px, 4vw, 44px);
+}
+
+/* Figures share the column width (margin-inline: auto comes from the shared rule above) */
+.case-study__figure {
+  margin-block: clamp(28px, 4.5vw, 48px);
+}
+
+.case-study__figure img {
+  display: block;
+  width: 100%;
+  height: auto;
   border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md, 12px);
 }
 
-.case-study-page .mh-about-tag ul {
-  margin-bottom: 20px;
+.case-study__figure figcaption {
+  margin: 12px 0 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+/* ---------------------------------------------------------------
+   Long-form sections below the figures (.case-study__section)
+   --------------------------------------------------------------- */
+
+.case-study__body {
+  margin-top: clamp(8px, 2vw, 16px);
+}
+
+.case-study__section {
+  margin-block: 0 clamp(28px, 4vw, 44px);
+}
+
+.case-study__section:last-child {
+  margin-bottom: 0;
+}
+
+.case-study__section h2 {
+  margin: 0 0 14px;
+  font-size: clamp(1.35rem, 2.6vw, 1.65rem);
+  color: var(--text-primary);
+}
+
+.case-study__section h3 {
+  margin: 22px 0 8px;
+  font-size: 1.05rem;
+  line-height: 1.4;
+  color: var(--text-primary);
+}
+
+.case-study-page .case-study__section p,
+.case-study-page .case-study__section li,
+.case-study-page .case-study__section dd {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+/* styles.css sets a global p { opacity: 0.9 } that mutes body copy. */
+.case-study__section p {
+  margin: 0 0 14px;
+  opacity: 1;
+}
+
+.case-study__section ul {
+  margin: 0 0 14px;
+  padding-left: 1.25rem;
+}
+
+.case-study__section li {
+  list-style-type: disc;
+  margin-bottom: 8px;
+}
+
+.case-study__section li::marker {
+  color: var(--accent);
+}
+
+.case-study__section strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.case-study__section a {
+  color: var(--accent);
+  overflow-wrap: anywhere;
+}
+
+.case-study__section a:hover,
+.case-study__section a:focus-visible {
+  color: var(--accent-hover);
+}
+
+/* Key facts: label / value rows */
+.case-study__facts {
+  margin: 0;
+  border-top: 1px solid var(--glass-border);
+}
+
+.case-study__facts > div {
+  display: grid;
+  grid-template-columns: minmax(110px, 170px) 1fr;
+  gap: 4px 20px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.case-study__facts dt {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1.7;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.case-study__facts dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+/* Code */
+.case-study__section code {
+  padding: 0.1em 0.4em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.86em;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-xs, 4px);
+  overflow-wrap: anywhere;
+}
+
+.case-study__section pre {
+  margin: 0 0 18px;
+  padding: 16px 18px;
+  overflow-x: auto;
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md, 12px);
+}
+
+.case-study__section pre code {
+  padding: 0;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  background: none;
+  overflow-wrap: normal;
+  white-space: pre;
+}
+
+/* Tables */
+.case-study__table-wrap {
+  margin: 0 0 18px;
+  overflow-x: auto;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md, 12px);
+}
+
+.case-study__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.case-study__table caption {
+  padding: 10px 14px;
+  caption-side: top;
+  text-align: left;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.case-study__table th,
+.case-study__table td {
+  padding: 9px 10px;
+  text-align: right;
+  white-space: nowrap;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--glass-border);
+}
+
+.case-study__table thead th {
+  white-space: normal;
+  vertical-align: bottom;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.case-study__table th:first-child {
+  text-align: left;
+}
+
+.case-study__table tbody th {
+  font-weight: 500;
+  color: var(--text-primary);
 }
 
 @media (max-width: 767px) {
@@ -78,6 +343,11 @@
   }
 
   .case-study__shell {
-    padding: 16px;
+    padding: 20px 16px;
+  }
+
+  .case-study__facts > div {
+    grid-template-columns: 1fr;
+    gap: 0;
   }
 }

@@ -6,20 +6,20 @@
       "slug": "tenten",
       "category": "ml",
       "showOnHome": true,
-      "title": "TenTen — AI Study Partner",
+      "title": "TenTen: AI Study Partner",
       "badge": {
         "label": "AI / RAG",
         "variant": "ml"
       },
       "card": {
         "thumbnail": "projects/tenten/assets/ui/tenten-card.png",
-        "thumbnailAlt": "TenTen AI study partner at 10 Minute School",
+        "thumbnailAlt": "TenTen mascot, a red and blue rounded chat bubble icon, with the text Hello, I'm TenTen on a dark starry background",
         "tags": [
           "RAG",
           "LLM",
           "Bangla"
         ],
-        "summary": "Integrated AI study partner — early R&D, retrieval over curriculum content, and product analytics for 10 Minute School."
+        "summary": "Integrated AI study partner: early R&D, retrieval over curriculum content, and product analytics for 10 Minute School."
       },
       "links": {
         "caseStudy": "/projects/tenten/",
@@ -29,7 +29,7 @@
         "footerMeta": "10 Minute School"
       },
       "page": {
-        "title": "TenTen — AI Study Partner | Niloy Biswas",
+        "title": "TenTen: AI Study Partner | Niloy Biswas",
         "description": "TenTen, 10 Minute School's AI study partner for Bangladesh: RAG over curriculum content, intent routing, and post-launch product analytics.",
         "useTemplate": false
       }
@@ -50,7 +50,7 @@
         "thumbnailAlt": "Chart of HSEP pilot teachers doing graded work each month, dropping to zero after the January 2025 aid freeze",
         "tags": [
           "BigQuery",
-          "Looker Studio",
+          "Data Studio",
           "M&E"
         ],
         "summary": "Learning analytics for the pilot of USAID's Higher Secondary Education Project in Bangladesh: 479 teachers, one shared dashboard for four partners, and a data trail that ends at the January 2025 aid freeze."
@@ -62,7 +62,7 @@
       },
       "page": {
         "title": "USAID HSEP: Teacher Training Analytics | Niloy Biswas",
-        "description": "Learning analytics for USAID's HSEP teacher training pilot in Bangladesh: 479 teachers, BigQuery, Looker Studio, and the data trail of the 2025 aid freeze.",
+        "description": "Learning analytics for USAID's HSEP teacher training pilot in Bangladesh: 479 teachers, BigQuery, Data Studio, and the data trail of the 2025 aid freeze.",
         "useTemplate": false
       }
     },
@@ -74,17 +74,17 @@
       "showOnHome": true,
       "title": "Chicago Taxi Trips",
       "badge": {
-        "label": "Looker Studio",
+        "label": "Data Studio",
         "variant": "analytics"
       },
       "card": {
         "thumbnail": "projects/chicago-taxi/images/CHICAGO-TAXIES.png",
-        "thumbnailAlt": "Chicago taxi trips dashboard thumbnail",
+        "thumbnailAlt": "Chicago taxi dashboard with trip, revenue and km KPIs, yearly trips versus taxis on the road, and payment method mix",
         "tags": [
           "BigQuery",
           "SQL"
         ],
-        "summary": "Interactive BI dashboard over large-scale trip data with KPIs for demand, revenue, and route patterns."
+        "summary": "Data Studio dashboard over Chicago's public taxi data in BigQuery: yearly trips, payment mix, company revenue and pickup heatmaps."
       },
       "links": {
         "caseStudy": "/projects/chicago-taxi/",
@@ -94,8 +94,9 @@
         "footerMeta": "Live dashboard"
       },
       "page": {
-        "title": "Chicago Taxi Trips | Niloy Biswas",
-        "description": "Looker Studio and BigQuery dashboard for Chicago taxi trip data — demand, revenue, and route patterns at scale."
+        "title": "Chicago Taxi Trips Dashboard | Niloy Biswas",
+        "description": "Chicago taxi trips dashboard in Data Studio and BigQuery: trips fell from 32.4M in 2015 to 3.9M in 2020, with payment, company and pickup patterns.",
+        "h1": "Chicago Taxi Trips Dashboard in Data Studio and BigQuery"
       }
     },
     {
@@ -111,12 +112,12 @@
       },
       "card": {
         "thumbnail": "projects/heart-disease/images/HD.jpeg",
-        "thumbnailAlt": "Heart disease prediction project thumbnail",
+        "thumbnailAlt": "3D illustration of a human heart and blood vessels inside a translucent blue torso",
         "tags": [
           "scikit-learn",
           "Python"
         ],
-        "summary": "Compares classifiers on clinical features to flag cardiovascular risk with interpretable model outputs."
+        "summary": "Published study comparing six classifiers and three feature subsets on 303 patient records; the best model reached 94.51% accuracy."
       },
       "links": {
         "caseStudy": "/projects/heart-disease/",
@@ -127,7 +128,8 @@
       },
       "page": {
         "title": "Heart Disease Prediction | Niloy Biswas",
-        "description": "Machine learning comparison for heart disease prediction using clinical features — logistic regression, trees, SVM, and more."
+        "description": "Published heart disease prediction study: six ML models and three feature subsets on 303 patients. SVM reached 94.51% accuracy on nine features.",
+        "h1": "Heart Disease Prediction with Machine Learning in Python"
       }
     },
     {
@@ -143,9 +145,9 @@
       },
       "card": {
         "thumbnail": "projects/linkedin-network/images/likedinDash.png",
-        "thumbnailAlt": "LinkedIn connections dashboard thumbnail",
+        "thumbnailAlt": "Dashboard collage of LinkedIn connection growth line chart, job title word cloud, company treemap and network graph",
         "tags": [
-          "Looker Studio",
+          "Data Studio",
           "Graph"
         ],
         "summary": "Explores connection clusters and geography from exported LinkedIn data in an executive-friendly view."
@@ -159,7 +161,9 @@
       },
       "page": {
         "title": "LinkedIn Network Visualization | Niloy Biswas",
-        "description": "Visualize LinkedIn connection data with Looker Studio and Kumu — clusters, geography, and network insights."
+        "description": "LinkedIn network visualization with Data Studio and Kumu: yearly connection growth, job titles, companies and a network graph from exported CSV data.",
+        "h1": "LinkedIn Connection Visualization with Data Studio and Kumu",
+        "noindex": true
       }
     },
     {
@@ -175,23 +179,24 @@
       },
       "card": {
         "thumbnail": "projects/bigquery-cost-monitoring/images/BigQuery_CostingHalf.png",
-        "thumbnailAlt": "BigQuery cost monitoring dashboard thumbnail",
+        "thumbnailAlt": "BigQuery cost monitoring dashboard with a total cost scorecard, daily cost against job counts, and cost and average job cost by person",
         "tags": [
           "BigQuery",
-          "Looker"
+          "Data Studio"
         ],
-        "summary": "Tracks warehouse spend and query patterns so teams can spot runaway jobs before invoices spike."
+        "summary": "Attributes BigQuery cost to users, connectors and Data Studio reports from INFORMATION_SCHEMA.JOBS. Reviewed weekly by the 10 Minute School data team."
       },
       "links": {
         "caseStudy": "/projects/bigquery-cost-monitoring/",
         "primary": "https://medium.com/@niloy.swe/how-to-monitor-bigquery-usage-and-costs-on-gcp-with-interactive-visualizations-in-looker-studio-f2c1d44d99d2",
         "primaryLabel": "Read on Medium",
         "footerAction": "Read write-up",
-        "footerMeta": "Medium + Looker"
+        "footerMeta": "Medium + Data Studio"
       },
       "page": {
-        "title": "BigQuery Cost Monitoring | Niloy Biswas",
-        "description": "Monitor BigQuery usage and costs on GCP with Looker Studio and the INFORMATION_SCHEMA JOBS table."
+        "title": "BigQuery Cost Monitoring with Data Studio | Niloy Biswas",
+        "description": "Attribute BigQuery cost to users, connectors and Data Studio reports with an INFORMATION_SCHEMA.JOBS query and a weekly data team dashboard.",
+        "h1": "Monitoring BigQuery Usage and Costs with Data Studio"
       }
     },
     {
@@ -207,7 +212,7 @@
       },
       "card": {
         "thumbnail": "projects/population-density-maps/images/Bangladesh_population_density_thumbnail.png",
-        "thumbnailAlt": "South Asia population density map thumbnail",
+        "thumbnailAlt": "3D population density map of Bangladesh with tall red peaks over Dhaka and Sylhet",
         "tags": [
           "R",
           "ggplot2"
@@ -223,7 +228,8 @@
       },
       "page": {
         "title": "Population Density Maps | Niloy Biswas",
-        "description": "3D population density maps with R and Rayshader — Bangladesh, South Asia, and regional demographic storytelling."
+        "description": "3D population density maps built in R with Rayshader: Bangladesh, its divisions, India, Sri Lanka, Nepal, Bhutan and Myanmar compared side by side.",
+        "h1": "3D Population Density Maps in R with Rayshader"
       }
     },
     {
@@ -232,16 +238,16 @@
       "slug": "us-superstore",
       "category": "analytics",
       "showOnHome": false,
-      "title": "US Superstore — Sales Summary",
+      "title": "US Superstore: Sales Summary",
       "badge": {
         "label": "Retail BI",
         "variant": "analytics"
       },
       "card": {
         "thumbnail": "projects/us-superstore/images/US_Superstore_Thumbnail.png",
-        "thumbnailAlt": "US Superstore sales dashboard thumbnail",
+        "thumbnailAlt": "Superstore profitability dashboard with monthly profit by region and by product category as stacked bars",
         "tags": [
-          "Looker Studio",
+          "Data Studio",
           "Sales"
         ],
         "summary": "Regional performance, category mix, and profit drivers for a classic retail analytics scenario."
@@ -255,7 +261,9 @@
       },
       "page": {
         "title": "US Superstore Sales Dashboard | Niloy Biswas",
-        "description": "Looker Studio retail analytics — sales, returns, RFM segmentation, and profit drivers for the Superstore dataset."
+        "description": "US Superstore sales dashboard in Data Studio: regional sales, profitability, returns and RFM customer segmentation across four report pages.",
+        "h1": "US Superstore Sales and Customer Insights Dashboard in Data Studio",
+        "noindex": true
       }
     },
     {
@@ -271,12 +279,12 @@
       },
       "card": {
         "thumbnail": "projects/crm-sales/images/CRM_Sales_Thumbnail.png",
-        "thumbnailAlt": "CRM sales performance dashboard thumbnail",
+        "thumbnailAlt": "CRM sales dashboard with total sales, average sales value, days to close and monthly sales versus orders chart",
         "tags": [
-          "Looker Studio",
+          "Data Studio",
           "Pipeline"
         ],
-        "summary": "Pipeline health, win rates, and rep-level targets for revenue operations teams."
+        "summary": "Live sales dashboard built to teach a data analytics bootcamp: win rates, days to close and sales by manager and product."
       },
       "links": {
         "caseStudy": "/projects/crm-sales/",
@@ -287,7 +295,8 @@
       },
       "page": {
         "title": "CRM Sales Performance Dashboard | Niloy Biswas",
-        "description": "CRM sales performance Looker Studio dashboard — pipeline health, win rates, and manager-level insights."
+        "description": "CRM sales performance dashboard in Data Studio: sales trends, product and sector mix, days to close and manager win rates in one report.",
+        "h1": "CRM Sales Performance Dashboard in Data Studio"
       }
     },
     {
@@ -303,9 +312,9 @@
       },
       "card": {
         "thumbnail": "projects/air-quality/images/AirQuality_Thumbnail.png",
-        "thumbnailAlt": "Dhaka air quality dashboard thumbnail",
+        "thumbnailAlt": "Dhaka air quality dashboard with peak AQI of 598, AQI trend through 2023 and a treemap of days per category",
         "tags": [
-          "Looker Studio",
+          "Data Studio",
           "AQI"
         ],
         "summary": "Time-series and geographic views of pollution levels to surface seasonal trends in the capital."
@@ -319,7 +328,8 @@
       },
       "page": {
         "title": "Air Quality of Dhaka | Niloy Biswas",
-        "description": "Dhaka air quality dashboard — AQI trends, seasonal patterns, and global pollution context with Looker Studio."
+        "description": "Dhaka air quality dashboard in Data Studio: AQI trends from AirNow data, a peak AQI of 598 in 2023, plus seasonal and night-time pollution patterns.",
+        "h1": "Dhaka Air Quality Dashboard: AQI Trends in Data Studio"
       }
     }
   ]

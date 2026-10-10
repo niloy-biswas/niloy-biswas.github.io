@@ -25,6 +25,11 @@
   margin: 0 auto;
 }
 
+/* The related block sits inside this already-padded 880px container: drop its own side padding so its edges match the article. */
+.hsep-case-study__inner .related-studies {
+  padding-inline: 0;
+}
+
 .hsep-case-study__back {
   display: inline-flex;
   align-items: center;

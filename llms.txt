@@ -1,6 +1,6 @@
 # Niloy Biswas
 
-> Niloy Biswas is an AI/LLM engineer and data analyst at 10 Minute School in Dhaka, Bangladesh. He works on TenTen, 10MS's AI study partner (RAG, intent routing, product analytics), and on BigQuery and Looker Studio data systems. His machine-learning research is published in Hindawi's BioMed Research International.
+> Niloy Biswas is an AI/LLM engineer and data analyst at 10 Minute School in Dhaka, Bangladesh. He works on TenTen, 10MS's AI study partner (RAG, intent routing, product analytics), and on BigQuery and Data Studio data systems. His machine-learning research is published in Hindawi's BioMed Research International.
 
 Based in Dhaka, Bangladesh. Open to remote roles and projects. Site: https://niloy.tech
 
@@ -8,18 +8,18 @@ Based in Dhaka, Bangladesh. Open to remote roles and projects. Site: https://nil
 
 - Positioning: AI/LLM Engineer & Data Analyst
 - 4+ years working in data
-- Stack: Python, SQL, BigQuery, Looker Studio, LangGraph, RAG, vector search
+- Stack: Python, SQL, BigQuery, Data Studio, LangGraph, RAG, vector search
 
 ## Case studies
 
-- [TenTen - AI Study Partner](https://niloy.tech/projects/tenten/): TenTen, 10 Minute School's AI study partner for Bangladesh: RAG over curriculum content, intent routing, and post-launch product analytics.
-- [USAID HSEP: Teacher Training Analytics](https://niloy.tech/projects/hsep/): Learning analytics for USAID's HSEP teacher training pilot in Bangladesh: 479 teachers, BigQuery, Looker Studio, and the data trail of the 2025 aid freeze.
-- [Chicago Taxi Trips](https://niloy.tech/projects/chicago-taxi/): Looker Studio and BigQuery dashboard for Chicago taxi trip data - demand, revenue, and route patterns at scale.
-- [Heart Disease Prediction](https://niloy.tech/projects/heart-disease/): Machine learning comparison for heart disease prediction using clinical features - logistic regression, trees, SVM, and more.
-- [BigQuery Cost Monitoring](https://niloy.tech/projects/bigquery-cost-monitoring/): Monitor BigQuery usage and costs on GCP with Looker Studio and the INFORMATION_SCHEMA JOBS table.
-- [Population Density Map](https://niloy.tech/projects/population-density-maps/): 3D population density maps with R and Rayshader - Bangladesh, South Asia, and regional demographic storytelling.
-- [CRM Sales Performance Dashboard](https://niloy.tech/projects/crm-sales/): CRM sales performance Looker Studio dashboard - pipeline health, win rates, and manager-level insights.
-- [Air Quality of Dhaka](https://niloy.tech/projects/air-quality/): Dhaka air quality dashboard - AQI trends, seasonal patterns, and global pollution context with Looker Studio.
+- [TenTen: AI Study Partner](https://niloy.tech/projects/tenten/): TenTen, 10 Minute School's AI study partner for Bangladesh: RAG over curriculum content, intent routing, and post-launch product analytics.
+- [USAID HSEP: Teacher Training Analytics](https://niloy.tech/projects/hsep/): Learning analytics for USAID's HSEP teacher training pilot in Bangladesh: 479 teachers, BigQuery, Data Studio, and the data trail of the 2025 aid freeze.
+- [Chicago Taxi Trips](https://niloy.tech/projects/chicago-taxi/): Chicago taxi trips dashboard in Data Studio and BigQuery: trips fell from 32.4M in 2015 to 3.9M in 2020, with payment, company and pickup patterns.
+- [Heart Disease Prediction](https://niloy.tech/projects/heart-disease/): Published heart disease prediction study: six ML models and three feature subsets on 303 patients. SVM reached 94.51% accuracy on nine features.
+- [BigQuery Cost Monitoring](https://niloy.tech/projects/bigquery-cost-monitoring/): Attribute BigQuery cost to users, connectors and Data Studio reports with an INFORMATION_SCHEMA.JOBS query and a weekly data team dashboard.
+- [Population Density Map](https://niloy.tech/projects/population-density-maps/): 3D population density maps built in R with Rayshader: Bangladesh, its divisions, India, Sri Lanka, Nepal, Bhutan and Myanmar compared side by side.
+- [CRM Sales Performance Dashboard](https://niloy.tech/projects/crm-sales/): CRM sales performance dashboard in Data Studio: sales trends, product and sector mix, days to close and manager win rates in one report.
+- [Air Quality of Dhaka](https://niloy.tech/projects/air-quality/): Dhaka air quality dashboard in Data Studio: AQI trends from AirNow data, a peak AQI of 598 in 2023, plus seasonal and night-time pollution patterns.
 
 ## Writing
 
