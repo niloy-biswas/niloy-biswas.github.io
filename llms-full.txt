@@ -308,11 +308,11 @@ Solving the basics is only the starting point. As the largest edTech platform in
 
 More case studies
 
-Heart Disease Prediction
-
 USAID HSEP: Teacher Training Analytics
 
 Chicago Taxi Trips
+
+Heart Disease Prediction
 
 Need help building an AI system that's actually helpful?
 
@@ -616,9 +616,9 @@ More case studies
 
 Chicago Taxi Trips
 
-BigQuery Cost Monitoring
+Heart Disease Prediction
 
-Population Density Map
+BigQuery Cost Monitoring
 
 Running a program that needs numbers every partner trusts?
 

@@ -478,7 +478,6 @@ function main() {
 
   buildGrid(homepageProjects(manifest.projects));
   buildSitemap(manifest.projects);
-  buildLlms(manifest.projects);
   buildGalleryStatic();
 
   for (const project of manifest.projects) {
@@ -489,6 +488,8 @@ function main() {
     buildProjectPage(project, navHtml, pageTemplate, manifest.projects);
   }
   fillRelatedMarkers(manifest.projects);
+  // Last: llms-full.txt reads the hand-built pages, so their related blocks must be filled first.
+  buildLlms(manifest.projects);
 
   console.log('Done.');
 }
