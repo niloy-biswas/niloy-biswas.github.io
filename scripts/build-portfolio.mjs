@@ -220,16 +220,18 @@ function formatDateLabel(iso) {
   return `${MONTHS[m - 1]} ${d}, ${y}`;
 }
 
-/** Up to RELATED_COUNT other listed case studies: same category first, then by manifest order. */
+/**
+ * The next RELATED_COUNT listed case studies after this one in manifest `order`, wrapping
+ * around to the start (the last case study shows #1, #2, #3). Reordering the homepage
+ * grid reorders these too. Works for unlisted pages: they continue from their own `order`.
+ */
 function pickRelated(project, allProjects) {
-  return allProjects
+  const listed = allProjects
     .filter((p) => p.slug !== project.slug && isListed(p))
-    .sort((a, b) => {
-      const sameA = a.category === project.category ? 0 : 1;
-      const sameB = b.category === project.category ? 0 : 1;
-      return sameA - sameB || a.order - b.order;
-    })
-    .slice(0, RELATED_COUNT);
+    .sort((a, b) => a.order - b.order);
+  const start = listed.findIndex((p) => p.order > project.order);
+  const rotated = start === -1 ? listed : [...listed.slice(start), ...listed.slice(0, start)];
+  return rotated.slice(0, RELATED_COUNT);
 }
 
 function renderRelated(project, allProjects) {
