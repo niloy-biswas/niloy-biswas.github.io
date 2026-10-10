@@ -8,7 +8,7 @@
     <script defer src="/assets/js/analytics-init.js"></script>
 
     <meta name="description" content="{{DESCRIPTION}}">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="{{ROBOTS}}">
     <link rel="icon" type="image/x-icon" href="../../favicon.ico">
     <link rel="canonical" href="{{CANONICAL}}">
     <meta property="og:title" content="{{TITLE}}">
@@ -17,7 +17,7 @@
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="niloy.tech">
     <meta property="og:image" content="{{OG_IMAGE}}">
-    <meta property="og:image:alt" content="{{OG_IMAGE_ALT}}">
+    <meta property="og:image:alt" content="{{OG_IMAGE_ALT}}">{{OG_IMAGE_SIZE}}
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{TITLE}}">
@@ -34,9 +34,12 @@
     <link rel="stylesheet" href="../../assets/css/styles.css">
     <link rel="stylesheet" href="../../assets/css/case-study.css">
     <link rel="stylesheet" href="../../assets/css/external-link-icon.css">
+    <link rel="stylesheet" href="../../assets/css/closing-cta.css?v=2" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../../assets/css/closing-cta.css?v=2"></noscript>
     <link rel="stylesheet" href="../../assets/css/responsive.css">
     <link rel="stylesheet" href="../../assets/css/colors/theme-colors.css">
     <link rel="stylesheet" href="../../assets/css/typography.css">
+    <script type="application/ld+json">{{JSON_LD}}</script>
 </head>
 
 <body class="dark-vertion black-bg">
@@ -52,9 +55,23 @@
             <div class="container">
                 <a class="case-study__back" href="../../index.html#mh-portfolio" data-case-study-back>← Back to Case Studies &amp; Projects</a>
                 <div class="case-study__shell">
+                    <header class="case-study__header">
+                        <h1 class="case-study__title">{{H1}}</h1>
+                        <p class="case-study__byline">By <a href="/">Niloy Biswas</a> &middot; Updated <time datetime="{{MODIFIED_ISO}}">{{MODIFIED_LABEL}}</time></p>
+                    </header>
 {{CONTENT}}
                 </div>
             </div>
+
+{{RELATED}}
+
+            <section class="closing-cta" aria-labelledby="case-study-cta-title">
+                <h2 class="closing-cta__title" id="case-study-cta-title">Have data that needs<br><span class="text-gradient-accent">a clear story?</span></h2>
+                <div class="closing-cta__action">
+                    <a href="/#mh-contact" class="closing-cta__btn">Let&rsquo;s talk</a>
+                    <p class="closing-cta__lead">From BigQuery data models to Data Studio dashboards and ML prototypes, happy to talk through what your team needs.</p>
+                </div>
+            </section>
         </main>
     </div>
 
@@ -62,6 +79,7 @@
     <script defer src="../../assets/plugins/js/bootstrap.min.js"></script>
     <script defer src="../../assets/js/custom-scripts.js"></script>
     <script defer src="../../assets/js/case-study.js"></script>
+    <script defer src="../../assets/js/external-link-icon.js"></script>
 </body>
 
 </html>

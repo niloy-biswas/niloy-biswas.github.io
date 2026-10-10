@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Build homepage portfolio grid, project case-study pages, sitemap.xml, llms.txt and llms-full.txt
- * from projects/manifest.json (llms files also use scripts/templates/llms-intro.md).
+ * Build homepage portfolio grid, project case-study pages (with JSON-LD, related-studies block),
+ * sitemap.xml, llms.txt and llms-full.txt from projects/manifest.json (llms files also use scripts/templates/llms-intro.md).
  * Run: node scripts/build-portfolio.mjs
  */
 
@@ -31,6 +31,12 @@ const GRID_START = '<!-- PORTFOLIO_GRID_START -->';
 const GRID_END = '<!-- PORTFOLIO_GRID_END -->';
 const SITE_ORIGIN = 'https://niloy.tech';
 
+const RELATED_START = '<!-- RELATED_STUDIES_START -->';
+const RELATED_END = '<!-- RELATED_STUDIES_END -->';
+const RELATED_COUNT = 3;
+
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
 const ACTION_ICON =
   '<span class="icon-external-link" aria-hidden="true"></span>';
 
@@ -51,10 +57,14 @@ function readManifest() {
   return JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
 }
 
-function loadManifest() {
-  return readManifest()
-    .projects.filter((p) => p.showOnHome !== false)
-    .sort((a, b) => a.order - b.order);
+/** Projects shown in the homepage grid, in manifest order. */
+function homepageProjects(projects) {
+  return projects.filter((p) => p.showOnHome !== false).sort((a, b) => a.order - b.order);
+}
+
+/** Public, indexable case studies: used by the sitemap, llms files and the related block. */
+function isListed(p) {
+  return Boolean(p.links?.caseStudy) && p.showOnHome !== false && !p.page?.noindex;
 }
 
 /** Pixel size of an image via macOS sips. Returns null when unreadable (missing file, no sips). */
@@ -77,18 +87,19 @@ function readImageSize(absPath) {
  * through <picture> when it exists, with width/height read from the served file; otherwise
  * falls back to a plain <img> of the original.
  */
-function renderThumbnail(card) {
+function renderThumbnail(card, { prefix = '', className = '' } = {}) {
   const rel = card.thumbnail.replace(/^\//, '');
   const webpRel = rel.replace(/\.[^./\\]+$/, '.webp');
   const webpAbs = path.join(ROOT, webpRel);
   const hasWebp = webpRel !== rel && fs.existsSync(webpAbs);
   const size = readImageSize(hasWebp ? webpAbs : path.join(ROOT, rel));
   const dims = size ? ` width="${size.width}" height="${size.height}"` : '';
-  const img = `<img src="${escapeHtml(card.thumbnail)}"
+  const cls = className ? ` class="${className}"` : '';
+  const img = `<img${cls} src="${escapeHtml(prefix + rel)}"
                                             alt="${escapeHtml(card.thumbnailAlt)}"${dims} loading="lazy" decoding="async">`;
   if (!hasWebp) return img;
   return `<picture>
-                                            <source type="image/webp" srcset="${escapeHtml(encodeURI(card.thumbnail.replace(/\.[^./\\]+$/, '.webp')))}">
+                                            <source type="image/webp" srcset="${escapeHtml(encodeURI(prefix + webpRel))}">
                                             ${img}
                                         </picture>`;
 }
@@ -137,7 +148,7 @@ function buildGrid(projects) {
 
   if (startIdx === -1 || endIdx === -1 || endIdx < startIdx) {
     throw new Error(
-      `Missing ${GRID_START} or ${GRID_END} in index.html — add markers inside .portfolio-showcase`
+      `Missing ${GRID_START} or ${GRID_END} in index.html: add markers inside .portfolio-showcase`
     );
   }
 
@@ -178,7 +189,89 @@ function buildGalleryStatic() {
   console.log(`Updated photography gallery noscript (${images.length} images)`);
 }
 
-function buildProjectPage(project, navHtml, pageTemplate) {
+/** Run git in the repo root; returns trimmed stdout or '' on failure. */
+function git(args) {
+  try {
+    return execFileSync('git', args, {
+      cwd: ROOT,
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    }).trim();
+  } catch {
+    return '';
+  }
+}
+
+/** Current time as an ISO 8601 datetime in +06:00 (fallback when a file has no commits). */
+function nowIsoDhaka() {
+  return `${new Date(Date.now() + 6 * 3600 * 1000).toISOString().slice(0, 19)}+06:00`;
+}
+
+/** First and last commit datetimes (git %cI, full ISO 8601 with timezone) for a repo-relative path. */
+function gitDates(relPath) {
+  const lines = git(['log', '--follow', '--format=%cI', '--', relPath]).split('\n').filter(Boolean);
+  const fallback = nowIsoDhaka();
+  return { published: lines.at(-1) ?? fallback, modified: lines[0] ?? fallback };
+}
+
+/** "2026-10-10T02:46:24+06:00" -> "Oct 10, 2026" (uses the date as written, no timezone shift). */
+function formatDateLabel(iso) {
+  const [y, m, d] = iso.slice(0, 10).split('-').map(Number);
+  return `${MONTHS[m - 1]} ${d}, ${y}`;
+}
+
+/** Up to RELATED_COUNT other listed case studies: same category first, then by manifest order. */
+function pickRelated(project, allProjects) {
+  return allProjects
+    .filter((p) => p.slug !== project.slug && isListed(p))
+    .sort((a, b) => {
+      const sameA = a.category === project.category ? 0 : 1;
+      const sameB = b.category === project.category ? 0 : 1;
+      return sameA - sameB || a.order - b.order;
+    })
+    .slice(0, RELATED_COUNT);
+}
+
+function renderRelated(project, allProjects) {
+  const items = pickRelated(project, allProjects)
+    .map(
+      (p) => `                    <li>
+                        <article class="related-studies__card glass-card">
+                            <div class="related-studies__media">
+                                ${renderThumbnail(p.card, { prefix: '/', className: 'related-studies__img' })}
+                            </div>
+                            <h3 class="related-studies__name"><a href="${escapeHtml(p.links.caseStudy)}">${escapeHtml(p.title)}</a></h3>
+                        </article>
+                    </li>`
+    )
+    .join('\n');
+  return `<section class="related-studies" aria-labelledby="related-studies-title">
+                <h2 class="related-studies__title" id="related-studies-title">More case studies</h2>
+                <ul class="related-studies__grid">
+${items}
+                </ul>
+            </section>`;
+}
+
+/** Fill the related block into any hand-built page that carries the RELATED_STUDIES markers. */
+function fillRelatedMarkers(projects) {
+  for (const project of projects) {
+    const file = path.join(ROOT, 'projects', project.slug, 'index.html');
+    if (!fs.existsSync(file)) continue;
+    const html = fs.readFileSync(file, 'utf8');
+    const startIdx = html.indexOf(RELATED_START);
+    const endIdx = html.indexOf(RELATED_END);
+    if (startIdx === -1 && endIdx === -1) continue;
+    if (startIdx === -1 || endIdx < startIdx) {
+      throw new Error(`Unbalanced ${RELATED_START} / ${RELATED_END} in ${file}`);
+    }
+    const built = `${html.slice(0, startIdx + RELATED_START.length)}\n            ${renderRelated(project, projects)}\n            ${html.slice(endIdx)}`;
+    if (built !== html) fs.writeFileSync(file, built);
+    console.log(`Filled related studies in projects/${project.slug}/index.html`);
+  }
+}
+
+function buildProjectPage(project, navHtml, pageTemplate, allProjects) {
   const contentPath = path.join(ROOT, 'projects', project.slug, 'content.html');
   if (!fs.existsSync(contentPath)) {
     console.warn(`Skip page (no content.html): ${project.slug}`);
@@ -189,22 +282,68 @@ function buildProjectPage(project, navHtml, pageTemplate) {
   content = fixAssetPaths(content);
 
   const canonical = `${SITE_ORIGIN}${project.links.caseStudy}`;
-  const thumb = project.card.thumbnail.replace(/^\//, '');
-  const ogImage = `${SITE_ORIGIN}/${thumb}`;
+  const ogRel = (project.page.ogImage || project.card.thumbnail).replace(/^\//, '');
+  const ogImage = `${SITE_ORIGIN}/${encodeURI(ogRel)}`;
+  const ogSize = readImageSize(path.join(ROOT, ogRel));
+  const ogSizeMeta = ogSize
+    ? `\n    <meta property="og:image:width" content="${ogSize.width}">\n    <meta property="og:image:height" content="${ogSize.height}">`
+    : '';
+  const ogImageAlt = `${project.title}, a case study by Niloy Biswas`;
+  const h1 = project.page.h1 || project.title;
+  const { published, modified } = gitDates(`projects/${project.slug}/content.html`);
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Article',
+        '@id': `${canonical}#article`,
+        headline: h1,
+        description: project.page.description,
+        image: ogImage,
+        datePublished: published,
+        dateModified: modified,
+        author: { '@id': `${SITE_ORIGIN}/#person` },
+        publisher: { '@id': `${SITE_ORIGIN}/#person` },
+        mainEntityOfPage: canonical,
+        inLanguage: 'en',
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_ORIGIN}/` },
+          { '@type': 'ListItem', position: 2, name: h1, item: canonical },
+        ],
+      },
+    ],
+  };
 
   const generatedBanner =
-    '<!-- Generated by scripts/build-portfolio.mjs — edit content.html / manifest.json, then re-run build. -->\n';
+    '<!-- Generated by scripts/build-portfolio.mjs. Edit content.html / manifest.json, then re-run build. -->\n';
 
-  const ogImageAlt = `${project.title} — case study by Niloy Biswas`;
+  const values = {
+    TITLE: escapeHtml(project.page.title),
+    DESCRIPTION: escapeHtml(project.page.description),
+    ROBOTS: project.page.noindex ? 'noindex, follow' : 'index, follow',
+    CANONICAL: canonical,
+    OG_IMAGE: ogImage,
+    OG_IMAGE_ALT: escapeHtml(ogImageAlt),
+    OG_IMAGE_SIZE: ogSizeMeta,
+    // "<" escaped so a "</script>" inside a string can never close the tag.
+    JSON_LD: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
+    H1: escapeHtml(h1),
+    MODIFIED_ISO: modified,
+    MODIFIED_LABEL: formatDateLabel(modified),
+    NAV: navHtml,
+    RELATED: renderRelated(project, allProjects),
+    CONTENT: content,
+  };
 
-  let html = pageTemplate
-    .replace(/\{\{TITLE\}\}/g, escapeHtml(project.page.title))
-    .replace(/\{\{DESCRIPTION\}\}/g, escapeHtml(project.page.description))
-    .replace(/\{\{CANONICAL\}\}/g, canonical)
-    .replace(/\{\{OG_IMAGE\}\}/g, ogImage)
-    .replace(/\{\{OG_IMAGE_ALT\}\}/g, escapeHtml(ogImageAlt))
-    .replace(/\{\{NAV\}\}/g, navHtml)
-    .replace(/\{\{CONTENT\}\}/g, content);
+  // Function replacers: content may contain "$" sequences that String.replace would interpret.
+  const html = Object.entries(values).reduce(
+    (out, [key, value]) => out.replaceAll(`{{${key}}}`, () => value),
+    pageTemplate
+  );
 
   const outPath = path.join(ROOT, 'projects', project.slug, 'index.html');
   fs.writeFileSync(outPath, generatedBanner + html);
@@ -213,19 +352,7 @@ function buildProjectPage(project, navHtml, pageTemplate) {
 
 /** Latest git commit date (YYYY-MM-DD) across the given repo-relative paths; today if none are committed. */
 function gitLastmod(paths) {
-  const dates = paths
-    .map((p) => {
-      try {
-        return execFileSync('git', ['log', '-1', '--format=%cs', '--', p], {
-          cwd: ROOT,
-          encoding: 'utf8',
-          stdio: ['ignore', 'pipe', 'ignore'],
-        }).trim();
-      } catch {
-        return '';
-      }
-    })
-    .filter(Boolean);
+  const dates = paths.map((p) => git(['log', '-1', '--format=%cs', '--', p])).filter(Boolean);
   return dates.length ? dates.sort().at(-1) : new Date().toISOString().slice(0, 10);
 }
 
@@ -241,7 +368,7 @@ function buildSitemap(projects) {
     },
     { loc: `${SITE_ORIGIN}/resume/`, changefreq: 'monthly', priority: '0.6', src: ['resume/index.html'] },
     ...projects
-      .filter((p) => p.links?.caseStudy && p.showOnHome !== false)
+      .filter(isListed)
       .map((p) => {
         const custom = p.page?.useTemplate === false;
         return {
@@ -279,7 +406,7 @@ ${entries}
 
 /** Plain text for LLM files: no em dashes. */
 function plainText(str) {
-  return str.replace(/\s*—\s*/g, ' - ');
+  return str.replace(/\s*\u2014\s*/g, ' - ');
 }
 
 const ENTITIES = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ', rarr: '->', larr: '<-',
@@ -318,9 +445,7 @@ function caseStudyBodyHtml(project) {
 }
 
 function buildLlms(projects) {
-  const listed = projects
-    .filter((p) => p.links?.caseStudy && p.showOnHome !== false)
-    .sort((a, b) => a.order - b.order);
+  const listed = projects.filter(isListed).sort((a, b) => a.order - b.order);
   const intro = fs.readFileSync(LLMS_INTRO_PATH, 'utf8').trimEnd();
   if (!intro.includes('{{CASE_STUDIES}}')) {
     throw new Error('llms-intro.md is missing the {{CASE_STUDIES}} marker');
@@ -349,7 +474,7 @@ function main() {
   const pageTemplate = fs.readFileSync(TEMPLATE_PATH, 'utf8');
   const navHtml = fs.readFileSync(NAV_PATH, 'utf8');
 
-  buildGrid(loadManifest());
+  buildGrid(homepageProjects(manifest.projects));
   buildSitemap(manifest.projects);
   buildLlms(manifest.projects);
   buildGalleryStatic();
@@ -359,8 +484,9 @@ function main() {
       console.log(`Skip page (useTemplate: false): ${project.slug}`);
       continue;
     }
-    buildProjectPage(project, navHtml, pageTemplate);
+    buildProjectPage(project, navHtml, pageTemplate, manifest.projects);
   }
+  fillRelatedMarkers(manifest.projects);
 
   console.log('Done.');
 }

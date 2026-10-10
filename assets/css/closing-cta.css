@@ -6,6 +6,13 @@
  *   .closing-cta > .closing-cta__title + .closing-cta__action
  *     > .closing-cta__btn + .closing-cta__lead
  *   footer.page-credits
+ *
+ * Related case studies block (filled by scripts/build-portfolio.mjs: templated pages get it
+ * from project-page.html, hand-built pages between RELATED_STUDIES_START/END markers):
+ *   section.related-studies > h2.related-studies__title + ul.related-studies__grid
+ *     > li > article.related-studies__card.glass-card
+ *       > div.related-studies__media > picture > img.related-studies__img
+ *       + h3.related-studies__name > a
  */
 
 .closing-cta {
@@ -44,7 +51,8 @@
 .closing-cta__btn {
   position: relative;
   z-index: 2;
-  margin-top: clamp(-8px, -1.2vw, -4px);
+  /* Positive offset: the -11deg tilt lifts the left/right corners, which would otherwise clip the last title line. */
+  margin-top: clamp(8px, 1.2vw, 14px);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -82,6 +90,90 @@
   box-shadow:
     0 14px 36px rgba(0, 0, 0, 0.34),
     inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+/* Same 880px column as the case study article (--cs-column in case-study.css) so the edges line up. */
+.related-studies {
+  --related-pad: clamp(20px, 4vw, 36px);
+  margin: clamp(40px, 6vw, 72px) auto 0;
+  padding: 0 var(--related-pad);
+  max-width: calc(880px + 2 * var(--related-pad));
+}
+
+.related-studies__title {
+  margin: 0 0 clamp(16px, 2.5vw, 24px);
+  font-size: clamp(1.45rem, 3.2vw, 2rem);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+}
+
+.related-studies__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 2vw, 22px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.related-studies__card {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Fixed-ratio thumbnail; top corners follow the glass-card radius */
+.related-studies__media {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: rgba(5, 8, 16, 0.6);
+  border-bottom: 1px solid var(--glass-border);
+  border-radius: var(--glass-card-radius) var(--glass-card-radius) 0 0;
+}
+
+.related-studies__media picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.related-studies__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.related-studies__name {
+  margin: 0;
+  padding: clamp(14px, 2vw, 18px) clamp(16px, 2.2vw, 20px);
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.related-studies__name a {
+  color: var(--text-primary);
+}
+
+/* Stretched link: the whole card is clickable while the title stays the anchor text. */
+.related-studies__name a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.related-studies__name a:hover,
+.related-studies__name a:focus-visible {
+  color: var(--accent);
+}
+
+@media (max-width: 640px) {
+  .related-studies__grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .page-credits {
