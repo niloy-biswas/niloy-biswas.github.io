@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Copy source photos into assets/images/photography/gallery/
- * COPY ONLY — never deletes photography/upload/ or staging files.
+ * COPY ONLY: never deletes photography/upload/ or staging files.
  *
  * Drop originals in photography/upload/ or photography/
  * Run: node scripts/import-photography-gallery.mjs
@@ -76,7 +76,7 @@ function main() {
   }
 
   if (missingWebp.length) {
-    console.warn(`\nMissing WebP for ${missingWebp.length} file(s) — run optimize script.`);
+    console.warn(`\nMissing WebP for ${missingWebp.length} file(s), run optimize script.`);
   }
 
   if (notFound.length) {

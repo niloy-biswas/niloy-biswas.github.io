@@ -1,5 +1,5 @@
 /**
- * Photography gallery layout tool — drag tiles to swap column/row, export gallery.json.
+ * Photography gallery layout tool: drag tiles to swap column/row, export gallery.json.
  * Load from photography/layout.html or scripts/photography-gallery-layout/layout.html.
  * Config via #layout-grid data-gallery, data-base-path, data-preview-url, data-live-url.
  */

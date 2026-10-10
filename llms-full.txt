@@ -1,6 +1,6 @@
 # Niloy Biswas
 
-> Niloy Biswas is an AI/LLM engineer and data analyst at 10 Minute School in Dhaka, Bangladesh. He works on TenTen, 10MS's AI study partner (RAG, intent routing, product analytics), and on BigQuery and Looker Studio data systems. His machine-learning research is published in Hindawi's BioMed Research International.
+> Niloy Biswas is an AI/LLM engineer and data analyst at 10 Minute School in Dhaka, Bangladesh. He works on TenTen, 10MS's AI study partner (RAG, intent routing, product analytics), and on BigQuery and Data Studio data systems. His machine-learning research is published in Hindawi's BioMed Research International.
 
 Based in Dhaka, Bangladesh. Open to remote roles and projects. Site: https://niloy.tech
 
@@ -8,7 +8,7 @@ Based in Dhaka, Bangladesh. Open to remote roles and projects. Site: https://nil
 
 - Positioning: AI/LLM Engineer & Data Analyst
 - 4+ years working in data
-- Stack: Python, SQL, BigQuery, Looker Studio, LangGraph, RAG, vector search
+- Stack: Python, SQL, BigQuery, Data Studio, LangGraph, RAG, vector search
 
 ## Case studies
 
@@ -38,7 +38,7 @@ Full text of each case study follows below.
 
 ---
 
-## TenTen - AI Study Partner
+## TenTen: AI Study Partner
 
 URL: https://niloy.tech/projects/tenten/
 
@@ -48,11 +48,11 @@ Hello, I'm
 
 TenTen
 
-Bangladesh's First Integrated
+TenTen - Bangladesh's First Integrated
 
 AI Learning Ecosystem
 
-A 10-month journey building TenTen inside the 10 Minute School app: from early R&D in Google Colab to production RAG, Bangla LLM behaviour, intent routing, and product analytics after a limited release in Nov '25.
+A 10-month journey building TenTen, the AI study partner inside the 10 Minute School app: from early R&D in Google Colab to production RAG, Bangla LLM behaviour, intent routing, and product analytics after a limited release in Nov '25.
 
 Product area
 
@@ -306,6 +306,14 @@ More than a tool. Part of how a generation learns.
 
 Solving the basics is only the starting point. As the largest edTech platform in Bangladesh, there is a responsibility to bring bold innovations that actually reshape how students learn. That means reaching every division, from rural classrooms to city prep centers, with AI that grows alongside how students study.
 
+More case studies
+
+Heart Disease Prediction
+
+USAID HSEP: Teacher Training Analytics
+
+Chicago Taxi Trips
+
 Need help building an AI system that's actually helpful?
 
 Let's talk
@@ -313,6 +321,8 @@ Let's talk
 From RAG and intent routing to launch analytics, happy to help teams ship AI that students actually trust inside real products, not just one-off demos.
 
 Product design and UI explorations by Diponkar . This case study covers the data and AI engineering side: R&D, retrieval, routing, and analytics.
+
+Updated October 10, 2026
 
 ---
 
@@ -326,7 +336,7 @@ Learning analytics case study · USAID HSEP · Bangladesh
 
 Measuring USAID's teacher training pilot in Bangladesh until the aid freeze stopped it
 
-In late 2024, 479 college teachers and education leaders from 57 districts took the first online cohort of USAID's Higher Secondary Education Project (HSEP) in Bangladesh. I led the data side on the 10 Minute School team. The pilot's last module closed on January 19, 2025. Five days later a US stop-work order froze foreign aid, and the next cohort never started.
+In late 2024, 479 college teachers and education leaders from 57 districts took the first online cohort of USAID's Higher Secondary Education Project (HSEP, also referred to as HSEA) in Bangladesh. I led the data side on the 10 Minute School team. The pilot's last module closed on January 19, 2025. Five days later a US stop-work order froze foreign aid, and the next cohort never started.
 
 HSEP's annual work-planning workshop in Dhaka, with partners, trainers and education officials.
 
@@ -380,7 +390,7 @@ I was a Senior BI Analyst at 10 Minute School and the data lead on HSEP. Shazzad
 
 Modeled the LMS data in BigQuery and set the filter that kept only real pilot participants
 
-Defined the activation, completion and peer review metrics, and built the Looker Studio dashboard all four partner organizations used
+Defined the activation, completion and peer review metrics, and built the Data Studio (formerly Looker Studio) dashboard all four partner organizations used
 
 Built the data pipeline and scoring behind the 36-item pre-training diagnostic run at the three training sites
 
@@ -436,7 +446,7 @@ BigQuery Raw tables from each service
 
 Teacher x content model Real participants only, matched to the official pilot list
 
-Looker Studio Filters for batch, program, module and day
+Data Studio Filters for batch, program, module and day
 
 Activated: opened at least one content item from that module-day.
 
@@ -602,6 +612,14 @@ Bangladesh project shutdowns: The Daily Star, May 2025
 
 Platform metrics: HSEP BigQuery project, re-queried October 2026. Raw data is not public because it contains participant information.
 
+More case studies
+
+Chicago Taxi Trips
+
+BigQuery Cost Monitoring
+
+Population Density Map
+
 Running a program that needs numbers every partner trusts?
 
 Let's talk
@@ -616,53 +634,87 @@ Product design by Shad Iqbal (lead), Moshiur Hridoy and Diponkar . Product manag
 
 URL: https://niloy.tech/projects/chicago-taxi/
 
-Chicago Taxi Trips
-
-The BigQuery dataset titled "Chicago Taxi Trip" comprises a vast collection of data
-
-pertaining to taxi rides taken within the city of Chicago, Illinois.
-
-Encompassing a timeframe of January 1, 2013, to April 23, 2023, this dataset encompasses
-
-over 200 million taxi trips. It encompasses crucial details
-
-including the pickup and drop-off locations, distances traveled, fares, payment methods, and
-
-timestamps.
-
-This dataset is conveniently hosted on Google Cloud's BigQuery platform, empowering users to
-
-efficiently query and analyze extensive datasets using SQL.
-
-It is freely accessible and available for utilization across diverse domains such as
-
-transportation analysis, urban planning, and machine learning applications.
-
-The project involved creating a dashboard using Looker Studio and Google BigQuery to
-
-visualize key summary points and insights from the dataset.
-
-The integration of Looker Studio's data visualization capabilities and Google BigQuery's
-
-querying and analysis functionalities enabled the creation of interactive
-
-visualizations, such as charts, graphs, and maps, to provide a comprehensive view of the
-
-data. This empowered stakeholders to make data-driven decisions, identify trends,
-
-and derive actionable insights. Overall, the project successfully utilized Looker Studio and
-
-Google BigQuery to create a powerful dashboard for efficient data analysis and
-
-visualization.
+This Data Studio (formerly Looker Studio) dashboard explores the City of Chicago's public taxi dataset in BigQuery for January 2015 to March 2023: 142.0M trips, 9.2K taxis and $2.4B in revenue. Yearly trips fall from 32.4M in 2015 to 3.9M in 2020 and 2021, with a partial rebound to 6.4M in 2022, while demand stays concentrated downtown and along the lakefront.
 
 Google BigQuery
 
 SQL
 
-Looker Studio
+Data Studio
 
-Source: Looker Studio
+View live dashboard in Data Studio
+
+Key facts
+
+Purpose Personal exploration of an open dataset
+
+Data source Public BigQuery table bigquery-public-data.chicago_taxi_trips.taxi_trips , from the City of Chicago's "Taxi Trips (2013-2023)" dataset
+
+Dashboard window January 1, 2015 to March 31, 2023
+
+Scale on the dashboard 142.0M trips, 867.9M km, 9.2K taxis, $2.4B revenue
+
+Filters Date range, payment method, company
+
+Stack BigQuery (custom SQL), Data Studio
+
+Output Two-page Data Studio report (linked above)
+
+The question
+
+This started as an exploration of the City of Chicago's open taxi dataset in BigQuery. The question that shaped the dashboard: how has Chicago's taxi market changed between 2015 and 2023, and where do trips and revenue concentrate? Each chart answers one part of it: market size, payment habits, trip length, company share and geography.
+
+Data and approach
+
+The City of Chicago publishes taxi trips reported to it as a regulatory agency. Each row is one trip, with start and end times, seconds and miles travelled, pickup and dropoff locations, fare, tips, tolls, extras, total, payment type and company. The BigQuery copy holds 213,111,447 rows, about 83 GB, from January 2013 to December 2023 (counted on October 10, 2026).
+
+That is a lot of data for an interactive report, so I limited the window to 2015 onward to keep the volume manageable. The dashboard reads from a custom SQL query in BigQuery connected to Data Studio. Page one has KPI tiles for trips, km travelled, taxis, revenue and revenue per km, filters for date, payment method and company, four yearly charts and a company table. Page two has a company revenue race, pickup and dropoff heatmaps and a table of individual taxis.
+
+What the data shows
+
+A market that shrank before 2020
+
+In 2015 there were 7.8K taxis on the road and 32.4M trips, and 2016 was close behind with 8K taxis and 31.8M trips. Then trips fell every year: 25M in 2017, 20.7M in 2018 and 16.5M in 2019, when 5.6K taxis were running. That is about half the 2015 volume before 2020 began.
+
+In 2020 trips dropped to 3.9M and stayed at 3.9M in 2021, with taxis at 2.6K. 2022 recovered partly, to 6.4M trips and 3K taxis. The 2023 bar of 1.4M trips and 2.7K taxis covers January to March only, because of the date filter, so it is not a further collapse.
+
+Payments moved from cash to cards
+
+Cash is the largest slice of the payment mix in 2015, at roughly 57%, and it shrinks every year to about 31% in 2023. Credit card takes most of the difference and is the biggest share by 2023. Mobile payments are a thin sliver in 2019 and 2020 and by 2022 and 2023 make up roughly a sixth of the mix.
+
+Fewer rides, but longer ones
+
+Average trip duration rises from 12.4 minutes in 2015 to 15 in 2019, then to 19.1 in 2021, 20 in 2022 and 19 in 2023. Average speed was 24.5 km/h in 2015 and 20.1 in 2019, then 33.3 in 2021 and 33.8 in 2022. Since trips after 2020 are both longer in time and faster, the average ride covers more distance than in 2015. Revenue per km fell from $8.12 in 2015 to $5.84 in 2017 and climbed to $9.82 in 2022.
+
+Revenue sits with a few companies
+
+Among the top rows of the company table, Taxi Affiliation Services leads on trips and revenue: 2,649 taxis, 25.5M trips (about 18% of the 142.0M) and $420.08M. Flash Cab follows with 1,575 taxis, 16.9M trips and $297.5M. Chicago Carriage Cab Corp ($139.63M), Yellow Cab ($125.3M), Sun Taxi ($123.7M) and City Service ($117.66M) sit in a band between $117M and $140M. In the January 2022 frame of the revenue race on page two, Taxi Affiliation Services has the longest bar, followed by Flash Cab and Chicago Carriage Cab Corp.
+
+Trips cluster downtown and on the lakefront
+
+The pickup and dropoff heatmaps look alike. Both peak downtown and along the lakefront strip to the north, and the scales top out at 20.1M pickups and 17.3M dropoffs. A second, separate hotspot sits to the northwest around O'Hare International Airport, next to Rosemont, and it is stronger for pickups than for dropoffs. Smaller patches appear south-west of downtown, and the suburbs show little activity.
+
+Data caveats
+
+One company group is null, with 2,175 taxis, 13.2M trips and $202.92M, about 9% of the 142.0M trips.
+
+Suburban Dispatch LLC shows an average trip duration of 0.21 minutes and an average revenue per km of 569,830.77, which the table highlights as an outlier.
+
+The City says not all trips are reported, though it believes most are. Times are rounded to 15 minutes, some census tracts are suppressed for privacy, and cash tips are generally not recorded.
+
+Questions
+
+How many taxi trips are there in Chicago per year?
+
+In the dashboard, trips run from 32.4M in 2015 and 31.8M in 2016 down to 25M in 2017, 20.7M in 2018 and 16.5M in 2019. They were 3.9M in both 2020 and 2021 and 6.4M in 2022. The 1.4M shown for 2023 is January to March only.
+
+How did COVID-19 affect Chicago taxi trips?
+
+Trips fell from 16.5M in 2019 to 3.9M in 2020, a drop of about three quarters, and stayed at 3.9M in 2021 before reaching 6.4M in 2022. Taxis on the road went from 5.6K in 2019 to 4.5K in 2020 and 2.6K in 2021. Trips had already been falling since 2015, so 2020 is a steep drop on top of a long decline.
+
+Which taxi company earns the most in Chicago?
+
+For January 2015 to March 2023, Taxi Affiliation Services leads the dashboard's company table with $420.08M from 25.5M trips, ahead of Flash Cab at $297.5M from 16.9M trips. Trips with no company recorded add another $202.92M that cannot be assigned to a company.
 
 ---
 
@@ -670,27 +722,7 @@ Source: Looker Studio
 
 URL: https://niloy.tech/projects/heart-disease/
 
-Heart Disease Prediction
-
-Heart disease analysis Using different model and visualize.
-
-In the dataset we have some patient clinical report, We have to predict they have heart
-
-disease or not?
-
-Algorithms
-
-- Logistic Regression
-
-- Decision Tree Classifier
-
-- Random Forest Classifier
-
-- Support Vector Classifier
-
-- Gaussian NB
-
-- K Neighbors Classifier
+This published study (BioMed Research International, 2023) tested six machine learning models for early heart disease prediction on 303 patient records from the UCI Cleveland dataset. It has ten authors, and Niloy Biswas is the first. A support vector machine on nine selected features scored best at 94.51% accuracy, and logistic regression followed at 93.41%.
 
 Python
 
@@ -698,11 +730,103 @@ Matplotlib
 
 Scikit-learn
 
-Source: Github
+View the code on GitHub
 
-Published Article
+Read the published paper
 
-Prediction Results of different algorithms.
+ROC curves of the six models on the nine-feature subset (SF3), with AUC values in the legend.
+
+Key facts
+
+Paper "Machine Learning-Based Model to Predict Heart Disease in Early Stage Employing Different Feature Selection Techniques," BioMed Research International, 2023, article 6864343, doi:10.1155/2023/6864343 (published May 2, 2023, open access, CC BY)
+
+Authors Niloy Biswas (first author) and nine co-authors from Daffodil International University, Charles Darwin University, MBSTU, University of Saskatchewan, Umm Al-Qura University and the University of Queensland
+
+My role I ran the core experiments, validated the results, created the charts and wrote the methodology and results sections. Co-authors Kawsar Ahmed and Mohammad Ali Moni provided the idea and designed the experiments, and the team analyzed the data and wrote the manuscript together.
+
+Dataset UCI Cleveland heart disease data: 303 patient records, 13 features, binary target (disease or no disease)
+
+Split 70% training, 30% test (91 test records)
+
+Feature selection ANOVA F value, chi-square and mutual information
+
+Models Logistic regression, decision tree, random forest, support vector machine (RBF kernel), Gaussian naive Bayes and K-nearest neighbors
+
+Best result Support vector machine on nine features: 94.51% accuracy, 94.87% sensitivity, 94.23% specificity, AUROC 94.95, log loss 0.31
+
+Stack Python 3.8, Pandas, NumPy, scikit-learn, Matplotlib, seaborn, Jupyter; code on GitHub
+
+The problem
+
+Cardiovascular disease causes about 17.9 million deaths a year, 32% of all deaths worldwide according to the WHO. Finding it early lowers mortality, so the paper asks which machine learning model, and which clinical features, can flag heart disease reliably at an early stage.
+
+Data
+
+The dataset is the UCI Cleveland heart disease data: 303 patient records with 13 features and a binary target. The features are age, sex, chest pain type ( cp ), resting blood pressure ( trestbps ), cholesterol ( chol ), fasting blood sugar above 120 mg/dl ( fbs ), resting ECG ( restecg ), maximum heart rate ( thalach ), exercise-induced angina ( exang ), ST depression ( oldpeak ), the slope of the peak exercise ST segment, the number of major vessels colored by fluoroscopy ( ca ) and the thallium stress test result ( thal ).
+
+Approach
+
+Preprocessing replaced four incorrect values in ca and two in thal , then scaled every feature with StandardScaler to mean 0 and variance 1. The data was split 70/30 into training and test sets.
+
+Three feature selection methods ranked the 13 features. ANOVA put exang (70.95), cp (69.77) and oldpeak (68.55) on top. Chi-square ranked thalach (188.32), oldpeak (72.64) and ca (70.89) highest. Mutual information favored cp (0.17), thal (0.14) and ca (0.11).
+
+From these rankings the team built three feature subsets: SF1 with all 13 features, SF2 with 10 features (dropping trestbps , fbs and restecg ), and SF3 with nine features (age, sex, cp , thalach , exang , oldpeak , slope, ca and thal ). Each of the six models was trained and tested on every subset, and scored on accuracy, sensitivity, specificity, AUROC and log loss.
+
+Study workflow. Figure 1 from Biswas et al. (2023) , BioMed Research International, CC BY 4.0.
+
+Results
+
+Test accuracy in percent on the 91 held-out records.
+
+Test accuracy by model and feature subset
+
+Model SF1 (13 features) SF2 (10 features) SF3 (9 features)
+
+Logistic regression 93.41 93.41 93.41
+
+Support vector machine 90.11 89.01 94.51
+
+Gaussian naive Bayes 89.01 90.11 90.11
+
+Random forest 87.91 86.81 84.61
+
+K-nearest neighbors 83.52 92.31 91.21
+
+Decision tree 78.02 76.92 75.82
+
+The support vector machine on SF3 was the best single result: 94.51% accuracy, 94.87% sensitivity, 94.23% specificity, AUROC 94.95 and log loss 0.31. Logistic regression was the steadiest model, at 93.41% on all three subsets. It had the best AUROC (96.08, on SF3) and the lowest log loss (0.27, on SF2 and SF3). The paper concludes that the support vector machine and logistic regression performed best, and argues the approach could support early, low-cost heart disease prediction in clinical settings.
+
+The decision tree was the weakest model, with accuracy of 75.82 to 78.02 and log loss between 7.59 and 8.35. The ROC figure above shows the nine-feature subset: logistic regression 0.961, Gaussian naive Bayes 0.955, support vector machine 0.950, random forest 0.939, K-nearest neighbors 0.938 and decision tree 0.795.
+
+The abstract labels the 94.51% model as random forest; the results section, ROC curves and comparison table identify it as the support vector machine, which also matches the repository code.
+
+What the features say
+
+Chest pain type, exercise-induced angina, ST depression, maximum heart rate, the number of colored vessels and the thallium result carry the most signal. Each ranks near the top under at least one of the three methods. Fasting blood sugar, resting ECG, resting blood pressure and cholesterol score low under all three, which is why the smaller subsets drop them.
+
+Dropping them did not hurt the best models. Logistic regression stayed at 93.41% on all three subsets, and the support vector machine and K-nearest neighbors reached their best accuracy on the smaller ones. In this dataset, disease cases also concentrate in middle age, roughly 41 to 54.
+
+The paper’s correlation heat map shows the same split. Almost all features are only weakly correlated with each other, so few of them are redundant enough to remove. Against the target, chest pain type, maximum heart rate and slope correlate most positively, exercise-induced angina, ST depression and the number of colored vessels most negatively, and fasting blood sugar, cholesterol, resting blood pressure and resting ECG the least.
+
+Correlation between the 13 features and the target, clustered. Figure 4 from Biswas et al. (2023) , BioMed Research International, CC BY 4.0.
+
+Limitations
+
+The dataset is small, with 303 records and a 91-record test set, so the results should be tested on larger real-world patient data. The authors name deep learning as future work. The data is available from the corresponding author on request, and the notebooks behind the experiments are in the GitHub repository .
+
+Questions
+
+Which machine learning model is best for heart disease prediction?
+
+In this study, a support vector machine on nine selected features was best, at 94.51% accuracy. Logistic regression came close at 93.41% and held that score on all three feature subsets. The decision tree was the weakest at 75.82 to 78.02%.
+
+Which features matter most for predicting heart disease?
+
+Chest pain type, exercise-induced angina, ST depression, maximum heart rate, the number of colored vessels and the thallium stress result ranked highest across ANOVA, chi-square and mutual information. Fasting blood sugar, resting ECG, resting blood pressure and cholesterol scored low under all three.
+
+What dataset is used for heart disease prediction with machine learning?
+
+The study uses the UCI Cleveland heart disease dataset: 303 patient records, 13 clinical features and a binary target for disease or no disease.
 
 ---
 
@@ -710,35 +834,159 @@ Prediction Results of different algorithms.
 
 URL: https://niloy.tech/projects/bigquery-cost-monitoring/
 
-Monitor BigQuery Usage and Costs on GCP with Interactive Visualizations in Looker Studio
-
-Monitoring BigQuery usage and costs is an essential aspect of managing data on Google Cloud
-
-Platform (GCP). BigQuery is a fully-managed, serverless data warehouse that can scale to
-
-petabyte-levels, making it easy to incur significant costs if you’re not careful.
-
-Fortunately, GCP provides several tools and services to help you monitor and optimize your
-
-BigQuery
-
-usage and costs. In this post, we’ll explore how to monitor BigQuery usage and costs using
-
-the Information Schema JOBS table and Visualize the information in Looker Studio for further
-
-Monitoring.
+The 10 Minute School data team's BigQuery spend had grown to the point where we needed to see which query, dashboard or connector was responsible. This project reads region-us.INFORMATION_SCHEMA.JOBS , estimates the cost of every job and attributes it to the person, the Connected Sheets connector or the Data Studio (formerly Looker Studio) report behind it. The whole data team reviews the dashboard every week and optimizes queries when something stands out.
 
 Data Analytics
 
 Google BigQuery
 
-Looker Studio
+Data Studio
 
 SQL
 
 GCP
 
-Source: Medium - Step by step procedure
+Read the step-by-step guide on Medium
+
+Key facts
+
+Context 10 Minute School data team
+
+Data source region-us.INFORMATION_SCHEMA.JOBS , BigQuery's job metadata view
+
+Attribution User, requestor or Connected Sheets connector label, Data Studio report, destination and referenced tables
+
+Cost basis total_bytes_billed at $6.25 per TiB on-demand, an estimate and not an invoice line
+
+Review cadence Weekly, by the whole data team
+
+Stack BigQuery SQL, Data Studio
+
+The problem
+
+On-demand BigQuery bills each query job for the bytes it processes, so a month of spend is the sum of thousands of small jobs. The bill shows totals by project and SKU. It does not say who ran a job, which report triggered it or which table it read. As our spend grew, the team needed exactly that: which query, which Data Studio report or which connector is responsible for the cost.
+
+The query
+
+INFORMATION_SCHEMA.JOBS holds running jobs plus job history for the past 180 days. It is queried one region at a time, and its data is partitioned by creation_time , so filtering on that column limits what the query scans. The query below returns one row per job.
+
+SELECT
+
+JOBS.project_id,
+
+user_email,
+
+SPLIT(user_email, '@')[OFFSET(0)] Name,
+
+job_id,
+
+destination_table.dataset_id as destination_table_dataset_id,
+
+destination_table.table_id as destination_table_table_id,
+
+COALESCE((SELECT value FROM UNNEST(labels) WHERE key = 'requestor'), (SELECT value FROM UNNEST(labels) WHERE key = 'sheets_connector')) AS requestor,
+
+CONCAT("https://lookerstudio.google.com/u/0/reporting/", (SELECT value FROM UNNEST(labels) WHERE key = 'looker_studio_report_id')) Dashboard_Link,
+
+referenced_tables[SAFE_OFFSET(0)].dataset_id AS referenced_tables_dataset_id,
+
+referenced_tables[SAFE_OFFSET(0)].table_id AS referenced_tables_table_id,
+
+DateTime(creation_time) Date_Time,
+
+FORMAT_TIMESTAMP('%Y-%m-%d %I:%M %p', TIMESTAMP_ADD(creation_time, INTERVAL 6 HOUR)) AS dhaka_time,
+
+job_type,
+
+statement_type,
+
+priority,
+
+query,
+
+state,
+
+(total_bytes_processed / (1024 * 1024 * 1024)) Byte_Processed_GB,
+
+total_bytes_billed,
+
+total_bytes_billed / (1024 * 1024 * 1024) AS total_GB_billed,
+
+(total_bytes_billed / (1024 * 1024 * 1024 * 1024)) * 6.25 AS Cost_USD
+
+FROM region-us.INFORMATION_SCHEMA.JOBS
+
+WHERE
+
+Date(creation_time) >=
+
+DATE(FORMAT_DATE('%Y-%m-01', CURRENT_DATE() - 31)) -- Previous months starting
+
+ORDER BY creation_time DESC
+
+The columns group by the question they answer:
+
+Who. user_email , a short Name taken from before the @ , and requestor , which reads the job's requestor label and falls back to the sheets_connector label for Connected Sheets.
+
+Which report. Dashboard_Link turns the looker_studio_report_id label into a clickable link to the Data Studio report that issued the job.
+
+Which tables. destination_table_* is where results were written. referenced_tables_* is the first source table the job read.
+
+When. Date_Time is UTC. dhaka_time adds 6 hours for Dhaka local time.
+
+What kind of job. job_type , statement_type , priority , state and the query text.
+
+How much. Byte_Processed_GB and total_GB_billed divide by 1024 3 , so they are GiB despite the column names. Cost_USD divides billed bytes by 1024 4 to get TiB and multiplies by 6.25.
+
+The WHERE clause keeps a rolling window that starts on the first day of the previous month, so the dashboard always has last month to compare against.
+
+What changed from the first version
+
+The original query is in the 2023 Medium post . It showed who ran a job and what it cost. This version was rewritten for more granular attribution:
+
+Job labels attribute cost to the requester and to the exact Data Studio report, instead of only to a user account.
+
+referenced_tables shows which source table a job read.
+
+Dhaka time sits next to UTC, so hourly patterns read in local time.
+
+Units are binary (GiB and TiB) and the rate is the current $6.25 per TiB on-demand, replacing the old flat $5 per decimal TB.
+
+The window is rolling instead of a hard-coded start date.
+
+Two practical notes if you adapt it. The estimate is gross: it does not subtract the free first 1 TiB per month, and it leaves out storage cost. If your workload uses scripts, add AND statement_type != 'SCRIPT' to the WHERE clause, because a script row includes summary values for its child jobs and summing both counts them twice.
+
+The dashboard
+
+The query is pasted as a custom query on the SQL tab of a BigQuery data source in Data Studio, and one dashboard sits on top of it. As the screenshot shows, it has a total cost scorecard with date and name filters, then:
+
+Cost over time. Daily cost as a line over bars of job counts, to spot trends and spikes.
+
+Cost by person. Total jobs, cost and average cost per job for each account, to find outliers.
+
+Cost by hour. Jobs and cost across the day, to see when usage peaks.
+
+Cost per job by date. A pivot of jobs, GB billed and cost for each person and day.
+
+Detailed query table. Individual jobs sorted by cost, with the user, priority, query text and destination.
+
+How the team uses it
+
+Reviewing the dashboard is a weekly habit for the whole data team. We look for the jobs at the top of the cost table, check who or what issued them, and follow the Dashboard_Link when a Data Studio report is the source. When a query or a report is scanning more than it needs to, we optimize it.
+
+Questions
+
+How do I see which Data Studio report is driving BigQuery cost?
+
+Jobs started by Data Studio carry a looker_studio_report_id label. Read it from the labels column of INFORMATION_SCHEMA.JOBS and append it to https://lookerstudio.google.com/u/0/reporting/ , as the query above does, to get a link to the report. Sum the cost by that link to rank reports.
+
+How do you calculate BigQuery query cost from INFORMATION_SCHEMA.JOBS?
+
+Divide total_bytes_billed by 1024 4 to get TiB and multiply by your on-demand rate. Google's pricing page, checked in October 2026, lists $6.25 per TiB for Iowa (us-central1), and rates vary by region. total_bytes_billed is only meaningful for projects on on-demand pricing. For flat-rate projects Google documents it as informational.
+
+Does INFORMATION_SCHEMA.JOBS cost include the free tier?
+
+No. The first 1 TiB of query processing each month is free on on-demand pricing, but the query multiplies every billed byte by the rate. Subtract the free tier from the monthly total if you want a figure closer to the invoice.
 
 ---
 
@@ -746,23 +994,15 @@ Source: Medium - Step by step procedure
 
 URL: https://niloy.tech/projects/population-density-maps/
 
-3D Population Density Map using R-Programming and Rayshader Library
-
 Lets embarked on a journey of visual storytelling.
 
 💡 Discoveries on this global exploration:
 
-- Refined skills in R packages for spatial data manipulation and crafting 3D
+Refined skills in R packages for spatial data manipulation and crafting 3D visualizations.
 
-visualizations.
+Transforming complex demographic data into captivating visual narratives, extending beyond Bangladesh.
 
-- Transforming complex demographic data into captivating visual narratives, extending
-
-beyond Bangladesh.
-
-- A comprehensive guide to creating 3D population maps with a focus on South Asian
-
-countries.
+A comprehensive guide to creating 3D population maps with a focus on South Asian countries.
 
 Data Analytics
 
@@ -772,87 +1012,41 @@ Rayshader
 
 3D Plot
 
-Source: Medium - Step by step procedure
+Read the step-by-step guide on Medium
 
-Source: Github
+View the code on GitHub
 
 Population Density Map - Bangladesh
 
-Bangladesh - With a population exceeding 160 million, the nation pulsates with vitality.
-
-Explore the intricacies of this densely populated haven, each region telling a unique
-
-story through the sheer density of its inhabitants.
+Bangladesh - With a population exceeding 160 million, the nation pulsates with vitality. Explore the intricacies of this densely populated haven, each region telling a unique story through the sheer density of its inhabitants.
 
 Population Density Map - Dhaka Division
 
-Dhaka - As the bustling capital of Bangladesh, with a population of more than 44 million
-
-people, the city exudes life. Immerse yourself in the complexities of this densely
-
-populated metropolis, where each district tells a unique tale due to the sheer density
-
-of its residents.
+Dhaka - As the bustling capital of Bangladesh, with a population of more than 44 million people, the city exudes life. Immerse yourself in the complexities of this densely populated metropolis, where each district tells a unique tale due to the sheer density of its residents.
 
 Population Density Map - Chittagong Division
 
-Chittagong Division - Nestled in the scenic landscapes of Bangladesh, with a population
-
-exceeding 5.5 million, Chittagong Division resonates with diverse energy. Situated near
-
-the breathtaking Cox's Bazar, home to the world's longest sea beach, explore the vibrant
-
-tapestry of this densely populated region.
+Chittagong Division - Nestled in the scenic landscapes of Bangladesh, with a population exceeding 5.5 million, Chittagong Division resonates with diverse energy. Situated near the breathtaking Cox's Bazar, home to the world's longest sea beach, explore the vibrant tapestry of this densely populated region.
 
 Population Density Map - India
 
-With a population of over 1.3 billion people, India pulsates with dynamic diversity.
-
-Explore the complexities of this densely inhabited refuge, where each state tells its
-
-own story via the sheer density of its population.
+With a population of over 1.3 billion people, India pulsates with dynamic diversity. Explore the complexities of this densely inhabited refuge, where each state tells its own story via the sheer density of its population.
 
 Population Density Map - Sri Lanka
 
-Sri Lanka's with a population over 22 million people, is vividly brought to life in our
-
-3D Population Density Map. The map highlights key areas like Colombo, with its dense
-
-urban population, and contrasts them with the more sparsely populated rural regions,
-
-offering a comprehensive view of demographic distribution across the island.
+Sri Lanka's with a population over 22 million people, is vividly brought to life in our 3D Population Density Map. The map highlights key areas like Colombo, with its dense urban population, and contrasts them with the more sparsely populated rural regions, offering a comprehensive view of demographic distribution across the island.
 
 Population Density Map - Nepal
 
-Nepal's population, exceeding 29 million, is dynamically illustrated in our 3D Population
-
-Density Map. This map accentuates major areas such as Kathmandu, showcasing its densely
-
-populated urban landscape, and juxtaposes it with the less populated, remote mountainous
-
-and rural areas, providing a detailed perspective on the population spread throughout
-
-the country.
+Nepal's population, exceeding 29 million, is dynamically illustrated in our 3D Population Density Map. This map accentuates major areas such as Kathmandu, showcasing its densely populated urban landscape, and juxtaposes it with the less populated, remote mountainous and rural areas, providing a detailed perspective on the population spread throughout the country.
 
 Population Density Map - Bhutan
 
-Bhutan, with a population of about 750K, is vividly captured in our 3D Population Density
-
-Map. The map showcases the stark contrast between densely populated regions and the
-
-expansive, sparsely inhabited Himalayan areas, offering a clear and comprehensive view
-
-of how the population is distributed across this tranquil mountain nation.
+Bhutan, with a population of about 750K, is vividly captured in our 3D Population Density Map. The map showcases the stark contrast between densely populated regions and the expansive, sparsely inhabited Himalayan areas, offering a clear and comprehensive view of how the population is distributed across this tranquil mountain nation.
 
 Population Density Map - Myanmar
 
-Myanmar, with a population exceeding 54 million, is effectively illustrated in our 3D
-
-Population Density Map. This map highlights the dense urban areas contrasted with less
-
-populated rural regions, providing an extensive view of the diverse population
-
-distribution throughout the country.
+Myanmar, with a population exceeding 54 million, is effectively illustrated in our 3D Population Density Map. This map highlights the dense urban areas contrasted with less populated rural regions, providing an extensive view of the diverse population distribution throughout the country.
 
 ---
 
@@ -860,35 +1054,83 @@ distribution throughout the country.
 
 URL: https://niloy.tech/projects/crm-sales/
 
-CRM Sales Performance Dashboard
-
-Developed an interactive CRM Sales Performance Dashboard in Looker Studio to visualize and
-
-analyze sales trends over time.
-
-The dashboard provided insights into total sales, average sales value, sales orders, and
-
-performance by product, sector,
-
-and sales manager. Key metrics such as average days to close, orders won, and sector-wise
-
-sales distribution were highlighted
-
-to optimize sales strategies and improve decision-making for different product lines and
-
-managers. The dashboard facilitated
-
-tracking sales growth, identifying high-performing sectors, and evaluating manager
-
-efficiency.
+This Data Studio (formerly Looker Studio) dashboard was the live-dashboard project in the Data Analytics Bootcamp at Human Development Network Bangladesh (HDNB), used to teach students how to build a live dashboard from CRM sales data. It shows 10.0M in total sales, an average sales value of 1.5K and 48 average days to close. It splits the results by month, product, sector and sales manager, and compares the six managers on sales, win rate and time to close.
 
 Google BigQuery
 
 SQL
 
-Looker Studio
+Google Sheets
 
-Source: Looker Studio
+Data Studio
+
+View live dashboard in Data Studio
+
+Key facts
+
+Context Teaching project, Data Analytics Bootcamp at HDNB (2024)
+
+Dataset Sample CRM sales opportunities for six sales managers, with products, sectors and deal stages
+
+Time window Monthly view from March to December 2017, plus a bucket of orders with no month
+
+Scale 10.0M total sales and 8,800 orders in the manager table, of which 4,238 are won
+
+Filters Product, date range, sector, manager
+
+Stack BigQuery, SQL, Google Sheets and Data Studio
+
+Why it was built
+
+From May to August 2024 I taught SQL in the Data Analytics Bootcamp run by HDNB, from database basics through window functions and query tuning, ending with how to create and manage live dashboards. This dashboard was the course project for that last part: students used it to learn how CRM opportunity records turn into scorecards, trends, mix charts and a manager comparison that update as the data changes.
+
+The data is a sample CRM dataset used for teaching, so the figures below show what the dashboard surfaces, not a real company's results.
+
+What the dashboard contains
+
+Three scorecards (total sales, average sales value, average days to close) sit above a monthly chart of sales against orders. Two pie charts show the product and sector mix. A manager section has two stacked bar charts, one by product family (GTX, MG, GTK) and one by deal stage, and a table with sales, average order value (AOV), average days to close, total orders, orders won and win rate for each manager.
+
+What the dashboard shows
+
+Monthly sales and orders. Monthly sales run from 696.9K in July to 1.3M in June, and monthly orders from 566 in October to 805 in May. The two do not move together: June has the highest sales on 641 orders, while May has the most orders and 1M in sales. A further 2.1K orders sit in a "null" month bucket.
+
+Product mix. GTXPro has the largest share at 35.1%, then GTX Plus Pro at 26.3% and MG Advanced at 22.2%. GTX Plus Basic, GTX Basic and GTK 500 are 7%, 5% and 4%.
+
+Sector mix. Retail is largest at 18.7%, then technology at 15.1% and medical at 13.6%. Software, finance and marketing are each between 9.2% and 10.8%.
+
+Managers. Across the six managers, 4,238 of 8,800 orders are won, which is 48.2%. The table below shows the spread.
+
+Manager performance table (names are from the sample dataset)
+
+Manager Sales AOV Avg. days to close Orders Won Win rate
+
+Melvin Marxen 2,251,930 1,588 47.8 1,929 882 45.72%
+
+Summer Sewald 1,964,750 1,527 48.5 1,701 828 48.68%
+
+Rocco Neubert 1,960,545 1,761 45.8 1,327 691 52.07%
+
+Celia Rouche 1,603,897 1,667 47.5 1,296 610 47.07%
+
+Cara Losch 1,130,049 1,517 49.0 964 480 49.79%
+
+Dustin Brinkmann 1,094,363 923 49.4 1,583 747 47.19%
+
+Melvin Marxen has the highest sales and the lowest win rate of the six. Rocco Neubert has the highest win rate (52.07%), the highest AOV (1,761) and the fastest average close (45.8 days). Dustin Brinkmann has the lowest AOV (923) on 1,583 orders. The manager sales add up to 10,005,534, matching the 10.0M scorecard.
+
+Questions
+
+Which sales manager has the highest win rate in the CRM dashboard?
+
+Rocco Neubert, at 52.07% (691 of 1,327 orders), followed by Cara Losch at 49.79%. The highest total sales belong to Melvin Marxen at 2,251,930, whose win rate of 45.72% is the lowest of the six.
+
+What is the average days to close in this CRM dashboard?
+
+48 days overall. Per manager it ranges from 45.8 days (Rocco Neubert) to 49.4 days (Dustin Brinkmann).
+
+Is the data in this CRM dashboard from a real company?
+
+No. It is a sample CRM dataset used to teach live dashboard building in a data analytics bootcamp. The numbers show what the dashboard can surface, not a company's results.
 
 ---
 
@@ -896,44 +1138,68 @@ Source: Looker Studio
 
 URL: https://niloy.tech/projects/air-quality/
 
-Air Quality of Dhaka
+Dhaka is one of the most polluted cities in the world, and it is where I live. This Data Studio (formerly Looker Studio) dashboard was made for awareness: it charts Dhaka's air quality from AirNow data for January 1, 2023 to January 31, 2024. It shows a peak AQI of 598 on February 18, 2023, counts of days in each AQI category (133 Unhealthy, 101 Very Unhealthy, 14 Hazardous), and breakdowns by hour of day, month and season.
 
-📊 Explore my latest dashboard for an in-depth analysis of Dhaka's air quality, currently
+Google Sheets
 
-holding the rank as the most polluted city in the globe 🌏.
+Data Studio
 
-Historically recognized as one of the most pollution-burdened cities, Dhaka confronts severe
+View live dashboard in Data Studio
 
-environmental hurdles. This detailed analysis brings to
+Key facts
 
-light the severity of the circumstances, with a startling peak AQI of 598 in 2023 😷.
+Data source AirNow.gov, as stated on the dashboard
 
-Here are some key takeaways from the data:
+Time window January 1, 2023 to January 31, 2024 (396 days)
 
-▶ The dashboard tracks the AQI from 2020 to the present, highlighting times when air quality
+Metrics US AQI and raw PM2.5 concentration, per the dashboard's intro text
 
-reached to 'Very Unhealthy' and 'Hazardous' levels 🔴.
+Peak and low Highest AQI 598 on February 18, 2023 at 2:00 AM; lowest 18 on November 16, 2023 at 7:00 PM
 
-▶ Dhaka endured 133 'Unhealthy' days, a distressing 82 'Very Unhealthy' days, 18 'Hazardous'
+Granularity Hourly readings from every Dhaka location on AirNow, averaged into daily values
 
-days, and notably, not a single 'Good' air quality day 🚫🌿, emphasizing the persistent air
+Stack Google Sheets for the calculations, Data Studio for the dashboard
 
-quality crisis.
+Data
 
-▶ A seasonal breakdown shows a winter surge in pollutants and a monsoon phase that offers a
+The source is AirNow.gov, the US government's air quality index site, which publishes readings for Dhaka including the US Embassy monitor. Hourly readings from all Dhaka locations available on AirNow for the window were downloaded into Google Sheets.
 
-brief window of cleaner air🌦️.
+The US AQI categories, as defined by AirNow: Good 0 to 50, Moderate 51 to 100, Unhealthy for Sensitive Groups 101 to 150, Unhealthy 151 to 200, Very Unhealthy 201 to 300, and Hazardous 301 and higher.
 
-▶ The data also sheds light on nighttime pollution peaks, influenced by specific atmospheric
+Approach
 
-conditions and continuous emissions. 🌃💨.
+Daily values. Each day's AQI is the average of its hourly readings.
 
-Comparing Dhaka's AQI on a global scale underscores the critical need for immediate action.
+Calculations in Google Sheets. Days per AQI category, the peak and lowest readings, and the averages by hour of day, month and season are computed in the sheet.
 
-Google BigQuery
+Dashboard. The sheet connects directly to Data Studio as the data source, so the charts read the calculated tables as they are.
 
-SQL
+What the dashboard shows
 
-Looker Studio
+Peak and low. The highest AQI recorded in the window is 598, on February 18, 2023 at 2:00 AM, which is in the Hazardous category. The lowest is 18, on November 16, 2023 at 7:00 PM. A line chart plots average, maximum and minimum AQI across the window, with the highest spikes in January to April 2023, the lowest stretch mid-year and a rise again toward December and January.
 
-Source: Looker Studio
+Days per category. The treemap counts 133 Unhealthy days, 101 Very Unhealthy days, 50 Moderate days and 14 Hazardous days. Those four tiles cover 298 of the 396 days, and no Good tile appears.
+
+By hour. Average AQI is highest at midnight and 1 AM (195) and lowest at 4 PM (147). It falls through the morning, bottoms out in the late afternoon and climbs through the evening.
+
+By month. Average AQI peaks in January (269) and bottoms out in July (94). December (227) and February (225) are next highest after January. The monthly bars aggregate the whole window, so January blends 2023 and 2024.
+
+Seasons. The dashboard describes a winter spike from December to January, relief during the monsoon from June to August, and a rise again from September to November. The month values above follow that pattern.
+
+World comparison. A world map colors countries by AQI on a scale from 4.3 to 229.2.
+
+The dashboard also gives reasons for the night-time peak (temperature inversions and reduced vertical mixing, continuous emissions, flat terrain, calm winds and high humidity) and for the seasonal pattern (rain washing out pollutants in the monsoon, construction and festive activity in autumn). These are explanatory notes on the dashboard, not measurements from the data.
+
+Questions
+
+What was the highest AQI recorded in Dhaka in 2023?
+
+In the AirNow data behind this dashboard, the highest reading is an AQI of 598 on February 18, 2023 at 2:00 AM. Any reading above 300 is in the Hazardous category.
+
+Which month has the worst air quality in Dhaka?
+
+January has the highest average AQI in the dashboard window at 269, followed by December and February. July is the lowest at 94. The window runs from January 2023 to January 2024, so the January figure combines two Januaries.
+
+What time of day is Dhaka's air most polluted?
+
+Averaged over the window, AQI is highest around midnight and 1 AM at 195 and lowest at 4 PM at 147. The dashboard attributes the night-time peak to temperature inversions and continuous emissions.
