@@ -120,6 +120,8 @@ const IMAGES = [
   { src: 'projects/chicago-taxi/images/Chicago_Taxi_Trips-2.png', kind: 'graphic', maxWidth: 1200 },
   { src: 'projects/crm-sales/images/CRM_Sales.png', kind: 'graphic', maxWidth: 1200 },
   { src: 'projects/heart-disease/images/HeartDisease.png', kind: 'graphic', maxWidth: 1200 },
+  { src: 'projects/heart-disease/images/paper-fig1-workflow.png', kind: 'graphic', maxWidth: 1450 },
+  { src: 'projects/heart-disease/images/paper-fig4-correlation-heatmap.png', kind: 'graphic', maxWidth: 1760 },
   { src: 'projects/linkedin-network/images/Linkedin_Connection_Visualization.png', kind: 'graphic', maxWidth: 1200 },
   { src: 'projects/population-density-maps/images/Bangladesh_population_density.png', kind: 'graphic', maxWidth: 1680 },
   { src: 'projects/population-density-maps/images/Dhaka_population_density.png', kind: 'graphic', maxWidth: 1680 },
