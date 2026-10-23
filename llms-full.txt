@@ -14,6 +14,10 @@ Based in Dhaka, Bangladesh. Open to remote roles and projects. Site: https://nil
 
 Full text of each case study follows below.
 
+## Tools
+
+- [3D Population Density Map](https://niloy.tech/Population-Density-Map/): interactive 3D population density map of 33 countries, built from Kontur H3 hexagons, with a page per country
+
 ## Writing
 
 - [Blog](https://niloy.tech/blog/): articles and write-ups on this site
@@ -994,15 +998,17 @@ No. The first 1 TiB of query processing each month is free on on-demand pricing,
 
 URL: https://niloy.tech/projects/population-density-maps/
 
-Lets embarked on a journey of visual storytelling.
+These maps turn Kontur's population data, counted in H3 hexagons of about 0.74 km² each, into 3D terrain: the taller the column, the more people live there. I rendered them in R with Rayshader, starting with Bangladesh and its divisions and then moving across South Asia.
 
-💡 Discoveries on this global exploration:
+The same data now runs an interactive 3D population density map of 33 countries in the browser. Fly between regions, tilt the view and hover any column to see how many people live there.
 
-Refined skills in R packages for spatial data manipulation and crafting 3D visualizations.
+What the project covers:
 
-Transforming complex demographic data into captivating visual narratives, extending beyond Bangladesh.
+Spatial data in R with sf: reading H3 hexagons and turning them into a raster matrix.
 
-A comprehensive guide to creating 3D population maps with a focus on South Asian countries.
+Ray-traced 3D renders with Rayshader, with titles and credits added in magick.
+
+A browser explorer built with deck.gl and MapLibre, generated from the same country config.
 
 Data Analytics
 
@@ -1012,41 +1018,59 @@ Rayshader
 
 3D Plot
 
+deck.gl
+
+Open the interactive 3D map
+
 Read the step-by-step guide on Medium
 
 View the code on GitHub
 
-Population Density Map - Bangladesh
+Bangladesh
 
 Bangladesh - With a population exceeding 160 million, the nation pulsates with vitality. Explore the intricacies of this densely populated haven, each region telling a unique story through the sheer density of its inhabitants.
 
-Population Density Map - Dhaka Division
+Explore the interactive Bangladesh population density map
+
+Dhaka Division
 
 Dhaka - As the bustling capital of Bangladesh, with a population of more than 44 million people, the city exudes life. Immerse yourself in the complexities of this densely populated metropolis, where each district tells a unique tale due to the sheer density of its residents.
 
-Population Density Map - Chittagong Division
+Explore Dhaka Division in 3D
+
+Chittagong Division
 
 Chittagong Division - Nestled in the scenic landscapes of Bangladesh, with a population exceeding 5.5 million, Chittagong Division resonates with diverse energy. Situated near the breathtaking Cox's Bazar, home to the world's longest sea beach, explore the vibrant tapestry of this densely populated region.
 
-Population Density Map - India
+Explore Chattogram Division in 3D
+
+India
 
 With a population of over 1.3 billion people, India pulsates with dynamic diversity. Explore the complexities of this densely inhabited refuge, where each state tells its own story via the sheer density of its population.
 
-Population Density Map - Sri Lanka
+Sri Lanka
 
-Sri Lanka's with a population over 22 million people, is vividly brought to life in our 3D Population Density Map. The map highlights key areas like Colombo, with its dense urban population, and contrasts them with the more sparsely populated rural regions, offering a comprehensive view of demographic distribution across the island.
+Sri Lanka, with a population of over 22 million, is vividly brought to life in our 3D Population Density Map. The map highlights key areas like Colombo, with its dense urban population, and contrasts them with the more sparsely populated rural regions, offering a comprehensive view of demographic distribution across the island.
 
-Population Density Map - Nepal
+Explore the interactive Sri Lanka population density map
+
+Nepal
 
 Nepal's population, exceeding 29 million, is dynamically illustrated in our 3D Population Density Map. This map accentuates major areas such as Kathmandu, showcasing its densely populated urban landscape, and juxtaposes it with the less populated, remote mountainous and rural areas, providing a detailed perspective on the population spread throughout the country.
 
-Population Density Map - Bhutan
+Explore the interactive Nepal population density map
+
+Bhutan
 
 Bhutan, with a population of about 750K, is vividly captured in our 3D Population Density Map. The map showcases the stark contrast between densely populated regions and the expansive, sparsely inhabited Himalayan areas, offering a clear and comprehensive view of how the population is distributed across this tranquil mountain nation.
 
-Population Density Map - Myanmar
+Explore the interactive Bhutan population density map
+
+Myanmar
 
 Myanmar, with a population exceeding 54 million, is effectively illustrated in our 3D Population Density Map. This map highlights the dense urban areas contrasted with less populated rural regions, providing an extensive view of the diverse population distribution throughout the country.
+
+Explore the interactive Myanmar population density map
 
 ---
 
