@@ -14,6 +14,10 @@ Based in Dhaka, Bangladesh. Open to remote roles and projects. Site: https://nil
 
 {{CASE_STUDIES}}
 
+## Tools
+
+- [3D Population Density Map](https://niloy.tech/Population-Density-Map/): interactive 3D population density map of 33 countries, built from Kontur H3 hexagons, with a page per country
+
 ## Writing
 
 - [Blog](https://niloy.tech/blog/): articles and write-ups on this site
