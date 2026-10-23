@@ -17,9 +17,13 @@ Based in Dhaka, Bangladesh. Open to remote roles and projects. Site: https://nil
 - [Chicago Taxi Trips](https://niloy.tech/projects/chicago-taxi/): Chicago taxi trips dashboard in Data Studio and BigQuery: trips fell from 32.4M in 2015 to 3.9M in 2020, with payment, company and pickup patterns.
 - [Heart Disease Prediction](https://niloy.tech/projects/heart-disease/): Published heart disease prediction study: six ML models and three feature subsets on 303 patients. SVM reached 94.51% accuracy on nine features.
 - [BigQuery Cost Monitoring](https://niloy.tech/projects/bigquery-cost-monitoring/): Attribute BigQuery cost to users, connectors and Data Studio reports with an INFORMATION_SCHEMA.JOBS query and a weekly data team dashboard.
-- [Population Density Map](https://niloy.tech/projects/population-density-maps/): 3D population density maps built in R with Rayshader: Bangladesh, its divisions, India, Sri Lanka, Nepal, Bhutan and Myanmar compared side by side.
+- [Population Density Map](https://niloy.tech/projects/population-density-maps/): How I render 3D population density maps in R with Rayshader for Bangladesh and South Asia, plus an interactive 3D explorer of 33 countries.
 - [CRM Sales Performance Dashboard](https://niloy.tech/projects/crm-sales/): CRM sales performance dashboard in Data Studio: sales trends, product and sector mix, days to close and manager win rates in one report.
 - [Air Quality of Dhaka](https://niloy.tech/projects/air-quality/): Dhaka air quality dashboard in Data Studio: AQI trends from AirNow data, a peak AQI of 598 in 2023, plus seasonal and night-time pollution patterns.
+
+## Tools
+
+- [3D Population Density Map](https://niloy.tech/Population-Density-Map/): interactive 3D population density map of 33 countries, built from Kontur H3 hexagons, with a page per country
 
 ## Writing
 

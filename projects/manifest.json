@@ -215,20 +215,21 @@
         "thumbnailAlt": "3D population density map of Bangladesh with tall red peaks over Dhaka and Sylhet",
         "tags": [
           "R",
-          "ggplot2"
+          "Rayshader",
+          "deck.gl"
         ],
-        "summary": "Choropleth and 3D density views across South Asian countries for demographic comparison at a glance."
+        "summary": "Ray-traced 3D renders in R and an interactive 3D explorer covering 33 countries, built from Kontur H3 hexagons."
       },
       "links": {
         "caseStudy": "/projects/population-density-maps/",
         "primary": "https://github.com/niloy-biswas/Population-Density-Map",
         "primaryLabel": "View on GitHub",
-        "footerAction": "View gallery",
-        "footerMeta": "R · 3D maps"
+        "footerAction": "View project",
+        "footerMeta": "Live map · 33 countries"
       },
       "page": {
-        "title": "Population Density Maps | Niloy Biswas",
-        "description": "3D population density maps built in R with Rayshader: Bangladesh, its divisions, India, Sri Lanka, Nepal, Bhutan and Myanmar compared side by side.",
+        "title": "3D Population Density Maps in R (Rayshader) | Niloy Biswas",
+        "description": "How I render 3D population density maps in R with Rayshader for Bangladesh and South Asia, plus an interactive 3D explorer of 33 countries.",
         "h1": "3D Population Density Maps in R with Rayshader"
       }
     },

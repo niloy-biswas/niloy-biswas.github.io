@@ -27,3 +27,4 @@ Disallow: /scripts/
 Disallow: /projects/*/content.html
 
 Sitemap: https://niloy.tech/sitemap.xml
+Sitemap: https://niloy.tech/Population-Density-Map/sitemap.xml
