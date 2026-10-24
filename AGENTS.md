@@ -40,13 +40,13 @@ Reference for AI agents editing this repo. **Static GitHub Pages** (no npm/CI bu
   - **New portfolio grid:** `.portfolio-showcase` + `.portfolio-showcase__card` (`#mh-portfolio`)
   - **Legacy tiles:** `.portfolioContainer` + `.grid-item` (reviewer gallery, old homepage galleries)
 - **Images:** project screenshots → `projects/{slug}/images/`. Homepage assets → `assets/images/` (see layout below).
-- **Image delivery:** every `<img>` has intrinsic `width`/`height`; below-the-fold images get `loading="lazy" decoding="async"` (never the hero or a case study's first image). Raster images ship as `<picture><source type="image/webp" srcset="x.webp"><img src="x.png"></picture>` with the WebP next to the original. Add new images to the `IMAGES` list in `scripts/optimize-site-images.mjs` (`{ src, kind, maxWidth }`; `kind` is `graphic` for text/UI/charts/maps/certificates/logos (q90, sharp_yuv, near-lossless tried for PNG) or `photo` (q85); `maxWidth` = min(original width, 2x the widest rendered CSS width), never upscaled) and run it. A WebP that is not smaller than its original is deleted and reported as SKIP: serve the original without `<picture>`. Portfolio card `<picture>` + dimensions are emitted by `build-portfolio.mjs` (reads the `.webp` with `sips`). Fancybox `href` keeps pointing at the full-size original. SVGs (e.g. `experience/logos/SheSTEM.svg`, a self-hosted copy of the SheSTEM logo) ship as-is and need no `IMAGES` entry.
+- **Image delivery:** every `<img>` has intrinsic `width`/`height`; below-the-fold images get `loading="lazy" decoding="async"` (never the hero or a case study's first image). Raster images ship as `<picture><source type="image/webp" srcset="x.webp"><img src="x.png"></picture>` with the WebP next to the original. Add new images to the `IMAGES` list in `scripts/optimize-site-images.mjs` (`{ src, kind, maxWidth }`; `kind` is `graphic` for text/UI/charts/maps/certificates/logos (q90, sharp_yuv, near-lossless tried for PNG) or `photo` (q85); `maxWidth` = min(original width, 2x the widest rendered CSS width), never upscaled) and run it. A WebP that is not smaller than its original is deleted and reported as SKIP: serve the original without `<picture>`. Portfolio card `<picture>` + dimensions are emitted by `build-portfolio.mjs` (reads the `.webp` with `sips`). Fancybox `href` keeps pointing at the full-size original. SVGs (e.g. `experience/logos/SheSTEM.svg`, a self-hosted copy of the SheSTEM logo) ship as-is and need no `IMAGES` entry. Favicon/app icons are not `<img>` content: they skip the `<picture>`/`IMAGES` rule (see Favicon below).
 
 ### `assets/images/` layout
 
 | Folder | Use |
 |--------|-----|
-| `site/` | Profile, default social preview (`og-image.jpg`, 1200×630, rendered from `scripts/templates/og-card.html`), HUD SVG (`portfolio-hud.svg`) |
+| `site/` | Profile, default social preview (`og-image.jpg`, 1200×630, rendered from `scripts/templates/og-card.html`), HUD SVG (`portfolio-hud.svg`), app icons (`icon-96.png`, `icon-192.png`, `icon-512.webp`, `icon-maskable-512.webp`; see Favicon below) |
 | `experience/logos/` | Employer/org logos in experience timeline |
 | `experience/education/` | Graduation / education photos |
 | `experience/10ms/` | 10 Minute School ceremony & award photos |
@@ -76,6 +76,15 @@ Reference for AI agents editing this repo. **Static GitHub Pages** (no npm/CI bu
 Keep `meta description`, `og:description`, and `twitter:description` in sync per page. JSON-LD `Person.image` stays the profile photo (`niloy-profile5.jpg`), not the OG screenshot.
 
 **Regenerate the OG image** after editing `scripts/templates/og-card.html` (plain editorial card on the site's dark tokens; no gradients, glows or pills): headless Chrome `--force-device-scale-factor=1 --window-size=1200,630 --virtual-time-budget=6000 --screenshot` of the file, then `sips -s format jpeg -s formatOptions 85` to `assets/images/site/og-image.jpg` (keep under 200 KB).
+
+**Favicon / app icons:** circular headshot from `assets/images/site/niloy-profile5-cutout.png` (tight head-and-shoulders crop: x 22%-78% of the cutout width, top at 3.5% of its height) on a radial teal glow (`#0BCEAF` behind the head, centred at 50%/42%, fading to `#082830` at 75% radius). Python/Pillow render from a 512px master: `favicon.ico` (16/32/48, light unsharp mask), `assets/images/site/icon-96.png` (the `<link rel="icon">` PNG), `icon-192.png`, `icon-512.webp` (circle, transparent corners), `apple-touch-icon.png` (180, full square, framing at 90%) and `icon-maskable-512.webp` (full square, framing at 80% so the face sits in the safe circle), all except the ICO/apple listed in `site.webmanifest`. Every page carries the same root-absolute block (dev layout tools only the first two lines):
+
+```html
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/assets/images/site/icon-96.png" type="image/png" sizes="96x96">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+```
 
 
 **Positioning string:** `AI/LLM Engineer & Data Analyst`. Use it verbatim in the homepage title, JSON-LD `Person.jobTitle`, footer, `llms.txt`, and off-site profiles. The hero rotator (`I'm a` + Data Analyst / AI Product Engineer / Researcher, in an `h4`) is intentionally left as is.
