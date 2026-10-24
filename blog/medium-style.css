@@ -24,10 +24,13 @@
   margin: 0 auto;
 }
 
-.blog-intro-title {
+/* Compound selector outranks `.dark-vertion h1 { color: #fff }` and typography.css h1 line-height,
+   so the title renders exactly as it did when it was an h2. */
+.blog-intro-card .blog-intro-title {
   color: var(--text-primary);
   font-size: 28px;
   font-weight: 700;
+  line-height: 1.2;
   margin-bottom: 16px;
 }
 
@@ -122,7 +125,7 @@
   .blog-intro-card {
     padding: 24px 20px;
   }
-  .blog-intro-title {
+  .blog-intro-card .blog-intro-title {
     font-size: 24px;
   }
   .blog-intro-text {
