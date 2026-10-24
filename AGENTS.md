@@ -70,7 +70,7 @@ Reference for AI agents editing this repo. **Static GitHub Pages** (no npm/CI bu
 |------|---------|--------|
 | Homepage | `index.html` `<head>` | `assets/images/site/og-image.jpg` (1200×630) |
 | Blog, Résumé, Card | `blog/index.html`, `resume/index.html`, `card/`, `card/scan/` `<head>` | same default OG image |
-| Photography | `photography/index.html` `<head>` | `assets/images/photography/gallery/dhaka-intersection-night.jpg` |
+| Photography | `photography/index.html` `<head>` | `assets/images/site/og-photography.jpg` (1200×630, cropped from `gallery/dhaka-intersection-night.jpg`) |
 | Case studies | `scripts/templates/project-page.html` + `manifest.json` `page.title` / `page.description` → run build | project thumbnail |
 
 Keep `meta description`, `og:description`, and `twitter:description` in sync per page. JSON-LD `Person.image` stays the profile photo (`niloy-profile5.jpg`), not the OG screenshot.
