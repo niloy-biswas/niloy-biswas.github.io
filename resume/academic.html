@@ -58,8 +58,8 @@
       <div class="pub-role">Role: first author. Implemented the ML pipeline, led the experiments and data analysis, and co-wrote the paper. K.&nbsp;Ahmed and M.&nbsp;A.&nbsp;Moni proposed the idea and designed the experiments.</div>
     </div>
     <div class="pub">
-      <b>Biswas, N.</b>, Ahmed, K., et al. &ldquo;Analyzing Upper and Lower Airway Obstructions on X-Ray Images Using Image Processing Techniques.&rdquo; Manuscript, being revised for journal submission.
-      <div class="pub-role">Role: designed the method and ran the experiments and analysis.</div>
+      <b>Biswas, N.</b>, Ali, M.&nbsp;M., Ahmed, K., &amp; Bui, F.&nbsp;M. &ldquo;Analyzing Upper and Lower Airway Obstructions on X-Ray Images Using Image Processing Techniques.&rdquo; Manuscript, being revised for journal submission.
+      <div class="pub-role">Role: first author. Designed the measurement method and ran the analysis. Wrote the Python pipeline (OpenCV, scikit-image) that turns a dentist&rsquo;s landmark annotations on 446 cephalometric X-rays into calibrated distances and angles.</div>
     </div>
   </section>
 
@@ -80,7 +80,7 @@
         <ul class="bullets">
           <li>Led the system design of <a class="inline-link" href="https://niloy.tech/projects/tenten/" target="_blank" rel="noopener">TenTen</a>, Bangladesh's first AI learning ecosystem, within a three-engineer core team: the initial architecture, the n8n agent workflows, and the RAG pipeline (hybrid vector search, LangGraph orchestration; OpenAI, Gemini and open-source Hugging Face models). Since the Nov 2025 launch: 400K+ messages answered, 500+ daily active learners, used by 51%+ of paid users.</li>
           <li>Runs TenTen&rsquo;s production evaluation in Opik (LLM judge, 304K+ responses scored). Against 12.7K student reactions, dislikes fell from 27% at judge score 2 to 7% at score 10, but per response the signals barely agreed: &kappa; = 0.09 between the judge&rsquo;s correct/incorrect verdict and like/dislike, AUC = 0.60 for the 0-10 score.</li>
-          <li>Built a custom Python ETL pipeline that moves data from MongoDB and PostgreSQL into a BigQuery warehouse, covering integrations Airbyte could not handle.</li>
+          <li>Built an incremental Python ETL service, modelled on Airbyte, that syncs the company&rsquo;s MongoDB production databases into BigQuery on Kubernetes schedules. It checkpoints after every chunk, so a crashed run resumes where it stopped.</li>
         </ul>
       </div>
 
