@@ -211,16 +211,6 @@ ul.bullets b { font-weight: 600; }
 .pub { font-size: .84rem; line-height: 1.45; margin-bottom: .45rem; break-inside: avoid; }
 .pub:last-child { margin-bottom: 0; }
 
-ul.achievements { list-style: square; margin: 0; padding-left: 1.05rem; }
-ul.achievements li { font-size: .84rem; line-height: 1.45; margin-bottom: .28rem; }
-ul.achievements li:last-child { margin-bottom: 0; }
-ul.achievements li::marker {
-  color: var(--ink-soft);
-  font-size: .7em;
-}
-
-.grid-2 section:last-child { margin-bottom: 1.1rem; }
-
 /* ---------- Print ---------- */
 @media print {
   @page { size: A4; margin: 17mm; }
